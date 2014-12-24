@@ -541,7 +541,7 @@ void setup(void)
   delay(250);
   lcdA.begin(20, 2);
   lcdA.print(F(" LCD OK"));
-  
+  analogWrite(LCD_OSW_SW, 255);
   //-------------------
   if (ether.begin(sizeof Ethernet::buffer, mymac, ETHER_CS_PIN) == 0) 
     Serial.println( "Failed to access Ethernet controller");
@@ -862,6 +862,7 @@ DeviceAddress tmpAddr;
   Encoder_init();
   Serial.println(F("Init. OK"));
   Beep(200);
+  analogWrite(LCD_OSW_SW, 0);
 //  while (now()/(merXMin*60) == prevCasMeritve/(merXMin*60)) 
 //    delay(100);
     
