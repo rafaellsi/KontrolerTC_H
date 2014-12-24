@@ -45,7 +45,7 @@ void IzpisiNaLCD()
        lcdA.print(F("."));
        PrintDigitsLCDA(year()); 
        lcdA.setCursor(11, 0);
-       NarediTimeStr(cas, now(), false);
+       NarediTimeStr(cas, now(), true);
        lcdA.print(cas);
        
        lcdA.setCursor(2, 1);
