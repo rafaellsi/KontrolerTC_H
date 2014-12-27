@@ -3,13 +3,13 @@
 
 //#define INTFACT
 #define VERSION "v1.004"
-#define MAXSENSORS 15     //maksimalno stevilo temp sensorjev DS18x20
+#define MAXSENSORS 7     //maksimalno stevilo temp sensorjev DS18x20
 
-//
+//----------
 #define NED  1    //nedelja, kot rezltat weekday()...
 #define SOB  7    //sobota, .....
 
-
+//----------
 //in/out state definition
 #define R_TC_ON   HIGH      // z RELE_TC
 #define R_TC_OFF  LOW
@@ -23,7 +23,7 @@
 #define CEV_TERM_ON   LOW
 #define CEV_TERM_OFF  HIGH
 
-
+//----------
 // pin and address definition
 
 
@@ -77,21 +77,38 @@
 
 
 
-
+//----------
 #define DS1307_CTRL_ID 0x68 
 #define TIME_MSG_LEN  11   // time sync to PC is HEADER followed by unix time_t as ten ascii digits
 #define TIME_HEADER  'T'   // Header tag for serial time sync message
 
+
+//----------
 #define AT24C32_I2C_ADDR 0x50
 
 #define AT24C32_MAX_ADDR 4096
 #define AT24C32_ADDR_LENGH 2
 
+//----------
+// temperature sensors indexes
+/*
+int   crpalka_0 = 1;         // index sensorja na crpalki
+int   okolica_0 = 0;         // index enzorja okolice
+int   pec_pv = 2;   // pec, povratni vod
+int   pec_dv = 3;   // pecc, dvizni vod
+int   rad_pv = 4;   // radijatorji, povratni vod
+int   rad_dv = 5;   // radijatorji, dvizni vod
+int   pec_TC_dv = 6; // dvizni vod proti TC
+*/
+#define  OKOLICA_0  0         // index enzorja okolice
+#define  CRPALKA_0  1         // index sensorja na crpalki
+#define  PEC_PV     2   // pec, povratni vod
+#define  PEC_DV     3   // pecc, dvizni vod
+#define  RAD_PV     4   // radijatorji, povratni vod
+#define  RAD_DV     5   // radijatorji, dvizni vod
+#define  PEC_TC_DV  6 // dvizni vod proti TC
 
-
-
-
-
+//------------------------------------------
 static byte myip[] = {192,168,1,50}; // ethernet interface ip address
 static byte gwip[] = {192,168,1,1};  // gateway ip address
 static byte dnsip[] = {193,189,160,13}; // dnc ip address
@@ -107,23 +124,16 @@ BufferFiller bfill;
 
 
 
-
+//------------------------------------------
 boolean measureOnly = false;
 boolean showCRC = true;  // izpis kontrolnih parametrov na serial
 
-
-
-// temperature sensors indexes
-int   crpalka_0 = 1;         // index sensorja na crpalki
-int   okolica_0 = 0;         // index enzorja okolice
-int   pec_pv = 2;   // pec, povratni vod
-int   pec_dv = 3;   // pecc, dvizni vod
-int   rad_pv = 4;   // radijatorji, povratni vod
-int   rad_dv = 5;   // radijatorji, dvizni vod
-int   pec_TC_dv = 6; // dvizni vod proti TC
+//------------------------------------------
 
 
 
+
+//------------------------------------------
 
 unsigned int   merXMin = 1;          //temperaaturo merimo vsakih merXMin minut
 float minTempVTOn = 37.5;    //min temp- vode za vklop pri visoki tarifi t < 
@@ -133,8 +143,10 @@ int   minRunTimeMin = 10;    // minimalni cas (delovanja)  ali ne-delovanja TC /
 float dTemp = 5.0;  // default 5.0
 float sensDiff = 2.5;
 
+//------------------------------------------
 float minTempNightOn = 32.5;
 
+//------------------------------------------
 float ciljnaTemp = 50;
 //float deltaTh = 5.55;   // do 16.Oct.2012
 //float deltaTh = 4.35;   //
@@ -145,6 +157,7 @@ const float tKompOK = 20.0;
 //const float tKompSt = 20.0;
 const float tKompSt = 50.0;
 
+//------------------------------------------
 int uraVTemp[] = {6, 21};  //obdobje vklopa pri temp minTempVTOn - 0-start, 1-end
 //int vStartUraOff = 20;     //ura zacetka znizevanja temerature za izklop
 int dolPrehObd = 121;     //dolzina prehodnega obdobja postopnega znizevanja temp. za izklop (v minutah)
@@ -152,7 +165,7 @@ int startUraVT = 6;  // zacetek visoke tarife
 int startUraNT = 22; // zacetek nizke tarife :)
 float mejaToka = 1.0;
 
-
+//------------------------------------------
 // boolean upostevajElTarife = false; // glej opombo pod verzijo v0.45 && v0.54
 //povezava crpalka - pec 
 float tempVklopaCrpTC = 82.5 ; //best = 75.0;       // temp. vklopa crpalke TC
@@ -162,38 +175,41 @@ float minDiffTCPec = 2.0;           // min. temp. diferenca mad pecjo TC (pec > 
 float tempIzklopaVentCrpTC = 60.0;  // best 60.0// temp. nad katero ventil TC ostane odprt
 float minTempPecPonovnoOdpVent = 55.0; //min. temp peci za ponovno odpiranje ventila - z pogojem temp. TC
 
+//------------------------------------------
 int minCrpTCRunTimeMin = 2;
 int zaksnitevCrpVent_Sec = 20;
+int minCrpRadRunTimeMin = 7;
 
-
-
+//------------------------------------------
 byte prevCrpRadState = 0;
 float minDiffDvOkolCrpRad = 10.0;
 unsigned long lastCrpRadStateChg;
-int minCrpRadRunTimeMin = 7;
 
+//------------------------------------------
 //float limTempCrpRad[]
 //float limTempFactCrpRad[24];
 float minMejnaTempRel  = 0.399;
 
 float maxTempPVRad = 50.0; // max temperatura povratnega voda
 float maxTempDVPec = 90.01; // max. temperatura dviznega voda peci
-
+float maxDeltaDev = 5.0;
+//------------------------------------------
 num2byte4b u4;
+//------------------------------------------
 unsigned int addrLastChg = 0;
 unsigned int addrOnTime = 5;
 unsigned int addrDeltaTh = 9;
 unsigned int addrDeltaThOk = 13;
 unsigned int addrDeltaThSt = 17;
 
-unsigned int addrLastHourTemp=500;
-unsigned int addrTempBack = 1024;
-
+unsigned int addrLastHourTemp = 128; // 500
+unsigned int addrTempBack = 968;     //1024 
+//-----------------------------------------
 unsigned int histLen = 168;
 int zapisXMin = 60;
 num2byte4f uf;
+//--------------------------------------
 
-float maxDeltaDev = 5.0;
 
 
 

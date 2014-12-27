@@ -1,3 +1,7 @@
+//Preveri:
+//http://www.gammon.com.au/interrupts
+//
+//
 #ifndef Encoder_butt_h
 #define Encoder_butt_h
 
@@ -76,8 +80,9 @@ void Encoder_check(void) {
 //     analogWrite(LCD_OSW_SW, osvetlitevLCD);
 //    while (!digitalRead(ENC_SW_PIN)) {  // wait til switch is released
 //    }
+      Beep(25);
     }
-    Beep(25);
+    
 //    delay(2);                      // debounce       
   }
   prevSwState = lastSwState;

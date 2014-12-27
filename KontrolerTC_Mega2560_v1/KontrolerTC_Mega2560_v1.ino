@@ -1,5 +1,7 @@
 
 
+
+
 // Kontroler_TC_Vx_xx.ino
 // v0.02 - dodan zapis senzorjev v tabelo
 // v0.03 - dodan RTC - DS1307
@@ -361,7 +363,7 @@ static void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
         myFile.print(F("  "));
         myFile.print(startTemp);
         myFile.print(F(" ("));
-        myFile.print(cTemperatura[okolica_0]);
+        myFile.print(cTemperatura[OKOLICA_0]);
         myFile.println(F(")"));
       } //state == 1
       else if (state == 0) {
@@ -450,11 +452,11 @@ static void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
         myFile.print(ime);
 
         myFile.print(F("  "));
-        myFile.print(cTemperatura[crpalka_0]);
+        myFile.print(cTemperatura[CRPALKA_0]);
         myFile.print(F(" ("));
-        myFile.print(cTemperatura[pec_dv]);
+        myFile.print(cTemperatura[PEC_DV]);
         myFile.print(F(" - "));
-        myFile.print(cTemperatura[pec_TC_dv]);
+        myFile.print(cTemperatura[PEC_TC_DV]);
         myFile.println(F(")"));  
       }      //state == 1
       else {
@@ -469,11 +471,11 @@ static void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
         myFile.print(ime);
     
         myFile.print(F("  "));
-        myFile.print(cTemperatura[crpalka_0]);
+        myFile.print(cTemperatura[CRPALKA_0]);
         myFile.print(F(" ("));
-        myFile.print(cTemperatura[pec_dv]);
+        myFile.print(cTemperatura[PEC_DV]);
         myFile.print(F(" - "));
-        myFile.print(cTemperatura[pec_TC_dv]);
+        myFile.print(cTemperatura[PEC_TC_DV]);
         myFile.println(F(")"));  
       } //else
     }  //else (state = 1)
@@ -795,9 +797,9 @@ DeviceAddress tmpAddr;
   Serial.println(F("")); 
 
   Serial.print(F("Kompenz. temp. okolice pri temp. "));
-  Serial.print(cTemperatura[okolica_0]);
+  Serial.print(cTemperatura[OKOLICA_0]);
   Serial.print(F("C je "));
-  Serial.println(KompenzacijaTempOkolice(cTemperatura[okolica_0]),4);
+  Serial.println(KompenzacijaTempOkolice(cTemperatura[OKOLICA_0]),4);
   
 
   i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrDeltaThSt, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
@@ -816,9 +818,9 @@ DeviceAddress tmpAddr;
   Serial.println(F("")); 
   
   Serial.print(F("Kompenz. zacetne temp. pri temp. "));
-  Serial.print(cTemperatura[crpalka_0]);
+  Serial.print(cTemperatura[CRPALKA_0]);
   Serial.print(F("C je "));
-  Serial.println(KompenzZacTemp(cTemperatura[crpalka_0]),4);
+  Serial.println(KompenzZacTemp(cTemperatura[CRPALKA_0]),4);
 
   
   for (int j = 0; j < numSens; j++) {
@@ -916,7 +918,8 @@ void loop(void)
          if(t >0)  {
            RTC.set(t);   // set the RTC and the system time to the received value
            setTime(t);
-           Serial.println(F("Cas je nastavljen"));          
+           Serial.println(F("Cas je nastavljen"));
+           prevCasMeritve = now();        
          }
        }   
      }  
@@ -1190,7 +1193,7 @@ void loop(void)
         Serial.print(F(")"));
         
         // dodano kot kontrola vrenja
-        if (j == crpalka_0) {
+        if (j == CRPALKA_0) {
           pTempCrp[2] = pTempCrp[1];
           pTempCrp[1] = pTempCrp[0];
           pTempCrp[0] = cTemperatura[j];
@@ -1335,7 +1338,7 @@ void loop(void)
           lastTCStateChg = now();
           startTemp = RefTemp();
           zacPorabaWH = porabaWH;
-          tempOkolicaSt = cTemperatura[okolica_0];
+          tempOkolicaSt = cTemperatura[OKOLICA_0];
           u4.ulval = lastTCStateChg;
           i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrLastChg, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
           i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrLastChg+4, AT24C32_ADDR_LENGH, prevTCState);
@@ -1425,8 +1428,8 @@ static byte StatePovezTCPec(byte state)
   
   
   if (prevCrpTCState == 0) {
-    if (max(cTemperatura[pec_dv], cTemperatura[pec_TC_dv]) > cTemperatura[crpalka_0] + minDiffTCPec) {
-      if (max(cTemperatura[pec_dv], cTemperatura[pec_TC_dv]) > tempVklopaCrpTC) {
+    if (max(cTemperatura[PEC_DV], cTemperatura[PEC_TC_DV]) > cTemperatura[CRPALKA_0] + minDiffTCPec) {
+      if (max(cTemperatura[PEC_DV], cTemperatura[PEC_TC_DV]) > tempVklopaCrpTC) {
         return(1);
       } 
       if (IsCasTransfTopl()) {
@@ -1443,16 +1446,16 @@ static byte StatePovezTCPec(byte state)
         return(1);
       }  
     }
-    if ((stateCevStPecTC == CEV_TERM_ON) && (cTemperatura[crpalka_0] < cTemperatura[pec_dv])) {
+    if ((stateCevStPecTC == CEV_TERM_ON) && (cTemperatura[CRPALKA_0] < cTemperatura[PEC_DV])) {
         preklopCrpTCVzr = 2;  // cevni termostat vklople
         return(1);
      }
      if (!IsCasTransfTopl()) {
-       if (cTemperatura[pec_dv] < (tempIzklopaVentCrpTC - 5.0)) { 
-//       if (min(cTemperatura[pec_dv], cTemperatura[pec_TC_dv]) < tempIzklopaVentCrpTC - 5.0) {   
-         if (cTemperatura[pec_dv] > (tempIzklopaVentCrpTC - 12.5)) {
-//         if (max(cTemperatura[pec_dv], cTemperatura[pec_TC_dv]) > tempIzklopaVentCrpTC - 12.5) {  
-           if (cTemperatura[crpalka_0] > tempIzklopaVentCrpTC) {
+       if (cTemperatura[PEC_DV] < (tempIzklopaVentCrpTC - 5.0)) { 
+//       if (min(cTemperatura[PEC_DV], cTemperatura[PEC_TC_DV]) < tempIzklopaVentCrpTC - 5.0) {   
+         if (cTemperatura[PEC_DV] > (tempIzklopaVentCrpTC - 12.5)) {
+//         if (max(cTemperatura[PEC_DV], cTemperatura[PEC_TC_DV]) > tempIzklopaVentCrpTC - 12.5) {  
+           if (cTemperatura[CRPALKA_0] > tempIzklopaVentCrpTC) {
              if (pTempCrp[1] > tempIzklopaVentCrpTC && pTempCrp[2] > tempIzklopaVentCrpTC) {
                preklopCrpTCVzr = 4;
                return(1);  
@@ -1464,20 +1467,20 @@ static byte StatePovezTCPec(byte state)
   }
   else {        // prevCrpTCState == 1
     if (preklopCrpTCVzr == 2) {
-      if (stateCevStPecTC == CEV_TERM_OFF || (cTemperatura[crpalka_0] > cTemperatura[pec_dv])) {
+      if (stateCevStPecTC == CEV_TERM_OFF || (cTemperatura[CRPALKA_0] > cTemperatura[PEC_DV])) {
         return(0);
       }
     }
     else if (preklopCrpTCVzr == 4) {
-      if ((cTemperatura[crpalka_0] <= tempIzklopaVentCrpTC) || 
-          (min(cTemperatura[pec_dv], cTemperatura[pec_TC_dv]) > cTemperatura[crpalka_0]) || 
-          (max(cTemperatura[pec_dv], cTemperatura[pec_TC_dv]) < tempIzklopaVentCrpTC - 12.5))  {
+      if ((cTemperatura[CRPALKA_0] <= tempIzklopaVentCrpTC) || 
+          (min(cTemperatura[PEC_DV], cTemperatura[PEC_TC_DV]) > cTemperatura[CRPALKA_0]) || 
+          (max(cTemperatura[PEC_DV], cTemperatura[PEC_TC_DV]) < tempIzklopaVentCrpTC - 12.5))  {
         return(0);
       }
     } 
     else {  
-      if ((cTemperatura[crpalka_0] >= max(cTemperatura[pec_dv], cTemperatura[pec_TC_dv])) && 
-            ((cTemperatura[crpalka_0] <= TempIzklopaCrpTC() || MaxCrpTCRunTime()) || IsNTempCas())) {
+      if ((cTemperatura[CRPALKA_0] >= max(cTemperatura[PEC_DV], cTemperatura[PEC_TC_DV])) && 
+            ((cTemperatura[CRPALKA_0] <= TempIzklopaCrpTC() || MaxCrpTCRunTime()) || IsNTempCas())) {
         return(0);
       }
       if (preklopCrpTCVzr > 0) {
@@ -1492,7 +1495,7 @@ static byte StatePovezTCPec(byte state)
           }
         }         
       } else if (!IsCasTransfTopl()) {
-        if ((max(cTemperatura[pec_dv], cTemperatura[pec_TC_dv]) <= TempIzklopaCrpTC())  && cTemperatura[crpalka_0] <= TempIzklopaCrpTC()) {
+        if ((max(cTemperatura[PEC_DV], cTemperatura[PEC_TC_DV]) <= TempIzklopaCrpTC())  && cTemperatura[CRPALKA_0] <= TempIzklopaCrpTC()) {
           return(0);  
         }
       }  
@@ -1510,15 +1513,15 @@ static byte StatePovezTCPec(byte state)
 static boolean VodaVre(boolean izpis) {
   float dTemp;
   
-//  dTemp = (float) abs((float) pTempCrp[2] - (float) cTemperatura[crpalka_0]);
-//  dTemp += ((float) abs((float) pTempCrp[1] - (float) cTemperatura[crpalka_0]));
+//  dTemp = (float) abs((float) pTempCrp[2] - (float) cTemperatura[CRPALKA_0]);
+//  dTemp += ((float) abs((float) pTempCrp[1] - (float) cTemperatura[CRPALKA_0]));
   
-  if (cTemperatura[pec_TC_dv] < tempVklopaCrpTC) {
+  if (cTemperatura[PEC_TC_DV] < tempVklopaCrpTC) {
     return(false); 
   } 
   
-  dTemp = sq(pTempCrp[2] - cTemperatura[crpalka_0]);
-  dTemp += (sq(pTempCrp[1] - cTemperatura[crpalka_0]));
+  dTemp = sq(pTempCrp[2] - cTemperatura[CRPALKA_0]);
+  dTemp += (sq(pTempCrp[1] - cTemperatura[CRPALKA_0]));
   dTemp = sqrt(dTemp);
   
   if (izpis) {
@@ -1573,7 +1576,7 @@ static void PovezTCPec(byte newState) {
     if (manuCrpTCState == 3) {
       if (prevCrpTCState == 0) {
         if (prevVentTCState == 1) {
-          if (cTemperatura[pec_TC_dv] > tempVklopaCrpTC) {
+          if (cTemperatura[PEC_TC_DV] > tempVklopaCrpTC) {
             zakasnitevVklopa = 6 * zaksnitevCrpVent_Sec;
           }
           else {
@@ -1606,7 +1609,7 @@ static void PovezTCPec(byte newState) {
     if (newState == 1) {
       if (RelaksTimeLimitSec(now(), lastCrpTCStateChg, minCrpTCRunTimeMin*60) && RelaksTimeLimitSec(now(), lastCrpRadStateChg, 1*60)) {
         if (prevVentTCState == 1) {
-          if (cTemperatura[pec_TC_dv] > tempVklopaCrpTC) {
+          if (cTemperatura[PEC_TC_DV] > tempVklopaCrpTC) {
             zakasnitevVklopa = 6 * zaksnitevCrpVent_Sec;
           }
           else {
@@ -1624,12 +1627,12 @@ static void PovezTCPec(byte newState) {
     else if (prevVentTCState == 1) {
       if (RelaksTimeLimitSec(now(), lastCrpTCStateChg, zaksnitevCrpVent_Sec/2)) {
         if (IsCasTransfTopl()) {
-          if (cTemperatura[crpalka_0] >= cTemperatura[pec_dv]) {
+          if (cTemperatura[CRPALKA_0] >= cTemperatura[PEC_DV]) {
             PreklopiVentil(0);
           }
         } else {              // !IsCasTransfTopl()
           if (preklopCrpTCVzr == 0) {
-            if (cTemperatura[crpalka_0] < tempIzklopaVentCrpTC) {
+            if (cTemperatura[CRPALKA_0] < tempIzklopaVentCrpTC) {
               PreklopiVentil(0);
             }
           }
@@ -1639,7 +1642,7 @@ static void PovezTCPec(byte newState) {
             }
           }
           else if (preklopCrpTCVzr == 2) {
-            if ((stateCevStPecTC == CEV_TERM_OFF) || (cTemperatura[crpalka_0] > cTemperatura[pec_dv])) {
+            if ((stateCevStPecTC == CEV_TERM_OFF) || (cTemperatura[CRPALKA_0] > cTemperatura[PEC_DV])) {
               PreklopiVentil(0);
             }
           }  
@@ -1648,8 +1651,8 @@ static void PovezTCPec(byte newState) {
     }
     if (prevVentTCState == 0) {
       if (!IsCasTransfTopl() && !IsNTempCas()) {
-        if (cTemperatura[crpalka_0] > tempIzklopaVentCrpTC) {
-          if (max(cTemperatura[pec_dv], cTemperatura[pec_TC_dv]) > minTempPecPonovnoOdpVent) {
+        if (cTemperatura[CRPALKA_0] > tempIzklopaVentCrpTC) {
+          if (max(cTemperatura[PEC_DV], cTemperatura[PEC_TC_DV]) > minTempPecPonovnoOdpVent) {
             if (RelaksTimeLimitSec(now(), lastCrpTCStateChg, zaksnitevCrpVent_Sec/2)) {
               PreklopiVentil(1);  
             }
@@ -1672,7 +1675,7 @@ static void PovezTCPec(byte newState) {
  
   
   if (prevVentTCState == 255) {
-    if (cTemperatura[crpalka_0] + minDiffTCPec > tempIzklopaVentCrpTC || prevCrpTCState == 1) {
+    if (cTemperatura[CRPALKA_0] + minDiffTCPec > tempIzklopaVentCrpTC || prevCrpTCState == 1) {
        PreklopiVentil(1);         //1 - odpre ventil
     } else {
        PreklopiVentil(0);         //1 - odpre ventil
@@ -1698,8 +1701,8 @@ static void PreklopiCrpalkoTC(byte newState)
     
     if (newState == 1) {
       if (preklopCrpTCVzr == 0) {
-        if (cTemperatura[pec_TC_dv] >= tempVklopaCrpTC || cTemperatura[pec_dv] >= tempVklopaCrpTC) {
-          if ((cTemperatura[pec_pv] < tempVklopaCrpTC - 3.0*dTemp) && (cTemperatura[rad_pv] < tempVklopaCrpTC - 3.0*dTemp)) {
+        if (cTemperatura[PEC_TC_DV] >= tempVklopaCrpTC || cTemperatura[PEC_DV] >= tempVklopaCrpTC) {
+          if ((cTemperatura[PEC_PV] < tempVklopaCrpTC - 3.0*dTemp) && (cTemperatura[RAD_PV] < tempVklopaCrpTC - 3.0*dTemp)) {
             return;
           }  
         }
@@ -1806,14 +1809,14 @@ static void StateCrpalkeRad()
 {
 
   if (prevCrpRadState == 0) {
-    if (cTemperatura[pec_dv] - cTemperatura[okolica_0] > minDiffDvOkolCrpRad) {
-      if (cTemperatura[rad_pv] < MejnaTempPreklCrpRad(1)) {
+    if (cTemperatura[PEC_DV] - cTemperatura[OKOLICA_0] > minDiffDvOkolCrpRad) {
+      if (cTemperatura[RAD_PV] < MejnaTempPreklCrpRad(1)) {
         if (RelaksTimeLimitSec(now(), lastCrpRadStateChg, minCrpRadRunTimeMin*60)) {
           PreklopiCrpalkoRad(1);
         }
       }
     }
-    if (cTemperatura[rad_pv] > (cTemperatura[rad_dv] + 2.0*dTemp)) {
+    if (cTemperatura[RAD_PV] > (cTemperatura[RAD_DV] + 2.0*dTemp)) {
       if (RelaksTimeLimitSec(now(), lastCrpRadStateChg, minCrpRadRunTimeMin*60)) {
           PreklopiCrpalkoRad(1);
       }  
@@ -1821,10 +1824,10 @@ static void StateCrpalkeRad()
   }
   else {
     if (RelaksTimeLimitSec(now(), lastCrpRadStateChg, minCrpRadRunTimeMin*60)) {
-      if (cTemperatura[rad_pv] >= MejnaTempPreklCrpRad(0)) { 
+      if (cTemperatura[RAD_PV] >= MejnaTempPreklCrpRad(0)) { 
         PreklopiCrpalkoRad(0);  
       }
-      else if (cTemperatura[pec_dv] - cTemperatura[okolica_0] < minDiffDvOkolCrpRad) {
+      else if (cTemperatura[PEC_DV] - cTemperatura[OKOLICA_0] < minDiffDvOkolCrpRad) {
         PreklopiCrpalkoRad(0);
       }
     }  
@@ -1845,9 +1848,9 @@ static float MejnaTempPreklCrpRad(byte newState)
   float tmpTemp;
   float dTemp = 0.0;
   
-  refTemp = (float)limTempCrpRad[hour()] + limTempFactCrpRad[hour()] * cTemperatura[rad_dv];
+  refTemp = (float)limTempCrpRad[hour()] + limTempFactCrpRad[hour()] * cTemperatura[RAD_DV];
   if (newState == 1) {
-    tmpTemp = cTemperatura[rad_dv] - refTemp;
+    tmpTemp = cTemperatura[RAD_DV] - refTemp;
     if (isCrpRadAsAbsTemp) {
       zeljTemp =  (float)crpRadAsAbsTemp[hour()] - 10.0;
  
@@ -1857,7 +1860,7 @@ static float MejnaTempPreklCrpRad(byte newState)
  //     }
       tmpTemp = min((float)crpRadAsAbsTemp[hour()] + dTemp, tmpTemp);
     }
-    if (cTemperatura[pec_dv] >  maxTempDVPec) {
+    if (cTemperatura[PEC_DV] >  maxTempDVPec) {
       return(maxTempDVPec);  
     }
     if (tmpTemp < 5.00)  {
@@ -1869,13 +1872,13 @@ static float MejnaTempPreklCrpRad(byte newState)
     refTemp *= minMejnaTempRel;
     if (refTemp < 5.0)
       refTemp = 5.0;
-    if (cTemperatura[rad_dv] - refTemp > maxTempPVRad)
+    if (cTemperatura[RAD_DV] - refTemp > maxTempPVRad)
       return(maxTempPVRad);
     
-    if (cTemperatura[rad_dv] - refTemp < 5.00)  {
+    if (cTemperatura[RAD_DV] - refTemp < 5.00)  {
       return(5.0);
     }  
-    return(cTemperatura[rad_dv] - refTemp);
+    return(cTemperatura[RAD_DV] - refTemp);
   }
 }
 
@@ -1915,8 +1918,8 @@ static void PreklopiCrpalkoRad(byte newState)
 //
 static float RefTemp()
 {
- // return(AvgAllTimeTemp(crpalka_0));
-  return(cTemperatura[crpalka_0]);
+ // return(AvgAllTimeTemp(CRPALKA_0));
+  return(cTemperatura[CRPALKA_0]);
 }
 
 //--------------------------------------------------------------------------------
@@ -1947,12 +1950,12 @@ static float IzracunLimitTemp(int state, float ciTemp)
     tUra = abs((float) hour()-24.0) + (float) uraVTemp[0] - 1.0;
   
   
-//refTemp = ciTemp - deltaTh*(tUra + (1.0 - (minute()/60.0))) / KompenzacijaTempOkolice(cTemperatura[okolica_0]);  
+//refTemp = ciTemp - deltaTh*(tUra + (1.0 - (minute()/60.0))) / KompenzacijaTempOkolice(cTemperatura[OKOLICA_0]);  
   
 //  refTemp = ciTemp - deltaTh*(tUra + (1.0 - (minute()/60.0)));
-//  refTemp *= KompenzacijaTempOkolice(cTemperatura[okolica_0]);
-//  refTemp *= KompenzZacTemp(cTemperatura[crpalka_0]);
-  refTemp = ciTemp - deltaTh*(tUra + (1.0 - (minute()/60.0))) * KompenzacijaTempOkolice(cTemperatura[okolica_0]) * KompenzZacTemp(cTemperatura[crpalka_0]);  
+//  refTemp *= KompenzacijaTempOkolice(cTemperatura[OKOLICA_0]);
+//  refTemp *= KompenzZacTemp(cTemperatura[CRPALKA_0]);
+  refTemp = ciTemp - deltaTh*(tUra + (1.0 - (minute()/60.0))) * KompenzacijaTempOkolice(cTemperatura[OKOLICA_0]) * KompenzZacTemp(cTemperatura[CRPALKA_0]);  
 
 
   
@@ -2134,8 +2137,8 @@ static boolean UpostevajElTarife(void)
   float diff_factor_01 = 4.0 * dTemp;
   float diff_factor_02 = 2.0 * dTemp;
   
-  if (AvgVal(sumTemp[okolica_0], histLen*1.0) < (AvgVal(sumTemp[pec_TC_dv], histLen*1.0) - diff_factor_01) && 
-      (AvgVal(sumTemp[pec_TC_dv], histLen*1.0) > (minTempVTOn + diff_factor_02 ))) {
+  if (AvgVal(sumTemp[OKOLICA_0], histLen*1.0) < (AvgVal(sumTemp[PEC_TC_DV], histLen*1.0) - diff_factor_01) && 
+      (AvgVal(sumTemp[PEC_TC_DV], histLen*1.0) > (minTempVTOn + diff_factor_02 ))) {
     //minTempVTOn + dTemp
  //   minRunTimeMin = 30;
     return(false);
@@ -2207,7 +2210,7 @@ float IzracDeltaTh() {
   
   if (abs(imenovalec) < 0.001)
     return(deltaTh);
-  return((cTemperatura[crpalka_0]- startTemp) / imenovalec);
+  return((cTemperatura[CRPALKA_0]- startTemp) / imenovalec);
   
 }  
 
@@ -2218,14 +2221,14 @@ float IzracDeltaThOk() {
   float imenovalec;
   float a;
   
-//  stevec = (startTemp - cTemperatura[crpalka_0] + deltaTh* Sec2Hour((float)lastRunTime) * KompenzZacTemp(startTemp));
+//  stevec = (startTemp - cTemperatura[CRPALKA_0] + deltaTh* Sec2Hour((float)lastRunTime) * KompenzZacTemp(startTemp));
 //  stevec = stevec * tKomp0;
   
   a = deltaTh*Sec2Hour(lastRunTime)*KompenzZacTemp(startTemp);
-  stevec = (cTemperatura[crpalka_0] - startTemp - a) * tKompOK;
+  stevec = (cTemperatura[CRPALKA_0] - startTemp - a) * tKompOK;
   imenovalec = a * (tempOkolicaSt-tKompOK);
   
-//  stevec = (startTemp - cTemperatura[crpalka_0] + deltaTh*Sec2Hour(lastRunTime)*KompenzZacTemp(startTemp)) * tKompOK;
+//  stevec = (startTemp - cTemperatura[CRPALKA_0] + deltaTh*Sec2Hour(lastRunTime)*KompenzZacTemp(startTemp)) * tKompOK;
 
 //  imenovalec = (tempOkolicaSt-tKomp0);
 //  imenovalec *= deltaTh;
@@ -2261,10 +2264,10 @@ float IzracDeltaThSt() {
   float sqtKompSt = startTemp*startTemp;
   float sqtKompStRef = tKompSt*tKompSt;
    
- // stevec = cTemperatura[crpalka_0] - startTemp - (deltaTh * Sec2Hour((float)lastRunTime) * KompenzacijaTempOkolice(tempOkolicaSt)); 
+ // stevec = cTemperatura[CRPALKA_0] - startTemp - (deltaTh * Sec2Hour((float)lastRunTime) * KompenzacijaTempOkolice(tempOkolicaSt)); 
  // stevec = stevec * sqtKompSt; 
   
-  stevec = (cTemperatura[crpalka_0] - startTemp - deltaTh * Sec2Hour(lastRunTime) * KompenzacijaTempOkolice(tempOkolicaSt)) * sqtKompStRef;
+  stevec = (cTemperatura[CRPALKA_0] - startTemp - deltaTh * Sec2Hour(lastRunTime) * KompenzacijaTempOkolice(tempOkolicaSt)) * sqtKompStRef;
   
  // imenovalec = (tKompSt*tKompSt - sqtKompSt);
  // imenovalec *= deltaTh;
@@ -2314,11 +2317,11 @@ static float Cop(void)
   c = 4200; //J/kgK
   m = 230; //kapaciteta bojlerja 
   
-  dT = cTemperatura[crpalka_0] - startTemp;
+  dT = cTemperatura[CRPALKA_0] - startTemp;
   Q = c * m * dT;
   W = (porabaWh - zacPorabaWh) * 3600; //VAh *3600
   */
-  Qv = 4200.0 * 230.0 * (cTemperatura[crpalka_0] - startTemp);
+  Qv = 4200.0 * 230.0 * (cTemperatura[CRPALKA_0] - startTemp);
   We = (porabaWH - zacPorabaWH) * 3600.0;
   if (We > 0)
     return(Qv/We);

@@ -32,7 +32,7 @@ extern char infoErr[];
 void IzpisiNaLCD()
 {
   char cas[5];
-  
+  unsigned int addrTmp;
   
   lcdA.setCursor(0, 0);
   lcdA.clear();
@@ -48,10 +48,23 @@ void IzpisiNaLCD()
        NarediTimeStr(cas, now(), true);
        lcdA.print(cas);
        
-       lcdA.setCursor(2, 1);
-       lcdA.print(F("Temp. TC:"));
-       lcdA.setCursor(12, 1);
-       lcdA.print(cTemperatura[1], 2);
+       lcdA.setCursor(0, 1);
+       lcdA.print(F("T TC:"));
+       lcdA.setCursor(7, 1);
+       lcdA.print(cTemperatura[CRPALKA_0], 2);
+       
+       if (minute() < 59) {
+         addrTmp = (unsigned int) (minute()+1) * sizeof(u2);
+       }
+       else {
+         addrTmp = (unsigned int) 0;
+       }
+       addrTmp += addrLastHourTemp;
+       
+       i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+//       delay(2);
+       lcdA.setCursor(14, 1); 
+       lcdA.print(cTemperatura[CRPALKA_0] - u2.uival/100.0, 2);
        
        modeLCD=10;
     break;

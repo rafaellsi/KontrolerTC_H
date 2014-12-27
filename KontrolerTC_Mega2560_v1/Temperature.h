@@ -1,8 +1,10 @@
 #ifndef Temperature_h
 #define Temperatue_h
 
+#include <DHT.h>
 
-
+//DHT22 myDHT22(DHT22_PIN);
+DHT dht(DHTPIN, DHTTYPE);
 // 1-Wire spremneljivke
 OneWire ds(ONE_WIRE_BUS);
 DeviceAddress devAddress[MAXSENSORS];  ///
@@ -180,7 +182,7 @@ static void PrintTemperatureAll(void)
     Serial.print(F(":"));
     Serial.print(cTemperatura[i], 2);
     
-    if (i == crpalka_0) {
+    if (i == CRPALKA_0) {
 /*      if (sumCTemp == 0) {
         for (int j=0; j<60; j++) {
           int n=minute()-(j+1);
@@ -524,6 +526,11 @@ void last24H_Info(void)
     }
   }
 }
+
+
+#define DHTPIN 31
+#define DHTTYPE DHT22
+
 
 
 
