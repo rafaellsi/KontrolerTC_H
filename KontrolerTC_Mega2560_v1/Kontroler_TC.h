@@ -51,7 +51,7 @@ static void i2c_eeprom_write_page( int deviceaddress, unsigned int eeaddresspage
   Wire.endTransmission();
 }
 
-
+//--------------------------------------------------------------------------------
  static void i2c_eeprom_write_byte(int deviceaddress,unsigned int eeaddress, byte addrlen, byte data) {
 //    int rdata = data;
     Wire.beginTransmission(deviceaddress);
@@ -63,7 +63,7 @@ static void i2c_eeprom_write_page( int deviceaddress, unsigned int eeaddresspage
   }
 
 
-
+//--------------------------------------------------------------------------------
 static void i2c_eeprom_read_buffer( int deviceaddress, unsigned int eeaddress, byte addrlen, byte *up, int length ) {
     
     Wire.beginTransmission(deviceaddress);
@@ -83,7 +83,7 @@ static void i2c_eeprom_read_buffer( int deviceaddress, unsigned int eeaddress, b
     }
   }
   
-  
+//--------------------------------------------------------------------------------  
 static byte i2c_eeprom_read_byte( int deviceaddress, unsigned int eeaddress, byte addrlen) {
     byte rdata = 0xFF;
     Wire.beginTransmission(deviceaddress);
@@ -98,6 +98,7 @@ static byte i2c_eeprom_read_byte( int deviceaddress, unsigned int eeaddress, byt
     return rdata;
 }
 
+//--------------------------------------------------------------------------------
 static float Sec2Hour(unsigned long sec)
 {
   return((float)sec/(float)SECS_PER_HOUR);

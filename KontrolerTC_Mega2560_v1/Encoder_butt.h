@@ -25,7 +25,7 @@ void loop();
 void setup();
 */
 
-void Beep(unsigned char delayms){
+void Beep(unsigned char delayms) {
   digitalWrite(BEEP_PIN, HIGH);      // Almost any value can be used except 0 and 255
                            // experiment to get the best tone
   delay(delayms);          // wait for a delayms ms
@@ -34,7 +34,7 @@ void Beep(unsigned char delayms){
 
 // -----------------------------------------------------------------------------
 // Interrupt service routine is executed when a HIGH to LOW transition is detected on CLK
-
+/*
 void isr(void)  {
     if (!digitalRead(ENC_DT_PIN)) {
         virtualPosition = virtualPosition + 1;
@@ -45,17 +45,52 @@ void isr(void)  {
  //       Beep(0);
     }
 } // isr
+*/
+
+boolean A_set = false;
+boolean B_set = false;
+boolean rotating=false;
+
+// ------------------
+void doEncoderA() {
+
+   if (rotating) 
+     delay (1);  // wait a little until the bouncing is done
+  
+  if (digitalRead(ENC_PIN_A) != A_set) {  // Test transition, did things really change? // debounce once more
+    A_set = !A_set;
+    if (A_set && !B_set)  // adjust counter + if A leads B
+      virtualPosition += 1;
+    rotating = false;  // no more debouncing until loop() hits again
+  }
+}
+
+// ------------------
+void doEncoderB() {
+
+  if (rotating) 
+     delay (1);  // wait a little until the bouncing is done
+  
+  if(digitalRead(ENC_PIN_B) != B_set ) {  // debounce once more
+    B_set = !B_set;
+    if ( B_set && !A_set )  // adjust counter + if A leads B
+      virtualPosition -= 1;
+
+    rotating = false;  // no more debouncing until loop() hits again
+  }
+}
 
 // -----------------------------------------------------------------------------
 
 void Encoder_init(void) {
 
-    pinMode(ENC_CLK_PIN,INPUT);
-    pinMode(ENC_DT_PIN, INPUT);
+    pinMode(ENC_CLK_PIN,INPUT_PULLUP);
+    pinMode(ENC_DT_PIN, INPUT_PULLUP);
     pinMode(ENC_SW_PIN, INPUT_PULLUP);
     
     Serial.print(F("Encoder:"));
-    attachInterrupt(0, isr, FALLING);   // interrupt 0 is always connected to pin 2 on Arduino UNO
+    attachInterrupt(0, doEncoderA, CHANGE);   // interrupt 0 is always connected to pin 2 on Arduino UNO
+    attachInterrupt(1, doEncoderB, CHANGE);   // interrupt 1 is always connected to pin 3 on Arduino UNO
     Serial.println(F("OK"));
 //    Serial.println("Start");
 
@@ -69,7 +104,9 @@ void Encoder_check(void) {
   byte lastSwState;
   static int lastCount = 0;
   static unsigned long osvetLCD_start;
-    
+  
+  rotating = true;
+  
   lastSwState = digitalRead(ENC_SW_PIN);
   
   if (lastSwState == LOW) {        // check if pushbutton is pressed
@@ -88,24 +125,37 @@ void Encoder_check(void) {
   prevSwState = lastSwState;
   
   if (virtualPosition != lastCount) {
-    modeLCD += (virtualPosition - lastCount);
-    Beep(10);
-    if (modeLCD > 20) {
-      modeLCD = 20;
+//    infoModeLCD += (virtualPosition - lastCount);
+    
+    if (virtualPosition > lastCount)
+      infoModeLCD++;
+    else
+      infoModeLCD--;
+      
+    lastCount = virtualPosition;  
+
+    
+    
+    if (infoModeLCD > infoModeLCDMax) {
+      infoModeLCD = infoModeLCDMax;
 //      virtualPosition = 20;
     }
-    else if (modeLCD < 0) {
-      modeLCD = 0;
+    else if (infoModeLCD < 0) {
+      infoModeLCD = 0;
 //      virtualPosition = 0;
     } 
-    lastCount = virtualPosition;
+    
+    IzpisiNaLCD();
+    Beep(10);
     osvetlitevLCD = 255;
     osvetLCD_start = now();
     
-    IzpisiNaLCD();
-    
+//    IzpisiNaLCD();
+    Serial.println(F(""));
     Serial.print("Count");
-    Serial.println(virtualPosition);
+    Serial.print(virtualPosition);
+    Serial.print(" Menu");
+    Serial.print(infoModeLCD);
   }
   if (osvetlitevLCD > 0) {
     osvetlitevLCD = 255 + (osvetLCD_start - now()) * 2;

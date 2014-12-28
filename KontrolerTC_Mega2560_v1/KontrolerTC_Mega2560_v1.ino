@@ -92,12 +92,14 @@
 #include <SD.h>
 #include <LiquidCrystal.h>
 #include <EtherCard.h>
+#include <DHT.h>
 
 #include "Kontroler_TC.h"
 #include "Configuration.h"
+#include "Tok_napetost.h"
 #include "Temperature.h"
 
-#include "Tok_napetost.h"
+
 #include "LCD_funkcije.h"
 #include "Encoder_butt.h"
 
@@ -129,7 +131,7 @@ unsigned long lastReleChg;    // cas zadnje spremembe stanja releja TC
 // LCD
 
 
-int modeLCD = -1;                // slika izpisanega zaslona 
+//extern int modeLCD;                // slika izpisanega zaslona 
 unsigned long prevLCDizp;     // cas zadnjega izpisa na LCD
 
 // splosne spremenljivke
@@ -295,7 +297,7 @@ static void PrintTempAllSDbin(void)
     myFile.print(F(" "));
     myFile.print(casMeritve);
     
-    for (int i=0; i<numSens; i++) { 
+    for (int i=0; i<numSensDS; i++) { 
       myFile.print(F(" "));
       myFile.print(cTemperatura[i]);
       
@@ -567,18 +569,18 @@ void setup(void)
   
 
   
-  delay(250);
- 
+  delay(50);
+  dht.begin(); 
   //Dallas temp. senzor init  
   // locate devices on the bus
   // Trenuino samo fiksne addrese
   
-  numSens = FiksAdrrSens(devAddress, type_s);
+  FiksAdrrSens(devAddress, type_s);
   
 
-  Serial.print(numSens, DEC);
+  Serial.print(numSensDS, DEC);
   Serial.println(F(" devices."));
-  for (int i=0; i<numSens; i++) {
+  for (int i=0; i<numSensDS; i++) {
     PrintAddress(devAddress[i]);
 //    if (OneWire::crc8(devAddress[i], 7) != devAddress[i][7])
 //       type_s[i] = 255; 
@@ -607,10 +609,10 @@ DeviceAddress tmpAddr;
   }
 
   
-  if (numSens > MAXSENSORS)
-    numSens = MAXSENSORS;
+  if (numSensDS > MAXSENSORS)
+    numSensDS = MAXSENSORS;
   
-  for (int i=0; i<numSens; i++) {
+  for (int i=0; i<numSensDS; i++) {
     lcdA.clear();
     lcdA.print(F("T "));
     if (i<10) {
@@ -823,7 +825,7 @@ DeviceAddress tmpAddr;
   Serial.println(KompenzZacTemp(cTemperatura[CRPALKA_0]),4);
 
   
-  for (int j = 0; j < numSens; j++) {
+  for (int j = 0; j < numSensDS; j++) {
     Serial.print(F("Addres:"));
     Serial.print(addrTempBack + ((j*histLen))*sizeof(u2));
     Serial.print(F("  "));
@@ -855,7 +857,7 @@ DeviceAddress tmpAddr;
   prevCasMeritve = now();
   casMeritve = now();
   
-  PreveriNapetosti(true, true, true);
+  PreveriNapetosti(true, true, false);
   
   
   
@@ -1169,7 +1171,7 @@ void loop(void)
     
     if (prevCasMeritve/(zapisXMin*60) < now()/(zapisXMin*60)) {     
       Serial.println(F(""));
-      for (int j = 0; j < numSens; j++) {
+      for (int j = 0; j < numSensDS; j++) {
 //        addrTmp = elapsedSecsToday(now())/(zapisXMin*60);
         addrTmp = ObsegZgodovine(j);
 //        addrTmp += (j * histLen);    
@@ -1224,7 +1226,7 @@ void loop(void)
 /*      
       last24H_Info();
       Serial.print(F("24h"));
-      for (int i=0; i<numSens; i++) {
+      for (int i=0; i<numSensDS; i++) {
         Serial.print(F("  T"));
         Serial.print(i+1);
         Serial.print(F(" min:"));
@@ -1391,8 +1393,8 @@ void loop(void)
   
   PreklopiVentil(100);
     
-  if (now()/5 > prevLCDizp) {
-    prevLCDizp = now()/5;
+  if (now() > prevLCDizp) {
+    prevLCDizp = now();
     IzpisiNaLCD();
   }
   
@@ -2327,3 +2329,4 @@ static float Cop(void)
     return(Qv/We);
   return(0);  
 }
+

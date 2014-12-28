@@ -17,11 +17,14 @@ static void PrintDigitsLCDA(int digits)
 }
 
 
+int infoModeLCD = -1;
+
+int infoModeLCDMax = 2;
 
 extern float TempVklopa(void);
 extern float TempIzklopa(void);
 
-extern int modeLCD;
+
 extern byte prevTCState;
 extern unsigned long onTimeTC;
 extern unsigned long lastTCStateChg;
@@ -34,10 +37,24 @@ void IzpisiNaLCD()
   char cas[5];
   unsigned int addrTmp;
   
+  static unsigned long t_lastNonDefaultLCDScreen;
+  static int prevInfoModeLCD;
+  
+  if (infoModeLCD != prevInfoModeLCD) {
+    t_lastNonDefaultLCDScreen = now();
+    prevInfoModeLCD = infoModeLCD;
+  }
+  if (infoModeLCD != 0) {
+    if (now() - t_lastNonDefaultLCDScreen > 30 || t_lastNonDefaultLCDScreen > now()) {
+      infoModeLCD = 0;  
+    }     
+  }
+    
+  
   lcdA.setCursor(0, 0);
   lcdA.clear();
       
-  switch (modeLCD) {
+  switch (infoModeLCD) {
     case 0:
        PrintDigitsLCDA(day());
        lcdA.print(F("."));
@@ -66,18 +83,12 @@ void IzpisiNaLCD()
        lcdA.setCursor(14, 1); 
        lcdA.print(cTemperatura[CRPALKA_0] - u2.uival/100.0, 2);
        
-       modeLCD=10;
+//       infoModeLCD=10;
     break;
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-    case 14:
-    case 15:
-    case 16:
-    case 17:
+
+    case 1:
       lcdA.print(F("T"));
-//      lcdA.print(modeLCD-10+1);
+//      lcdA.print(infoModeLCD-10+1);
       lcdA.print(F(":"));
       lcdA.setCursor(2, 0);
       lcdA.print(cTemperatura[0], 1);
@@ -99,15 +110,15 @@ void IzpisiNaLCD()
         lcdA.print(infoErr);
       }
 */
-//      else if (modeLCD-10 == crpalka_0){ 
+//      else if (infoModeLCD-10 == crpalka_0){ 
 //        lcdA.setCursor(2, 1);
-//        lcdA.print(AvgVal(sumTemp[modeLCD-10], histLen*100.0));
+//        lcdA.print(AvgVal(sumTemp[infoModeLCD-10], histLen*100.0));
 //      }
         
-        modeLCD = 20; 
+//        infoModeLCD = 20; 
     break;
 
-    case 20:
+    case 2:
       lcdA.print(F("Tok:"));
       lcdA.setCursor(4, 0);
       lcdA.print(AC_mimax(false, true), 3);
@@ -136,16 +147,13 @@ void IzpisiNaLCD()
       lcdA.setCursor(10, 1);
       lcdA.print(F("Ti "));
       lcdA.print(TempIzklopa(), 1);
-      
-      
-      modeLCD = 0;
     break;  
     
     default:
       lcdA.print(F("xXxXxXxX"));
       lcdA.setCursor(0, 1);
       lcdA.print(F("xXxXxXxX"));
-      modeLCD = 0;
+      infoModeLCD = 0;
     break;
   }    
 }
@@ -163,7 +171,7 @@ void IzpisiNaLCD()
   lcdA.setCursor(0, 0);
   lcdA.clear();
       
-  switch (modeLCD) {
+  switch (infoModeLCD) {
     case 0:
        PrintDigitsLCDA(day());
        lcdA.print(F("."));
@@ -174,7 +182,7 @@ void IzpisiNaLCD()
        NarediTimeStr(cas, now(), false);
        lcdA.print(cas);
        
-       modeLCD=10;
+       infoModeLCD=10;
     break;
     case 10:
     case 11:
@@ -185,24 +193,24 @@ void IzpisiNaLCD()
     case 16:
     case 17:
       lcdA.print(F("T"));
-      lcdA.print(modeLCD-10+1);
+      lcdA.print(infoModeLCD-10+1);
       lcdA.print(F(":"));
       lcdA.setCursor(3, 0);
-      lcdA.print(cTemperatura[modeLCD-10], 2);
+      lcdA.print(cTemperatura[infoModeLCD-10], 2);
 
       if(strlen(infoErr) > 0) {
         lcdA.setCursor(0, 1);
         lcdA.print(infoErr);
       }
-//      else if (modeLCD-10 == crpalka_0){ 
+//      else if (infoModeLCD-10 == crpalka_0){ 
 //        lcdA.setCursor(2, 1);
-//        lcdA.print(AvgVal(sumTemp[modeLCD-10], histLen*100.0));
+//        lcdA.print(AvgVal(sumTemp[infoModeLCD-10], histLen*100.0));
 //      }
         
-      if (modeLCD-10 >= numSens -1)
-        modeLCD = 18;
+      if (infoModeLCD-10 >= numSens -1)
+        infoModeLCD = 18;
       else
-        modeLCD ++;  
+        infoModeLCD ++;  
     break;
     case 18:
       lcdA.print(F("Tv "));
@@ -210,14 +218,14 @@ void IzpisiNaLCD()
       lcdA.setCursor(0, 1);
       lcdA.print(F("Ti "));
       lcdA.print(TempIzklopa(), 1); 
-      modeLCD = 20;  
+      infoModeLCD = 20;  
     break;
     case 20:
       lcdA.print(F("Tok:"));
       lcdA.setCursor(0, 1);
       lcdA.print(AC_mimax(), 3);
       lcdA.print(F("A"));
-      modeLCD = 30;
+      infoModeLCD = 30;
     break;
     case 30:
       lcdA.setCursor(3, 0);
@@ -236,13 +244,13 @@ void IzpisiNaLCD()
        else
          lcdA.print(AutoTimeUnitConv(onTimeTC + now() - lastTCStateChg, cas),2);
       lcdA.print(cas);
-      modeLCD = 0;
+      infoModeLCD = 0;
     break;  
     default:
       lcdA.print(F("xXxXxXxX"));
       lcdA.setCursor(0, 1);
       lcdA.print(F("xXxXxXxX"));
-      modeLCD = 0;
+      infoModeLCD = 0;
     break;
   }    
 }

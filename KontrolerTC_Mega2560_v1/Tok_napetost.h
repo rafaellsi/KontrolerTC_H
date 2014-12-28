@@ -38,6 +38,7 @@ static float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
   startTime = millis();
   
   dTRSt = micros();
+ // noInterrupts();
   val_I = analogRead(SENS_TOK) *vccFactor;
   tok01 = PretvoriVAmp5A(val_I);
   efI = (tok01 * tok01);
@@ -46,8 +47,13 @@ static float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
   minR = val_I;
   
   do {
+//   while (micros() - dTRSt < dTRStMin) {
+//       delayMicroseconds(1);
+//    }
+
     if (micros() - dTRSt < dTRStMin)
       delayMicroseconds((dTRStMin+5) - (micros() - dTRSt));
+
     dTRSt = micros();
     val_I = analogRead(SENS_TOK)* vccFactor;
     
@@ -64,6 +70,8 @@ static float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
     
     numMerAC++;
   }  while (millis() - startTime < 20 && millis() >= startTime);
+  
+//  interrupts();
   
   efI = efI/((float) numMerAC);
   efI = sqrt(efI);
@@ -125,13 +133,15 @@ static float PretvoriVAmp5A(int sensVal) {
 //--------------------------------------------------------------------------------------------
 float VoltageDivider(int analRead, float r1, float r2) {
   
-  int numSamples = 10;
+  int numSamples = 5;
   float napetost = 0.0;
   
+  noInterrupts();
   for (int i = 0; i < numSamples; i++) {
-    delay(5);
+    delay(2);
     napetost += (analogRead(analRead) * vccInternal/ 1024.0) * (r1 + r2) / r2;
   }
+  interrupts();
   napetost /= ((float) numSamples);
   return (napetost);
 }  

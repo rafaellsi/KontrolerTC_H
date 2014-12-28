@@ -2,15 +2,15 @@
 #define Configuration_h
 
 //#define INTFACT
-#define VERSION "v1.004"
-#define MAXSENSORS 7     //maksimalno stevilo temp sensorjev DS18x20
+#define VERSION "v1"
+#define MAXSENSORS 9     //maksimalno stevilo temp sensorjev DS18x20
 
 //----------
 #define NED  1    //nedelja, kot rezltat weekday()...
 #define SOB  7    //sobota, .....
 
 //----------
-//in/out state definition
+//in/out state definition realys
 #define R_TC_ON   HIGH      // z RELE_TC
 #define R_TC_OFF  LOW
 
@@ -20,37 +20,41 @@
 #define R_CTC_ON   LOW      //z RELE_CTC 
 #define R_CTC_OFF  HIGH
 
-#define CEV_TERM_ON   LOW
+#define CEV_TERM_ON   LOW    //cevni termostat - internal pullup
 #define CEV_TERM_OFF  HIGH
 
 //----------
 // pin and address definition
 
+#define T_KTYP_01_PIN A3   //pin k-type sensorja 1 
+#define SENS_TOK     A11   //senzor toka - 230v komplet
+#define SENS_V12     A8    //pin za merjenje zun. napetosti napajanja 12V - switcher napajalnik
+#define SENS_V5_2    A9    //pin za merjenje zun. napajanja 5V - DC-DC
+#define SENS_RTC_BATT A10  //pin za merjenje napetsti RTC baterije - ni priklopljeno - ne dela RTC preko baterijae ...
 
-#define SENS_TOK     A0   //senzor toka na A0
-#define SENS_V12     A8
-#define SENS_V5_2    A9
-#define SENS_RTC_BATT A10
+#define ENC_CLK_PIN   3     // Encoder CLK pin - interuppt 0
+#define ENC_DT_PIN    2     // Encoder DT signal
+#define ENC_SW_PIN    4
+// Encoder push button switch
 
-#define ENC_CLK_PIN   2     // Used for generating interrupts using CLK signal - interuppt 0
-#define ENC_DT_PIN    4     // Used for reading DT signal
-#define ENC_SW_PIN    5           // Used for the push button switch
+#define ENC_PIN_A   ENC_DT_PIN
+#define ENC_PIN_B   ENC_CLK_PIN
 
-#define ETHER_CS_PIN  10
+#define ETHER_CS_PIN  10    //Ethrnet (ENC28J60) CS pin 
 
-#define LCD_OSW_SW    7
-#define LCD_RS    22
-#define LCD_RW    23
-#define LCD_EN    24
-#define LCD_D4    25
-#define LCD_D5    26
-#define LCD_D6    27
-#define LCD_D7    28
+#define LCD_OSW_SW    7     //pin za vklop osvetlitve LCD-ja
+#define LCD_RS    22        //LCD RS
+#define LCD_RW    23        //LCD RW
+#define LCD_EN    24        //LCD EN
+#define LCD_D4    25        //LCD D4
+#define LCD_D5    26        //LCD D5
+#define LCD_D6    27        //LCD D6
+#define LCD_D7    28        //LCD D7
 
-#define BEEP_PIN      29
+#define BEEP_PIN     29    //buzzer pin
 #define ONE_WIRE_BUS 30    //1-wire na pin D4 - D30
 
-#define CEVTERM_PEC_TC  32  // cevni termostat na peci proti TC
+#define CEVTERM_PEC_TC  32    //cevni termostat na peci proti TC - vklopi internal pull-up
 //#define stikalo TC_ON 33
 //#define stikalo TC_OFF 34
 //#define stikalo_Crp_Rad_On 35
@@ -64,30 +68,29 @@
 #define RELE_CRAD   42    // rele 1/4 crpalke radijatorjev
 #define RELE_TC     43    //rele 1 proklopljen na pin D7 -> D40 - vklop  TC
 
-//#define L298 En2  44    //ENB
-//#define L298 1/2  45    //l298 4/4 
-//#define L298 2/2  46    //l298 3/4
+//#define L298 En2  44    //ENB  - enable input 3,4
+//#define L298 1/2  45    //l298 4/4  - input 3
+//#define L298 2/2  46    //l298 3/4  - input 3
 #define VENTTC_1    47    // na L298  - input 1
-#define VENTTC_2    48    // na L293D - input 2
-#define VENTTC_EN   49    // ENA na L293D - enable input 1,2  
+#define VENTTC_2    48    // na L293  - input 2
+#define VENTTC_EN   49    // ENA na L298 - enable input 1,2  
 
-#define SD_CS_PIN  53
+#define SD_CS_PIN  53     //SD card SX pin 
 
 
 
 
 
 //----------
-#define DS1307_CTRL_ID 0x68 
+#define DS1307_CTRL_ID 0x68  //i2C/TWI - naslov RTC cipa
 #define TIME_MSG_LEN  11   // time sync to PC is HEADER followed by unix time_t as ten ascii digits
 #define TIME_HEADER  'T'   // Header tag for serial time sync message
 
 
 //----------
-#define AT24C32_I2C_ADDR 0x50
-
-#define AT24C32_MAX_ADDR 4096
-#define AT24C32_ADDR_LENGH 2
+#define AT24C32_I2C_ADDR 0x50  //i2C/TWI - naslov memory cipa na RTC modulu
+#define AT24C32_MAX_ADDR 4096  // velikost mamory cipa na RTC modulu
+#define AT24C32_ADDR_LENGH 2   // dolžina nalova na memory cipu RTC modula
 
 //----------
 // temperature sensors indexes
@@ -100,13 +103,16 @@ int   rad_pv = 4;   // radijatorji, povratni vod
 int   rad_dv = 5;   // radijatorji, dvizni vod
 int   pec_TC_dv = 6; // dvizni vod proti TC
 */
-#define  OKOLICA_0  0         // index enzorja okolice
-#define  CRPALKA_0  1         // index sensorja na crpalki
+
+int numSensDS=0;        //število DS senzorjev
+
+#define  OKOLICA_0  0   // index senzorja okolice
+#define  CRPALKA_0  1   // index sensorja na crpalki
 #define  PEC_PV     2   // pec, povratni vod
 #define  PEC_DV     3   // pecc, dvizni vod
 #define  RAD_PV     4   // radijatorji, povratni vod
 #define  RAD_DV     5   // radijatorji, dvizni vod
-#define  PEC_TC_DV  6 // dvizni vod proti TC
+#define  PEC_TC_DV  6   // dvizni vod proti TC
 
 //------------------------------------------
 static byte myip[] = {192,168,1,50}; // ethernet interface ip address
@@ -129,24 +135,19 @@ boolean measureOnly = false;
 boolean showCRC = true;  // izpis kontrolnih parametrov na serial
 
 //------------------------------------------
-
-
-
-
-//------------------------------------------
-
 unsigned int   merXMin = 1;          //temperaaturo merimo vsakih merXMin minut
 float minTempVTOn = 37.5;    //min temp- vode za vklop pri visoki tarifi t < 
 int   minRunTimeMin = 10;    // minimalni cas (delovanja)  ali ne-delovanja TC / (odvisno od UpostevajElTarife(void)) - ne vec
 
-
+//------------------------------------------
 float dTemp = 5.0;  // default 5.0
-float sensDiff = 2.5;
+//float sensDiff = 2.5;
+
+//------------------------------------------
+
 
 //------------------------------------------
 float minTempNightOn = 32.5;
-
-//------------------------------------------
 float ciljnaTemp = 50;
 //float deltaTh = 5.55;   // do 16.Oct.2012
 //float deltaTh = 4.35;   //
@@ -159,11 +160,11 @@ const float tKompSt = 50.0;
 
 //------------------------------------------
 int uraVTemp[] = {6, 21};  //obdobje vklopa pri temp minTempVTOn - 0-start, 1-end
-//int vStartUraOff = 20;     //ura zacetka znizevanja temerature za izklop
+//int vStartUraOff = 20;  //ura zacetka znizevanja temerature za izklop
 int dolPrehObd = 121;     //dolzina prehodnega obdobja postopnega znizevanja temp. za izklop (v minutah)
-int startUraVT = 6;  // zacetek visoke tarife
-int startUraNT = 22; // zacetek nizke tarife :)
-float mejaToka = 1.0;
+int startUraVT = 6;       // zacetek visoke tarife
+int startUraNT = 22;      // zacetek nizke tarife :)
+float mejaToka = 1.0;     // meja velikosti toka, da se smatra da kompresor teče 
 
 //------------------------------------------
 // boolean upostevajElTarife = false; // glej opombo pod verzijo v0.45 && v0.54
@@ -216,7 +217,7 @@ num2byte4f uf;
 
 typedef uint8_t DeviceAddress[8];
 //definicija naslovov senzorjev
-int FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
+void FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
 {
 /*
 //  normal
@@ -324,7 +325,8 @@ int FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   devAddress[0][5] = 0x00;
   devAddress[0][6] = 0x00;
   devAddress[0][7] = 0xA3;
-  type_s[0] = 0;
+//  type_s[0] = 0;
+  numSensDS++;
 
 // okolica Na DS1307
   devAddress[1][0] = 0x28;
@@ -335,7 +337,8 @@ int FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   devAddress[1][5] = 0x00;
   devAddress[1][6] = 0x00;
   devAddress[1][7] = 0x55;
-  type_s[0] = 0;
+//  type_s[0] = 0;
+  numSensDS++;
  /* 
   // crpalka
   devAddress[1][0] = 0x28;
@@ -358,8 +361,8 @@ int FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   devAddress[2][5] = 0x00;
   devAddress[2][6] = 0x00;
   devAddress[2][7] = 0x8D;
-  type_s[2] = 0;
-  
+//  type_s[2] = 0;
+  numSensDS++;
   
  
   
@@ -373,8 +376,8 @@ int FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   devAddress[3][5] = 0x00;
   devAddress[3][6] = 0x00;
   devAddress[3][7] = 0xA1;
-  type_s[3] = 0;
-  
+//  type_s[3] = 0;
+  numSensDS++;
    // povratni vod radiatorji
   devAddress[4][0] = 0x28;
   devAddress[4][1] = 0x31;
@@ -384,8 +387,8 @@ int FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   devAddress[4][5] = 0x00;
   devAddress[4][6] = 0x00;
   devAddress[4][7] = 0x9B;
-  type_s[4] = 0;
-  
+//  type_s[4] = 0;
+  numSensDS++;
    // dvizni vod radiatorji
   devAddress[5][0] = 0x28;
   devAddress[5][1] = 0xB3;
@@ -395,8 +398,8 @@ int FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   devAddress[5][5] = 0x00;
   devAddress[5][6] = 0x00;
   devAddress[5][7] = 0x25;
-  type_s[5] = 0;
-  
+//  type_s[5] = 0;
+  numSensDS++;
   
   devAddress[6][0] = 0x28;
   devAddress[6][1] = 0x67;
@@ -406,29 +409,33 @@ int FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   devAddress[6][5] = 0x00;
   devAddress[6][6] = 0x00;
   devAddress[6][7] = 0xCC;
-  type_s[6] = 0;
-  
-  /*
-  switch (addr[0]) {
+//  type_s[6] = 0;
+  numSensDS++;
+ 
+ 
+  for (int i=0; i<numSensDS; i++) {
+    Serial.print(F("Temp. sensor "));
+    Serial.print(i);
+    switch (devAddress[6][0]) {
       case 0x10:
-        Serial.println(" Chip=DS18S20");  // or old DS1820
-        type_s[numSens-1] = 1;
+        Serial.println(": DS18S20");  // or old DS1820
+        type_s[i] = 1;
         break;
       case 0x28:
-        Serial.println(" Chip=DS18B20");
-        type_s[numSens-1] = 0;
+        Serial.println(": DS18B20");
+        type_s[i] = 0;
         break;
       case 0x22:
-        Serial.println(" Chip=DS1822");
-        type_s[numSens-1] = 0;
+        Serial.println(": DS1822");
+        type_s[i] = 0;
         break;
       default:
-        Serial.println("Device is not a DS18x20 family device.");
+        Serial.println(": ni DS18x20 family device.");
         return;
     }
-  */  
+  }   
   
-  return (7);
+//  return (7);
 }  
 int limTempCrpRad[24] = {30, 30, 30, 30, 30, 30, 
                          28, 15, 12, 13, 15, 17, 

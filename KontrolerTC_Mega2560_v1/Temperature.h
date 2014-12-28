@@ -1,22 +1,27 @@
 #ifndef Temperature_h
 #define Temperatue_h
 
+#define DHTPIN 31
+#define DHTTYPE DHT22
+
 #include <DHT.h>
+
 
 //DHT22 myDHT22(DHT22_PIN);
 DHT dht(DHTPIN, DHTTYPE);
 // 1-Wire spremneljivke
 OneWire ds(ONE_WIRE_BUS);
-DeviceAddress devAddress[MAXSENSORS];  ///
+
+DeviceAddress devAddress[MAXSENSORS];  //
 
 float cTemperatura[MAXSENSORS];
-
+byte type_s[MAXSENSORS];          //tip temp sensorja 
 float sumTemp[MAXSENSORS];
 //unsigned long  numMer[MAXSENSORS];
-byte type_s[MAXSENSORS];
+
 //int numMer=0;
 
-int numSens=0;
+
 
 unsigned long convWaitTime = 1000;
 boolean temeratureIzmerjene=true;
@@ -132,7 +137,7 @@ static boolean PreberiTemperatureDS(boolean zahtevajBranje, boolean allSens = fa
     cTemp = PreberiTemperaturo(MAXSENSORS, zahtevajBranje);  
   }
   else {
-    for (int i=0; i<numSens; i++) {
+    for (int i=0; i<numSensDS; i++) {
       cTemp = PreberiTemperaturo(i, zahtevajBranje);
       if (cTemp < -1000.0) {
         continue;
@@ -169,13 +174,14 @@ static void PrintAddress(DeviceAddress deviceAddress)
 
 float sumCTemp=0.0;
 float sumCTempEMA=0.0;
+extern float vccInternal;
 //--------------------------------------------------------------------------------
 // function to print the temperature for a device
 static void PrintTemperatureAll(void)
 {
   unsigned int addrTmp;
  
-  for (int i=0; i<numSens; i++) {
+  for (int i=0; i<numSensDS; i++) {
     
     Serial.print(F("T"));
     Serial.print(i+1);
@@ -233,7 +239,54 @@ static void PrintTemperatureAll(void)
     
     Serial.print(F("-"));
   }
-       
+  
+  
+  cTemperatura[numSensDS] = dht.readTemperature();
+  float h = dht.readHumidity();
+  if (isnan(cTemperatura[numSensDS]) || isnan(h)) {
+    return;
+  }  
+  Serial.print(F("T"));
+  Serial.print(numSensDS+1);
+  Serial.print(F(":"));
+  Serial.print(cTemperatura[numSensDS], 2);  
+  Serial.print(F(" RH:"));
+  Serial.print(dht.readHumidity(), 2);
+  
+  float Tdp = cTemperatura[numSensDS] - (100.0 - h)/5.0;
+  float humidex = cTemperatura[numSensDS] + 0.5555 * (6.11 * exp(5417.7530 * ((1/273.16)-(1/(Tdp+273.16)))) -10.0);
+/*
+  float f = dht.readTemperature(true);
+  Serial.print(F(" Hidx:"));
+  Serial.print(dht.convertFtoC(dht.computeHeatIndex(f, h)), 2);
+  Serial.print(F("-"));
+*/
+  Serial.print(F("-Tdp:"));
+  Serial.print(Tdp, 2); 
+  Serial.print(F(" Hum:"));
+  Serial.print(humidex, 2);
+  Serial.print(F("-"));
+  
+  
+  int numSamples = 3;
+  int tempRaw = 0;
+  
+  noInterrupts();
+  for (int i=0; i<numSamples; i++) {
+    tempRaw += analogRead(T_KTYP_01_PIN);
+  }
+  interrupts();
+  tempRaw /= numSamples;
+  
+  Serial.print(F("K:"));
+  cTemperatura[numSensDS+1] = (vccInternal * 100.0 * tempRaw/1023.0);
+  Serial.print(cTemperatura[numSensDS+1], 2);
+  Serial.print(F(" ("));
+  Serial.print(tempRaw);
+  Serial.print(F("/"));
+  Serial.print(cTemperatura[numSensDS+1] - cTemperatura[numSensDS], 2);
+  Serial.print(F(")-"));
+  
 }
 
 
@@ -424,12 +477,12 @@ void last24H_Info(void)
   unsigned int addrTmp;
   
   if (hour() == 0) {
-    for (i=0; i<numSens; i++) {
+    for (i=0; i<numSensDS; i++) {
       sum24[i] = 0.0;  
     }  
   }  
   
-  for (sens = 0; sens < numSens; sens++) {
+  for (sens = 0; sens < numSensDS; sens++) {
     if (sum24[sens] == 0) {
 
       maxTemp24Time[sens] = now()- 25UL*60UL*60UL;
@@ -528,8 +581,7 @@ void last24H_Info(void)
 }
 
 
-#define DHTPIN 31
-#define DHTTYPE DHT22
+
 
 
 
