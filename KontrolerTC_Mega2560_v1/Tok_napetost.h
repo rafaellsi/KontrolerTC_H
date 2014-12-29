@@ -38,8 +38,9 @@ static float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
   startTime = millis();
   
   dTRSt = micros();
- // noInterrupts();
+  noInterrupts();
   val_I = analogRead(SENS_TOK) *vccFactor;
+  interrupts();
   tok01 = PretvoriVAmp5A(val_I);
   efI = (tok01 * tok01);
   
@@ -47,15 +48,17 @@ static float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
   minR = val_I;
   
   do {
-//   while (micros() - dTRSt < dTRStMin) {
+   while (micros() - dTRSt < dTRStMin) {
 //       delayMicroseconds(1);
-//    }
+    }
 
-    if (micros() - dTRSt < dTRStMin)
-      delayMicroseconds((dTRStMin+5) - (micros() - dTRSt));
+//    if (micros() - dTRSt < dTRStMin)
+//      delayMicroseconds((dTRStMin+5) - (micros() - dTRSt));
 
     dTRSt = micros();
+    noInterrupts();
     val_I = analogRead(SENS_TOK)* vccFactor;
+    interrupts();
     
     tok01 = PretvoriVAmp5A(val_I);
     
@@ -71,7 +74,7 @@ static float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
     numMerAC++;
   }  while (millis() - startTime < 20 && millis() >= startTime);
   
-//  interrupts();
+  
   
   efI = efI/((float) numMerAC);
   efI = sqrt(efI);

@@ -2,32 +2,24 @@
 #ifndef Kontroler_TC_h
 #define Kontroler_TC_h
 
+#include "Configuration.h"
+
 /*
 #include <inttypes.h>
 
 */
 
-#include <Arduino.h>
-#include <Wire.h> 
+//#include <Arduino.h>
+//#include <Wire.h> 
 
-typedef union  {
-    byte by[4];
-    unsigned long ulval;
-  } num2byte4b;
-
-typedef union  {
-    byte by[4];
-    float fval;
-  } num2byte4f;
-
-typedef union  {
-    byte by[2];
-    unsigned int uival;
-  } ui2byte2;
-
-ui2byte2 u2;
+float KompenzacijaTempOkolice(float tOkolice);
+float KompenzZacTemp(float tStart);
+static float AvgVal(float suma, float num);
 
 //--------------------------------------------------------------------------------
+// Naredi string v obliki HH:MM:SS
+//  - izpSec:    - true, izpiše tudi secunde
+//               - false, brez sekund   
 static void NarediTimeStr(char* cas, unsigned long tcas, boolean izpSec = true)
 {   
   if (izpSec)
@@ -36,73 +28,326 @@ static void NarediTimeStr(char* cas, unsigned long tcas, boolean izpSec = true)
     sprintf(cas, "%02d:%02d", hour(tcas), minute(tcas));
 }
 
-//--------------------------------------------------------------------------------
-static void i2c_eeprom_write_page( int deviceaddress, unsigned int eeaddresspage, byte addrlen, byte* up, byte length ) 
-{   
-  Wire.beginTransmission(deviceaddress);
-  if (addrlen > 1) 
-    Wire.write((int)(eeaddresspage >> 8)); // MSB
-  Wire.write((int)(eeaddresspage)); // LSB
-  int c;
-  for (c=0; c < length; c++) { 
-    Wire.write(up[c]);
-    delay(1);
-  }
-  Wire.endTransmission();
-}
 
 //--------------------------------------------------------------------------------
- static void i2c_eeprom_write_byte(int deviceaddress,unsigned int eeaddress, byte addrlen, byte data) {
-//    int rdata = data;
-    Wire.beginTransmission(deviceaddress);
-    if (addrlen > 1)
-      Wire.write((int)(eeaddress >> 8)); // MSB
-    Wire.write((eeaddress)); // LSB
-    Wire.write(data);
-    Wire.endTransmission();
-  }
-
-
-//--------------------------------------------------------------------------------
-static void i2c_eeprom_read_buffer( int deviceaddress, unsigned int eeaddress, byte addrlen, byte *up, int length ) {
-    
-    Wire.beginTransmission(deviceaddress);
-    if (addrlen > 1) 
-      Wire.write((int)(eeaddress >> 8)); // MSB
-    Wire.write((int)(eeaddress)); // LSB
-    
-    Wire.endTransmission();
-    Wire.requestFrom(deviceaddress,length);
-//    delay(1);
-    int c = 0;
-    for (c=0; c < length; c++) {  
-      delay(1); 
-      if (Wire.available()) {
-         up[c] = Wire.read();
-       }
-    }
-  }
-  
-//--------------------------------------------------------------------------------  
-static byte i2c_eeprom_read_byte( int deviceaddress, unsigned int eeaddress, byte addrlen) {
-    byte rdata = 0xFF;
-    Wire.beginTransmission(deviceaddress);
-    if (addrlen > 1)
-      Wire.write((int)(eeaddress >> 8)); // MSB
-    Wire.write((eeaddress )); // LSB
-    Wire.endTransmission();
-    Wire.requestFrom(deviceaddress,1);
-    delay(1);
-    if (Wire.available()) 
-      rdata = Wire.read();
-    return rdata;
-}
-
-//--------------------------------------------------------------------------------
+// Pretvorba sekunde v ure, decimalno
 static float Sec2Hour(unsigned long sec)
 {
   return((float)sec/(float)SECS_PER_HOUR);
 }
 
+//--------------------------------------------------------------------------------
+void InitParametri(void) {
+  char infoSet[8];
+  unsigned int addrTmp;
+  
+  i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrOnTime, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4) );
+  delay(5);
+  onTimeTC = u4.ulval;
+  Serial.print(F("OnTime: "));
+  Serial.print(onTimeTC);
+  Serial.println(F("s"));
+
+  delay(5); 
+  
+  i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrLastChg, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
+  delay(5);
+  lastTCStateChg = u4.ulval;
+  Serial.print(F("Last TC chg: "));
+  NarediTimeStr(infoSet, lastTCStateChg);
+  Serial.print(day(lastTCStateChg));
+  Serial.print(F("."));
+  Serial.print(month(lastTCStateChg));
+  Serial.print(F("."));
+  Serial.print(year(lastTCStateChg)); 
+  Serial.print(F("  "));
+  Serial.print(infoSet);
+  
+  
+ // i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrLastChg+4, AT24C32_ADDR_LENGH, prevTCState);
+  prevTCState = i2c_eeprom_read_byte(AT24C32_I2C_ADDR, addrLastChg+4, AT24C32_ADDR_LENGH);
+  if (prevTCState != 0) {
+    prevTCState = 0;
+    lastTCStateChg = now();
+    u4.ulval = lastTCStateChg;
+    i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrLastChg, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
+    i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrLastChg+4, AT24C32_ADDR_LENGH, prevTCState);
+    Serial.print(F(  "\"prevTCState\" nastavljeno na "));
+    Serial.println(prevTCState);
+  } 
+  else {
+    Serial.println();
+  }  
+  
+  i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrDeltaTh, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
+  delay(5);
+  deltaTh = uf.fval;
+  Serial.print(F("Hir. gret: "));
+  Serial.print(deltaTh, 3);
+  if (deltaTh <= 0 || deltaTh > 10.0) {
+    deltaTh = 4.35;
+    Serial.print(F(" / "));
+    Serial.print(deltaTh, 3);
+    uf.fval =  deltaTh;
+    delay(5);
+    i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrDeltaTh, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
+  }
+  Serial.println(F("K/h"));
+  
+ i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrDeltaThOk, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
+  delay(5);
+  deltaThOk = uf.fval;
+  Serial.print(F("Komp.ok.: "));
+  Serial.print(deltaThOk, 4);
+  if (abs(deltaThOk) > 100.0) {
+    deltaThOk = 0.0;
+    Serial.print(F(" / "));
+    Serial.print(deltaThOk, 4);
+    uf.fval =  deltaThOk;
+    delay(5);
+    i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrDeltaThOk, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
+  }
+  Serial.println(F("")); 
+
+  Serial.print(F("Kompenz. temp. okolice pri temp. "));
+  Serial.print(cTemperatura[OKOLICA_0]);
+  Serial.print(F("C je "));
+  Serial.println(KompenzacijaTempOkolice(cTemperatura[OKOLICA_0]),4);
+  
+
+  i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrDeltaThSt, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
+  delay(5);
+  deltaThSt = uf.fval;
+  Serial.print(F("Komp.st.: "));
+  Serial.print(deltaThSt, 4);
+  if (abs(deltaThSt) > 100.0) {
+    deltaThSt = 0.0;
+    Serial.print(F(" / "));
+    Serial.print(deltaThSt, 4);
+    uf.fval =  deltaThSt;
+    delay(5);
+    i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrDeltaThSt, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
+  }
+  Serial.println(F("")); 
+  
+  Serial.print(F("Kompenz. zacetne temp. pri temp. "));
+  Serial.print(cTemperatura[CRPALKA_0]);
+  Serial.print(F("C je "));
+  Serial.println(KompenzZacTemp(cTemperatura[CRPALKA_0]),4);
+
+  
+  for (int j = 0; j < numSensDS; j++) {
+    Serial.print(F("Addres:"));
+    Serial.print(addrTempBack + ((j*histLen))*sizeof(u2));
+    Serial.print(F("  "));
+    for (unsigned int i=0; i < histLen; i++) {   // 7*1440/marXMin
+      addrTmp =  addrTempBack + (i + (j*histLen))*sizeof(u2);
+      i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+      delay(2);
+      
+      if ((u2.uival) < 100 || (u2.uival) > 12000) {
+        if (i > 0)
+          u2.uival = (sumTemp[j] * 100) /(i);
+        else
+          u2.uival = 5000;
+        delay(2);
+
+        i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+      }
+      sumTemp[j] += (float)(u2.uival/100.0);
+      delay(10);
+    }
+    Serial.print(j+1);
+    Serial.print(F(": "));
+    Serial.print(AvgVal(sumTemp[j], histLen*1.0), 3); 
+    Serial.println(F(" "));  
+  }    
+}
+
+//--------------------------------------------------------------------------------
+
+static float AvgVal(float suma, float num)
+{
+  return(suma/num);
+}
+//--------------------------------------------------------------------------------
+//
+static float RefTemp()
+{
+ // return(AvgAllTimeTemp(CRPALKA_0));
+  return(cTemperatura[CRPALKA_0]);
+}
+
+
+//--------------------------------------------------------------------------------------------
+float KompenzacijaTempOkolice(float tOkolice)
+{
+//  return(1 + (20.0 - tOkolice) * deltaThOk);
+  float komp;
+  
+  if (tKompOK == 0) {
+    komp = 1.0;
+  }
+  else {
+    komp = (((tOkolice-tKompOK)/tKompOK)*deltaThOk);
+    komp = 1.0 + komp;
+//    komp = (1.0 - (deltaThOk*((tOkolice-tKomp0)/tKomp0)));  
+  }  
+  
+   return(komp);
+}
+
+//--------------------------------------------------------------------------------------------
+float KompenzZacTemp(float tStart)
+{
+  float komp;
+  float sqtStart;
+  float sqtKompST;
+ 
+ /* 
+  if (tStart <= tKompSt) {
+//    komp = 1.0;
+    return(1.0);    
+  }  
+*/
+  if (abs(tKompSt) < 0.1) {
+//    komp = 1.0;
+    return(1.0);
+  }  
+  else {
+    sqtStart = tStart*tStart;
+    sqtKompST = tKompSt*tKompSt;
+ //   komp = tKompSt*tKompSt - sqtStart;
+ //   komp = komp / (sqtStart);
+ //   komp = komp * deltaThSt;
+   
+  ////  komp = (((tKompSt*tKompSt - tStart*tStart)/tStart*tStart)*deltaThSt);
+  //  komp = (1 + komp);
+    
+     komp = 1+ (((sqtKompST - sqtStart)/sqtKompST)*deltaThSt);
+  }
+  return(komp); 
+}
+
+
+//--------------------------------------------------------------------------------------------
+
+float IzracDeltaTh() {
+
+  float imenovalec;
+  
+  imenovalec = (KompenzacijaTempOkolice(tempOkolicaSt) * KompenzZacTemp(startTemp) * (Sec2Hour(lastRunTime)));
+  
+  if (abs(imenovalec) < 0.001)
+    return(deltaTh);
+  return((cTemperatura[CRPALKA_0]- startTemp) / imenovalec);
+  
+}  
+
+
+//--------------------------------------------------------------------------------------------
+float IzracDeltaThOk() {
+  float stevec;
+  float imenovalec;
+  float a;
+  
+//  stevec = (startTemp - cTemperatura[CRPALKA_0] + deltaTh* Sec2Hour((float)lastRunTime) * KompenzZacTemp(startTemp));
+//  stevec = stevec * tKomp0;
+  
+  a = deltaTh*Sec2Hour(lastRunTime)*KompenzZacTemp(startTemp);
+  stevec = (cTemperatura[CRPALKA_0] - startTemp - a) * tKompOK;
+  imenovalec = a * (tempOkolicaSt-tKompOK);
+  
+//  stevec = (startTemp - cTemperatura[CRPALKA_0] + deltaTh*Sec2Hour(lastRunTime)*KompenzZacTemp(startTemp)) * tKompOK;
+
+//  imenovalec = (tempOkolicaSt-tKomp0);
+//  imenovalec *= deltaTh;
+//  imenovalec *= Sec2Hour((float)lastRunTime);
+//  imenovalec *= KompenzZacTemp(startTemp);
+
+//  imenovalec = deltaTh*Sec2Hour(lastRunTime)*(tempOkolicaSt-tKompOK)*KompenzZacTemp(startTemp);
+  
+//  if (abs(imenovalec) > 0.01)
+//  if (imenovalec < 0.01 && imenovalec > -0.01)
+  if (abs(imenovalec) < 0.0001)
+    return(deltaThOk);
+  
+  stevec = stevec/imenovalec;
+  
+  if (stevec > 0) {
+    if (deltaThOk > 0.5 && stevec > maxDeltaDev * deltaThOk) {
+      return(maxDeltaDev * deltaThOk);  
+    } 
+    return(stevec);
+  }
+  return(0.0);  
+}   
+
+
+
+
+//--------------------------------------------------------------------------------------------
+float IzracDeltaThSt() {
+  float stevec;
+  float imenovalec;
+  
+  float sqtKompSt = startTemp*startTemp;
+  float sqtKompStRef = tKompSt*tKompSt;
+   
+ // stevec = cTemperatura[CRPALKA_0] - startTemp - (deltaTh * Sec2Hour((float)lastRunTime) * KompenzacijaTempOkolice(tempOkolicaSt)); 
+ // stevec = stevec * sqtKompSt; 
+  
+  stevec = (cTemperatura[CRPALKA_0] - startTemp - deltaTh * Sec2Hour(lastRunTime) * KompenzacijaTempOkolice(tempOkolicaSt)) * sqtKompStRef;
+  
+ // imenovalec = (tKompSt*tKompSt - sqtKompSt);
+ // imenovalec *= deltaTh;
+ // imenovalec *= Sec2Hour((float)lastRunTime);
+ // imenovalec *= KompenzacijaTempOkolice(tempOkolicaSt);
+
+  imenovalec = deltaTh*Sec2Hour(lastRunTime)*(sqtKompStRef - sqtKompSt)*KompenzacijaTempOkolice(tempOkolicaSt);
+  
+ // if (abs(imenovalec) > 0.01)
+ //   return(stevec/imenovalec);
+ // return(deltaThSt);  
+  if (abs(imenovalec) < 0.0001)
+    return(deltaThSt);
+  
+  stevec = stevec/imenovalec;
+  if (stevec > 0) {
+    if (deltaThSt > 0.5 && stevec > maxDeltaDev * deltaThSt) {
+      return(maxDeltaDev * deltaThSt);  
+    }  
+    return(stevec);
+  }
+  return(0.0);    
+} 
+
+
+static float Cop(void)
+{
+  //float Q;
+  //float W;
+  /*
+  c = 4200; //J/kgK
+  m = 230; //kapaciteta bojlerja 
+  
+  dT = cTemperatura[CRPALKA_0] - startTemp;
+  Q = c * m * dT;
+  W = (porabaWh - zacPorabaWh) * 3600; //VAh *3600
+  */
+  Qv = 4200.0 * 230.0 * (cTemperatura[CRPALKA_0] - startTemp);
+  We = (porabaWH - zacPorabaWH) * 3600.0;
+  if (We > 0)
+    return(Qv/We);
+  return(0);  
+}
+
+
+void Beep(unsigned char delayms) {
+  digitalWrite(BEEP_PIN, HIGH);      // Almost any value can be used except 0 and 255
+                           // experiment to get the best tone
+  delay(delayms);          // wait for a delayms ms
+  digitalWrite(BEEP_PIN, LOW);       // 0 turns it off  
+}  
   
 #endif 

@@ -5,8 +5,24 @@
 
 
 //LiquidCrystal lcdA(5, 9, 2, 3, 6, 10);
-LiquidCrystal lcdA(LCD_RS, LCD_RW, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7); // nano, glej zgoraj
+//LiquidCrystal lcdA(LCD_RS, LCD_RW, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7); // nano, glej zgoraj
 
+
+//--------------------------------------------------------------------------------
+void LCDInitializacija(void) {
+  
+  lcdA.begin(20, 2);
+  lcdA.print(F(" LCD OK"));
+  analogWrite(LCD_OSW_SW, 255);
+  delay(250);
+}
+
+//--------------------------------------------------------------------------------
+void IzpisHex2(int num) {
+  if (num < 0x10)
+    lcdA.print(F("0"));  
+  lcdA.print(num,HEX);
+}
 //--------------------------------------------------------------------------------
 // izpais vodilni nicel za stevila manjsa od 10, za dvomestni izpis na LCDA
 static void PrintDigitsLCDA(int digits)
@@ -18,7 +34,6 @@ static void PrintDigitsLCDA(int digits)
 
 
 int infoModeLCD = -1;
-
 int infoModeLCDMax = 2;
 
 extern float TempVklopa(void);
@@ -51,7 +66,7 @@ void IzpisiNaLCD()
   }
     
   
-  lcdA.setCursor(0, 0);
+//  lcdA.setCursor(0, 0);
   lcdA.clear();
       
   switch (infoModeLCD) {
@@ -256,6 +271,7 @@ void IzpisiNaLCD()
 }
 
 */
+//--------------------------------------------------------------------------------
 
 
 #endif

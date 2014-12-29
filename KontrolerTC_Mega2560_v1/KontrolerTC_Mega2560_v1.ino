@@ -94,23 +94,28 @@
 #include <EtherCard.h>
 #include <DHT.h>
 
-#include "Kontroler_TC.h"
+
 #include "Configuration.h"
+#include "Eprom_external.h"
+
+
+#include "Kontroler_TC.h"
+
 #include "Tok_napetost.h"
 #include "Temperature.h"
 
-
 #include "LCD_funkcije.h"
 #include "Encoder_butt.h"
-
+#include "Zapisi_sd.h"
+#include "Ethernet_funk.h"
 
 static void PreklopiVentil(byte newState);
 // splosne spremenljivke
 
 
 
-unsigned long casMeritve;
-unsigned long prevCasMeritve;
+//unsigned long casMeritve;
+
 int prevMinute = -1;
 
 
@@ -119,9 +124,8 @@ int prevMinute = -1;
 
 
 
-// SD spremenljivke
-Sd2Card cardSD;
-File myFile;
+
+
 
 
 // rele spremenljivke
@@ -137,10 +141,8 @@ unsigned long prevLCDizp;     // cas zadnjega izpisa na LCD
 // splosne spremenljivke
 
 
-byte prevTCState;
 
-unsigned long lastTCStateChg = 0;
-unsigned long onTimeTC = 0;
+
 
 unsigned long lastCrpTCStateChg;
 unsigned long lastVentTCChg[2];
@@ -158,99 +160,19 @@ int stateCevStPecTC;
 boolean isCrpRadAsAbsTemp = true; //upobi absol. temp za zagon crpalke
 //float crpRadAsAbsTemp[24];
 
-float hitrGret = 0;
-float startTemp;
 
-char infoErr[8];
+
+
 
 //unsigned long lastPavza;
 
-unsigned int addrTmp;
+
 float pTempCrp[3];
 
-unsigned long lastRunTime;
-float tempOkolicaSt;
+
 boolean izracHitrGret = false;
 boolean izracHitrGretInfo=false;
 boolean seRracunaHitrGret;
-float porabaWH;
-float lastDeltaTh;
-float lastDeltaThOk;
-float lastDeltaThSt;
-
-float zacPorabaWH;
-float Qv;
-float We;
-
-
-
-
-
-
-/*
-const char page[] PROGMEM =
-"HTTP/1.0 503 Service Unavailable\r\n"
-"Content-Type: text/html\r\n"
-"Retry-After: 600\r\n"
-"\r\n"
-"<html>"
-  "<head><title>"
-    "Service Temporarily Unavailable"
-  "</title></head>"
-  "<body>"
-    "<h3>This service is currently unavailable</h3>"
-    "<p><em>"
-      "The main server is currently off-line.<br />"
-      "Please try again later."
-    "</em></p>"
-  "</body>"
-"</html>"
-;
-*/
-
-static word homePage() {
-  /*int t = millis() / 1000;
-  word h = t / 3600;
-  byte m = (t / 60) % 60;
-  byte s = t % 60;
-  */
-  
-  bfill = ether.tcpOffset();
-  
-  char t0[6];
-  char t1[6];
-  char t2[6];
-  char t3[6];
-  char t4[6];
-  char t5[6];
-  char t6[6];
-  dtostrf(cTemperatura[0], 2, 2, t0);
-  dtostrf(cTemperatura[1], 2, 2, t1);
-  dtostrf(cTemperatura[2], 2, 2, t2);
-  dtostrf(cTemperatura[3], 2, 2, t3);
-  dtostrf(cTemperatura[4], 2, 2, t4);
-  dtostrf(cTemperatura[5], 2, 2, t5);
-  dtostrf(cTemperatura[6], 2, 2, t6);
-  
-  char itime[17];
-  sprintf(itime, "%02d.%02d.%d %02d:%02d", day(), month(), year(), hour(), minute());
-  
-  bfill.emit_p(PSTR(
-    "HTTP/1.0 200 OK\r\n"
-    "Content-Type: text/html\r\n"
-    "Pragma: no-cache\r\n"
-    "\r\n"
-    "<meta http-equiv='refresh' content='59'/>"
-    "<title>Info server</title>"
-    "<h1> $S</h1>"
-    "<h3> T0: $SC <br> T1: $SC <br> T2: $SC <br> T3: $SC <br> T4: $SC <br> T5: $SC <br> T6: $SC</h3>"),
-      itime, 
-      t0, t1, t2, t3, t4, t5, t6);
-  return bfill.position();
-}
-//--------------------------------------------------------------------------------
-
-
 
 //--------------------------------------------------------------------------------
 // main function to print information about a device
@@ -276,242 +198,11 @@ static void printData()
 }
 
 
-
-//--------------------------------------------------------------------------------
-static void PrintTempAllSDbin(void)
-{
-
-  char ime[12];
-  
-  ImeDatoteke(ime);
-  
-  myFile = SD.open(ime, FILE_WRITE);
-  if (!myFile) {
-      sprintf(infoErr," ErrF01");
-      Serial.print(infoErr);     
-  }
-  else {
-    NarediTimeStr(ime, now());
-    myFile.print(ime);
-
-    myFile.print(F(" "));
-    myFile.print(casMeritve);
-    
-    for (int i=0; i<numSensDS; i++) { 
-      myFile.print(F(" "));
-      myFile.print(cTemperatura[i]);
-      
-    }
-    myFile.print(F(" "));
-    if (releState_1 == R_TC_ON) {
-      if (prevTCState == 1) 
-        myFile.print(F("ON"));
-       else
-         myFile.print(F("SB"));
-     }
-     else
-       myFile.print(F("OFF"));
-    
-    
-    myFile.print(F(" "));
-    myFile.println(AC_mimax(), 3); 
-    
-    
-    myFile.close();
-    
-
-  } 
-  delay(100);  
-}
-
-//-------------------------------------------------------------------------
-static void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
-{
-  // tipSpremembe:
-  // * 0 - vklop/izklop TC
-  // * 1 - vklop/izklop ventila TC
-  // * 2 - vklop/izklop crpalke TC
-  // * 10 - vklop/izklop crpalke rediatorjev
-  // * 100 - hitrost gretja
-  
-  // state:
-  // * 0 - izklop naprave
-  // * 1 - vklop naprave
-  // * 10 - info
-  
-  
-  char ime[12];
-  ImeDatotekeOnOff(ime);
-  delay(10);
-  
-  myFile = SD.open(ime, FILE_WRITE);
-  delay(5);
-  if (!myFile) {
-    sprintf(infoErr," ErrF02");
-    NarediTimeStr(ime, now());
-    Serial.print(F(""));
-    Serial.print(ime);
-    Serial.print(F(" "));
-    Serial.print(infoErr);    
-  }  //if (!myFile)
-  else {
-    if (tipSpremembe == 0) {
-      if (state == 1) {
-        myFile.print(F("Vklop: "));
-        NarediTimeStr(ime, lastTCStateChg);
-        myFile.print(ime);
-
-    
-        myFile.print(F("  "));
-        myFile.print(startTemp);
-        myFile.print(F(" ("));
-        myFile.print(cTemperatura[OKOLICA_0]);
-        myFile.println(F(")"));
-      } //state == 1
-      else if (state == 0) {
-        myFile.print(F("Izklop: "));
-        NarediTimeStr(ime, now());
-        myFile.print(ime);
-        myFile.print(F("  "));
-        
-        myFile.print(RefTemp());
-        myFile.print(F("  On:"));
-        myFile.print((now() - lastTCStateChg)/60.0); 
-        myFile.print(F("min  Hitr.g: "));
-        myFile.print(hitrGret);
-        myFile.println(F("st/h"));
-      } //state == 0
-    } //tipSpremembe == 0
-    else if (tipSpremembe == 100) {
-      if (state == 11)
-        myFile.print(F("Info - "));  
-      myFile.print(F("Hitrost gretja: "));
-      NarediTimeStr(ime, now());
-      myFile.print(ime);
-      myFile.print(F(" Nova: "));
-      myFile.print(deltaTh, 3);
-      myFile.print(F(" Zadnja: "));
-      myFile.println(lastDeltaTh, 3);
-      
-      myFile.print(F(" Fact.komp.ok.: "));
-      myFile.print(deltaThOk, 4);
-      myFile.print(F(" zadnja: "));
-      myFile.print(lastDeltaThOk, 4);
-      myFile.print(F(" Komp.ok ("));
-      myFile.print(tKompOK-5.0);
-      myFile.print(F(", "));
-      myFile.print(tKompOK+5.0);
-      myFile.print(F(", "));
-      myFile.print(tKompOK+10.0);
-      myFile.print(F(")= "));
-      myFile.print(KompenzacijaTempOkolice(tKompOK-5.0), 4);
-      myFile.print(F(", "));
-      myFile.print(KompenzacijaTempOkolice(tKompOK+5.0), 4);
-      myFile.print(F(", "));
-      myFile.println(KompenzacijaTempOkolice(tKompOK+10.0), 4);
-      
-      myFile.print(F(" Fact.zac.temp: "));
-      myFile.print(deltaThSt, 4);
-      myFile.print(F(" Zadnja: "));
-      myFile.print(lastDeltaThSt, 4);
-      myFile.print(F(" Komp.st.temp. ("));
-      myFile.print(tKompSt-20.0);
-      myFile.print(F(", "));
-      myFile.print(tKompSt-10.0);
-      myFile.print(F(", "));
-      myFile.print(tKompSt+10.0);
-      myFile.print(F(")= "));
-      myFile.print(KompenzZacTemp(tKompSt-20.0), 4);
-      myFile.print(F(", "));
-      myFile.print(KompenzZacTemp(tKompSt-10.0), 4);
-      myFile.print(F(", "));
-      myFile.print(KompenzZacTemp(tKompSt+10.0), 4);
-      
-      myFile.println("");
-      
-      myFile.print(F(" Zac. Poraba kVA: "));
-      myFile.print(zacPorabaWH/1000.0, 3);
-      myFile.print(F(" Uprabljeno (MWs): "));
-      myFile.print(We/1000000.0, 3);
-      myFile.print(F(" Dobljeno (MJ): "));
-      myFile.print(Qv/1000000.0, 3);
-      myFile.print(F(" Cop: "));
-      myFile.print(Cop(),3);
-      
-      myFile.println("");
-    }  
-    else  {
-      if (state == 1) {
-        
-        if (tipSpremembe == 1)
-          myFile.print(F("Odp. ventila: "));
-        else if(tipSpremembe == 2)
-          myFile.print(F("Vkl. crpalke TC: "));
-        else if(tipSpremembe == 10) 
-          myFile.print(F("Vkl. crpalke rad.: "));
-          
-        NarediTimeStr(ime, now());
-        myFile.print(ime);
-
-        myFile.print(F("  "));
-        myFile.print(cTemperatura[CRPALKA_0]);
-        myFile.print(F(" ("));
-        myFile.print(cTemperatura[PEC_DV]);
-        myFile.print(F(" - "));
-        myFile.print(cTemperatura[PEC_TC_DV]);
-        myFile.println(F(")"));  
-      }      //state == 1
-      else {
-        if (tipSpremembe == 1)
-          myFile.print(F("Zap. ventila: "));
-        else if (tipSpremembe == 2)
-          myFile.print(F("Izkl.crpalke TC: "));
-        else if(tipSpremembe == 10) 
-          myFile.print(F("Izkl. crpalke rad.: "));
-          
-        NarediTimeStr(ime, now());
-        myFile.print(ime);
-    
-        myFile.print(F("  "));
-        myFile.print(cTemperatura[CRPALKA_0]);
-        myFile.print(F(" ("));
-        myFile.print(cTemperatura[PEC_DV]);
-        myFile.print(F(" - "));
-        myFile.print(cTemperatura[PEC_TC_DV]);
-        myFile.println(F(")"));  
-      } //else
-    }  //else (state = 1)
-    myFile.close();
-  }
-  delay(100);
-}
-
-
-
-//--------------------------------------------------------------------------------
-static void ImeDatoteke(char* ime)
-{
-    
-    sprintf(ime, "%04d%02d%02d.dat", year(), month(), day());
-    
-}
-
-//--------------------------------------------------------------------------------
-static void ImeDatotekeOnOff(char* ime)
-{
-    sprintf(ime, "%02d%02d%02d.dat", year()-2000, month(), day());
-}
-
-void IzpisHex2(int num) {
-  if (num < 0x10)
-    lcdA.print(F("0"));  
-  lcdA.print(num,HEX);
-}
 //--------------------------------------------------------------------------------
 void setup(void)
 {
+  
   char infoSet[8];
-
 //  boolean exist = true;
 //  DeviceAddress tmpAddr;
   
@@ -542,110 +233,13 @@ void setup(void)
   
     //-------------------
   Wire.begin();
-  delay(250);
-  lcdA.begin(20, 2);
-  lcdA.print(F(" LCD OK"));
-  analogWrite(LCD_OSW_SW, 255);
+  
   //-------------------
-  if (ether.begin(sizeof Ethernet::buffer, mymac, ETHER_CS_PIN) == 0) 
-    Serial.println( "Failed to access Ethernet controller");
- 
-  if (!ether.staticSetup(myip, gwip, dnsip)) {
-    Serial.println(F("Preveri povezavo ethernet modula!"));
-  }  
+  LCDInitializacija();
+  EthernetInit();
+  TempSensorsInit(); 
   
   
-    
-  
-  ether.printIp("IP:  ", ether.myip);
-  ether.printIp("GW:  ", ether.gwip); 
-  ether.printIp("DNS: ", ether.dnsip); 
-  
-//  Serial.println(ether.packetLoopIcmpCheckReply(gwip));	
-//  ether.ntpRequest(ntpip, 8888); 
-//  uint32_t *t;
-//  Serial.println(ether.ntpProcessAnswer(t, 0)); 		
-   
-  
-
-  
-  delay(50);
-  dht.begin(); 
-  //Dallas temp. senzor init  
-  // locate devices on the bus
-  // Trenuino samo fiksne addrese
-  
-  FiksAdrrSens(devAddress, type_s);
-  
-
-  Serial.print(numSensDS, DEC);
-  Serial.println(F(" devices."));
-  for (int i=0; i<numSensDS; i++) {
-    PrintAddress(devAddress[i]);
-//    if (OneWire::crc8(devAddress[i], 7) != devAddress[i][7])
-//       type_s[i] = 255; 
-    Serial.print(F(" "));
-    Serial.println(type_s[i]);   
-  }
-
-
-boolean exist = true;
-DeviceAddress tmpAddr;
-
-  while (exist == true) {
-    exist = ds.search(tmpAddr);
-    if (exist == false) {
-      ds.reset_search();
-      delay(250);
-      break;
-    }  
-    if (OneWire::crc8(tmpAddr, 7) != tmpAddr[7]) {
-      sprintf(infoErr," ErrT01 ");
-    }  
-    else {
-//      PrintAddress(tmpAddr);
-    }  
-        
-  }
-
-  
-  if (numSensDS > MAXSENSORS)
-    numSensDS = MAXSENSORS;
-  
-  for (int i=0; i<numSensDS; i++) {
-    lcdA.clear();
-    lcdA.print(F("T "));
-    if (i<10) {
-      lcdA.print(F("0"));
-    }  
-    lcdA.print(i);
-    lcdA.print(F(":"));
-    
-    lcdA.setCursor(0, 1);
-    IzpisHex2(devAddress[i][0]);
-//    lcdA.print(F(" "));
-    IzpisHex2(devAddress[i][1]);
-    lcdA.print(F(" "));
-    IzpisHex2(devAddress[i][2]);
-//    lcdA.print(F(" "));
-    IzpisHex2(devAddress[i][3]);
-    lcdA.print(F(" "));
-    IzpisHex2(devAddress[i][4]);
-//    lcdA.print(F(" "));
-    IzpisHex2(devAddress[i][5]);
-    lcdA.print(F(" "));
-    IzpisHex2(devAddress[i][6]);
-//    lcdA.print(F(" "));
-    IzpisHex2(devAddress[i][7]);
-    lcdA.print(F(" "));
-    
-    PreberiTemperaturo(i, false);
-    delay(convWaitTime);
-    cTemperatura[i] = PreberiTemperaturo(i, true);
-    lcdA.setCursor(7, 0);
-    lcdA.print(cTemperatura[i],1);
-    delay(2000);
-  }
   
   // Start up the RTC
   tmElements_t tm;
@@ -693,28 +287,8 @@ DeviceAddress tmpAddr;
 
   delay(2000);
    
-  
-  // inicializacija SD kartice
-//  Serial.println("SD init..");
-  lcdA.clear();
-  lcdA.print(F("SD Card:"));
-  lcdA.setCursor(0, 1);
-/*  if (!cardSD.init(4, chipSelectSD)) {
-    sprintf(infoErr," Err SDi");
-    Serial.print(infoErr);   
-    lcdA.print(infoErr);
-  } 
-*/  
-  if (!SD.begin(SD_CS_PIN)) {
-    sprintf(infoErr," Err SD");
-    Serial.print(infoErr);   
-    lcdA.print(infoErr);
+  SDInit();  
 
-  } 
-
-  else {
-    lcdA.print(F(" SD OK"));
-  }
   delay(2000);
   
   lcdA.clear();
@@ -725,132 +299,11 @@ DeviceAddress tmpAddr;
   Serial.print(F("Free RAM: "));
   Serial.println(FreeRam()); 
 
-  
+  InitParametri();
   
 //  prevCasMeritve = 0;
 
-
-  i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrOnTime, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4) );
-  delay(5);
-  onTimeTC = u4.ulval;
-  Serial.print(F("OnTime: "));
-  Serial.print(onTimeTC);
-  Serial.println(F("s"));
-
-  delay(5); 
   
-  i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrLastChg, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
-  delay(5);
-  lastTCStateChg = u4.ulval;
-  Serial.print(F("Last TC chg: "));
-  NarediTimeStr(infoSet, lastTCStateChg);
-  Serial.print(day(lastTCStateChg));
-  Serial.print(F("."));
-  Serial.print(month(lastTCStateChg));
-  Serial.print(F("."));
-  Serial.print(year(lastTCStateChg)); 
-  Serial.print(F("  "));
-  Serial.print(infoSet);
-  
-  
- // i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrLastChg+4, AT24C32_ADDR_LENGH, prevTCState);
-  prevTCState = i2c_eeprom_read_byte(AT24C32_I2C_ADDR, addrLastChg+4, AT24C32_ADDR_LENGH);
-  if (prevTCState != 0) {
-    prevTCState = 0;
-    lastTCStateChg = now();
-    u4.ulval = lastTCStateChg;
-    i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrLastChg, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
-    i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrLastChg+4, AT24C32_ADDR_LENGH, prevTCState);
-    Serial.print(F(  "\"prevTCState\" nastavljeno na "));
-    Serial.println(prevTCState);
-  } 
-  else {
-    Serial.println();
-  }  
-  
-  i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrDeltaTh, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
-  delay(5);
-  deltaTh = uf.fval;
-  Serial.print(F("Hir. gret: "));
-  Serial.print(deltaTh, 3);
-  if (deltaTh <= 0 || deltaTh > 10.0) {
-    deltaTh = 4.35;
-    Serial.print(F(" / "));
-    Serial.print(deltaTh, 3);
-    uf.fval =  deltaTh;
-    delay(5);
-    i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrDeltaTh, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
-  }
-  Serial.println(F("K/h"));
-  
- i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrDeltaThOk, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
-  delay(5);
-  deltaThOk = uf.fval;
-  Serial.print(F("Komp.ok.: "));
-  Serial.print(deltaThOk, 4);
-  if (abs(deltaThOk) > 100.0) {
-    deltaThOk = 0.0;
-    Serial.print(F(" / "));
-    Serial.print(deltaThOk, 4);
-    uf.fval =  deltaThOk;
-    delay(5);
-    i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrDeltaThOk, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
-  }
-  Serial.println(F("")); 
-
-  Serial.print(F("Kompenz. temp. okolice pri temp. "));
-  Serial.print(cTemperatura[OKOLICA_0]);
-  Serial.print(F("C je "));
-  Serial.println(KompenzacijaTempOkolice(cTemperatura[OKOLICA_0]),4);
-  
-
-  i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrDeltaThSt, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
-  delay(5);
-  deltaThSt = uf.fval;
-  Serial.print(F("Komp.st.: "));
-  Serial.print(deltaThSt, 4);
-  if (abs(deltaThSt) > 100.0) {
-    deltaThSt = 0.0;
-    Serial.print(F(" / "));
-    Serial.print(deltaThSt, 4);
-    uf.fval =  deltaThSt;
-    delay(5);
-    i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrDeltaThSt, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
-  }
-  Serial.println(F("")); 
-  
-  Serial.print(F("Kompenz. zacetne temp. pri temp. "));
-  Serial.print(cTemperatura[CRPALKA_0]);
-  Serial.print(F("C je "));
-  Serial.println(KompenzZacTemp(cTemperatura[CRPALKA_0]),4);
-
-  
-  for (int j = 0; j < numSensDS; j++) {
-    Serial.print(F("Addres:"));
-    Serial.print(addrTempBack + ((j*histLen))*sizeof(u2));
-    Serial.print(F("  "));
-    for (unsigned int i=0; i < histLen; i++) {   // 7*1440/marXMin
-      addrTmp =  addrTempBack + (i + (j*histLen))*sizeof(u2);
-      i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
-      delay(2);
-      
-      if ((u2.uival) < 100 || (u2.uival) > 12000) {
-        if (i > 0)
-          u2.uival = (sumTemp[j] * 100) /(i);
-        else
-          u2.uival = 5000;
-        delay(2);
-
-        i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
-      }
-      sumTemp[j] += (float)(u2.uival/100.0);
-      delay(10);
-    }
-    Serial.print(j+1);
-    Serial.print(F(": "));
-    Serial.print(AvgVal(sumTemp[j], histLen*1.0), 3); 
-    Serial.println(F(" "));  
-  }    
   
 //  NastaviTempCrpRad(limTempCrpRad, limTempFactCrpRad, crpRadAsAbsTemp);
   temeratureIzmerjene = true;
@@ -897,7 +350,9 @@ void loop(void)
   byte newCrpTCState;
   float alpha;
   char c;
-   
+  char infoSet[8];
+  unsigned int addrTmp;
+  
    
   if (cycStart > 0 && millis() > cycStart) {
     sumCycle += (millis() - cycStart);
@@ -1916,13 +1371,6 @@ static void PreklopiCrpalkoRad(byte newState)
 //
 
 
-//--------------------------------------------------------------------------------
-//
-static float RefTemp()
-{
- // return(AvgAllTimeTemp(CRPALKA_0));
-  return(cTemperatura[CRPALKA_0]);
-}
 
 //--------------------------------------------------------------------------------
 //
@@ -2098,12 +1546,7 @@ float TempIzklopa(void)
 }
 
 
-//--------------------------------------------------------------------------------
 
-static float AvgVal(float suma, float num)
-{
-  return(suma/num);
-}
 
 
 //--------------------------------------------------------------------------------
@@ -2151,151 +1594,7 @@ static boolean UpostevajElTarife(void)
 }
 
 
-//--------------------------------------------------------------------------------------------
-float KompenzacijaTempOkolice(float tOkolice)
-{
-//  return(1 + (20.0 - tOkolice) * deltaThOk);
-  float komp;
-  
-  if (tKompOK == 0) {
-    komp = 1.0;
-  }
-  else {
-    komp = (((tOkolice-tKompOK)/tKompOK)*deltaThOk);
-    komp = 1.0 + komp;
-//    komp = (1.0 - (deltaThOk*((tOkolice-tKomp0)/tKomp0)));  
-  }  
-  
-   return(komp);
-}
 
-//--------------------------------------------------------------------------------------------
-float KompenzZacTemp(float tStart)
-{
-  float komp;
-  float sqtStart;
-  float sqtKompST;
- 
- /* 
-  if (tStart <= tKompSt) {
-//    komp = 1.0;
-    return(1.0);    
-  }  
-*/
-  if (abs(tKompSt) < 0.1) {
-//    komp = 1.0;
-    return(1.0);
-  }  
-  else {
-    sqtStart = tStart*tStart;
-    sqtKompST = tKompSt*tKompSt;
- //   komp = tKompSt*tKompSt - sqtStart;
- //   komp = komp / (sqtStart);
- //   komp = komp * deltaThSt;
-   
-  ////  komp = (((tKompSt*tKompSt - tStart*tStart)/tStart*tStart)*deltaThSt);
-  //  komp = (1 + komp);
-    
-     komp = 1+ (((sqtKompST - sqtStart)/sqtKompST)*deltaThSt);
-  }
-  return(komp); 
-}
-
-
-//--------------------------------------------------------------------------------------------
-
-float IzracDeltaTh() {
-
-  float imenovalec;
-  
-  imenovalec = (KompenzacijaTempOkolice(tempOkolicaSt) * KompenzZacTemp(startTemp) * (Sec2Hour(lastRunTime)));
-  
-  if (abs(imenovalec) < 0.001)
-    return(deltaTh);
-  return((cTemperatura[CRPALKA_0]- startTemp) / imenovalec);
-  
-}  
-
-
-//--------------------------------------------------------------------------------------------
-float IzracDeltaThOk() {
-  float stevec;
-  float imenovalec;
-  float a;
-  
-//  stevec = (startTemp - cTemperatura[CRPALKA_0] + deltaTh* Sec2Hour((float)lastRunTime) * KompenzZacTemp(startTemp));
-//  stevec = stevec * tKomp0;
-  
-  a = deltaTh*Sec2Hour(lastRunTime)*KompenzZacTemp(startTemp);
-  stevec = (cTemperatura[CRPALKA_0] - startTemp - a) * tKompOK;
-  imenovalec = a * (tempOkolicaSt-tKompOK);
-  
-//  stevec = (startTemp - cTemperatura[CRPALKA_0] + deltaTh*Sec2Hour(lastRunTime)*KompenzZacTemp(startTemp)) * tKompOK;
-
-//  imenovalec = (tempOkolicaSt-tKomp0);
-//  imenovalec *= deltaTh;
-//  imenovalec *= Sec2Hour((float)lastRunTime);
-//  imenovalec *= KompenzZacTemp(startTemp);
-
-//  imenovalec = deltaTh*Sec2Hour(lastRunTime)*(tempOkolicaSt-tKompOK)*KompenzZacTemp(startTemp);
-  
-//  if (abs(imenovalec) > 0.01)
-//  if (imenovalec < 0.01 && imenovalec > -0.01)
-  if (abs(imenovalec) < 0.0001)
-    return(deltaThOk);
-  
-  stevec = stevec/imenovalec;
-  
-  if (stevec > 0) {
-    if (deltaThOk > 0.5 && stevec > maxDeltaDev * deltaThOk) {
-      return(maxDeltaDev * deltaThOk);  
-    } 
-    return(stevec);
-  }
-  return(0.0);  
-}   
-
-
-
-
-//--------------------------------------------------------------------------------------------
-float IzracDeltaThSt() {
-  float stevec;
-  float imenovalec;
-  
-  float sqtKompSt = startTemp*startTemp;
-  float sqtKompStRef = tKompSt*tKompSt;
-   
- // stevec = cTemperatura[CRPALKA_0] - startTemp - (deltaTh * Sec2Hour((float)lastRunTime) * KompenzacijaTempOkolice(tempOkolicaSt)); 
- // stevec = stevec * sqtKompSt; 
-  
-  stevec = (cTemperatura[CRPALKA_0] - startTemp - deltaTh * Sec2Hour(lastRunTime) * KompenzacijaTempOkolice(tempOkolicaSt)) * sqtKompStRef;
-  
- // imenovalec = (tKompSt*tKompSt - sqtKompSt);
- // imenovalec *= deltaTh;
- // imenovalec *= Sec2Hour((float)lastRunTime);
- // imenovalec *= KompenzacijaTempOkolice(tempOkolicaSt);
-
-  imenovalec = deltaTh*Sec2Hour(lastRunTime)*(sqtKompStRef - sqtKompSt)*KompenzacijaTempOkolice(tempOkolicaSt);
-  
- // if (abs(imenovalec) > 0.01)
- //   return(stevec/imenovalec);
- // return(deltaThSt);  
-  if (abs(imenovalec) < 0.0001)
-    return(deltaThSt);
-  
-  stevec = stevec/imenovalec;
-  if (stevec > 0) {
-    if (deltaThSt > 0.5 && stevec > maxDeltaDev * deltaThSt) {
-      return(maxDeltaDev * deltaThSt);  
-    }  
-    return(stevec);
-  }
-  return(0.0);    
-  
-    
-
-} 
 //--------------------------------------------------------------------------------------------
 
 static float PovpreciVred(float a, float povVred, float lastVred) {
@@ -2311,22 +1610,5 @@ float Sec2Hour(float sec) {
 }         
 */
 
-static float Cop(void)
-{
-  //float Q;
-  //float W;
-  /*
-  c = 4200; //J/kgK
-  m = 230; //kapaciteta bojlerja 
-  
-  dT = cTemperatura[CRPALKA_0] - startTemp;
-  Q = c * m * dT;
-  W = (porabaWh - zacPorabaWh) * 3600; //VAh *3600
-  */
-  Qv = 4200.0 * 230.0 * (cTemperatura[CRPALKA_0] - startTemp);
-  We = (porabaWH - zacPorabaWH) * 3600.0;
-  if (We > 0)
-    return(Qv/We);
-  return(0);  
-}
+
 

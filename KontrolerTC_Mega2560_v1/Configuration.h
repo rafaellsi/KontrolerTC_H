@@ -54,6 +54,9 @@
 #define BEEP_PIN     29    //buzzer pin
 #define ONE_WIRE_BUS 30    //1-wire na pin D4 - D30
 
+#define DHTPIN 31
+#define DHTTYPE DHT22
+
 #define CEVTERM_PEC_TC  32    //cevni termostat na peci proti TC - vklopi internal pull-up
 //#define stikalo TC_ON 33
 //#define stikalo TC_OFF 34
@@ -104,7 +107,9 @@ int   rad_dv = 5;   // radijatorji, dvizni vod
 int   pec_TC_dv = 6; // dvizni vod proti TC
 */
 
-int numSensDS=0;        //število DS senzorjev
+int numSensDS = 0;        //število DS senzorjev
+int numSensDHT22 = 1;
+int numSensK = 1;
 
 #define  OKOLICA_0  0   // index senzorja okolice
 #define  CRPALKA_0  1   // index sensorja na crpalki
@@ -113,6 +118,25 @@ int numSensDS=0;        //število DS senzorjev
 #define  RAD_PV     4   // radijatorji, povratni vod
 #define  RAD_DV     5   // radijatorji, dvizni vod
 #define  PEC_TC_DV  6   // dvizni vod proti TC
+
+
+typedef union  {
+    byte by[4];
+    unsigned long ulval;
+  } num2byte4b;
+
+typedef union  {
+    byte by[4];
+    float fval;
+  } num2byte4f;
+
+typedef union  {
+    byte by[2];
+    unsigned int uival;
+  } ui2byte2;
+
+ui2byte2 u2;
+
 
 //------------------------------------------
 static byte myip[] = {192,168,1,50}; // ethernet interface ip address
@@ -195,7 +219,7 @@ float maxTempPVRad = 50.0; // max temperatura povratnega voda
 float maxTempDVPec = 90.01; // max. temperatura dviznega voda peci
 float maxDeltaDev = 5.0;
 //------------------------------------------
-num2byte4b u4;
+
 //------------------------------------------
 unsigned int addrLastChg = 0;
 unsigned int addrOnTime = 5;
@@ -208,15 +232,49 @@ unsigned int addrTempBack = 968;     //1024
 //-----------------------------------------
 unsigned int histLen = 168;
 int zapisXMin = 60;
-num2byte4f uf;
+
 //--------------------------------------
+float cTemperatura[MAXSENSORS];
+byte type_s[MAXSENSORS];          //tip temp sensorja 
+float sumTemp[MAXSENSORS];
 
+unsigned long onTimeTC = 0;
+byte prevTCState;
+unsigned long lastTCStateChg = 0;
 
+unsigned long casMeritve;        //cas meritve parametrov
+unsigned long prevCasMeritve;    //cas prejšnje meritve parametrov
 
+float hitrGret = 0;
+float startTemp;
 
+float lastDeltaTh;
+float lastDeltaThOk;
+float lastDeltaThSt;
+
+unsigned long lastRunTime;
+float tempOkolicaSt;
+
+float zacPorabaWH;
+float Qv;
+float We;
+float porabaWH;
+
+char infoErr[8];
+
+num2byte4b u4;
+num2byte4f uf;
 
 typedef uint8_t DeviceAddress[8];
 //definicija naslovov senzorjev
+
+
+LiquidCrystal lcdA(LCD_RS, LCD_RW, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
+//DHT22 myDHT22(DHT22_PIN);
+DHT dht(DHTPIN, DHTTYPE);
+// 1-Wire spremneljivke
+OneWire ds(ONE_WIRE_BUS);
+
 void FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
 {
 /*

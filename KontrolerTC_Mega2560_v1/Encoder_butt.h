@@ -25,12 +25,6 @@ void loop();
 void setup();
 */
 
-void Beep(unsigned char delayms) {
-  digitalWrite(BEEP_PIN, HIGH);      // Almost any value can be used except 0 and 255
-                           // experiment to get the best tone
-  delay(delayms);          // wait for a delayms ms
-  digitalWrite(BEEP_PIN, LOW);       // 0 turns it off  
-}  
 
 // -----------------------------------------------------------------------------
 // Interrupt service routine is executed when a HIGH to LOW transition is detected on CLK

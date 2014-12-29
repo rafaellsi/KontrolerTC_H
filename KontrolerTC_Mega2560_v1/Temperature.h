@@ -1,22 +1,23 @@
 #ifndef Temperature_h
 #define Temperatue_h
 
-#define DHTPIN 31
-#define DHTTYPE DHT22
+
+
 
 #include <DHT.h>
 
 
-//DHT22 myDHT22(DHT22_PIN);
-DHT dht(DHTPIN, DHTTYPE);
-// 1-Wire spremneljivke
-OneWire ds(ONE_WIRE_BUS);
+extern void IzpisHex2(int num);
+
+static void PrintAddress(DeviceAddress deviceAddress);
+static float PreberiTemperaturoDS(int cSens, boolean zahtevajBranje);
+
+
+
 
 DeviceAddress devAddress[MAXSENSORS];  //
 
-float cTemperatura[MAXSENSORS];
-byte type_s[MAXSENSORS];          //tip temp sensorja 
-float sumTemp[MAXSENSORS];
+
 //unsigned long  numMer[MAXSENSORS];
 
 //int numMer=0;
@@ -29,9 +30,106 @@ boolean temeratureIzmerjene=true;
 
 //float cTemperatura_TC[60];
 
+void TempSensorsInit(void) {
+  dht.begin(); 
+  //Dallas temp. senzor init  
+  // locate devices on the bus
+  // Trenuino samo fiksne addrese
+  
+  FiksAdrrSens(devAddress, type_s);
+  
+
+  Serial.print(numSensDS, DEC);
+  Serial.println(F(" devices."));
+  for (int i=0; i<numSensDS; i++) {
+    PrintAddress(devAddress[i]);
+//    if (OneWire::crc8(devAddress[i], 7) != devAddress[i][7])
+//       type_s[i] = 255; 
+    Serial.print(F(" "));
+    Serial.println(type_s[i]);   
+  }
+
+
+boolean exist = true;
+DeviceAddress tmpAddr;
+
+  while (exist == true) {
+    exist = ds.search(tmpAddr);
+    if (exist == false) {
+      ds.reset_search();
+      delay(250);
+      break;
+    }  
+    if (OneWire::crc8(tmpAddr, 7) != tmpAddr[7]) {
+      sprintf(infoErr," ErrT01 ");
+    }  
+    else {
+//      PrintAddress(tmpAddr);
+    }  
+        
+  }
+
+  
+  if (numSensDS + numSensDHT22 + numSensK > MAXSENSORS) {
+    Beep(200);
+    Serial.println(F(""));
+    Serial.println(F("Stevilo temp. senzorjev se ne ujema!!"));
+    lcdA.clear();
+    lcdA.print(F("Stevilo senzorjev"""));
+    Beep(200);
+    numSensDS = MAXSENSORS - numSensDHT22 - numSensK;
+  }
+  
+  for (int i=0; i<numSensDS; i++) {
+    lcdA.clear();
+    lcdA.print(F("T "));
+    if (i<10) {
+      lcdA.print(F("0"));
+    }  
+    lcdA.print(i);
+    lcdA.print(F(":"));
+    
+    lcdA.setCursor(0, 1);
+    for (int j=0; j<8; j++) {
+      IzpisHex2(devAddress[i][j]);
+      if (j%2 == 1)
+        lcdA.print(F(" "));    
+    }
+/*    
+    IzpisHex2(devAddress[i][0]);
+//    lcdA.print(F(" "));
+    IzpisHex2(devAddress[i][1]);
+    lcdA.print(F(" "));
+    IzpisHex2(devAddress[i][2]);
+//    lcdA.print(F(" "));
+    IzpisHex2(devAddress[i][3]);
+    lcdA.print(F(" "));
+    IzpisHex2(devAddress[i][4]);
+//    lcdA.print(F(" "));
+    IzpisHex2(devAddress[i][5]);
+    lcdA.print(F(" "));
+    IzpisHex2(devAddress[i][6]);
+//    lcdA.print(F(" "));
+    IzpisHex2(devAddress[i][7]);
+    lcdA.print(F(" "));
+*/    
+    PreberiTemperaturoDS(i, false);
+    delay(convWaitTime);
+    cTemperatura[i] = PreberiTemperaturoDS(i, true);
+    lcdA.setCursor(7, 0);
+    lcdA.print(cTemperatura[i],1);
+    delay(2000);
+  }
+  
+}  
+
+
+
+
+
 //--------------------------------------------------------------------------------
 // branje senzorja
-static float PreberiTemperaturo(int cSens, boolean zahtevajBranje)
+static float PreberiTemperaturoDS(int cSens, boolean zahtevajBranje)
 {
   byte present = 0;
   unsigned int raw;
@@ -134,11 +232,11 @@ static boolean PreberiTemperatureDS(boolean zahtevajBranje, boolean allSens = fa
   float cTemp;
   
   if (allSens && !zahtevajBranje) {
-    cTemp = PreberiTemperaturo(MAXSENSORS, zahtevajBranje);  
+    cTemp = PreberiTemperaturoDS(MAXSENSORS, zahtevajBranje);  
   }
   else {
     for (int i=0; i<numSensDS; i++) {
-      cTemp = PreberiTemperaturo(i, zahtevajBranje);
+      cTemp = PreberiTemperaturoDS(i, zahtevajBranje);
       if (cTemp < -1000.0) {
         continue;
       }  
