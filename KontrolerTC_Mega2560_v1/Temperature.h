@@ -11,9 +11,12 @@ extern void IzpisHex2(int num);
 
 static void PrintAddress(DeviceAddress deviceAddress);
 static float PreberiTemperaturoDS(int cSens, boolean zahtevajBranje);
+float PreberiTemperaturoDHT22(int n);
+float PreberiVlaznostDHT22(int n);
+float IzracunTRosicsa(int n);
+float IzracunHumidex(int n);
 
-
-
+float PreberiTemperaturoK(int n);
 
 DeviceAddress devAddress[MAXSENSORS];  //
 
@@ -64,13 +67,13 @@ DeviceAddress tmpAddr;
       sprintf(infoErr," ErrT01 ");
     }  
     else {
-//      PrintAddress(tmpAddr);
+//      PrintAddress(tmpAddr);  //dodaj preverjanje address
     }  
         
   }
 
-  
-  if (numSensDS + numSensDHT22 + numSensK > MAXSENSORS) {
+  numSens = numSensDS + numSensDHT22 + numSensK; 
+  if (numSens > MAXSENSORS) {
     Beep(200);
     Serial.println(F(""));
     Serial.println(F("Stevilo temp. senzorjev se ne ujema!!"));
@@ -227,12 +230,22 @@ static float PreberiTemperaturoDS(int cSens, boolean zahtevajBranje)
 
 //--------------------------------------------------------------------------------
 // Branje vseh temp. senzorjev
-static boolean PreberiTemperatureDS(boolean zahtevajBranje, boolean allSens = false)
+static boolean PreberiTemperature(boolean zahtevajBranje, boolean allSens = false)
 {
   float cTemp;
   
   if (allSens && !zahtevajBranje) {
-    cTemp = PreberiTemperaturoDS(MAXSENSORS, zahtevajBranje);  
+    cTemp = PreberiTemperaturoDS(MAXSENSORS, zahtevajBranje);
+    
+    for (int i=numSensDS; i<(numSensDS + numSensDHT22); i++) {
+      cTemperatura[i] = PreberiTemperaturoDHT22(i-numSensDS);
+      cVlaznost[i-numSensDS] = PreberiVlaznostDHT22(i-numSensDS);
+      cTempRosicsa[i-numSensDS] = IzracunTRosicsa(i-numSensDS);
+      cHumidex[i-numSensDS] = IzracunHumidex(i-numSensDS);
+    }
+    for (int i=(numSensDS + numSensDHT22); i<(numSensDS + numSensDHT22 + numSensK); i++) {
+      cTemperatura[i] = PreberiTemperaturoK(i - numSensDS + numSensDHT22);  
+    }  
   }
   else {
     for (int i=0; i<numSensDS; i++) {
@@ -254,6 +267,102 @@ static boolean PreberiTemperatureDS(boolean zahtevajBranje, boolean allSens = fa
   return(zahtevajBranje);  
 }
 
+//--------------------------------------------------------------------------------
+float PreberiTemperaturoDHT22(int n) {
+  float temp;
+  
+  temp = dht.readTemperature();
+  if (isnan(temp)) {
+//    return(cTemperatura[n+numSensDS]);
+    return(-100.0);
+  }  
+  return(temp);
+}
+
+//--------------------------------------------------------------------------------
+float PreberiVlaznostDHT22(int n) {
+  float vlaz;
+  
+  vlaz = dht.readHumidity();
+  if (isnan(vlaz)) {
+//    return(cVlaznost[n]);
+    return(-1.0);
+  } 
+  return(vlaz);
+}
+
+//--------------------------------------------------------------------------------
+float IzracunTRosicsa(int n) {
+  return(cTemperatura[n + numSensDS] - (100.0 - cVlaznost[n])/5.0); 
+}
+
+//--------------------------------------------------------------------------------
+float IzracunHumidex(int n) {
+  
+  float humidex = cTemperatura[n + numSensDS] + 0.5555 * (6.11 * exp(5417.7530 * ((1/273.16)-(1/(cTempRosicsa[n]+273.16)))) -10.0);
+  return (humidex);
+}
+
+//--------------------------------------------------------------------------------
+float PreberiTemperaturoK(int n) {
+  int numSamples = 3;
+  int tempRaw = 0;
+  
+  noInterrupts();
+  for (int i=0; i<numSamples; i++) {
+    tempRaw += analogRead(T_KTYP_01_PIN);
+  }
+  interrupts();
+  tempRaw /= numSamples;
+  
+  return(vccInternal * 100.0 * tempRaw/1023.0);
+}  
+
+/*
+  cTemperatura[numSensDS] = dht.readTemperature();
+  cVlaznost[0] = dht.readHumidity();
+
+  if (isnan(cTemperatura[numSensDS]) || isnan(cVlaznost[0])) {
+    return;
+  }  
+  Serial.print(F("T"));
+  Serial.print(numSensDS+1);
+  Serial.print(F(":"));
+  Serial.print(cTemperatura[numSensDS], 2);  
+  Serial.print(F(" RH:"));
+  Serial.print(cVlaznost[0], 2);
+  
+  float Tdp = cTemperatura[numSensDS] - (100.0 - cVlaznost[0])/5.0;
+  float humidex = cTemperatura[numSensDS] + 0.5555 * (6.11 * exp(5417.7530 * ((1/273.16)-(1/(Tdp+273.16)))) -10.0);
+
+
+  Serial.print(F("-Tdp:"));
+  Serial.print(Tdp, 2); 
+  Serial.print(F(" Hum:"));
+  Serial.print(humidex, 2);
+  Serial.print(F("-"));
+  
+  
+  int numSamples = 3;
+  int tempRaw = 0;
+  
+  noInterrupts();
+  for (int i=0; i<numSamples; i++) {
+    tempRaw += analogRead(T_KTYP_01_PIN);
+  }
+  interrupts();
+  tempRaw /= numSamples;
+  
+  Serial.print(F("K:"));
+  cTemperatura[numSensDS+1] = (vccInternal * 100.0 * tempRaw/1023.0);
+  Serial.print(cTemperatura[numSensDS+1], 2);
+  Serial.print(F(" ("));
+  Serial.print(tempRaw);
+  Serial.print(F("/"));
+  Serial.print(cTemperatura[numSensDS+1] - cTemperatura[numSensDS], 2);
+  Serial.print(F(")-"));
+
+*/
 
 //--------------------------------------------------------------------------------
 // function to print a device address
@@ -338,52 +447,30 @@ static void PrintTemperatureAll(void)
     Serial.print(F("-"));
   }
   
-  
-  cTemperatura[numSensDS] = dht.readTemperature();
-  float h = dht.readHumidity();
-  if (isnan(cTemperatura[numSensDS]) || isnan(h)) {
-    return;
-  }  
-  Serial.print(F("T"));
-  Serial.print(numSensDS+1);
-  Serial.print(F(":"));
-  Serial.print(cTemperatura[numSensDS], 2);  
-  Serial.print(F(" RH:"));
-  Serial.print(dht.readHumidity(), 2);
-  
-  float Tdp = cTemperatura[numSensDS] - (100.0 - h)/5.0;
-  float humidex = cTemperatura[numSensDS] + 0.5555 * (6.11 * exp(5417.7530 * ((1/273.16)-(1/(Tdp+273.16)))) -10.0);
-/*
-  float f = dht.readTemperature(true);
-  Serial.print(F(" Hidx:"));
-  Serial.print(dht.convertFtoC(dht.computeHeatIndex(f, h)), 2);
-  Serial.print(F("-"));
-*/
-  Serial.print(F("-Tdp:"));
-  Serial.print(Tdp, 2); 
-  Serial.print(F(" Hum:"));
-  Serial.print(humidex, 2);
-  Serial.print(F("-"));
-  
-  
-  int numSamples = 3;
-  int tempRaw = 0;
-  
-  noInterrupts();
-  for (int i=0; i<numSamples; i++) {
-    tempRaw += analogRead(T_KTYP_01_PIN);
+  for (int i=numSensDS; i<(numSensDS + numSensDHT22); i++) {
+    Serial.print(F("T"));
+    Serial.print(i+1);
+    Serial.print(F(":"));
+    Serial.print(cTemperatura[i], 2);
+    Serial.print(F("/"));
+    Serial.print(cVlaznost[i-numSensDS]);
+    Serial.print(F("/"));
+    Serial.print(cTempRosicsa[i-numSensDS]);
+    Serial.print(F("/"));
+    Serial.print(cHumidex[i-numSensDS]);
+    Serial.print(F("-"));   
   }
-  interrupts();
-  tempRaw /= numSamples;
-  
-  Serial.print(F("K:"));
-  cTemperatura[numSensDS+1] = (vccInternal * 100.0 * tempRaw/1023.0);
-  Serial.print(cTemperatura[numSensDS+1], 2);
-  Serial.print(F(" ("));
-  Serial.print(tempRaw);
-  Serial.print(F("/"));
-  Serial.print(cTemperatura[numSensDS+1] - cTemperatura[numSensDS], 2);
-  Serial.print(F(")-"));
+  for (int i=numSensDS + numSensDHT22; i<(numSensDS + numSensDHT22 + numSensK); i++) {
+    Serial.print(F("T"));
+    Serial.print(i+1);
+    Serial.print(F(":"));
+    Serial.print(cTemperatura[i], 2);
+
+    Serial.print(F("/"));
+    Serial.print(cTemperatura[i] - cTemperatura[numSensDS], 2);
+
+    Serial.print(F("-"));   
+  }
   
 }
 

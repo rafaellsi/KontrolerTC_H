@@ -70,11 +70,16 @@ static void PrintTempAllSDbin(void)
     myFile.print(F(" "));
     myFile.print(casMeritve);
     
-    for (int i=0; i<numSensDS; i++) { 
+    for (int i=0; i<numSens; i++) { 
       myFile.print(F(" "));
       myFile.print(cTemperatura[i]);
       
     }
+    for (int i=numSens; i<numSens+numSensDHT22; i++) {
+      myFile.print(F("C  "));
+      myFile.print(cVlaznost[i]);
+      myFile.print(F("%"));
+    }  
     myFile.print(F(" "));
     if (releState_1 == R_TC_ON) {
       if (prevTCState == 1) 

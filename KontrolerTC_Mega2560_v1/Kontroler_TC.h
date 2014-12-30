@@ -2,7 +2,7 @@
 #ifndef Kontroler_TC_h
 #define Kontroler_TC_h
 
-#include "Configuration.h"
+//#include "Configuration.h"
 
 /*
 #include <inttypes.h>
@@ -36,10 +36,12 @@ static float Sec2Hour(unsigned long sec)
   return((float)sec/(float)SECS_PER_HOUR);
 }
 
+  unsigned int addrTmp;
 //--------------------------------------------------------------------------------
 void InitParametri(void) {
-  char infoSet[8];
-  unsigned int addrTmp;
+  char infoTime[9];
+//  char infoSet[8];
+//  unsigned int addrTmp;
   
   i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrOnTime, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4) );
   delay(5);
@@ -54,14 +56,14 @@ void InitParametri(void) {
   delay(5);
   lastTCStateChg = u4.ulval;
   Serial.print(F("Last TC chg: "));
-  NarediTimeStr(infoSet, lastTCStateChg);
+  NarediTimeStr(infoTime, lastTCStateChg);
   Serial.print(day(lastTCStateChg));
   Serial.print(F("."));
   Serial.print(month(lastTCStateChg));
   Serial.print(F("."));
   Serial.print(year(lastTCStateChg)); 
   Serial.print(F("  "));
-  Serial.print(infoSet);
+  Serial.print(infoTime);
   
   
  // i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrLastChg+4, AT24C32_ADDR_LENGH, prevTCState);
@@ -76,7 +78,7 @@ void InitParametri(void) {
     Serial.println(prevTCState);
   } 
   else {
-    Serial.println();
+    Serial.println("");
   }  
   
   i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrDeltaTh, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
@@ -136,7 +138,7 @@ void InitParametri(void) {
   Serial.println(KompenzZacTemp(cTemperatura[CRPALKA_0]),4);
 
   
-  for (int j = 0; j < numSensDS; j++) {
+  for (int j = 0; j < numSens; j++) {
     Serial.print(F("Addres:"));
     Serial.print(addrTempBack + ((j*histLen))*sizeof(u2));
     Serial.print(F("  "));

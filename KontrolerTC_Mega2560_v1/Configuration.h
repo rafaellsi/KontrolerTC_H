@@ -4,6 +4,7 @@
 //#define INTFACT
 #define VERSION "v1"
 #define MAXSENSORS 9     //maksimalno stevilo temp sensorjev DS18x20
+#define MAX_DHT22_SENS 1
 
 //----------
 #define NED  1    //nedelja, kot rezltat weekday()...
@@ -110,8 +111,9 @@ int   pec_TC_dv = 6; // dvizni vod proti TC
 int numSensDS = 0;        //število DS senzorjev
 int numSensDHT22 = 1;
 int numSensK = 1;
+int numSens;
 
-#define  OKOLICA_0  0   // index senzorja okolice
+#define  OKOLICA_0  7   // index senzorja okolice
 #define  CRPALKA_0  1   // index sensorja na crpalki
 #define  PEC_PV     2   // pec, povratni vod
 #define  PEC_DV     3   // pecc, dvizni vod
@@ -237,6 +239,11 @@ int zapisXMin = 60;
 float cTemperatura[MAXSENSORS];
 byte type_s[MAXSENSORS];          //tip temp sensorja 
 float sumTemp[MAXSENSORS];
+
+float cVlaznost[MAX_DHT22_SENS];
+float cHumidex[MAX_DHT22_SENS];
+float cTempRosicsa[MAX_DHT22_SENS];
+
 
 unsigned long onTimeTC = 0;
 byte prevTCState;
@@ -476,19 +483,19 @@ void FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
     Serial.print(i);
     switch (devAddress[6][0]) {
       case 0x10:
-        Serial.println(": DS18S20");  // or old DS1820
+        Serial.println(F(": DS18S20"));  // or old DS1820
         type_s[i] = 1;
         break;
       case 0x28:
-        Serial.println(": DS18B20");
+        Serial.println(F(": DS18B20"));
         type_s[i] = 0;
         break;
       case 0x22:
-        Serial.println(": DS1822");
+        Serial.println(F(": DS1822"));
         type_s[i] = 0;
         break;
       default:
-        Serial.println(": ni DS18x20 family device.");
+        Serial.println(F(": ni DS18x20 family device."));
         return;
     }
   }   

@@ -202,7 +202,7 @@ static void printData()
 void setup(void)
 {
   
-  char infoSet[8];
+  char infoSet[9];
 //  boolean exist = true;
 //  DeviceAddress tmpAddr;
   
@@ -350,8 +350,7 @@ void loop(void)
   byte newCrpTCState;
   float alpha;
   char c;
-  char infoSet[8];
-  unsigned int addrTmp;
+  
   
    
   if (cycStart > 0 && millis() > cycStart) {
@@ -467,16 +466,16 @@ void loop(void)
   stateCevStPecTC = digitalRead(CEVTERM_PEC_TC);
   
   if (((now()/(merXMin*60)) > (prevCasMeritve/(merXMin*60))) && temeratureIzmerjene == true) {  /* || (minute() < 30 && prevMinute > 30)*/
-//    temeratureIzmerjene = PreberiTemperatureDS(false, true);
-    PreberiTemperatureDS(false, true);
+//    temeratureIzmerjene = PreberiTemperature(false, true);
+    PreberiTemperature(false, true);
     temeratureIzmerjene = false;
     casMeritve = now();
     
   }
   if ((now() >= (casMeritve + convWaitTime/1000)) && (temeratureIzmerjene == false)) {
 //  if (now()/(merXMin*60) > prevCasMeritve/(merXMin*60)) {  /* || (minute() < 30 && prevMinute > 30)*/
-//    temeratureIzmerjene = PreberiTemperatureDS(true, false);
-    PreberiTemperatureDS(true, false);
+//    temeratureIzmerjene = PreberiTemperature(true, false);
+    PreberiTemperature(true, false);
     temeratureIzmerjene = true;
     casMeritve = now();
 
@@ -626,7 +625,8 @@ void loop(void)
     
     if (prevCasMeritve/(zapisXMin*60) < now()/(zapisXMin*60)) {     
       Serial.println(F(""));
-      for (int j = 0; j < numSensDS; j++) {
+//      for (int j = 0; j < numSensDS; j++) {
+      for (int j = 0; j < numSens; j++) {
 //        addrTmp = elapsedSecsToday(now())/(zapisXMin*60);
         addrTmp = ObsegZgodovine(j);
 //        addrTmp += (j * histLen);    

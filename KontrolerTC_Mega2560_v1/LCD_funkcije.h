@@ -34,7 +34,7 @@ static void PrintDigitsLCDA(int digits)
 
 
 int infoModeLCD = -1;
-int infoModeLCDMax = 2;
+int infoModeLCDMax = 3;
 
 extern float TempVklopa(void);
 extern float TempIzklopa(void);
@@ -81,6 +81,32 @@ void IzpisiNaLCD()
        lcdA.print(cas);
        
        lcdA.setCursor(0, 1);
+       lcdA.print(F("T:"));
+//       lcdA.setCursor(2, 1);
+       lcdA.print(cTemperatura[OKOLICA_0], 1);
+       
+       lcdA.print(F("C RH:"));
+//       lcdA.setCursor(11, 1);
+       lcdA.print(cVlaznost[0], 0);
+       
+       lcdA.print(F("% "));
+//       lcdA.setCursor(18, 1); 
+       lcdA.print(cHumidex[0], 1);
+       lcdA.print(F("C"));
+//       infoModeLCD=10;
+    break;
+    
+    case 1:
+       PrintDigitsLCDA(day());
+       lcdA.print(F("."));
+       PrintDigitsLCDA(month());
+       lcdA.print(F("."));
+       PrintDigitsLCDA(year()); 
+       lcdA.setCursor(11, 0);
+       NarediTimeStr(cas, now(), true);
+       lcdA.print(cas);
+       
+       lcdA.setCursor(0, 1);
        lcdA.print(F("T TC:"));
        lcdA.setCursor(7, 1);
        lcdA.print(cTemperatura[CRPALKA_0], 2);
@@ -100,8 +126,8 @@ void IzpisiNaLCD()
        
 //       infoModeLCD=10;
     break;
-
-    case 1:
+    
+    case 2:
       lcdA.print(F("T"));
 //      lcdA.print(infoModeLCD-10+1);
       lcdA.print(F(":"));
@@ -133,7 +159,7 @@ void IzpisiNaLCD()
 //        infoModeLCD = 20; 
     break;
 
-    case 2:
+    case 3:
       lcdA.print(F("Tok:"));
       lcdA.setCursor(4, 0);
       lcdA.print(AC_mimax(false, true), 3);

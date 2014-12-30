@@ -60,6 +60,11 @@ static word homePage() {
   char t4[6];
   char t5[6];
   char t6[6];
+  char t7[6];
+  char t8[6];
+  char rh[6];
+  char hum[6];
+  
   dtostrf(cTemperatura[0], 2, 2, t0);
   dtostrf(cTemperatura[1], 2, 2, t1);
   dtostrf(cTemperatura[2], 2, 2, t2);
@@ -67,6 +72,11 @@ static word homePage() {
   dtostrf(cTemperatura[4], 2, 2, t4);
   dtostrf(cTemperatura[5], 2, 2, t5);
   dtostrf(cTemperatura[6], 2, 2, t6);
+  dtostrf(cTemperatura[7], 2, 2, t7);
+  dtostrf(cTemperatura[8], 2, 2, t8);
+  
+  dtostrf(cVlaznost[0], 2, 2, rh);
+  dtostrf(cHumidex[0], 2, 2, hum);
   
   char itime[17];
   sprintf(itime, "%02d.%02d.%d %02d:%02d", day(), month(), year(), hour(), minute());
@@ -79,9 +89,13 @@ static word homePage() {
     "<meta http-equiv='refresh' content='59'/>"
     "<title>Info server</title>"
     "<h1> $S</h1>"
-    "<h3> T0: $SC <br> T1: $SC <br> T2: $SC <br> T3: $SC <br> T4: $SC <br> T5: $SC <br> T6: $SC</h3>"),
+    "<h3> T1: $SC <br> T2: $SC <br> T3: $SC <br> T4: $SC <br> T5: $SC <br> T6: $SC <br> T7: $SC <br> T8: $SC <br> T9: $SC <br>"
+    "RH: $S% <br>"
+    "Humidex: $SC</h3> <br>"),
       itime, 
-      t0, t1, t2, t3, t4, t5, t6);
+      t0, t1, t2, t3, t4, t5, t6, t7, t8,
+      rh,
+      hum);
   return bfill.position();
 }
 //--------------------------------------------------------------------------------
