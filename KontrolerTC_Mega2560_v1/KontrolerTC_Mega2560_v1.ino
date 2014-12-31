@@ -129,7 +129,7 @@ int prevMinute = -1;
 
 
 // rele spremenljivke
-boolean releState_1 = R_TC_OFF;  // stanje releja vklopa TC
+//boolean releState_1 = R_TC_OFF;  // stanje releja vklopa TC
 unsigned long lastReleChg;    // cas zadnje spremembe stanja releja TC
 
 // LCD
@@ -206,27 +206,8 @@ void setup(void)
 //  boolean exist = true;
 //  DeviceAddress tmpAddr;
   
-  // init portov
-  pinMode(BEEP_PIN, OUTPUT);
-  
-  pinMode(RELE_TC, OUTPUT);
-  digitalWrite(RELE_TC, releState_1);
-  
-  pinMode(RELE_CTC, OUTPUT);
-  PreklopiCrpalkoTC(0);
-  
-  pinMode(RELE_CRAD, OUTPUT);
-  digitalWrite(RELE_CRAD, R_CRAD_OFF);
-  
-  pinMode(VENTTC_1, OUTPUT);
-  pinMode(VENTTC_2, OUTPUT);
-  pinMode(VENTTC_EN, OUTPUT);
-  digitalWrite(VENTTC_EN, HIGH);
-  
-  pinMode(SD_CS_PIN, OUTPUT);
-  
-  pinMode(CEVTERM_PEC_TC, INPUT_PULLUP);
-  
+  NastavitevPinov();
+
   Serial.begin(57600);
   Serial.println(VERSION);
   
@@ -237,6 +218,9 @@ void setup(void)
   //-------------------
   LCDInitializacija();
   EthernetInit();
+  
+  PreveriNapetosti(true, true, false);
+  
   TempSensorsInit(); 
   
   
@@ -310,7 +294,7 @@ void setup(void)
   prevCasMeritve = now();
   casMeritve = now();
   
-  PreveriNapetosti(true, true, false);
+  
   
   
   
@@ -1150,7 +1134,7 @@ static boolean RelaksTimeLimitSec(unsigned long cTime, unsigned long pTime,int r
 }
 
 //--------------------------------------------------------------------------------
-static void PreklopiCrpalkoTC(byte newState)
+void PreklopiCrpalkoTC(byte newState)
 {
   char cas[13];
   

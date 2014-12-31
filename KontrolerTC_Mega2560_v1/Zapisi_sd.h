@@ -8,6 +8,7 @@ Sd2Card cardSD;
 
 File myFile;
 
+//--------------------------------------------------------------------------------
 void SDInit(void) {  
   // inicializacija SD kartice
 //  Serial.println("SD init..");

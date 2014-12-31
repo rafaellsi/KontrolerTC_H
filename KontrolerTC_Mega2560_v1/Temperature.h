@@ -2,15 +2,16 @@
 #define Temperatue_h
 
 
-
-
 #include <DHT.h>
 
-
+//deklaracije zunanjih funkcij
 extern void IzpisHex2(int num);
 
-static void PrintAddress(DeviceAddress deviceAddress);
+//deklaracije internih funkcij
+void TempSensorsInit(void);
 static float PreberiTemperaturoDS(int cSens, boolean zahtevajBranje);
+static boolean PreberiTemperature(boolean zahtevajBranje, boolean allSens);
+
 float PreberiTemperaturoDHT22(int n);
 float PreberiVlaznostDHT22(int n);
 float IzracunTRosicsa(int n);
@@ -18,30 +19,35 @@ float IzracunHumidex(int n);
 
 float PreberiTemperaturoK(int n);
 
+static void PrintAddress(DeviceAddress deviceAddress);
+static void PrintTemperatureAll(void);
+
+time_t processSyncMessage();
+static float AutoTimeUnitConv(unsigned long cas, char *cunits);
+static boolean IsNTempCas();
+static boolean IsCasTransfTopl();
+static boolean IsWeekend();
+static unsigned int ObsegZgodovine(int sensor, unsigned int pred);
+void last24H_Info(void);
+
+//definicija spremenljivk
 DeviceAddress devAddress[MAXSENSORS];  //
-
-
-//unsigned long  numMer[MAXSENSORS];
-
-//int numMer=0;
-
-
-
 unsigned long convWaitTime = 1000;
 boolean temeratureIzmerjene=true;
 
 
-//float cTemperatura_TC[60];
-
+//--------------------------------------------------------------------------------
+// Inicializacija temp. senzorjev
 void TempSensorsInit(void) {
-  dht.begin(); 
+  
   //Dallas temp. senzor init  
   // locate devices on the bus
   // Trenuino samo fiksne addrese
   
-  FiksAdrrSens(devAddress, type_s);
   
-
+  // incializacija DS18x20 temp. .. senzorjev
+  FiksAdrrSens(devAddress, type_s);
+  Serial.println(F(""));
   Serial.print(numSensDS, DEC);
   Serial.println(F(" devices."));
   for (int i=0; i<numSensDS; i++) {
@@ -53,8 +59,8 @@ void TempSensorsInit(void) {
   }
 
 
-boolean exist = true;
-DeviceAddress tmpAddr;
+  boolean exist = true;
+  DeviceAddress tmpAddr;
 
   while (exist == true) {
     exist = ds.search(tmpAddr);
@@ -98,7 +104,9 @@ DeviceAddress tmpAddr;
       if (j%2 == 1)
         lcdA.print(F(" "));    
     }
-/*    
+    
+     
+/*  
     IzpisHex2(devAddress[i][0]);
 //    lcdA.print(F(" "));
     IzpisHex2(devAddress[i][1]);
@@ -124,6 +132,44 @@ DeviceAddress tmpAddr;
     delay(2000);
   }
   
+  // incializacija ost. temp. .. senzorjev
+  dht.begin();
+  for (int i=numSensDS; i<numSensDS + numSensDHT22; i++) {
+    cTemperatura[i] = PreberiTemperaturoDHT22(i-numSensDS);
+    if (cTemperatura[i] < -100) {
+      Serial.print(F("Napaka DHT22 senzorja!!"));
+      lcdA.print(F("Napaka DHT22 senzorja!!"));
+    }
+    lcdA.clear();
+    lcdA.print(F("T "));
+    if (i<10) {
+      lcdA.print(F("0"));
+    }  
+    lcdA.print(i);
+    lcdA.print(F(":"));
+    
+    lcdA.setCursor(0, 1);
+    lcdA.print(F(" DHT22 senzor"));
+        lcdA.setCursor(7, 0);
+    lcdA.print(cTemperatura[i],1); 
+    delay(2000);    
+  }
+  for (int i=numSensDS + numSensDHT22; i<numSensDS + numSensDHT22 + numSensK; i++) {
+    cTemperatura[i] = PreberiTemperaturoK(i-numSensDS-numSensDHT22);
+    lcdA.clear();
+    lcdA.print(F("T "));
+    if (i<10) {
+      lcdA.print(F("0"));
+    }  
+    lcdA.print(i);
+    lcdA.print(F(":"));
+    
+    lcdA.setCursor(0, 1);
+    lcdA.print(F(" K-type senzor"));
+    lcdA.setCursor(7, 0);
+    lcdA.print(cTemperatura[i],1);
+    delay(2000);    
+  }    
 }  
 
 
@@ -274,7 +320,7 @@ float PreberiTemperaturoDHT22(int n) {
   temp = dht.readTemperature();
   if (isnan(temp)) {
 //    return(cTemperatura[n+numSensDS]);
-    return(-100.0);
+    return(-101.0);
   }  
   return(temp);
 }
@@ -379,11 +425,13 @@ static void PrintAddress(DeviceAddress deviceAddress)
 }
 
 
+//--------------------------------------------------------------------------------
+// function to print the temperature for a device
 float sumCTemp=0.0;
 float sumCTempEMA=0.0;
 extern float vccInternal;
-//--------------------------------------------------------------------------------
-// function to print the temperature for a device
+
+
 static void PrintTemperatureAll(void)
 {
   unsigned int addrTmp;
@@ -645,6 +693,7 @@ static unsigned int ObsegZgodovine(int sensor, unsigned int pred =0)
 
 
 
+//-------------------------
 float sum24[MAXSENSORS];
 //float temp24[MAXSENSORS][24];
 //unsigned long temp24Time[MAXSENSORS][24];
@@ -652,7 +701,7 @@ float maxTemp24[MAXSENSORS];
 float minTemp24[MAXSENSORS];
 unsigned long maxTemp24Time[MAXSENSORS];
 unsigned long minTemp24Time[MAXSENSORS];
-//int chour=0;
+
 //-------------------------------------------------------------------------------
 void last24H_Info(void)
 {

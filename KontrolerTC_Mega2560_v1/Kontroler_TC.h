@@ -11,10 +11,35 @@
 
 //#include <Arduino.h>
 //#include <Wire.h> 
+extern void PreklopiCrpalkoTC(byte newState);
 
 float KompenzacijaTempOkolice(float tOkolice);
 float KompenzZacTemp(float tStart);
 static float AvgVal(float suma, float num);
+
+//--------------------------------------------------------------------------------
+void NastavitevPinov(void) {
+  // init portov
+  pinMode(BEEP_PIN, OUTPUT);
+  
+  pinMode(RELE_TC, OUTPUT);
+  digitalWrite(RELE_TC, releState_1);
+  
+  pinMode(RELE_CTC, OUTPUT);
+  PreklopiCrpalkoTC(0);
+  
+  pinMode(RELE_CRAD, OUTPUT);
+  digitalWrite(RELE_CRAD, R_CRAD_OFF);
+  
+  pinMode(VENTTC_1, OUTPUT);
+  pinMode(VENTTC_2, OUTPUT);
+  pinMode(VENTTC_EN, OUTPUT);
+  digitalWrite(VENTTC_EN, HIGH);
+  
+  pinMode(SD_CS_PIN, OUTPUT);
+  
+  pinMode(CEVTERM_PEC_TC, INPUT_PULLUP);
+}
 
 //--------------------------------------------------------------------------------
 // Naredi string v obliki HH:MM:SS
