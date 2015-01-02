@@ -8,9 +8,12 @@
 #include <inttypes.h>
 
 */
+#include <inttypes.h>
+#include <Arduino.h>
+#include <Wire.h> 
 
-//#include <Arduino.h>
-//#include <Wire.h> 
+
+
 extern void PreklopiCrpalkoTC(byte newState);
 
 float KompenzacijaTempOkolice(float tOkolice);
@@ -39,6 +42,13 @@ void NastavitevPinov(void) {
   pinMode(SD_CS_PIN, OUTPUT);
   
   pinMode(CEVTERM_PEC_TC, INPUT_PULLUP);
+  
+//  pinMode(CO_PWR_PIN, OUTPUT);
+//  digitalWrite(CO_PWR_PIN, HIGH);
+  
+//  pinMode(CO_DOUT_PIN, INPUT);
+
+
 }
 
 //--------------------------------------------------------------------------------
@@ -90,14 +100,16 @@ void InitParametri(void) {
   Serial.print(F("  "));
   Serial.print(infoTime);
   
-  
+  delay(5);
  // i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrLastChg+4, AT24C32_ADDR_LENGH, prevTCState);
   prevTCState = i2c_eeprom_read_byte(AT24C32_I2C_ADDR, addrLastChg+4, AT24C32_ADDR_LENGH);
   if (prevTCState != 0) {
     prevTCState = 0;
     lastTCStateChg = now();
     u4.ulval = lastTCStateChg;
+    delay(5);
     i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrLastChg, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
+    delay(5);
     i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrLastChg+4, AT24C32_ADDR_LENGH, prevTCState);
     Serial.print(F(  "\"prevTCState\" nastavljeno na "));
     Serial.println(prevTCState);
@@ -105,22 +117,30 @@ void InitParametri(void) {
   else {
     Serial.println("");
   }  
-  
+/*
+  Serial.print("sizeof(ux):");
+  Serial.println(sizeof(u2));
+  Serial.println(sizeof(u4));
+  Serial.println(sizeof(uf));
+*/  
+  delay(5);
   i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrDeltaTh, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
   delay(5);
   deltaTh = uf.fval;
   Serial.print(F("Hir. gret: "));
   Serial.print(deltaTh, 3);
-  if (deltaTh <= 0 || deltaTh > 10.0) {
+  if (deltaTh <= 0 || deltaTh > 25.0) {
     deltaTh = 4.35;
     Serial.print(F(" / "));
     Serial.print(deltaTh, 3);
     uf.fval =  deltaTh;
     delay(5);
     i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrDeltaTh, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
+
   }
   Serial.println(F("K/h"));
   
+ delay(5);
  i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrDeltaThOk, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
   delay(5);
   deltaThOk = uf.fval;
@@ -141,7 +161,7 @@ void InitParametri(void) {
   Serial.print(F("C je "));
   Serial.println(KompenzacijaTempOkolice(cTemperatura[OKOLICA_0]),4);
   
-
+  delay(5);
   i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrDeltaThSt, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
   delay(5);
   deltaThSt = uf.fval;

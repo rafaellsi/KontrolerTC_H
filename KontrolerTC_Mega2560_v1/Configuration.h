@@ -33,6 +33,10 @@
 #define SENS_V5_2    A9    //pin za merjenje zun. napajanja 5V - DC-DC
 #define SENS_RTC_BATT A10  //pin za merjenje napetsti RTC baterije - ni priklopljeno - ne dela RTC preko baterijae ...
 
+//#define CO_SENS_APIN A12
+//#define CO_PWR_PIN   12
+//#define CO_DOUT_PIN  44
+
 #define ENC_CLK_PIN   3     // Encoder CLK pin - interuppt 0
 #define ENC_DT_PIN    2     // Encoder DT signal
 #define ENC_SW_PIN    4
@@ -121,6 +125,7 @@ int numSens;
 #define  RAD_DV     5   // radijatorji, dvizni vod
 #define  PEC_TC_DV  6   // dvizni vod proti TC
 
+char sensorIme[MAXSENSORS][8] = {"Okolica", "ToplCrp", "Pec PV", "Pec DV", "Rad PV", "Rad DV", "Pec TC", "Okolica", "Dimnik"};
 
 typedef union  {
     byte by[4];

@@ -76,9 +76,9 @@ static void PrintTempAllSDbin(void)
       myFile.print(cTemperatura[i]);
       
     }
-    for (int i=numSens; i<numSens+numSensDHT22; i++) {
+    for (int i=numSensDS; i<numSensDS+numSensDHT22; i++) {
       myFile.print(F("C  "));
-      myFile.print(cVlaznost[i]);
+      myFile.print(cVlaznost[i-numSensDS]);
       myFile.print(F("%"));
     }  
     myFile.print(F(" "));

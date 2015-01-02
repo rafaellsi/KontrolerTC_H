@@ -220,7 +220,7 @@ void setup(void)
   EthernetInit();
   
   PreveriNapetosti(true, true, false);
-  
+  Serial.println(F(""));
   TempSensorsInit(); 
   
   
@@ -700,7 +700,7 @@ void loop(void)
       Serial.print(AvgCycleTime(sumCycle, ncyc));
       Serial.println(F("ms"));    
 
-      PreveriNapetosti(false, true, true);
+      PreveriNapetosti(true, true, false);
       Serial.println(F(""));
     }
     PrintTempAllSDbin();  

@@ -3,6 +3,12 @@
 
 //#include <LiquidCrystal.h>
 
+void IzpisInfoMenu(int infoLCD);
+void IzpisControlMenu(void);
+void IzpisiNaLCD(void);
+static void PrintDigitsLCDA(int digits);
+void IzpisHex2(int num);
+void LCDInitializacija(void);
 
 //LiquidCrystal lcdA(5, 9, 2, 3, 6, 10);
 //LiquidCrystal lcdA(LCD_RS, LCD_RW, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7); // nano, glej zgoraj
@@ -32,9 +38,8 @@ static void PrintDigitsLCDA(int digits)
   lcdA.print(digits);
 }
 
+//--------------------------------------------------------------------------------
 
-int infoModeLCD = -1;
-int infoModeLCDMax = 3;
 
 extern float TempVklopa(void);
 extern float TempIzklopa(void);
@@ -46,30 +51,89 @@ extern unsigned long lastTCStateChg;
 //extern int infoErr;
 extern char infoErr[];
 
+int infoModeLCD = -1;
+int menuZaslonNum = -1;
+
+boolean buttonPressed = false;
 //--------------------------------------------------------------------------------
-void IzpisiNaLCD()
+void IzpisiNaLCD(void) {
+  
+  static unsigned long t_lastNonDefaultLCDScreen;
+  static int prevMenuZaslonNum;
+  
+  int menuZaslonNumMax[] = {4, 1};
+
+  static int menuType = 0;
+  int maxMenuType = 1;
+  
+  
+  if (buttonPressed == true) {
+    if (menuType == 0) {
+      menuType += 1;  
+      menuZaslonNum = 0;
+//      buttonPressed = false;
+      if (menuType > maxMenuType) {
+        menuType = maxMenuType;
+      }
+    }
+    else {
+//      buttonPressed = false;      
+    }  
+  }
+  
+  if (menuZaslonNum != prevMenuZaslonNum || buttonPressed) {
+    t_lastNonDefaultLCDScreen = now();
+    prevMenuZaslonNum = menuZaslonNum;
+    buttonPressed = false; 
+  }
+  if (menuZaslonNum != 0 || menuType != 0) {
+    if (now() - t_lastNonDefaultLCDScreen > 30 || t_lastNonDefaultLCDScreen > now()) {
+      menuType = 0;
+      menuZaslonNum = 0;  
+    }     
+  }
+  
+  
+  if (menuZaslonNum > menuZaslonNumMax[menuType]) {
+      menuZaslonNum = menuZaslonNumMax[menuType];
+//      virtualPosition = 20;
+    }
+    else if (menuZaslonNum < 0) {
+      menuZaslonNum = 0;
+//      virtualPosition = 0;
+    } 
+
+  switch(menuType) {
+    case 0:
+      IzpisInfoMenu(menuZaslonNum);
+    break;
+    case 1:
+      IzpisControlMenu();
+    break;
+    default:
+      IzpisInfoMenu(menuZaslonNum);
+    break;    
+  }  
+}  
+
+//--------------------------------------------------------------------------------
+void IzpisControlMenu(void) {
+  lcdA.clear();
+  lcdA.print(F("Se pride"));  
+}  
+
+
+//--------------------------------------------------------------------------------
+void IzpisInfoMenu(int infoLCD)
 {
   char cas[5];
   unsigned int addrTmp;
   
-  static unsigned long t_lastNonDefaultLCDScreen;
-  static int prevInfoModeLCD;
-  
-  if (infoModeLCD != prevInfoModeLCD) {
-    t_lastNonDefaultLCDScreen = now();
-    prevInfoModeLCD = infoModeLCD;
-  }
-  if (infoModeLCD != 0) {
-    if (now() - t_lastNonDefaultLCDScreen > 30 || t_lastNonDefaultLCDScreen > now()) {
-      infoModeLCD = 0;  
-    }     
-  }
-    
-  
 //  lcdA.setCursor(0, 0);
   lcdA.clear();
       
-  switch (infoModeLCD) {
+  switch (infoLCD) {
+/*
     case 0:
        PrintDigitsLCDA(day());
        lcdA.print(F("."));
@@ -95,8 +159,73 @@ void IzpisiNaLCD()
        lcdA.print(F("C"));
 //       infoModeLCD=10;
     break;
+*/    
+    case 0:
+       PrintDigitsLCDA(day());
+       lcdA.print(F("."));
+       PrintDigitsLCDA(month());
+       lcdA.print(F("."));
+       PrintDigitsLCDA(year()); 
+       lcdA.setCursor(11, 0);
+       NarediTimeStr(cas, now(), true);
+       lcdA.print(cas);
+       
+       lcdA.setCursor(1, 1);
+//       lcdA.print(F("T:"));
+//       lcdA.setCursor(2, 1);
+       lcdA.print(cTemperatura[OKOLICA_0], 1);
+       
+       lcdA.print(F("C RH:"));
+//       lcdA.setCursor(11, 1);
+       lcdA.print(cVlaznost[0], 0);
+       
+       lcdA.print(F("% "));
+//       lcdA.setCursor(18, 1); 
+       lcdA.print(cTemperatura[CRPALKA_0], 1);
+       lcdA.print(F("C"));
+//       infoModeLCD=10;
+    break;
     
     case 1:
+//      lcdA.setCursor(0, 1);
+      lcdA.print(sensorIme[CRPALKA_0]);
+      lcdA.print(F(" "));
+      lcdA.print(cTemperatura[CRPALKA_0], 2);
+      
+      lcdA.print(F(" "));
+      if (minute() < 59) {
+         addrTmp = (unsigned int) (minute()+1) * sizeof(u2);
+       }
+       else {
+         addrTmp = (unsigned int) 0;
+       }
+       addrTmp += addrLastHourTemp;
+       
+       i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+//       delay(2);
+//       lcdA.setCursor(14, 1); 
+       lcdA.print(cTemperatura[CRPALKA_0] - u2.uival/100.0, 2);
+      
+      lcdA.setCursor(0, 1);
+      if (releState_1 == R_TC_ON) {
+        if (prevTCState == 1) 
+          lcdA.print(F("ON"));
+        else
+          lcdA.print(F("SB"));
+      }
+      else
+        lcdA.print(F("OFF"));
+    
+      lcdA.setCursor(5,1);
+      if (prevTCState == 0)
+         lcdA.print(AutoTimeUnitConv(onTimeTC, cas),2);
+       else
+         lcdA.print(AutoTimeUnitConv(onTimeTC + now() - lastTCStateChg, cas),2);
+      lcdA.print(cas);
+      
+    break;  
+    
+    case 2:
        PrintDigitsLCDA(day());
        lcdA.print(F("."));
        PrintDigitsLCDA(month());
@@ -107,7 +236,8 @@ void IzpisiNaLCD()
        lcdA.print(cas);
        
        lcdA.setCursor(0, 1);
-       lcdA.print(F("T TC:"));
+       lcdA.print(sensorIme[CRPALKA_0]);
+//       lcdA.print(F("T TC:"));
        lcdA.setCursor(7, 1);
        lcdA.print(cTemperatura[CRPALKA_0], 2);
        
@@ -127,7 +257,7 @@ void IzpisiNaLCD()
 //       infoModeLCD=10;
     break;
     
-    case 2:
+    case 3:
       lcdA.print(F("T"));
 //      lcdA.print(infoModeLCD-10+1);
       lcdA.print(F(":"));
@@ -159,7 +289,8 @@ void IzpisiNaLCD()
 //        infoModeLCD = 20; 
     break;
 
-    case 3:
+    
+     case 4:
       lcdA.print(F("Tok:"));
       lcdA.setCursor(4, 0);
       lcdA.print(AC_mimax(false, true), 3);
@@ -189,12 +320,11 @@ void IzpisiNaLCD()
       lcdA.print(F("Ti "));
       lcdA.print(TempIzklopa(), 1);
     break;  
-    
     default:
       lcdA.print(F("xXxXxXxX"));
       lcdA.setCursor(0, 1);
       lcdA.print(F("xXxXxXxX"));
-      infoModeLCD = 0;
+      menuZaslonNum = 0;
     break;
   }    
 }
@@ -298,6 +428,9 @@ void IzpisiNaLCD()
 
 */
 //--------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------
+
 
 
 #endif

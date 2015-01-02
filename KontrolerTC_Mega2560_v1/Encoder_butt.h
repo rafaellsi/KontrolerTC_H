@@ -7,6 +7,8 @@
 
 #include <Arduino.h>
 
+
+extern void IzpisNaLCD(void);
 // -----------------------------------------------------------------------------
 // constants
 
@@ -112,6 +114,9 @@ void Encoder_check(void) {
 //    while (!digitalRead(ENC_SW_PIN)) {  // wait til switch is released
 //    }
       Beep(25);
+      Serial.print(F("Button pressed"));
+      buttonPressed = true;
+//      }  
     }
     
 //    delay(2);                      // debounce       
@@ -122,22 +127,15 @@ void Encoder_check(void) {
 //    infoModeLCD += (virtualPosition - lastCount);
     
     if (virtualPosition > lastCount)
-      infoModeLCD++;
+      menuZaslonNum++;
     else
-      infoModeLCD--;
+      menuZaslonNum--;
       
     lastCount = virtualPosition;  
 
     
     
-    if (infoModeLCD > infoModeLCDMax) {
-      infoModeLCD = infoModeLCDMax;
-//      virtualPosition = 20;
-    }
-    else if (infoModeLCD < 0) {
-      infoModeLCD = 0;
-//      virtualPosition = 0;
-    } 
+    
     
     IzpisiNaLCD();
     Beep(10);
@@ -149,7 +147,7 @@ void Encoder_check(void) {
     Serial.print("Count");
     Serial.print(virtualPosition);
     Serial.print(" Menu");
-    Serial.print(infoModeLCD);
+    Serial.print(menuZaslonNum);
   }
   if (osvetlitevLCD > 0) {
     osvetlitevLCD = 255 + (osvetLCD_start - now()) * 2;
