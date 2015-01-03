@@ -136,7 +136,7 @@ unsigned long lastReleChg;    // cas zadnje spremembe stanja releja TC
 
 
 //extern int modeLCD;                // slika izpisanega zaslona 
-unsigned long prevLCDizp;     // cas zadnjega izpisa na LCD
+ unsigned long prevLCDizp;     // cas zadnjega izpisa na LCD
 
 // splosne spremenljivke
 
@@ -208,7 +208,7 @@ void setup(void)
   
   NastavitevPinov();
 
-  Serial.begin(57600);
+  Serial.begin(115200);
   Serial.println(VERSION);
   
   
@@ -759,7 +759,18 @@ void loop(void)
      Serial.print(MejnaTempPreklCrpRad(0), 1);
      Serial.print(F("-"));
      Serial.print(MejnaTempPreklCrpRad(1), 1);
-     Serial.print(F(") "));
+//     Serial.print(F(") "));
+     
+     Serial.print(F(") CO:"));
+ #ifdef CO_INIT    
+     Serial.print((float)coRawVal/(float)numMerCO, 2);
+     numMerCO = 0;
+     coRawVal = 0;
+ #else
+     Serial.print(coRawVal);
+ #endif 
+     Serial.print(F(" "));
+     
      Serial.print(osvetlitevLCD);
 
     
@@ -836,6 +847,7 @@ void loop(void)
     prevLCDizp = now();
     IzpisiNaLCD();
   }
+  PreveriCO_Senzor();
   
 }
 

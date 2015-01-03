@@ -161,7 +161,8 @@ void PreveriNapetosti(boolean internal = false, boolean external = false, boolea
   static float v12_r2 = 3300;
   static float v5_r1 =  1000;
   static float v5_r2 =  3900;
-
+  static float v5_3_r1 = 2200;
+  static float v5_3_r2 = 2200;
   
   float vTemp;
   
@@ -189,6 +190,10 @@ void PreveriNapetosti(boolean internal = false, boolean external = false, boolea
     Serial.print(F("  5V2: "));
     delay(5);
     Serial.print(VoltageDivider(SENS_V5_2, v5_r1, v5_r2, 1.0041)); 
+    Serial.print(F("  5V3: "));
+    delay(5);
+    Serial.print(VoltageDivider(SENS_V5_3, v5_3_r1, v5_3_r1)); 
+
   }
   if (battery) {
     if (vccInternal == 0) {
