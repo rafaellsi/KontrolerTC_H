@@ -9,7 +9,7 @@ static float AC_mimax(boolean izpis, boolean forceCalc);
 static float PretvoriVAmp5A(int sensVal);
 float VoltageDivider(int analRead, float r1, float r2, float korFact);
 void PreveriNapetosti(boolean internal, boolean external, boolean battery);
-static long readVcc();
+long readVcc();
 
 
 static int midR = 512;
@@ -167,7 +167,7 @@ void PreveriNapetosti(boolean internal = false, boolean external = false, boolea
   float vTemp;
   
   if (internal) {
-    vTemp = readVcc()/1000.0;
+    vTemp = (float) readVcc()/1000.0;
     Serial.print(F(" 5V1: "));
     if (vTemp < 5.0 * 0.5 || vTemp > 1.5 *5.0) {
       Serial.print(F("(Err) "));
@@ -206,9 +206,11 @@ void PreveriNapetosti(boolean internal = false, boolean external = false, boolea
 }
 
 //--------------------------------------------------------------------------------------------
-static long readVcc() {
+long readVcc() {
   // Read 1.1V reference against AVcc
   // set the reference to Vcc and the measurement to the internal 1.1V reference
+//  delay(3); 
+  noInterrupts();
   #if defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
     ADMUX = _BV(REFS0) | _BV(MUX4) | _BV(MUX3) | _BV(MUX2) | _BV(MUX1);
   #elif defined (__AVR_ATtiny24__) || defined(__AVR_ATtiny44__) || defined(__AVR_ATtiny84__)
@@ -219,18 +221,20 @@ static long readVcc() {
     ADMUX = _BV(REFS0) | _BV(MUX3) | _BV(MUX2) | _BV(MUX1);
   #endif  
  
-  delay(2); // Wait for Vref to settle
-  noInterrupts(); 
+//  delay(2); // Wait for Vref to settle
+  delay(2);
+  
   ADCSRA |= _BV(ADSC); // Start conversion
 //  while (bit_is_set(ADCSRA,ADSC)); // measuring
   
   while (bit_is_set(ADCSRA,ADSC)) { // measuring
   } 
+  interrupts();
   uint8_t low  = ADCL; // must read ADCL first - it then locks ADCH  
   uint8_t high = ADCH; // unlocks both
   
   long result = (high<<8) | low;
-  interrupts();
+  
   result = 1125300L / result; // Calculate Vcc (in mV); 1125300 = 1.1*1023*1000
 
 

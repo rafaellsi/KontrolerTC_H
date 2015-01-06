@@ -3,12 +3,18 @@
 
 //#include <LiquidCrystal.h>
 
-void IzpisInfoMenu(int infoLCD);
-void IzpisControlMenu(void);
-void IzpisiNaLCD(void);
-static void PrintDigitsLCDA(int digits);
-void IzpisHex2(int num);
 void LCDInitializacija(void);
+void Beep(unsigned char delayms);
+void IzpisHex2(int num);
+static void PrintDigitsLCDA(int digits);
+void IzpisiNaLCD(void);
+void IzpisControlMenu(void);
+void IzpisInfoMenu(int infoLCD);
+
+
+
+
+
 
 //LiquidCrystal lcdA(5, 9, 2, 3, 6, 10);
 //LiquidCrystal lcdA(LCD_RS, LCD_RW, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7); // nano, glej zgoraj
@@ -23,6 +29,13 @@ void LCDInitializacija(void) {
   delay(250);
 }
 
+//--------------------------------------------------------------------------------------------
+void Beep(unsigned char delayms) {
+  digitalWrite(BEEP_PIN, HIGH);      // Almost any value can be used except 0 and 255
+                           // experiment to get the best tone
+  delay(delayms);          // wait for a delayms ms
+  digitalWrite(BEEP_PIN, LOW);       // 0 turns it off  
+}  
 //--------------------------------------------------------------------------------
 void IzpisHex2(int num) {
   if (num < 0x10)
@@ -184,6 +197,7 @@ void IzpisInfoMenu(int infoLCD)
        lcdA.print(cTemperatura[CRPALKA_0], 1);
        lcdA.print(F("C"));
 //       infoModeLCD=10;
+ 
     break;
     
     case 1:

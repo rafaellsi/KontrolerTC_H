@@ -24,6 +24,10 @@
 #define CEV_TERM_ON   LOW    //cevni termostat - internal pullup
 #define CEV_TERM_OFF  HIGH
 
+#define STIKALO_ON   LOW
+#define STIKALO_OFF  HIGH
+
+
 //----------
 // pin and address definition
 
@@ -47,6 +51,9 @@
 #define ENC_PIN_A   ENC_DT_PIN
 #define ENC_PIN_B   ENC_CLK_PIN
 
+#define NRF24_CE   8
+#define NRF24_CSN  9
+
 #define ETHER_CS_PIN  10    //Ethrnet (ENC28J60) CS pin 
 
 #define LCD_OSW_SW    7     //pin za vklop osvetlitve LCD-ja
@@ -65,12 +72,15 @@
 #define DHTTYPE DHT22
 
 #define CEVTERM_PEC_TC  32    //cevni termostat na peci proti TC - vklopi internal pull-up
-//#define stikalo TC_ON 33
-//#define stikalo TC_OFF 34
-//#define stikalo_Crp_Rad_On 35
-//#define stikalo Crp_Rad_Off 36
-//#define stikalo Crp_TC_On 37
-//#define stikalo Crp_TC_On 38
+
+#define STIKALO_CRP_RAD_ON 33    //stikalo 1
+#define STIKALO_CRP_RAD_OFF 34   //stikalo 1 
+#define STIKALO_CRP_TC_ON 35     //stikalo 2 
+#define STIKALO_CRP_TC_OFF 36
+#define STIKALO_TC_ON 35         //stikalo 3
+#define STIKALO_TC_OFF 36
+//#define stikalo  37            //stikalo 4
+//#define stikalo  38
 
 //#define Rele 4/4  39
 //#define Rele 3/4  40

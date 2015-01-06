@@ -85,6 +85,10 @@
 #endif
 */
 //#include <math.h>
+#include <SPI.h>
+#include <RHReliableDatagram.h>
+#include <RH_NRF24.h>
+
 #include <OneWire.h>
 #include <Time.h>  
 #include <Wire.h>  
@@ -93,6 +97,8 @@
 #include <LiquidCrystal.h>
 #include <EtherCard.h>
 #include <DHT.h>
+
+
 
 
 #include "Configuration.h"
@@ -223,6 +229,7 @@ void setup(void)
   Serial.println(F(""));
   TempSensorsInit(); 
   
+  Initilizacija_CO();
   
   
   // Start up the RTC
@@ -294,10 +301,31 @@ void setup(void)
   prevCasMeritve = now();
   casMeritve = now();
   
+  Serial.print(F("Stikalo crpalke rad: "));
+  if (digitalRead(STIKALO_CRP_RAD_ON) == STIKALO_ON)
+    Serial.println(F("ON"));
+  else if (digitalRead(STIKALO_CRP_RAD_OFF) == STIKALO_ON)
+    Serial.println(F("OFF"));
+  else
+    Serial.println(F("AUTO")); 
+    
+  Serial.print(F("Stikalo crpalke TC: "));
+  if (digitalRead(STIKALO_CRP_TC_ON) == STIKALO_ON)
+    Serial.println(F("ON"));
+  else if (digitalRead(STIKALO_CRP_TC_OFF) == STIKALO_ON)
+    Serial.println(F("OFF"));  
+  else
+    Serial.println(F("AUTO"));
   
+  Serial.print(F("Stikalo 3: "));
+  if (digitalRead(STIKALO_TC_ON) == STIKALO_ON)
+    Serial.println(F("ON"));
+  else if (digitalRead(STIKALO_TC_OFF) == STIKALO_ON)
+    Serial.println(F("OFF"));  
+  else
+    Serial.println(F("AUTO"));
   
-  
-  
+//  RH_NRF24 driver(NRF24_CE, NRF24_CSN);
   
   Serial.println(F(""));
   Encoder_init();
@@ -347,7 +375,6 @@ void loop(void)
   }  
   cycStart = millis();  
    
-//   do {
      if (Serial.available() >  0 ) {
        c = Serial.peek();
      }  
@@ -772,8 +799,47 @@ void loop(void)
      Serial.print(F(" "));
      
      Serial.print(osvetlitevLCD);
-
+      
+/*     Serial.print(F("Stikalo crpalke rad: "));
+     Serial.print(F("  "));
+     int info1 = digitalRead(STIKALO_CRP_RAD_ON);
+     Serial.print(info1);
+     delay(2);
+     info1 = digitalRead(STIKALO_CRP_RAD_OFF);
+     Serial.print(info1);
+     delay(2);
+     info1 = digitalRead(STIKALO_CRP_TC_ON);
+     Serial.print(info1);
+     delay(2);
+     info1 = digitalRead(STIKALO_CRP_TC_OFF);
+     Serial.print(info1);
+     info1 = digitalRead(STIKALO_TC_ON);
+     Serial.print(info1);
+     delay(2);
+     info1 = digitalRead(STIKALO_TC_OFF);
+     Serial.print(info1);
+*/     
+     if (digitalRead(STIKALO_CRP_RAD_ON) == STIKALO_ON)
+       Serial.print(F(" ON"));
+     else if (digitalRead(STIKALO_CRP_RAD_OFF) == STIKALO_ON)
+       Serial.print(F(" OFF"));
+     else
+       Serial.print(F(" AUT")); 
     
+//     Serial.print(F("Stikalo crpalke TC: "));
+     if (digitalRead(STIKALO_CRP_TC_ON) == STIKALO_ON)
+       Serial.print(F(" ON"));
+     else if (digitalRead(STIKALO_CRP_TC_OFF) == STIKALO_ON)
+       Serial.print(F(" OFF"));  
+     else
+       Serial.print(F(" AUT"));
+    
+     if (digitalRead(STIKALO_TC_ON) == STIKALO_ON)
+       Serial.print(F(" ON"));
+     else if (digitalRead(STIKALO_TC_OFF) == STIKALO_ON)
+       Serial.print(F(" OFF"));  
+     else
+       Serial.print(F(" AUT"));
 
     prevCasMeritve = now();
   }

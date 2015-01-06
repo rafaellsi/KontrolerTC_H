@@ -15,6 +15,7 @@
 
 
 extern void PreklopiCrpalkoTC(byte newState);
+extern void Beep(unsigned char delayms);
 
 float KompenzacijaTempOkolice(float tOkolice);
 float KompenzZacTemp(float tStart);
@@ -42,6 +43,15 @@ void NastavitevPinov(void) {
   pinMode(SD_CS_PIN, OUTPUT);
   
   pinMode(CEVTERM_PEC_TC, INPUT_PULLUP);
+  
+  pinMode(STIKALO_CRP_RAD_ON, INPUT_PULLUP);
+  pinMode(STIKALO_CRP_RAD_OFF, INPUT_PULLUP);
+  pinMode(STIKALO_CRP_TC_ON, INPUT_PULLUP);
+  pinMode(STIKALO_CRP_TC_OFF, INPUT_PULLUP);
+  pinMode(STIKALO_TC_ON, INPUT_PULLUP);
+  pinMode(STIKALO_TC_OFF, INPUT_PULLUP);
+  
+  
   
 //  pinMode(CO_PWR_PIN, OUTPUT);
 //  digitalWrite(CO_PWR_PIN, HIGH);
@@ -84,7 +94,8 @@ void InitParametri(void) {
   Serial.print(F("OnTime: "));
   Serial.print(onTimeTC);
   Serial.println(F("s"));
-
+  
+  
   delay(5); 
   
   i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrLastChg, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
@@ -99,6 +110,7 @@ void InitParametri(void) {
   Serial.print(year(lastTCStateChg)); 
   Serial.print(F("  "));
   Serial.print(infoTime);
+  
   
   delay(5);
  // i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrLastChg+4, AT24C32_ADDR_LENGH, prevTCState);
@@ -208,8 +220,9 @@ void InitParametri(void) {
     Serial.print(j+1);
     Serial.print(F(": "));
     Serial.print(AvgVal(sumTemp[j], histLen*1.0), 3); 
-    Serial.println(F(" "));  
-  }    
+    Serial.println(F(" ")); 
+  }
+  
 }
 
 //--------------------------------------------------------------------------------
@@ -370,7 +383,7 @@ float IzracDeltaThSt() {
   return(0.0);    
 } 
 
-
+//--------------------------------------------------------------------------------------------
 static float Cop(void)
 {
   //float Q;
@@ -390,37 +403,37 @@ static float Cop(void)
   return(0);  
 }
 
-
-void Beep(unsigned char delayms) {
-  digitalWrite(BEEP_PIN, HIGH);      // Almost any value can be used except 0 and 255
-                           // experiment to get the best tone
-  delay(delayms);          // wait for a delayms ms
-  digitalWrite(BEEP_PIN, LOW);       // 0 turns it off  
+//--------------------------------------------------------------------------------------------
+void Initilizacija_CO(void) {
+  //#define CO_INIT
+  
+  #define CO_HEATING_STATE_OFF 0
+  #define CO_HEATING_STATE_HIGH  1
+  #define CO_HEATING_STATE_LOW  2
+  #define CO_HEATING_OFF  HIGH
+  #define CO_HEATING_ON  LOW
+  #define CO_HEATING_PWM_LOW 184
+  
+  pinMode(CO_PWR_PIN, OUTPUT);
+  pinMode(CO_DOUT_PIN, INPUT);  
 }  
 
+//--------------------------------------------------------------------------------------------
 
-#define CO_HEATING_STATE_OFF 0
-#define CO_HEATING_STATE_HIGH  1
-#define CO_HEATING_STATE_LOW  2
-#define CO_HEATING_OFF  HIGH
-#define CO_HEATING_ON  LOW
-#define CO_HEATING_PWM_LOW 184
 
-//#define CO_INIT
+
 
 #ifdef CO_INIT
   int numMerCO=0;
 #endif
 
 int coRawVal;
-
-
+//------------------
 void PreveriCO_Senzor() {
   static unsigned long t_CO_timer = 0;
   static unsigned long t_CO_nextHChange = 0;
   static byte co_sens_heat_level = CO_HEATING_STATE_OFF;
-  pinMode(CO_PWR_PIN, OUTPUT);
-  pinMode(CO_DOUT_PIN, INPUT);
+
   
   if (now() > t_CO_nextHChange) {
     if (co_sens_heat_level == CO_HEATING_STATE_LOW || co_sens_heat_level == CO_HEATING_STATE_OFF) {
@@ -430,7 +443,9 @@ void PreveriCO_Senzor() {
       t_CO_nextHChange = now() + 175000;
 #else      
       t_CO_nextHChange = now() + 90;
+      noInterrupts();
       coRawVal = analogRead(CO_SENS_APIN);
+      interrupts();
 #endif
       digitalWrite(CO_PWR_PIN, LOW);
 /*
@@ -445,6 +460,13 @@ void PreveriCO_Senzor() {
 //      Serial.print(F("CO High"));
     }  
     else if (co_sens_heat_level == CO_HEATING_STATE_HIGH) {
+
+/*      
+      noInterrupts();
+      coRawVal = analogRead(CO_SENS_APIN);
+      interrupts();
+*/
+      
       analogWrite(CO_PWR_PIN, CO_HEATING_PWM_LOW);
       t_CO_nextHChange = now() + 60;
       co_sens_heat_level = CO_HEATING_STATE_LOW;
@@ -457,7 +479,9 @@ void PreveriCO_Senzor() {
     Beep(50);
   }  
 #ifdef CO_INIT  
+  noInterrupts();
   coRawVal += analogRead(CO_SENS_APIN);
+  interrupts();
   numMerCO++;
 #endif
 }  
