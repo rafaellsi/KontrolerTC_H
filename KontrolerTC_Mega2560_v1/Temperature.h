@@ -475,11 +475,27 @@ static void PrintTemperatureAll(void)
       sumCTemp += cTemperatura[i];
       sumCTempEMA += (60.0*cTemperatura[i]);
 */      
-      if (abs(u2.uival/100.0 - cTemperatura[i]) > 0.01) {
-        u2.uival = cTemperatura[i]*100;
+      if (abs(u2.uival - cTemperatura[i]*100.0) > 1) {
+        u2.uival = (unsigned int) ((cTemperatura[i]+0.005)*100.0);
+        Serial.print(F("z"));
+        Serial.print(addrTmp);
         delay(2);
         i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
       }
+      delay(2);
+      ui2byte2 u2test;
+      i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2test, sizeof(u2test));
+      delay(2);
+
+      if (abs(cTemperatura[i]*100.0 - u2test.uival) > 2) {
+        Serial.print(F("*"));
+        Serial.print(u2test.uival);
+      }
+      else {
+        Serial.print(F("/"));
+        Serial.print(u2test.uival);
+      }  
+      
 /*     
       Serial.print("|");
       Serial.print((cTemperatura[i] - (sumCTemp/60.0))*2.0, 2);

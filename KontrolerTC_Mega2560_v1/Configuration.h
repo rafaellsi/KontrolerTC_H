@@ -77,8 +77,8 @@
 #define STIKALO_CRP_RAD_OFF 34   //stikalo 1 
 #define STIKALO_CRP_TC_ON 35     //stikalo 2 
 #define STIKALO_CRP_TC_OFF 36
-#define STIKALO_TC_ON 35         //stikalo 3
-#define STIKALO_TC_OFF 36
+#define STIKALO_TC_ON 37         //stikalo 3
+#define STIKALO_TC_OFF 38
 //#define stikalo  37            //stikalo 4
 //#define stikalo  38
 
@@ -237,17 +237,23 @@ float minMejnaTempRel  = 0.399;
 float maxTempPVRad = 50.0; // max temperatura povratnega voda
 float maxTempDVPec = 90.01; // max. temperatura dviznega voda peci
 float maxDeltaDev = 5.0;
+
+
+
+
+
 //------------------------------------------
 
 //------------------------------------------
 unsigned int addrLastChg = 0;
+unsigned int addrPrevTCState = 4;
 unsigned int addrOnTime = 5;
 unsigned int addrDeltaTh = 9;
 unsigned int addrDeltaThOk = 13;
 unsigned int addrDeltaThSt = 17;
 
-unsigned int addrLastHourTemp = 128; // 500
-unsigned int addrTempBack = 968;     //1024 
+unsigned int addrLastHourTemp = 96; // 128
+unsigned int addrTempBack = 1024;     //968
 //-----------------------------------------
 unsigned int histLen = 168;
 int zapisXMin = 60;

@@ -85,9 +85,8 @@
 #endif
 */
 //#include <math.h>
-#include <SPI.h>
-#include <RHReliableDatagram.h>
-#include <RH_NRF24.h>
+
+
 
 #include <OneWire.h>
 #include <Time.h>  
@@ -98,7 +97,9 @@
 #include <EtherCard.h>
 #include <DHT.h>
 
-
+#include <RHReliableDatagram.h>
+#include <RH_NRF24.h>
+#include <SPI.h>
 
 
 #include "Configuration.h"
@@ -114,6 +115,7 @@
 #include "Encoder_butt.h"
 #include "Zapisi_sd.h"
 #include "Ethernet_funk.h"
+#include "Gas_Sensor.h"
 
 static void PreklopiVentil(byte newState);
 // splosne spremenljivke
@@ -182,7 +184,7 @@ boolean seRracunaHitrGret;
 
 //--------------------------------------------------------------------------------
 // main function to print information about a device
-static void printData()
+static void PrintData()
 {
   char cas[13];
  
@@ -204,6 +206,15 @@ static void printData()
 }
 
 
+
+#define CLIENT_ADDRESS 1
+#define SERVER_ADDRESS 2
+//     #define RH_RF24_MAX_MESSAGE_LEN 28
+    
+  RH_NRF24 driver(NRF24_CE, NRF24_CSN);
+  RHReliableDatagram manager(driver, CLIENT_ADDRESS);
+
+//  #define RH_RF24_MAX_MESSAGE_LEN
 //--------------------------------------------------------------------------------
 void setup(void)
 {
@@ -325,8 +336,12 @@ void setup(void)
   else
     Serial.println(F("AUTO"));
   
-//  RH_NRF24 driver(NRF24_CE, NRF24_CSN);
   
+  if (!manager.init()) {
+    Serial.println("init failed");
+  // Defaults after init are 434.0MHz, modulation GFSK_Rb5Fd10, power 0x10
+  }
+
   Serial.println(F(""));
   Encoder_init();
   Serial.println(F("Init. OK"));
@@ -606,7 +621,7 @@ void loop(void)
     
     
     Serial.println(F(""));   
-    printData();
+    PrintData();
     
  //   printDataRF();
     
@@ -675,7 +690,7 @@ void loop(void)
         float diff = cTemperatura[j] - (u2.uival/100.0);
         if (abs(diff) > 0.01) {
           sumTemp[j] -= (u2.uival)/100.0;
-          u2.uival =  cTemperatura[j]*100;
+          u2.uival =  (cTemperatura[j]+0.005)*100;
           sumTemp[j] += (cTemperatura[j]);
 
           delay(10);
@@ -859,7 +874,8 @@ void loop(void)
           tempOkolicaSt = cTemperatura[OKOLICA_0];
           u4.ulval = lastTCStateChg;
           i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrLastChg, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
-          i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrLastChg+4, AT24C32_ADDR_LENGH, prevTCState);
+          delay(5);
+          i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrPrevTCState, AT24C32_ADDR_LENGH, prevTCState);
           
           izracHitrGretInfo = true;
           
@@ -886,7 +902,8 @@ void loop(void)
         lastTCStateChg = now();
         u4.ulval = lastTCStateChg;
         i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrLastChg, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
-        i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrLastChg+4, AT24C32_ADDR_LENGH, prevTCState);
+        delay(5);
+        i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrPrevTCState, AT24C32_ADDR_LENGH, prevTCState);
       }
     }
   }
@@ -914,6 +931,26 @@ void loop(void)
     IzpisiNaLCD();
   }
   PreveriCO_Senzor();
+  
+  uint8_t buf[RH_NRF24_MAX_MESSAGE_LEN];
+  if (manager.available())
+  {
+    // Wait for a message addressed to us from the client
+    uint8_t len = sizeof(buf);
+    uint8_t from;
+    if (manager.recvfromAck(buf, &len, &from))
+    {
+      Serial.print("got request from : 0x");
+      Serial.print(from, HEX);
+      Serial.print(": ");
+      Serial.println((char*)buf);
+/*
+      // Send a reply back to the originator client
+      if (!manager.sendtoWait(data, sizeof(data), from))
+ */       Serial.println("sendtoWait failed");
+    
+  }
+  }
   
 }
 

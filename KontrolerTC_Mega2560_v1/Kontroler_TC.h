@@ -87,9 +87,17 @@ void InitParametri(void) {
   char infoTime[9];
 //  char infoSet[8];
 //  unsigned int addrTmp;
-  
+ 
+/*   u2.uival = 0;
+   for (int i=0; i<60; i++) {
+     addrTmp = addrLastHourTemp + (unsigned int) i * sizeof(u2);
+        
+        delay(2);
+        i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+      }
+ */ 
   i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrOnTime, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4) );
-  delay(5);
+  delay(2);
   onTimeTC = u4.ulval;
   Serial.print(F("OnTime: "));
   Serial.print(onTimeTC);
@@ -99,7 +107,7 @@ void InitParametri(void) {
   delay(5); 
   
   i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrLastChg, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
-  delay(5);
+  delay(2);
   lastTCStateChg = u4.ulval;
   Serial.print(F("Last TC chg: "));
   NarediTimeStr(infoTime, lastTCStateChg);
@@ -112,9 +120,10 @@ void InitParametri(void) {
   Serial.print(infoTime);
   
   
-  delay(5);
+//  delay(5);
  // i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrLastChg+4, AT24C32_ADDR_LENGH, prevTCState);
-  prevTCState = i2c_eeprom_read_byte(AT24C32_I2C_ADDR, addrLastChg+4, AT24C32_ADDR_LENGH);
+  delay(2);
+  prevTCState = i2c_eeprom_read_byte(AT24C32_I2C_ADDR, addrPrevTCState, AT24C32_ADDR_LENGH);
   if (prevTCState != 0) {
     prevTCState = 0;
     lastTCStateChg = now();
@@ -122,7 +131,7 @@ void InitParametri(void) {
     delay(5);
     i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrLastChg, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
     delay(5);
-    i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrLastChg+4, AT24C32_ADDR_LENGH, prevTCState);
+    i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrPrevTCState, AT24C32_ADDR_LENGH, prevTCState);
     Serial.print(F(  "\"prevTCState\" nastavljeno na "));
     Serial.println(prevTCState);
   } 
@@ -131,13 +140,14 @@ void InitParametri(void) {
   }  
 /*
   Serial.print("sizeof(ux):");
+  
   Serial.println(sizeof(u2));
   Serial.println(sizeof(u4));
   Serial.println(sizeof(uf));
 */  
-  delay(5);
+  delay(2);
   i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrDeltaTh, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
-  delay(5);
+  delay(2);
   deltaTh = uf.fval;
   Serial.print(F("Hir. gret: "));
   Serial.print(deltaTh, 3);
@@ -152,9 +162,9 @@ void InitParametri(void) {
   }
   Serial.println(F("K/h"));
   
- delay(5);
+ delay(2);
  i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrDeltaThOk, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
-  delay(5);
+  delay(2);
   deltaThOk = uf.fval;
   Serial.print(F("Komp.ok.: "));
   Serial.print(deltaThOk, 4);
@@ -173,9 +183,9 @@ void InitParametri(void) {
   Serial.print(F("C je "));
   Serial.println(KompenzacijaTempOkolice(cTemperatura[OKOLICA_0]),4);
   
-  delay(5);
+  delay(2);
   i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrDeltaThSt, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
-  delay(5);
+  delay(2);
   deltaThSt = uf.fval;
   Serial.print(F("Komp.st.: "));
   Serial.print(deltaThSt, 4);
@@ -205,11 +215,12 @@ void InitParametri(void) {
       delay(2);
       
 //      if ((u2.uival) < 1 || (u2.uival) > 12000) {
-      if (isnan(u2.uival)) {
+
+  if (isnan(u2.uival)) {
         if (i > 0)
           u2.uival = (sumTemp[j] * 100) /(i);
-        else
-          u2.uival = 0;
+       else
+           u2.uival = 0;
         delay(2);
 
         i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
@@ -403,87 +414,5 @@ static float Cop(void)
   return(0);  
 }
 
-//--------------------------------------------------------------------------------------------
-void Initilizacija_CO(void) {
-  //#define CO_INIT
-  
-  #define CO_HEATING_STATE_OFF 0
-  #define CO_HEATING_STATE_HIGH  1
-  #define CO_HEATING_STATE_LOW  2
-  #define CO_HEATING_OFF  HIGH
-  #define CO_HEATING_ON  LOW
-  #define CO_HEATING_PWM_LOW 184
-  
-  pinMode(CO_PWR_PIN, OUTPUT);
-  pinMode(CO_DOUT_PIN, INPUT);  
-}  
-
-//--------------------------------------------------------------------------------------------
-
-
-
-
-#ifdef CO_INIT
-  int numMerCO=0;
-#endif
-
-int coRawVal;
-//------------------
-void PreveriCO_Senzor() {
-  static unsigned long t_CO_timer = 0;
-  static unsigned long t_CO_nextHChange = 0;
-  static byte co_sens_heat_level = CO_HEATING_STATE_OFF;
-
-  
-  if (now() > t_CO_nextHChange) {
-    if (co_sens_heat_level == CO_HEATING_STATE_LOW || co_sens_heat_level == CO_HEATING_STATE_OFF) {
-
-
-#ifdef CO_INIT
-      t_CO_nextHChange = now() + 175000;
-#else      
-      t_CO_nextHChange = now() + 90;
-      noInterrupts();
-      coRawVal = analogRead(CO_SENS_APIN);
-      interrupts();
-#endif
-      digitalWrite(CO_PWR_PIN, LOW);
-/*
-      Serial.print(" ");
-      Serial.print(now());
-      Serial.print(" ");
-      Serial.print(t_CO_nextHChange);
-*/      
-      
-      co_sens_heat_level = CO_HEATING_STATE_HIGH;
-      Serial.print(F(">"));
-//      Serial.print(F("CO High"));
-    }  
-    else if (co_sens_heat_level == CO_HEATING_STATE_HIGH) {
-
-/*      
-      noInterrupts();
-      coRawVal = analogRead(CO_SENS_APIN);
-      interrupts();
-*/
-      
-      analogWrite(CO_PWR_PIN, CO_HEATING_PWM_LOW);
-      t_CO_nextHChange = now() + 60;
-      co_sens_heat_level = CO_HEATING_STATE_LOW;
-      Serial.print(F("<"));
-//      Serial.print(F("CO Low"));
-    }   
-  }
-  if (digitalRead(CO_DOUT_PIN) == HIGH) {
-    Serial.print(F("CO alarm"));
-    Beep(50);
-  }  
-#ifdef CO_INIT  
-  noInterrupts();
-  coRawVal += analogRead(CO_SENS_APIN);
-  interrupts();
-  numMerCO++;
-#endif
-}  
 
 #endif 

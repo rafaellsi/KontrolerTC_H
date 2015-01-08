@@ -134,7 +134,8 @@ static float PretvoriVAmp5A(int sensVal) {
 
 */
 //    return(tok /= 0.185);                              //za senzor (max. 5A) 0.185V na 1A 
-    return(tok /= 0.100);                              //za senzor (max. 20A) 0.100V na 1A
+//    return(tok /= 0.100);                              //za senzor (max. 20A) 0.100V na 1A
+      return(tok /= 0.001250);                        //test za 0.01V/A
 }  
 
 //--------------------------------------------------------------------------------------------
