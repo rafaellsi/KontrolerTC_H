@@ -2,6 +2,7 @@
 #define Zapisi_sd_h
 
 
+extern int coRawVal;
 
 // SD spremenljivke
 Sd2Card cardSD;
@@ -93,8 +94,10 @@ static void PrintTempAllSDbin(void)
     
     
     myFile.print(F(" "));
-    myFile.println(AC_mimax(), 3); 
+    myFile.print(AC_mimax(), 3); 
     
+    myFile.print(F("A CO:"));
+    myFile.println(coRawVal);
     
     myFile.close();
     

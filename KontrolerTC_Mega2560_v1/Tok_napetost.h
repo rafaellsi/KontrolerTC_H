@@ -6,14 +6,14 @@ extern boolean releState_1;
 //extern int midR;
 
 static float AC_mimax(boolean izpis, boolean forceCalc);
-static float PretvoriVAmp5A(int sensVal);
+static float PretvoriV2A_asc712(int sensVal);
 float VoltageDivider(int analRead, float r1, float r2, float korFact);
 void PreveriNapetosti(boolean internal, boolean external, boolean battery);
 long readVcc();
 
 
 static int midR = 512;
-static float vccInternal = 5.0;
+
 //--------------------------------------------------------------------------------
 // branje senzorja toka, pretvorba, izracun efektivne vrednosti toka
 static float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
@@ -45,7 +45,7 @@ static float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
   noInterrupts();
   val_I = analogRead(SENS_TOK) *vccFactor;
   interrupts();
-  tok01 = PretvoriVAmp5A(val_I);
+  tok01 = PretvoriV2A_asc712(val_I);
   efI = (tok01 * tok01);
   
   maxR = val_I;
@@ -64,7 +64,7 @@ static float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
     val_I = analogRead(SENS_TOK)* vccFactor;
     interrupts();
     
-    tok01 = PretvoriVAmp5A(val_I);
+    tok01 = PretvoriV2A_asc712(val_I);
     
     efI += ((double) tok01 * (double) tok01);
     
@@ -116,7 +116,7 @@ static float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
 
 //--------------------------------------------------------------------------------
 // pretvorba prebrane vrednosti senzorj v tok
-static float PretvoriVAmp5A(int sensVal) {
+static float PretvoriV2A_asc712(int sensVal) {
     float tok;  
     int cVal = sensVal - midR;
     
@@ -134,8 +134,8 @@ static float PretvoriVAmp5A(int sensVal) {
 
 */
 //    return(tok /= 0.185);                              //za senzor (max. 5A) 0.185V na 1A 
-//    return(tok /= 0.100);                              //za senzor (max. 20A) 0.100V na 1A
-      return(tok /= 0.001250);                        //test za 0.01V/A
+    return(tok /= 0.100);                              //za senzor (max. 20A) 0.100V na 1A
+//      return(tok /= 0.001250);                        //test za 0.01V/A
 }  
 
 //--------------------------------------------------------------------------------------------

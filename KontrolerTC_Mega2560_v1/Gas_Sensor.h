@@ -40,7 +40,7 @@ void PreveriCO_Senzor() {
 #ifdef CO_INIT
       t_CO_nextHChange = now() + 175000;
 #else      
-      t_CO_nextHChange = now() + 90;
+      t_CO_nextHChange = now() + 60;
       noInterrupts();
       coRawVal = analogRead(CO_SENS_APIN);
       interrupts();
@@ -59,14 +59,14 @@ void PreveriCO_Senzor() {
     }  
     else if (co_sens_heat_level == CO_HEATING_STATE_HIGH) {
 
-/*      
+      
       noInterrupts();
       coRawVal = analogRead(CO_SENS_APIN);
       interrupts();
-*/
+
       
       analogWrite(CO_PWR_PIN, CO_HEATING_PWM_LOW);
-      t_CO_nextHChange = now() + 60;
+      t_CO_nextHChange = now() + 90;
       co_sens_heat_level = CO_HEATING_STATE_LOW;
       Serial.print(F("<"));
 //      Serial.print(F("CO Low"));

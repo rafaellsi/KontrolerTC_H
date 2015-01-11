@@ -1,6 +1,6 @@
 
-#ifndef Kontroler_TC_h
-#define Kontroler_TC_h
+#ifndef Kontr_TC_h
+#define Kontr_TC_h
 
 //#include "Configuration.h"
 
@@ -17,9 +17,7 @@
 extern void PreklopiCrpalkoTC(byte newState);
 extern void Beep(unsigned char delayms);
 
-float KompenzacijaTempOkolice(float tOkolice);
-float KompenzZacTemp(float tStart);
-static float AvgVal(float suma, float num);
+
 
 //--------------------------------------------------------------------------------
 void NastavitevPinov(void) {
@@ -61,27 +59,10 @@ void NastavitevPinov(void) {
 
 }
 
-//--------------------------------------------------------------------------------
-// Naredi string v obliki HH:MM:SS
-//  - izpSec:    - true, izpiše tudi secunde
-//               - false, brez sekund   
-static void NarediTimeStr(char* cas, unsigned long tcas, boolean izpSec = true)
-{   
-  if (izpSec)
-    sprintf(cas, "%02d:%02d:%02d", hour(tcas), minute(tcas), second(tcas));
-  else 
-    sprintf(cas, "%02d:%02d", hour(tcas), minute(tcas));
-}
 
 
-//--------------------------------------------------------------------------------
-// Pretvorba sekunde v ure, decimalno
-static float Sec2Hour(unsigned long sec)
-{
-  return((float)sec/(float)SECS_PER_HOUR);
-}
 
-  unsigned int addrTmp;
+
 //--------------------------------------------------------------------------------
 void InitParametri(void) {
   char infoTime[9];
@@ -236,183 +217,11 @@ void InitParametri(void) {
   
 }
 
-//--------------------------------------------------------------------------------
-
-static float AvgVal(float suma, float num)
-{
-  return(suma/num);
-}
-//--------------------------------------------------------------------------------
-//
-static float RefTemp()
-{
- // return(AvgAllTimeTemp(CRPALKA_0));
-  return(cTemperatura[CRPALKA_0]);
-}
-
-
-//--------------------------------------------------------------------------------------------
-float KompenzacijaTempOkolice(float tOkolice)
-{
-//  return(1 + (20.0 - tOkolice) * deltaThOk);
-  float komp;
-  
-  if (tKompOK == 0) {
-    komp = 1.0;
-  }
-  else {
-    komp = (((tOkolice-tKompOK)/tKompOK)*deltaThOk);
-    komp = 1.0 + komp;
-//    komp = (1.0 - (deltaThOk*((tOkolice-tKomp0)/tKomp0)));  
-  }  
-  
-   return(komp);
-}
-
-//--------------------------------------------------------------------------------------------
-float KompenzZacTemp(float tStart)
-{
-  float komp;
-  float sqtStart;
-  float sqtKompST;
- 
- /* 
-  if (tStart <= tKompSt) {
-//    komp = 1.0;
-    return(1.0);    
-  }  
-*/
-  if (abs(tKompSt) < 0.1) {
-//    komp = 1.0;
-    return(1.0);
-  }  
-  else {
-    sqtStart = tStart*tStart;
-    sqtKompST = tKompSt*tKompSt;
- //   komp = tKompSt*tKompSt - sqtStart;
- //   komp = komp / (sqtStart);
- //   komp = komp * deltaThSt;
-   
-  ////  komp = (((tKompSt*tKompSt - tStart*tStart)/tStart*tStart)*deltaThSt);
-  //  komp = (1 + komp);
-    
-     komp = 1+ (((sqtKompST - sqtStart)/sqtKompST)*deltaThSt);
-  }
-  return(komp); 
-}
-
-
-//--------------------------------------------------------------------------------------------
-
-float IzracDeltaTh() {
-
-  float imenovalec;
-  
-  imenovalec = (KompenzacijaTempOkolice(tempOkolicaSt) * KompenzZacTemp(startTemp) * (Sec2Hour(lastRunTime)));
-  
-  if (abs(imenovalec) < 0.001)
-    return(deltaTh);
-  return((cTemperatura[CRPALKA_0]- startTemp) / imenovalec);
-  
-}  
-
-
-//--------------------------------------------------------------------------------------------
-float IzracDeltaThOk() {
-  float stevec;
-  float imenovalec;
-  float a;
-  
-//  stevec = (startTemp - cTemperatura[CRPALKA_0] + deltaTh* Sec2Hour((float)lastRunTime) * KompenzZacTemp(startTemp));
-//  stevec = stevec * tKomp0;
-  
-  a = deltaTh*Sec2Hour(lastRunTime)*KompenzZacTemp(startTemp);
-  stevec = (cTemperatura[CRPALKA_0] - startTemp - a) * tKompOK;
-  imenovalec = a * (tempOkolicaSt-tKompOK);
-  
-//  stevec = (startTemp - cTemperatura[CRPALKA_0] + deltaTh*Sec2Hour(lastRunTime)*KompenzZacTemp(startTemp)) * tKompOK;
-
-//  imenovalec = (tempOkolicaSt-tKomp0);
-//  imenovalec *= deltaTh;
-//  imenovalec *= Sec2Hour((float)lastRunTime);
-//  imenovalec *= KompenzZacTemp(startTemp);
-
-//  imenovalec = deltaTh*Sec2Hour(lastRunTime)*(tempOkolicaSt-tKompOK)*KompenzZacTemp(startTemp);
-  
-//  if (abs(imenovalec) > 0.01)
-//  if (imenovalec < 0.01 && imenovalec > -0.01)
-  if (abs(imenovalec) < 0.0001)
-    return(deltaThOk);
-  
-  stevec = stevec/imenovalec;
-  
-  if (stevec > 0) {
-    if (deltaThOk > 0.5 && stevec > maxDeltaDev * deltaThOk) {
-      return(maxDeltaDev * deltaThOk);  
-    } 
-    return(stevec);
-  }
-  return(0.0);  
-}   
 
 
 
 
-//--------------------------------------------------------------------------------------------
-float IzracDeltaThSt() {
-  float stevec;
-  float imenovalec;
-  
-  float sqtKompSt = startTemp*startTemp;
-  float sqtKompStRef = tKompSt*tKompSt;
-   
- // stevec = cTemperatura[CRPALKA_0] - startTemp - (deltaTh * Sec2Hour((float)lastRunTime) * KompenzacijaTempOkolice(tempOkolicaSt)); 
- // stevec = stevec * sqtKompSt; 
-  
-  stevec = (cTemperatura[CRPALKA_0] - startTemp - deltaTh * Sec2Hour(lastRunTime) * KompenzacijaTempOkolice(tempOkolicaSt)) * sqtKompStRef;
-  
- // imenovalec = (tKompSt*tKompSt - sqtKompSt);
- // imenovalec *= deltaTh;
- // imenovalec *= Sec2Hour((float)lastRunTime);
- // imenovalec *= KompenzacijaTempOkolice(tempOkolicaSt);
-
-  imenovalec = deltaTh*Sec2Hour(lastRunTime)*(sqtKompStRef - sqtKompSt)*KompenzacijaTempOkolice(tempOkolicaSt);
-  
- // if (abs(imenovalec) > 0.01)
- //   return(stevec/imenovalec);
- // return(deltaThSt);  
-  if (abs(imenovalec) < 0.0001)
-    return(deltaThSt);
-  
-  stevec = stevec/imenovalec;
-  if (stevec > 0) {
-    if (deltaThSt > 0.5 && stevec > maxDeltaDev * deltaThSt) {
-      return(maxDeltaDev * deltaThSt);  
-    }  
-    return(stevec);
-  }
-  return(0.0);    
-} 
-
-//--------------------------------------------------------------------------------------------
-static float Cop(void)
-{
-  //float Q;
-  //float W;
-  /*
-  c = 4200; //J/kgK
-  m = 230; //kapaciteta bojlerja 
-  
-  dT = cTemperatura[CRPALKA_0] - startTemp;
-  Q = c * m * dT;
-  W = (porabaWh - zacPorabaWh) * 3600; //VAh *3600
-  */
-  Qv = 4200.0 * 230.0 * (cTemperatura[CRPALKA_0] - startTemp);
-  We = (porabaWH - zacPorabaWH) * 3600.0;
-  if (We > 0)
-    return(Qv/We);
-  return(0);  
-}
 
 
-#endif 
+
+#endif  

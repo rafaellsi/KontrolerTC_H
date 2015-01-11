@@ -6,6 +6,7 @@
 
 //deklaracije zunanjih funkcij
 extern void IzpisHex2(int num);
+extern void Beep(unsigned char delayms);
 
 //deklaracije internih funkcij
 void TempSensorsInit(void);
@@ -24,14 +25,16 @@ static void PrintTemperatureAll(void);
 
 time_t processSyncMessage();
 static float AutoTimeUnitConv(unsigned long cas, char *cunits);
-static boolean IsNTempCas();
+boolean IsNTempCas();
 static boolean IsCasTransfTopl();
-static boolean IsWeekend();
+//static boolean IsWeekend(void);
 static unsigned int ObsegZgodovine(int sensor, unsigned int pred);
 void last24H_Info(void);
 
+
+
 //definicija spremenljivk
-DeviceAddress devAddress[MAXSENSORS];  //
+DeviceAddress devAddress[MAXSENSORS_DS];  //
 unsigned long convWaitTime = 1000;
 boolean temeratureIzmerjene=true;
 
@@ -361,7 +364,7 @@ float PreberiTemperaturoK(int n) {
   interrupts();
   tempRaw /= numSamples;
   
-  return(vccInternal * 100.0 * tempRaw/1023.0);
+  return((vccInternal * 100.0 * tempRaw/1023.0)+kTypeOffset);
 }  
 
 /*
@@ -467,23 +470,16 @@ static void PrintTemperatureAll(void)
       Serial.print(cTemperatura[i] - u2.uival/100.0, 2);
       
 
-/*      
-      sumCTempEMA -= sumCTemp;
-//      sumCTemp -= cTemperatura_TC[minute()];
-      sumCTemp -= u2.uival/100.0;
-//      cTemperatura_TC[minute()] =  cTemperatura[i];
-      sumCTemp += cTemperatura[i];
-      sumCTempEMA += (60.0*cTemperatura[i]);
-*/      
+     
       if (abs(u2.uival - cTemperatura[i]*100.0) > 1) {
         u2.uival = (unsigned int) ((cTemperatura[i]+0.005)*100.0);
-        Serial.print(F("z"));
-        Serial.print(addrTmp);
+ //       Serial.print(F("z"));
+ //       Serial.print(addrTmp);
         delay(2);
         i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
       }
       delay(2);
-      ui2byte2 u2test;
+/*      ui2byte2 u2test;
       i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2test, sizeof(u2test));
       delay(2);
 
@@ -495,15 +491,8 @@ static void PrintTemperatureAll(void)
         Serial.print(F("/"));
         Serial.print(u2test.uival);
       }  
-      
-/*     
-      Serial.print("|");
-      Serial.print((cTemperatura[i] - (sumCTemp/60.0))*2.0, 2);
-      Serial.print("|");
-      Serial.print((cTemperatura[i] - (sumCTempEMA/1830.0))*2.0, 2);
-      Serial.print("|");
-      Serial.print(((sumCTempEMA/1830.0) - (sumCTemp/60.0)), 2);
-*/      Serial.print(F(")"));
+ */     
+      Serial.print(F(")"));
         
     }    
 //    sendPlotData(cTemperatura[i], 2);
@@ -530,12 +519,23 @@ static void PrintTemperatureAll(void)
     Serial.print(F(":"));
     Serial.print(cTemperatura[i], 2);
 
+    /*
     Serial.print(F("/"));
-    Serial.print(cTemperatura[i] - cTemperatura[numSensDS], 2);
-
-    Serial.print(F("-"));   
-  }
+    Serial.print(cTemperatura[i] - cTemperatura[OKOLICA_0], 2);
+    static float povpr_razlika =0.0;
+    static unsigned long numM = 0;
+    float sTemp = 0;
+    for (int j=0; j < numSensDS + numSensDHT22; j++) {
+      sTemp += cTemperatura[j];
+    }
+    sTemp /= (numSensDS + numSensDHT22);  
+    povpr_razlika += (cTemperatura[i] - sTemp);
+    numM += 1;
+    Serial.print(F("/"));
+    Serial.print(povpr_razlika/numM, 3);
+  */  Serial.print(F("-"));   
   
+  }
 }
 
 
@@ -584,7 +584,7 @@ static float AutoTimeUnitConv(unsigned long cas, char *cunits)
 
 //-------------------------------------------------------------------------------
 // Ali je trenutno obdobje vzdrzevanja nizje (nocne) temperature
-static boolean IsNTempCas()
+boolean IsNTempCas()
 {
   if (hour() >= uraVTemp[0] && hour() < uraVTemp[1])
     return(false);
@@ -609,14 +609,7 @@ static boolean IsCasTransfTopl()
 
 
 
-//--------------------------------------------------------------------------------
-//
-static boolean IsWeekend()
-{
-  if (weekday() == NED || weekday() == SOB)
-    return(true);
-  return(false);  
-}
+
 
 //-------------------------------------------------------------------------------
 // temporarely function
@@ -833,7 +826,13 @@ void last24H_Info(void)
 
 
 
-
+//--------------------------------------------------------------------------------
+//
+static float RefTemp()
+{
+ // return(AvgAllTimeTemp(CRPALKA_0));
+  return(cTemperatura[CRPALKA_0]);
+}
 
 
 

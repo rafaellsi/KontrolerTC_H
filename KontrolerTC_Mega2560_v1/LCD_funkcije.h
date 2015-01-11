@@ -74,7 +74,7 @@ void IzpisiNaLCD(void) {
   static unsigned long t_lastNonDefaultLCDScreen;
   static int prevMenuZaslonNum;
   
-  int menuZaslonNumMax[] = {4, 1};
+  int menuZaslonNumMax[] = {5, 1};
 
   static int menuType = 0;
   int maxMenuType = 1;
@@ -135,7 +135,7 @@ void IzpisControlMenu(void) {
   lcdA.print(F("Se pride"));  
 }  
 
-
+extern int coRawVal;
 //--------------------------------------------------------------------------------
 void IzpisInfoMenu(int infoLCD)
 {
@@ -174,6 +174,7 @@ void IzpisInfoMenu(int infoLCD)
     break;
 */    
     case 0:
+    case 1:
        PrintDigitsLCDA(day());
        lcdA.print(F("."));
        PrintDigitsLCDA(month());
@@ -200,7 +201,7 @@ void IzpisInfoMenu(int infoLCD)
  
     break;
     
-    case 1:
+    case 2:
 //      lcdA.setCursor(0, 1);
       lcdA.print(sensorIme[CRPALKA_0]);
       lcdA.print(F(" "));
@@ -237,9 +238,12 @@ void IzpisInfoMenu(int infoLCD)
          lcdA.print(AutoTimeUnitConv(onTimeTC + now() - lastTCStateChg, cas),2);
       lcdA.print(cas);
       
+      
+      lcdA.print(F(" CO:"));
+      lcdA.print(coRawVal);
     break;  
     
-    case 2:
+    case 3:
        PrintDigitsLCDA(day());
        lcdA.print(F("."));
        PrintDigitsLCDA(month());
@@ -271,7 +275,7 @@ void IzpisInfoMenu(int infoLCD)
 //       infoModeLCD=10;
     break;
     
-    case 3:
+    case 4:
       lcdA.print(F("T"));
 //      lcdA.print(infoModeLCD-10+1);
       lcdA.print(F(":"));
@@ -304,7 +308,7 @@ void IzpisInfoMenu(int infoLCD)
     break;
 
     
-     case 4:
+     case 5:
       lcdA.print(F("Tok:"));
       lcdA.setCursor(4, 0);
       lcdA.print(AC_mimax(false, true), 3);

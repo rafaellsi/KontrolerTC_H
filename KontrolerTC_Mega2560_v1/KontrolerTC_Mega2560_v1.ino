@@ -105,8 +105,10 @@
 #include "Configuration.h"
 #include "Eprom_external.h"
 
+#include "Cas_funkcije.h"
+#include "Kontr_TC_spl.h"
+#include "Kontr_TC.h"
 
-#include "Kontroler_TC.h"
 
 #include "Tok_napetost.h"
 #include "Temperature.h"
@@ -152,7 +154,7 @@ unsigned long lastReleChg;    // cas zadnje spremembe stanja releja TC
 
 
 
-unsigned long lastCrpTCStateChg;
+
 unsigned long lastVentTCChg[2];
 
 int preklopCrpTCVzr = 0;
@@ -175,12 +177,10 @@ boolean isCrpRadAsAbsTemp = true; //upobi absol. temp za zagon crpalke
 //unsigned long lastPavza;
 
 
-float pTempCrp[3];
 
 
-boolean izracHitrGret = false;
-boolean izracHitrGretInfo=false;
-boolean seRracunaHitrGret;
+
+
 
 //--------------------------------------------------------------------------------
 // main function to print information about a device
@@ -207,14 +207,9 @@ static void PrintData()
 
 
 
-#define CLIENT_ADDRESS 1
-#define SERVER_ADDRESS 2
-//     #define RH_RF24_MAX_MESSAGE_LEN 28
-    
-  RH_NRF24 driver(NRF24_CE, NRF24_CSN);
-  RHReliableDatagram manager(driver, CLIENT_ADDRESS);
 
-//  #define RH_RF24_MAX_MESSAGE_LEN
+
+
 //--------------------------------------------------------------------------------
 void setup(void)
 {
@@ -225,7 +220,10 @@ void setup(void)
   
   NastavitevPinov();
 
+  
   Serial.begin(115200);
+  Serial.flush();
+  Serial.println(F("Kontroler TC"));
   Serial.println(VERSION);
   
   
@@ -352,18 +350,7 @@ void setup(void)
     
 }
 
-//--------------------------------------------------------------------------------
-unsigned long cycStart;
-unsigned long sumCycle;
-unsigned long ncyc;
 
-//--------------------------------------------------------------------------------
-static float AvgCycleTime(unsigned long sum, unsigned long num)
-{
-  if (num > 0)
-    return((float)sum/(float)num);
-  return(-1.0);
-}
 
 
 
@@ -456,6 +443,17 @@ void loop(void)
            }
          }       
        }
+       else if (c == 'e') {
+         c = Serial.read();
+         c = Serial.read();
+         if (c == 'r') {
+           c = Serial.read();
+           Serial.print(c);
+           if (c == 's') {
+             EthernetInit();
+           }  
+         }
+       }  
        while (Serial.available() > 0) {
          Serial.print(Serial.read());  
        }  
@@ -1065,64 +1063,9 @@ static byte StatePovezTCPec(byte state)
   return(state);  
 }  
 
-//--------------------------------------------------------------------------------
-static boolean VodaVre(boolean izpis) {
-  float dTemp;
-  
-//  dTemp = (float) abs((float) pTempCrp[2] - (float) cTemperatura[CRPALKA_0]);
-//  dTemp += ((float) abs((float) pTempCrp[1] - (float) cTemperatura[CRPALKA_0]));
-  
-  if (cTemperatura[PEC_TC_DV] < tempVklopaCrpTC) {
-    return(false); 
-  } 
-  
-  dTemp = sq(pTempCrp[2] - cTemperatura[CRPALKA_0]);
-  dTemp += (sq(pTempCrp[1] - cTemperatura[CRPALKA_0]));
-  dTemp = sqrt(dTemp);
-  
-  if (izpis) {
-    Serial.print(F(" <DTemp: "));
-    Serial.print(dTemp);
-    Serial.print(F(" "));
-    Serial.print(pTempCrp[2]);
-    Serial.print(F(" "));
-    Serial.print(pTempCrp[1]);
-    Serial.print(F("> "));
-  }
-  
-  if (dTemp < 0.1)
-    return(true);
-  return(false);  
-}  
 
 
-//--------------------------------------------------------------------------------
-static boolean MaxCrpTCRunTime()
-{
-  return(RelaksTimeLimitSec(now(), lastCrpTCStateChg, 30*60)); // 30 min  
-}
 
-//--------------------------------------------------------------------------------
-float TempVklopaCrpTC_NTemp() {
-  float tmpTemp;
-  
-  if (!IsWeekend()) {
-    tmpTemp = max(TempVklopa() + minDiffTCPec, (TempVklopa() +  ciljnaTemp)/2.0);  
-    return(tmpTemp);
-  }
-  return(ciljnaTemp - minDiffTCPec);
-}
-
-//--------------------------------------------------------------------------------
-static float TempIzklopaCrpTC_NTemp() {
-  float tmpTemp;
-  
-  if (!IsWeekend()) {
-    tmpTemp = max(TempIzklopa() + minDiffTCPec, histCrpTC + (TempVklopa() +  ciljnaTemp)/2.0);  
-    return(tmpTemp);
-  }
-  return(ciljnaTemp + minDiffTCPec);
-}
 //--------------------------------------------------------------------------------  
 static void PovezTCPec(byte newState) {
   
@@ -1240,13 +1183,7 @@ static void PovezTCPec(byte newState) {
 //  PreklopiVentil(100);   
 }
 
-//-------------------------------------------------------------------------------- 
-static boolean RelaksTimeLimitSec(unsigned long cTime, unsigned long pTime,int rTime)
-{
-  if (cTime - pTime > (unsigned long)rTime)
-    return(true);
-  return(false);  
-}
+
 
 //--------------------------------------------------------------------------------
 void PreklopiCrpalkoTC(byte newState)
@@ -1485,74 +1422,6 @@ static void  PreklopiRele(int relePin, int newState)
   lastReleChg = now();  
 }
 
-//--------------------------------------------------------------------------------
-//
-
-static float IzracunLimitTemp(int state, float ciTemp)
-{
-  float tUra;
-  float refTemp;
-  
-  if (hour() < uraVTemp[0])
-    tUra = (float)uraVTemp[0] - (float) hour()-1.0;  
-  else 
-    tUra = abs((float) hour()-24.0) + (float) uraVTemp[0] - 1.0;
-  
-  
-//refTemp = ciTemp - deltaTh*(tUra + (1.0 - (minute()/60.0))) / KompenzacijaTempOkolice(cTemperatura[OKOLICA_0]);  
-  
-//  refTemp = ciTemp - deltaTh*(tUra + (1.0 - (minute()/60.0)));
-//  refTemp *= KompenzacijaTempOkolice(cTemperatura[OKOLICA_0]);
-//  refTemp *= KompenzZacTemp(cTemperatura[CRPALKA_0]);
-  refTemp = ciTemp - deltaTh*(tUra + (1.0 - (minute()/60.0))) * KompenzacijaTempOkolice(cTemperatura[OKOLICA_0]) * KompenzZacTemp(cTemperatura[CRPALKA_0]);  
-
-
-  
-  if (state == 0) {  
-//    return(max(minTempNightOn, refTemp + sensDiff/*+dTemp*/)); // !!!
-    return(max(minTempNightOn, refTemp + deltaTh/2.0/*+dTemp*/)); // !!!
-  }
-  else if (state == 1) {
-    if (hour() >= uraVTemp[0] - 2 && hour() < uraVTemp[1])
-      return(ciTemp+(dTemp*2.0));
-    else {  
-//      refTemp = max(minTempNightOn+dTemp, refTemp+dTemp*2.0);
-      refTemp = max(minTempNightOn+dTemp, refTemp+dTemp+deltaTh);
-      return(min(ciTemp+(dTemp*2.0), refTemp));
-    }
-  }
-  else 
-    return(refTemp);
-}
-
-//--------------------------------------------------------------------------------
-
-
-//--------------------------------------------------------------------------------
-static float IzracunTempVTOff(void)
-{
-  float rel;
-  float relT;
-  
-  relT = (float) uraVTemp[1] - dolPrehObd/60.0;
-  
-  if ((float) hour() < relT)
-    return(minTempVTOn + dTemp);
-  
-  rel = (float) hour() + (minute()/60.0) - relT;
-  rel = rel/((float) uraVTemp[1] - relT);
-  relT = minTempVTOn + dTemp*(1.0-rel);
-  return(relT);
-}
-
-
-/*
-static int FreeMemory() {
-  extern int __heap_start, *__brkval; 
-  int v; 
-  return (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval); 
-}
-*/
 
 uint8_t * heapptr, * stackptr;
 void check_mem() {
@@ -1591,58 +1460,9 @@ static void IzpisDatnaSerial(void)
 
 //--------------------------------------------------------------------------------
 
-//--------------------------------------------------------------------------------
-float TempVklopa(void)
-{
-  seRracunaHitrGret = false;
-  
-  if (IsWeekend()) {
-    if (IsNTempCas()) {
-        if (weekday() == NED && hour() > uraVTemp[0]) {
-          seRracunaHitrGret = true;
-          return(IzracunLimitTemp(0, ciljnaTemp));  
-        }  
-      return(minTempNightOn);    
-    }
-    else {
-      return(105.0);
-    }
-  }
-  else {
-    if (!IsNTempCas()) {
-      return(minTempVTOn);
-    }
-    if (!UpostevajElTarife()) {
-        return(IzracunLimitTemp(0, minTempVTOn));  
-      } 
-    seRracunaHitrGret = true;
-    return(IzracunLimitTemp(0, ciljnaTemp));
-  }
-}
 
 
-//--------------------------------------------------------------------------------
-float TempIzklopa(void)
-{
-  if (!IsWeekend()) {
-    if (!IsNTempCas()) {
-      return(IzracunTempVTOff());
-    }
-    if (!UpostevajElTarife())
-        return(IzracunLimitTemp(1, minTempVTOn));    
-    
-    return(IzracunLimitTemp(1, ciljnaTemp));  
-  }
-  else {
-    if (IsNTempCas()) {
-      if (weekday() == NED && hour() > uraVTemp[0]) {
-          return(IzracunLimitTemp(1, ciljnaTemp));  
-      }  
-      return(minTempNightOn + dTemp);
-    }
-    return(105.0); 
-  }
-}
+
 
 
 
@@ -1674,23 +1494,7 @@ static void IzpisDataOnOffSerial(void)
 }
 
 
-//------------
-static boolean UpostevajElTarife(void)
-{
-  
-  float diff_factor_01 = 4.0 * dTemp;
-  float diff_factor_02 = 2.0 * dTemp;
-  
-  if (AvgVal(sumTemp[OKOLICA_0], histLen*1.0) < (AvgVal(sumTemp[PEC_TC_DV], histLen*1.0) - diff_factor_01) && 
-      (AvgVal(sumTemp[PEC_TC_DV], histLen*1.0) > (minTempVTOn + diff_factor_02 ))) {
-    //minTempVTOn + dTemp
- //   minRunTimeMin = 30;
-    return(false);
-  }
- 
-//  minRunTimeMin = 45;
-  return(true);
-}
+
 
 
 

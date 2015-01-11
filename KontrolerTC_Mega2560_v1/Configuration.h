@@ -1,9 +1,12 @@
 #ifndef Configuration_h
 #define Configuration_h
 
+
+extern void Beep(unsigned char);
 //#define INTFACT
 #define VERSION "v1"
 #define MAXSENSORS 9     //maksimalno stevilo temp sensorjev DS18x20
+#define MAXSENSORS_DS 7
 #define MAX_DHT22_SENS 1
 
 //----------
@@ -72,6 +75,8 @@
 #define DHTTYPE DHT22
 
 #define CEVTERM_PEC_TC  32    //cevni termostat na peci proti TC - vklopi internal pull-up
+//#define TEMOSTAT_VEZA_I   16
+//#define TEMOSTAT_VEZA_II  17
 
 #define STIKALO_CRP_RAD_ON 33    //stikalo 1
 #define STIKALO_CRP_RAD_OFF 34   //stikalo 1 
@@ -95,7 +100,7 @@
 #define VENTTC_2    48    // na L293  - input 2
 #define VENTTC_EN   49    // ENA na L298 - enable input 1,2  
 
-#define SD_CS_PIN  53     //SD card SX pin 
+#define SD_CS_PIN  53     //SD card CS+ pin 
 
 
 
@@ -128,6 +133,8 @@ int numSensDS = 0;        //število DS senzorjev
 int numSensDHT22 = 1;
 int numSensK = 1;
 int numSens;
+
+float kTypeOffset = 0.0; //3.67;
 
 #define  OKOLICA_0  7   // index senzorja okolice
 #define  CRPALKA_0  1   // index sensorja na crpalki
@@ -239,7 +246,7 @@ float maxTempDVPec = 90.01; // max. temperatura dviznega voda peci
 float maxDeltaDev = 5.0;
 
 
-
+static float vccInternal = 5.0;
 
 
 //------------------------------------------
@@ -418,14 +425,14 @@ void FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   numSensDS++;
 
 // okolica Na DS1307
-  devAddress[1][0] = 0x28;
-  devAddress[1][1] = 0xC2;
-  devAddress[1][2] = 0x3A;
-  devAddress[1][3] = 0x97;
-  devAddress[1][4] = 0x03;
-  devAddress[1][5] = 0x00;
-  devAddress[1][6] = 0x00;
-  devAddress[1][7] = 0x55;
+  devAddress[3][0] = 0x28;
+  devAddress[3][1] = 0xC2;
+  devAddress[3][2] = 0x3A;
+  devAddress[3][3] = 0x97;
+  devAddress[3][4] = 0x03;
+  devAddress[3][5] = 0x00;
+  devAddress[3][6] = 0x00;
+  devAddress[3][7] = 0x55;
 //  type_s[0] = 0;
   numSensDS++;
  /* 
@@ -457,14 +464,14 @@ void FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   
   
    // pec dvizni vod
-  devAddress[3][0] = 0x28;
-  devAddress[3][1] = 0xAF;
-  devAddress[3][2] = 0xD9;
-  devAddress[3][3] = 0x9E;
-  devAddress[3][4] = 0x04;
-  devAddress[3][5] = 0x00;
-  devAddress[3][6] = 0x00;
-  devAddress[3][7] = 0xA1;
+  devAddress[1][0] = 0x28;
+  devAddress[1][1] = 0xAF;
+  devAddress[1][2] = 0xD9;
+  devAddress[1][3] = 0x9E;
+  devAddress[1][4] = 0x04;
+  devAddress[1][5] = 0x00;
+  devAddress[1][6] = 0x00;
+  devAddress[1][7] = 0xA1;
 //  type_s[3] = 0;
   numSensDS++;
    // povratni vod radiatorji
@@ -501,6 +508,14 @@ void FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
 //  type_s[6] = 0;
   numSensDS++;
  
+  if (numSensDS > MAXSENSORS_DS) {
+    numSensDS = MAXSENSORS_DS;
+    Serial.print(F("Stevilo DS senosrjev!!"));
+    lcdA.clear();
+    lcdA.print(F("Stevilo DS senosrjev!!"));
+    Beep(250);
+    
+   }   
  
   for (int i=0; i<numSensDS; i++) {
     Serial.print(F("Temp. sensor "));

@@ -24,8 +24,8 @@ static void i2c_eeprom_write_page( int deviceaddress, unsigned int eeaddresspage
     delay(1);
   }
   
-  byte success;
-  success = Wire.endTransmission();
+
+  byte success = Wire.endTransmission();
   if (success != 0) {
     Serial.print(F("ErrEpWrPg "));
     Serial.print(success);
@@ -50,8 +50,8 @@ static void i2c_eeprom_write_page( int deviceaddress, unsigned int eeaddresspage
     numW += Wire.write(&data, 1);
     
 //  Wire.endTransmission(true);
-  byte success;
-  success = Wire.endTransmission();
+
+  byte success = Wire.endTransmission();
   if (success != 0) {
     Serial.print(F("ErrEpWrBy "));
     Serial.print(success);

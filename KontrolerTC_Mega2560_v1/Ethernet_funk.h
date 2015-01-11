@@ -1,6 +1,16 @@
 #ifndef Ethernet_funk_h
 #define Ethernet_funk_h
 
+
+
+#define CLIENT_ADDRESS 1
+#define SERVER_ADDRESS 2
+//     #define RH_RF24_MAX_MESSAGE_LEN 28
+    
+RH_NRF24 driver(NRF24_CE, NRF24_CSN);
+RHReliableDatagram manager(driver, CLIENT_ADDRESS);
+  
+
 void EthernetInit(void) {
   
   if (ether.begin(sizeof Ethernet::buffer, mymac, ETHER_CS_PIN) == 0) 
