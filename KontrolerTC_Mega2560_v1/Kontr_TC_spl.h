@@ -267,7 +267,7 @@ float TempVklopaCrpTC_NTemp() {
   float tmpTemp;
   
   if (!IsWeekend()) {
-
+    tmpTemp = max(TempVklopa() + minDiffTCPec, (TempVklopa() +  ciljnaTemp)/2.0);
     return(tmpTemp);
   }
   return(ciljnaTemp - minDiffTCPec);

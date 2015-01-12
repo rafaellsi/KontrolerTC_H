@@ -86,8 +86,6 @@
 */
 //#include <math.h>
 
-
-
 #include <OneWire.h>
 #include <Time.h>  
 #include <Wire.h>  
@@ -100,7 +98,6 @@
 #include <RHReliableDatagram.h>
 #include <RH_NRF24.h>
 #include <SPI.h>
-
 
 #include "Configuration.h"
 #include "Eprom_external.h"
@@ -121,22 +118,11 @@
 
 static void PreklopiVentil(byte newState);
 // splosne spremenljivke
-
-
-
 //unsigned long casMeritve;
 
 int prevMinute = -1;
 
-
 //unsigned long startProg;
-
-
-
-
-
-
-
 
 // rele spremenljivke
 //boolean releState_1 = R_TC_OFF;  // stanje releja vklopa TC
@@ -150,11 +136,6 @@ unsigned long lastReleChg;    // cas zadnje spremembe stanja releja TC
 
 // splosne spremenljivke
 
-
-
-
-
-
 unsigned long lastVentTCChg[2];
 
 int preklopCrpTCVzr = 0;
@@ -165,7 +146,6 @@ byte prevVentTCState = 255;
 byte manuCrpTCState = 0;
 
 int stateCevStPecTC;
-
 
 boolean isCrpRadAsAbsTemp = true; //upobi absol. temp za zagon crpalke
 //float crpRadAsAbsTemp[24];
@@ -205,22 +185,14 @@ static void PrintData()
 
 }
 
-
-
-
-
-
 //--------------------------------------------------------------------------------
 void setup(void)
 {
   
   char infoSet[9];
-//  boolean exist = true;
-//  DeviceAddress tmpAddr;
   
   NastavitevPinov();
-
-  
+ 
   Serial.begin(115200);
   Serial.flush();
   Serial.println(F("Kontroler TC"));
@@ -334,12 +306,12 @@ void setup(void)
   else
     Serial.println(F("AUTO"));
   
-  
+ /* 
   if (!manager.init()) {
     Serial.println("init failed");
   // Defaults after init are 434.0MHz, modulation GFSK_Rb5Fd10, power 0x10
   }
-
+*/
   Serial.println(F(""));
   Encoder_init();
   Serial.println(F("Init. OK"));
@@ -350,12 +322,6 @@ void setup(void)
     
 }
 
-
-
-
-
-
-
 //--------------------------------------------------------------------------------
 void loop(void)
 { 
@@ -364,8 +330,6 @@ void loop(void)
   byte newCrpTCState;
   float alpha;
   char c;
-  
-  
    
   if (cycStart > 0 && millis() > cycStart) {
     sumCycle += (millis() - cycStart);
@@ -745,8 +709,8 @@ void loop(void)
     }
     PrintTempAllSDbin();  
     
-    
-    
+    Serial.println("");
+    Serial.print(F("       "));
     
     Serial.print(F(" Tok: "));
     tok = AC_mimax(showCRC, true);
@@ -811,7 +775,7 @@ void loop(void)
  #endif 
      Serial.print(F(" "));
      
-     Serial.print(osvetlitevLCD);
+       Serial.print(osvetlitevLCD);
       
 /*     Serial.print(F("Stikalo crpalke rad: "));
      Serial.print(F("  "));

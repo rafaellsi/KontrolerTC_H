@@ -91,7 +91,8 @@ void Encoder_init(void) {
 //    Serial.println("Start");
 
 } // setup
-static int osvetlitevLCD = 0;
+int osvetlitevLCD = 0;
+#define MAX_LCD_OSV 160
 // -----------------------------------------------------------------------------
 
 void Encoder_check(void) {
@@ -108,7 +109,7 @@ void Encoder_check(void) {
   if (lastSwState == LOW) {        // check if pushbutton is pressed
     if (prevSwState == HIGH) {
       virtualPosition = 0;            // if YES, then reset counter to ZERO
-      osvetlitevLCD = 255;
+      osvetlitevLCD = MAX_LCD_OSV;
       osvetLCD_start = now();
 //     analogWrite(LCD_OSW_SW, osvetlitevLCD);
 //    while (!digitalRead(ENC_SW_PIN)) {  // wait til switch is released
@@ -139,7 +140,7 @@ void Encoder_check(void) {
     
     IzpisiNaLCD();
     Beep(10);
-    osvetlitevLCD = 255;
+    osvetlitevLCD = MAX_LCD_OSV;
     osvetLCD_start = now();
     
 //    IzpisiNaLCD();
@@ -151,7 +152,7 @@ void Encoder_check(void) {
   }
   if (osvetlitevLCD > 0) {
     osvetlitevLCD = 255 + (osvetLCD_start - now()) * 2;
-    osvetlitevLCD = constrain(osvetlitevLCD, 0, 255);
+    osvetlitevLCD = constrain(osvetlitevLCD, 0, MAX_LCD_OSV);
     analogWrite(LCD_OSW_SW, osvetlitevLCD);
   }  
 } //loop

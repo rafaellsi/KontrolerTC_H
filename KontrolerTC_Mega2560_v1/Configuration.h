@@ -15,8 +15,8 @@ extern void Beep(unsigned char);
 
 //----------
 //in/out state definition realys
-#define R_TC_ON   HIGH      // z RELE_TC
-#define R_TC_OFF  LOW
+#define R_TC_ON   LOW      // z RELE_TC
+#define R_TC_OFF  HIGH
 
 #define R_CRAD_ON   LOW      // z RELE_CRAD
 #define R_CRAD_OFF  HIGH
@@ -315,20 +315,35 @@ OneWire ds(ONE_WIRE_BUS);
 
 void FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
 {
-/*
+
 //  normal
-  // okolica
+ 
+// okolica Na DS1307
+  
+  
   devAddress[0][0] = 0x28;
-  devAddress[0][1] = 0xC3;
-  devAddress[0][2] = 0x68;
-  devAddress[0][3] = 0x97;
-  devAddress[0][4] = 0x03;
+  devAddress[0][1] = 0xAF;
+  devAddress[0][2] = 0xD9;
+  devAddress[0][3] = 0x9E;
+  devAddress[0][4] = 0x04;
   devAddress[0][5] = 0x00;
   devAddress[0][6] = 0x00;
-  devAddress[0][7] = 0x74;
-  type_s[0] = 0;
+  devAddress[0][7] = 0xA1;
 
-// okolica Na DS1307
+//  type_s[0] = 0;
+  numSensDS++;
+  
+  // crpalka
+  devAddress[1][0] = 0x28;
+  devAddress[1][1] = 0xA4;
+  devAddress[1][2] = 0x44;
+  devAddress[1][3] = 0x9F;
+  devAddress[1][4] = 0x04;
+  devAddress[1][5] = 0x00;
+  devAddress[1][6] = 0x00;
+  devAddress[1][7] = 0x8D;
+  
+  /*
   devAddress[1][0] = 0x28;
   devAddress[1][1] = 0xC2;
   devAddress[1][2] = 0x3A;
@@ -337,18 +352,19 @@ void FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   devAddress[1][5] = 0x00;
   devAddress[1][6] = 0x00;
   devAddress[1][7] = 0x55;
-  type_s[0] = 0;
-  
-  // crpalka
-//  devAddress[1][0] = 0x28;
-//  devAddress[1][1] = 0x32;
-//  devAddress[1][2] = 0x5B;
-//  devAddress[1][3] = 0x97;
-//  devAddress[1][4] = 0x03;
-//  devAddress[1][5] = 0x00;
-//  devAddress[1][6] = 0x00;
-//  devAddress[1][7] = 0xFB;
+  */
+ /* 
+  /devAddress[1][0] = 0x28;
+  devAddress[1][1] = 0x32;
+  devAddress[1][2] = 0x5B;
+  devAddress[1][3] = 0x97;
+  devAddress[1][4] = 0x03;
+  devAddress[1][5] = 0x00;
+  devAddress[1][6] = 0x00;
+  devAddress[1][7] = 0xFB;
 //  type_s[1] = 0;
+*/  
+  numSensDS++;
   
   
   //pec - povratni - prej na cevi TC
@@ -360,8 +376,8 @@ void FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   devAddress[2][5] = 0x00;
   devAddress[2][6] = 0x00;
   devAddress[2][7] = 0x99;
-  type_s[2] = 0;
-  
+//  type_s[2] = 0;
+  numSensDS++;
   
  
   
@@ -375,8 +391,9 @@ void FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   devAddress[3][5] = 0x00;
   devAddress[3][6] = 0x00;
   devAddress[3][7] = 0x52;
-  type_s[3] = 0;
-  
+//  type_s[3] = 0;
+   numSensDS++;
+   
    // povratni vod radiatorji
   devAddress[4][0] = 0x28;
   devAddress[4][1] = 0xEA;
@@ -386,8 +403,9 @@ void FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   devAddress[4][5] = 0x00;
   devAddress[4][6] = 0x00;
   devAddress[4][7] = 0x42;
-  type_s[4] = 0;
-  
+//  type_s[4] = 0;
+   numSensDS++;
+   
    // dvizni vod radiatorji
   devAddress[5][0] = 0x28;
   devAddress[5][1] = 0x02;
@@ -397,8 +415,8 @@ void FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   devAddress[5][5] = 0x00;
   devAddress[5][6] = 0x00;
   devAddress[5][7] = 0x48;
-  type_s[5] = 0;
-  
+//  type_s[5] = 0;
+  numSensDS++;
   
   devAddress[6][0] = 0x28;
   devAddress[6][1] = 0xD7;
@@ -408,8 +426,9 @@ void FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   devAddress[6][5] = 0x00;
   devAddress[6][6] = 0x00;
   devAddress[6][7] = 0xC5;
-  type_s[6] = 0;
-*/  
+//  type_s[6] = 0;
+  numSensDS++;
+/* 
   
   //  test
   // okolica
@@ -435,18 +454,18 @@ void FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   devAddress[3][7] = 0x55;
 //  type_s[0] = 0;
   numSensDS++;
- /* 
+ 
   // crpalka
-  devAddress[1][0] = 0x28;
-  devAddress[1][1] = 0x32;
-  devAddress[1][2] = 0x5B;
-  devAddress[1][3] = 0x97;
-  devAddress[1][4] = 0x03;
-  devAddress[1][5] = 0x00;
-  devAddress[1][6] = 0x00;
-  devAddress[1][7] = 0xFB;
-  type_s[1] = 0;
-*/  
+/  devAddress[1][0] = 0x28;
+/  devAddress[1][1] = 0x32;
+/  devAddress[1][2] = 0x5B;
+/  devAddress[1][3] = 0x97;
+/  devAddress[1][4] = 0x03;
+/  devAddress[1][5] = 0x00;
+/  devAddress[1][6] = 0x00;
+/  devAddress[1][7] = 0xFB;
+/  type_s[1] = 0;
+  
   
   //pec - povratni - prej na cevi TC
   devAddress[2][0] = 0x28;
@@ -507,7 +526,8 @@ void FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   devAddress[6][7] = 0xCC;
 //  type_s[6] = 0;
   numSensDS++;
- 
+*/
+
   if (numSensDS > MAXSENSORS_DS) {
     numSensDS = MAXSENSORS_DS;
     Serial.print(F("Stevilo DS senosrjev!!"));

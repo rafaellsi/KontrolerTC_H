@@ -76,7 +76,7 @@ void TempSensorsInit(void) {
       sprintf(infoErr," ErrT01 ");
     }  
     else {
-//      PrintAddress(tmpAddr);  //dodaj preverjanje address
+      PrintAddress(tmpAddr);  //dodaj preverjanje address
     }  
         
   }
