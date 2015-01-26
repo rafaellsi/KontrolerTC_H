@@ -219,7 +219,7 @@ void IzpisInfoMenu(int infoLCD)
        i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
 //       delay(2);
 //       lcdA.setCursor(14, 1); 
-       lcdA.print(cTemperatura[CRPALKA_0] - u2.uival/100.0, 2);
+       lcdA.print(cTemperatura[CRPALKA_0] - (u2.uival+50)/100.0, 2);
       
       lcdA.setCursor(0, 1);
       if (releState_1 == R_TC_ON) {
@@ -270,7 +270,7 @@ void IzpisInfoMenu(int infoLCD)
        i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
 //       delay(2);
        lcdA.setCursor(14, 1); 
-       lcdA.print(cTemperatura[CRPALKA_0] - u2.uival/100.0, 2);
+       lcdA.print(cTemperatura[CRPALKA_0] - (u2.uival+50)/100.0, 2);
        
 //       infoModeLCD=10;
     break;

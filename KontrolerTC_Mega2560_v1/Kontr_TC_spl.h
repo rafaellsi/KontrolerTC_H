@@ -112,30 +112,21 @@ float IzracDeltaTh() {
 }  
 
 
+boolean useDeltaThOk = false;
 //--------------------------------------------------------------------------------------------
 float IzracDeltaThOk() {
   float stevec;
   float imenovalec;
   float a;
   
-//  stevec = (startTemp - cTemperatura[CRPALKA_0] + deltaTh* Sec2Hour((float)lastRunTime) * KompenzZacTemp(startTemp));
-//  stevec = stevec * tKomp0;
+  if (!useDeltaThOk) {
+    return (0.0);
+  }  
   
   a = deltaTh*Sec2Hour(lastRunTime)*KompenzZacTemp(startTemp);
   stevec = (cTemperatura[CRPALKA_0] - startTemp - a) * tKompOK;
   imenovalec = a * (tempOkolicaSt-tKompOK);
   
-//  stevec = (startTemp - cTemperatura[CRPALKA_0] + deltaTh*Sec2Hour(lastRunTime)*KompenzZacTemp(startTemp)) * tKompOK;
-
-//  imenovalec = (tempOkolicaSt-tKomp0);
-//  imenovalec *= deltaTh;
-//  imenovalec *= Sec2Hour((float)lastRunTime);
-//  imenovalec *= KompenzZacTemp(startTemp);
-
-//  imenovalec = deltaTh*Sec2Hour(lastRunTime)*(tempOkolicaSt-tKompOK)*KompenzZacTemp(startTemp);
-  
-//  if (abs(imenovalec) > 0.01)
-//  if (imenovalec < 0.01 && imenovalec > -0.01)
   if (abs(imenovalec) < 0.0001)
     return(deltaThOk);
   
@@ -160,22 +151,11 @@ float IzracDeltaThSt() {
   
   float sqtKompSt = startTemp*startTemp;
   float sqtKompStRef = tKompSt*tKompSt;
-   
- // stevec = cTemperatura[CRPALKA_0] - startTemp - (deltaTh * Sec2Hour((float)lastRunTime) * KompenzacijaTempOkolice(tempOkolicaSt)); 
- // stevec = stevec * sqtKompSt; 
   
   stevec = (cTemperatura[CRPALKA_0] - startTemp - deltaTh * Sec2Hour(lastRunTime) * KompenzacijaTempOkolice(tempOkolicaSt)) * sqtKompStRef;
-  
- // imenovalec = (tKompSt*tKompSt - sqtKompSt);
- // imenovalec *= deltaTh;
- // imenovalec *= Sec2Hour((float)lastRunTime);
- // imenovalec *= KompenzacijaTempOkolice(tempOkolicaSt);
 
   imenovalec = deltaTh*Sec2Hour(lastRunTime)*(sqtKompStRef - sqtKompSt)*KompenzacijaTempOkolice(tempOkolicaSt);
-  
- // if (abs(imenovalec) > 0.01)
- //   return(stevec/imenovalec);
- // return(deltaThSt);  
+
   if (abs(imenovalec) < 0.0001)
     return(deltaThSt);
   
@@ -214,6 +194,8 @@ static float Cop(void)
 unsigned long cycStart;
 unsigned long sumCycle;
 unsigned long ncyc;
+unsigned long minCycle = 0;
+unsigned long maxCycle = 0;
 
 //--------------------------------------------------------------------------------
 static float AvgCycleTime(unsigned long sum, unsigned long num)

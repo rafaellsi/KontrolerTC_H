@@ -8,7 +8,7 @@ void waitEEReady(int deviceAddress);
 //--------------------------------------------------------------------------------
 static void i2c_eeprom_write_page( int deviceaddress, unsigned int eeaddresspage, byte addrlen, byte* up, byte length ) 
 {   
-  waitEEReady(deviceaddress);
+//  waitEEReady(deviceaddress);
   
   Wire.beginTransmission(deviceaddress);
   if (addrlen > 1) 
@@ -31,6 +31,7 @@ static void i2c_eeprom_write_page( int deviceaddress, unsigned int eeaddresspage
     Serial.print(success);
   }
   waitEEReady(deviceaddress); 
+  delay(1);
 }
 
 //--------------------------------------------------------------------------------
@@ -38,7 +39,7 @@ static void i2c_eeprom_write_page( int deviceaddress, unsigned int eeaddresspage
 //    int rdata = data;
     byte numW = 0;
     
-    waitEEReady(deviceaddress);
+//    waitEEReady(deviceaddress);
     
     Wire.beginTransmission(deviceaddress);
 
@@ -61,6 +62,7 @@ static void i2c_eeprom_write_page( int deviceaddress, unsigned int eeaddresspage
     Serial.write(&data, 1);
   } 
   waitEEReady(deviceaddress);
+  delay(1);
 }
 
 
@@ -69,7 +71,8 @@ static void i2c_eeprom_read_buffer( int deviceaddress, unsigned int eeaddress, b
     byte success = 1;  
   
     waitEEReady(deviceaddress);
-  
+    delay(1);
+    
     Wire.beginTransmission(deviceaddress);
     if (addrlen > 1) 
       Wire.write((byte)(eeaddress >> 8)); // MSB
@@ -104,7 +107,8 @@ static void i2c_eeprom_read_buffer( int deviceaddress, unsigned int eeaddress, b
     if (retByts != length)
       Serial.print(F("ErrEprReBuLe"));
       
-    waitEEReady(deviceaddress);  
+//    waitEEReady(deviceaddress);
+    
   }
   
 //--------------------------------------------------------------------------------  
@@ -113,6 +117,7 @@ static byte i2c_eeprom_read_byte( int deviceaddress, unsigned int eeaddress, byt
     byte success = 1;
     
     waitEEReady(deviceaddress);
+    delay(1);
     
     Wire.beginTransmission(deviceaddress);
     if (addrlen > 1)
@@ -133,7 +138,8 @@ static byte i2c_eeprom_read_byte( int deviceaddress, unsigned int eeaddress, byt
       Serial.print(success);
     } 
     
-    waitEEReady(deviceaddress);
+//    waitEEReady(deviceaddress);
+    
     return rdata;
 }
 
@@ -141,7 +147,7 @@ static byte i2c_eeprom_read_byte( int deviceaddress, unsigned int eeaddress, byt
 //-------------------------------------------------------------------------------- 
 void waitEEReady(int deviceAddress)
 {
-int i2c_check_delay = 20;
+unsigned long i2c_check_delay = 100;
     
     // Wait until EEPROM gives ACK again.
     // this is a bit faster than the hardcoded 5 millis

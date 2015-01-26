@@ -95,9 +95,9 @@
 #include <EtherCard.h>
 #include <DHT.h>
 
-#include <RHReliableDatagram.h>
-#include <RH_NRF24.h>
-#include <SPI.h>
+//#include <RHReliableDatagram.h>
+//#include <RH_NRF24.h>
+//#include <SPI.h>
 
 #include "Configuration.h"
 #include "Eprom_external.h"
@@ -228,7 +228,7 @@ void setup(void)
   }  
   
   setSyncProvider(RTC.get);   // the function to get the time from the RTC
-  setSyncInterval(60);
+  setSyncInterval(119);
   lcdA.clear();
   lcdA.print(F("Time:"));
   lcdA.setCursor(0, 1);
@@ -332,8 +332,20 @@ void loop(void)
   char c;
    
   if (cycStart > 0 && millis() > cycStart) {
-    sumCycle += (millis() - cycStart);
+    unsigned long lastCycle = (millis() - cycStart);
+//    sumCycle += (millis() - cycStart);
+    sumCycle += lastCycle;
     ncyc ++;
+    if (maxCycle == 0) {
+      maxCycle = lastCycle;
+      minCycle = lastCycle;
+    }  
+    else if (maxCycle < lastCycle) {
+       maxCycle = lastCycle; 
+    }   
+    else if (minCycle > lastCycle) {
+       minCycle = lastCycle;   
+    }
   }
   else {
     sumCycle = 0;
@@ -417,7 +429,19 @@ void loop(void)
              EthernetInit();
            }  
          }
-       }  
+       }
+       else if (c == 's') {
+         c = Serial.read();
+         c = Serial.read();
+         if (c == 'd') {
+           c = Serial.read();
+           Serial.print(c);
+           if (c == 'r') {
+             SDInit() ;
+           }  
+         }
+       }
+        
        while (Serial.available() > 0) {
          Serial.print(Serial.read());  
        }  
@@ -621,16 +645,16 @@ void loop(void)
 //        addrTmp *= sizeof(u2);
 //        addrTmp += addrTempBack;
  //     addrTmp = addrTempBack + sizeof(uf)*((elapsedSecsToday(now())/(zapisXMin*60)) + (day()-1)*144); //1440/zapisXMin
-        delay(10);
+        delay(2);
         i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
-        delay(10);
+        delay(2);
 
         Serial.print(F(" Ta"));
         Serial.print(j+1);
         Serial.print(F(":"));
         
         Serial.print(F("("));
-        Serial.print(u2.uival/100.0);
+        Serial.print((u2.uival/100.0)-50.0);
         
         Serial.print(F(">"));
         Serial.print(addrTmp);
@@ -649,18 +673,45 @@ void loop(void)
         }
         // dodano kot kontrola vrenja  
         
-        float diff = cTemperatura[j] - (u2.uival/100.0);
+        float diff = cTemperatura[j] - ((u2.uival/100.0)-50.0);
         if (abs(diff) > 0.01) {
-          sumTemp[j] -= (u2.uival)/100.0;
-          u2.uival =  (cTemperatura[j]+0.005)*100;
+          sumTemp[j] -= (((u2.uival)/100.0) - 50.0);
+          u2.uival =  (cTemperatura[j]+0.005+50.0)*100;
           sumTemp[j] += (cTemperatura[j]);
 
-          delay(10);
+          delay(2);
           i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+          delay(2);
         }
 
         Serial.print(AvgVal(sumTemp[j], histLen*1.0),2);
 
+      }
+      Serial.println(F(""));
+      for (int j = numSens; j < numSens + numSensDHT22; j++) {
+        addrTmp = ObsegZgodovine(j);
+        i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+        Serial.print(F(" RHa"));
+        Serial.print(j-numSens+1);
+        Serial.print(F(":"));
+        
+        Serial.print(F("("));
+        Serial.print(u2.uival/100.0);
+        
+        Serial.print(F(">"));
+        Serial.print(addrTmp);
+        
+        Serial.print(F(")"));
+        float diff = cVlaznost[j-numSens] - (u2.uival/100.0);
+        if (abs(diff) > 0.01) {
+          sumTemp[j] -= (u2.uival)/100.0;
+          u2.uival =  (cVlaznost[j-numSens]+0.005)*100;
+          sumTemp[j] += (cVlaznost[j-numSens]);
+        
+          i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+          delay(2);
+        }
+        Serial.print(AvgVal(sumTemp[j], histLen*1.0),2);
       }
       Serial.println(F(""));
 
@@ -702,9 +753,15 @@ void loop(void)
       Serial.print(ncyc);
       Serial.print(F("): "));
       Serial.print(AvgCycleTime(sumCycle, ncyc));
-      Serial.println(F("ms"));    
+      Serial.print(F("ms "));    
+      Serial.print(F("Min-Max(last h): "));
+      Serial.print(minCycle);
+      Serial.print(F("-"));
+      Serial.println(maxCycle);
+      maxCycle = 0;
 
-      PreveriNapetosti(true, true, false);
+      
+//      PreveriNapetosti(true, true, false);
       Serial.println(F(""));
     }
     PrintTempAllSDbin();  
@@ -775,7 +832,12 @@ void loop(void)
  #endif 
      Serial.print(F(" "));
      
-       Serial.print(osvetlitevLCD);
+     Serial.print(osvetlitevLCD);
+     
+     Serial.print(F(" I(12v):"));
+     Serial.print(Tok_12V());
+     Serial.print(F(" "));  
+     PreveriNapetosti(true, true, false);
       
 /*     Serial.print(F("Stikalo crpalke rad: "));
      Serial.print(F("  "));
@@ -894,6 +956,7 @@ void loop(void)
   }
   PreveriCO_Senzor();
   
+/*
   uint8_t buf[RH_NRF24_MAX_MESSAGE_LEN];
   if (manager.available())
   {
@@ -906,14 +969,14 @@ void loop(void)
       Serial.print(from, HEX);
       Serial.print(": ");
       Serial.println((char*)buf);
-/*
+
       // Send a reply back to the originator client
-      if (!manager.sendtoWait(data, sizeof(data), from))
- */       Serial.println("sendtoWait failed");
+//      if (!manager.sendtoWait(data, sizeof(data), from))
+//        Serial.println("sendtoWait failed");
     
   }
   }
-  
+*/  
 }
 
 //--------------------------------------------------------------------------------
@@ -1174,7 +1237,8 @@ void PreklopiCrpalkoTC(byte newState)
       Serial.println(F(" "));
       NarediTimeStr(cas, now());
       Serial.print(cas);
-      Serial.print(F(" Vklop crpalke"));
+      Serial.print(F(" Vklop crpalke "));
+  //    PreveriNapetosti(true, true, false);
       
     }
     else {
@@ -1185,6 +1249,7 @@ void PreklopiCrpalkoTC(byte newState)
       Serial.println(F(" "));
       NarediTimeStr(cas, now());
       Serial.print(cas);
+//      PreveriNapetosti(true, true, false);
       Serial.print(F(" Izklop crpalke"));
       
       ResetCrpTCVzr();
@@ -1229,14 +1294,17 @@ static void PreklopiVentil(byte newState)
       digitalWrite(VENTTC_2, LOW);
       digitalWrite(VENTTC_1, HIGH);
       
+      Serial.println(F(""));
+      PreveriNapetosti(true, true, false);
       ZapisiOnOffSD(1, 1);
-      
+
       Serial.println(F(" "));
       NarediTimeStr(cas, now());
       Serial.print(cas);
       Serial.print(" ");
       Serial.print(millis());
-      Serial.print(F(" Odpiram ventil"));
+      Serial.print(F(" Odpiram ventil "));
+
     }
     else if (newState == 0){
       digitalWrite(VENTTC_1, LOW);
@@ -1249,6 +1317,7 @@ static void PreklopiVentil(byte newState)
       Serial.print(cas);
       Serial.print(" ");
       Serial.print(millis());
+      PreveriNapetosti(true, true, false);
       Serial.print(F(" Zapiram ventil"));
     }
   }
@@ -1400,13 +1469,14 @@ void check_mem() {
 static void IzpisDatnaSerial(void)
 {
  // char ch;
-  char ime[12];
+  char ime[13];
   
   ImeDatoteke(ime);
   Serial.println(F(""));
   Serial.println(ime);
   
-  myFile = SD.open(ime, FILE_READ);
+//  myFile = SD.open(ime, FILE_READ);
+  myFile = OdpriDatoteko(ime, FILE_READ);
   if (!myFile)
       Serial.println("error"); 
   else {
@@ -1437,13 +1507,15 @@ static void IzpisDatnaSerial(void)
 static void IzpisDataOnOffSerial(void)
 {
 //  char ch;
-  char ime[12];
+  char ime[13];
   
   ImeDatotekeOnOff(ime);
   Serial.println(F(""));
   Serial.println(ime);
   
-  myFile = SD.open(ime, FILE_READ);
+  
+//  myFile = SD.open(ime, FILE_READ);
+  myFile = OdpriDatoteko(ime, FILE_READ);
   if (!myFile)
     Serial.println(F("error"));
   else {

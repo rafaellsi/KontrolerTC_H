@@ -51,21 +51,70 @@ static void ImeDatotekeOnOff(char* ime)
     sprintf(ime, "%02d%02d%02d.dat", year()-2000, month(), day());
 }
 
+//--------------------------------------------------------------------------------
+File OdpriDatoteko(char* imeDat, byte typeDat)
+{
+  File myDat;
+  
+  myDat = SD.open(imeDat, typeDat); 
+ 
+ if (!myDat) {
+    sprintf(infoErr," ErrF01");
+    Serial.print(infoErr);
+    Serial.print(F(" "));
+    Serial.print(imeDat);
+    Serial.print(F(" "));
+    delay(5);
+    myDat = SD.open(imeDat, typeDat);
+    delay(2);
+    if (!myFile) {
+      sprintf(infoErr," ErF01a");
+      Serial.print(infoErr);
+      delay(5);
+      SDInit();
+      delay(5);
+      myDat = SD.open(imeDat, typeDat);
+      delay(2);
+      if (!myFile) {
+        sprintf(infoErr," ErF01b");
+        Serial.print(infoErr);
+      }
+    }
+  }
+  return(myDat);
+}
+
 
 //--------------------------------------------------------------------------------
 static void PrintTempAllSDbin(void)
 {
 
-  char ime[12];
+  char ime[13];
   
   ImeDatoteke(ime);
   
-  myFile = SD.open(ime, FILE_WRITE);
+  
+//  myFile = SD.open(ime, FILE_WRITE);
+  myFile = OdpriDatoteko(ime, FILE_WRITE);
+  /*
   if (!myFile) {
-      sprintf(infoErr," ErrF01");
-      Serial.print(infoErr);     
+    sprintf(infoErr," ErrF01");
+    Serial.print(infoErr);
+    delay(5);
+    myFile = SD.open(ime, FILE_WRITE);
+    if (!myFile) {
+      sprintf(infoErr," ErF01a");
+      Serial.print(infoErr);
+      SDInit();
+      myFile = SD.open(ime, FILE_WRITE);
+      if (!myFile) {
+        sprintf(infoErr," ErF01b");
+        Serial.print(infoErr);
+      }
+    }
   }
-  else {
+  */
+  if (myFile) {
     NarediTimeStr(ime, now());
     myFile.print(ime);
 
@@ -99,6 +148,9 @@ static void PrintTempAllSDbin(void)
     myFile.print(F("A CO:"));
     myFile.println(coRawVal);
     
+    myFile.print(F(" I(12V):"));
+    myFile.print(Tok_12V());
+    
     myFile.close();
     
 
@@ -123,11 +175,13 @@ static void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
   // * 10 - info
   
   
-  char ime[12];
+  char ime[13];
   ImeDatotekeOnOff(ime);
   delay(10);
   
-  myFile = SD.open(ime, FILE_WRITE);
+//  myFile = SD.open(ime, FILE_WRITE);
+  myFile = OdpriDatoteko(ime, FILE_WRITE);
+
   delay(5);
   if (!myFile) {
     sprintf(infoErr," ErrF02");

@@ -7,8 +7,8 @@
 #define SERVER_ADDRESS 2
 //     #define RH_RF24_MAX_MESSAGE_LEN 28
     
-RH_NRF24 driver(NRF24_CE, NRF24_CSN);
-RHReliableDatagram manager(driver, CLIENT_ADDRESS);
+//RH_NRF24 driver(NRF24_CE, NRF24_CSN);
+//RHReliableDatagram manager(driver, CLIENT_ADDRESS);
   
 
 void EthernetInit(void) {
@@ -101,11 +101,13 @@ static word homePage() {
     "<h1> $S</h1>"
     "<h3> T1: $SC <br> T2: $SC <br> T3: $SC <br> T4: $SC <br> T5: $SC <br> T6: $SC <br> T7: $SC <br> T8: $SC <br> T9: $SC <br>"
     "RH: $S% <br>"
-    "Humidex: $SC</h3> <br>"),
+    "Humidex: $SC<br>"
+    "CO: $D</h3> <br>"),
       itime, 
       t0, t1, t2, t3, t4, t5, t6, t7, t8,
       rh,
-      hum);
+      hum,
+      coRawVal);
   return bfill.position();
 }
 //--------------------------------------------------------------------------------

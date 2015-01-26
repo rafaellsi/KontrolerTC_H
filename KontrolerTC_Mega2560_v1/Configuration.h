@@ -40,6 +40,8 @@ extern void Beep(unsigned char);
 #define SENS_V5_2    A9    //pin za merjenje zun. napajanja 5V - DC-DC
 #define SENS_RTC_BATT A10  //pin za merjenje napetsti RTC baterije - ni priklopljeno - ne dela RTC preko baterijae ...
 
+#define SENS_TOK_12V A2
+
 #define SENS_V5_3  A7
 
 #define CO_SENS_APIN A6
@@ -47,7 +49,7 @@ extern void Beep(unsigned char);
 #define CO_DOUT_PIN  11
 
 #define ENC_CLK_PIN   3     // Encoder CLK pin - interuppt 0
-#define ENC_DT_PIN    2     // Encoder DT signal
+#define ENC_DT_PIN    2     // Encoder DT signal - interuppt 1
 #define ENC_SW_PIN    4
 // Encoder push button switch
 
@@ -259,8 +261,8 @@ unsigned int addrDeltaTh = 9;
 unsigned int addrDeltaThOk = 13;
 unsigned int addrDeltaThSt = 17;
 
-unsigned int addrLastHourTemp = 96; // 128
-unsigned int addrTempBack = 1024;     //968
+unsigned int addrLastHourTemp = 40; // 128
+unsigned int addrTempBack = 400;     //968
 //-----------------------------------------
 unsigned int histLen = 168;
 int zapisXMin = 60;
@@ -268,7 +270,7 @@ int zapisXMin = 60;
 //--------------------------------------
 float cTemperatura[MAXSENSORS];
 byte type_s[MAXSENSORS];          //tip temp sensorja 
-float sumTemp[MAXSENSORS];
+float sumTemp[MAXSENSORS + MAX_DHT22_SENS];
 
 float cVlaznost[MAX_DHT22_SENS];
 float cHumidex[MAX_DHT22_SENS];

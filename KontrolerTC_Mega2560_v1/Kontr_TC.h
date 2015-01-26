@@ -197,16 +197,45 @@ void InitParametri(void) {
       
 //      if ((u2.uival) < 1 || (u2.uival) > 12000) {
 
-  if (isnan(u2.uival)) {
+      if (isnan(u2.uival)) {
         if (i > 0)
-          u2.uival = (sumTemp[j] * 100) /(i);
+          u2.uival = ((sumTemp[j] * 100) /(i)) + 5000;
        else
            u2.uival = 0;
         delay(2);
 
         i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
       }
-      sumTemp[j] += (float)(u2.uival/100.0);
+      sumTemp[j] += (float)((u2.uival/100.0)-50.0);
+      delay(10);
+    }
+    Serial.print(j+1);
+    Serial.print(F(": "));
+    Serial.print(AvgVal(sumTemp[j], histLen*1.0), 3); 
+    Serial.println(F(" ")); 
+  }
+  
+  for (int j = numSens; j < numSens + numSensDHT22; j++) {
+    Serial.print(F("Addres:"));
+    Serial.print(addrTempBack + ((j*histLen))*sizeof(u2));
+    Serial.print(F("  "));
+    for (unsigned int i=0; i < histLen; i++) {   // 7*1440/marXMin
+      addrTmp =  addrTempBack + (i + (j*histLen))*sizeof(u2);
+      i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+      delay(2);
+      
+//      if ((u2.uival) < 1 || (u2.uival) > 12000) {
+
+      if (isnan(u2.uival)) {
+        if (i > 0)
+          u2.uival = ((sumTemp[j] * 100) /(i));
+       else
+           u2.uival = 0;
+        delay(2);
+
+        i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+      }
+      sumTemp[j] += (float)((u2.uival/100.0));
       delay(10);
     }
     Serial.print(j+1);

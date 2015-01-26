@@ -6,6 +6,8 @@ extern boolean releState_1;
 //extern int midR;
 
 static float AC_mimax(boolean izpis, boolean forceCalc);
+float Tok_12V(void);
+float PretvoriV2A_asc712_DC(int sensVal);
 static float PretvoriV2A_asc712(int sensVal);
 float VoltageDivider(int analRead, float r1, float r2, float korFact);
 void PreveriNapetosti(boolean internal, boolean external, boolean battery);
@@ -115,6 +117,40 @@ static float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
 } 
 
 //--------------------------------------------------------------------------------
+float Tok_12V(void) {
+  
+  int val_I;
+  
+  val_I = analogRead(SENS_TOK_12V);
+  
+  return(PretvoriV2A_asc712_DC(val_I));
+}  
+
+//--------------------------------------------------------------------------------
+float PretvoriV2A_asc712_DC(int sensVal) {
+    float tok;  
+    int cVal = sensVal - vccInternal/2;
+    
+    if (vccInternal > 0)
+      tok = (((float) cVal / 1024.0)*vccInternal);
+    else  
+      tok = (((float) cVal / 1024.0)*5.0);
+    
+    tok -= (vccInternal/2.0); 
+/*    
+    if (vccInternal > 0)
+      tok = (((float) cVal / 1024.0)*vccInternal);
+    else  
+      tok = (((float) cVal / 1024.0)*5.0);
+//  tok = (((float) sensVal / 1024.0)*5.0) - 2.50;
+
+*/
+    return(tok /= 0.185);                              //za senzor (max. 5A) 0.185V na 1A 
+//    return(tok /= 0.100);                              //za senzor (max. 20A) 0.100V na 1A
+//      return(tok /= 0.001250);                        //test za 0.01V/A
+}  
+
+//--------------------------------------------------------------------------------
 // pretvorba prebrane vrednosti senzorj v tok
 static float PretvoriV2A_asc712(int sensVal) {
     float tok;  
@@ -169,8 +205,9 @@ void PreveriNapetosti(boolean internal = false, boolean external = false, boolea
   
   if (internal) {
     vTemp = (float) readVcc()/1000.0;
-    Serial.print(F(" 5V1: "));
+    Serial.print(F(" 5In:"));
     if (vTemp < 5.0 * 0.5 || vTemp > 1.5 *5.0) {
+      Serial.print(vTemp);
       Serial.print(F("(Err) "));
     }
     else {  
@@ -185,13 +222,13 @@ void PreveriNapetosti(boolean internal = false, boolean external = false, boolea
     if (vccInternal == 0) {
       vccInternal = 5.0;
     }   
-    Serial.print(F(" 12V: "));
+    Serial.print(F(" 12V:"));
     delay(5);
     Serial.print(VoltageDivider(SENS_V12, v12_r1, v12_r2, 1.01759));
-    Serial.print(F("  5V2: "));
+    Serial.print(F("  5V2:"));
     delay(5);
     Serial.print(VoltageDivider(SENS_V5_2, v5_r1, v5_r2, 1.0041)); 
-    Serial.print(F("  5V3: "));
+    Serial.print(F("  5V3:"));
     delay(5);
     Serial.print(VoltageDivider(SENS_V5_3, v5_3_r1, v5_3_r1)); 
 
@@ -200,11 +237,14 @@ void PreveriNapetosti(boolean internal = false, boolean external = false, boolea
     if (vccInternal == 0) {
       vccInternal = 5.0;
     }   
-    Serial.print(F(" Batt+: "));
+    Serial.print(F(" Batt+:"));
     delay(5);
     Serial.print(analogRead(SENS_RTC_BATT) * vccInternal/ 1024.0);
   }
 }
+
+
+
 
 //--------------------------------------------------------------------------------------------
 long readVcc() {
@@ -230,10 +270,10 @@ long readVcc() {
   
   while (bit_is_set(ADCSRA,ADSC)) { // measuring
   } 
-  interrupts();
+  
   uint8_t low  = ADCL; // must read ADCL first - it then locks ADCH  
   uint8_t high = ADCH; // unlocks both
-  
+  interrupts();
   long result = (high<<8) | low;
   
   result = 1125300L / result; // Calculate Vcc (in mV); 1125300 = 1.1*1023*1000

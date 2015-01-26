@@ -15,8 +15,10 @@ static boolean PreberiTemperature(boolean zahtevajBranje, boolean allSens);
 
 float PreberiTemperaturoDHT22(int n);
 float PreberiVlaznostDHT22(int n);
-float IzracunTRosicsa(int n);
-float IzracunHumidex(int n);
+//float IzracunTRosicsa(int n);
+float IzracunTRosicsa(float temp, float vlaz);
+//float IzracunHumidex(int n);
+float IzracunHumidex(float temp, float tempRos);
 
 float PreberiTemperaturoK(int n);
 
@@ -289,8 +291,10 @@ static boolean PreberiTemperature(boolean zahtevajBranje, boolean allSens = fals
     for (int i=numSensDS; i<(numSensDS + numSensDHT22); i++) {
       cTemperatura[i] = PreberiTemperaturoDHT22(i-numSensDS);
       cVlaznost[i-numSensDS] = PreberiVlaznostDHT22(i-numSensDS);
-      cTempRosicsa[i-numSensDS] = IzracunTRosicsa(i-numSensDS);
-      cHumidex[i-numSensDS] = IzracunHumidex(i-numSensDS);
+//      cTempRosicsa[i-numSensDS] = IzracunTRosicsa(i-numSensDS);
+      cTempRosicsa[i-numSensDS] = IzracunTRosicsa(cTemperatura[i], cVlaznost[i-numSensDS]);
+//      cHumidex[i-numSensDS] = IzracunHumidex(i-numSensDS);
+      cHumidex[i-numSensDS] = IzracunHumidex(cTemperatura[i], cTempRosicsa[i-numSensDS]);
     }
     for (int i=(numSensDS + numSensDHT22); i<(numSensDS + numSensDHT22 + numSensK); i++) {
       cTemperatura[i] = PreberiTemperaturoK(i - numSensDS + numSensDHT22);  
@@ -341,14 +345,16 @@ float PreberiVlaznostDHT22(int n) {
 }
 
 //--------------------------------------------------------------------------------
-float IzracunTRosicsa(int n) {
-  return(cTemperatura[n + numSensDS] - (100.0 - cVlaznost[n])/5.0); 
+float IzracunTRosicsa(float temp, float vlaz) {
+//  return(cTemperatura[n + numSensDS] - (100.0 - cVlaznost[n])/5.0); 
+  return(temp - (100.0 - vlaz)/5.0); 
 }
 
 //--------------------------------------------------------------------------------
-float IzracunHumidex(int n) {
+float IzracunHumidex(float temp, float tempRos) {
   
-  float humidex = cTemperatura[n + numSensDS] + 0.5555 * (6.11 * exp(5417.7530 * ((1/273.16)-(1/(cTempRosicsa[n]+273.16)))) -10.0);
+//  float humidex = cTemperatura[n + numSensDS] + 0.5555 * (6.11 * exp(5417.7530 * ((1/273.16)-(1/(cTempRosicsa[n]+273.16)))) -10.0);
+  float humidex = temp + 0.5555 * (6.11 * exp(5417.7530 * ((1/273.16)-(1/(tempRos+273.16)))) -10.0);
   return (humidex);
 }
 
@@ -467,12 +473,12 @@ static void PrintTemperatureAll(void)
       i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
       delay(2);
 
-      Serial.print(cTemperatura[i] - u2.uival/100.0, 2);
+      Serial.print(cTemperatura[i] - ((u2.uival/100.0)-50.0), 2);
       
 
      
-      if (abs(u2.uival - cTemperatura[i]*100.0) > 1) {
-        u2.uival = (unsigned int) ((cTemperatura[i]+0.005)*100.0);
+      if (abs(u2.uival - ((cTemperatura[i]*100.0))+50.0) > 1) {
+        u2.uival = (unsigned int) ((cTemperatura[i]+0.005+50.0)*100.0);
  //       Serial.print(F("z"));
  //       Serial.print(addrTmp);
         delay(2);
@@ -495,6 +501,9 @@ static void PrintTemperatureAll(void)
       Serial.print(F(")"));
         
     }    
+    
+    
+    
 //    sendPlotData(cTemperatura[i], 2);
     
     Serial.print(F("-"));
@@ -505,8 +514,44 @@ static void PrintTemperatureAll(void)
     Serial.print(i+1);
     Serial.print(F(":"));
     Serial.print(cTemperatura[i], 2);
+    
+    if (i == OKOLICA_0) {
+      Serial.print(F("("));
+      addrTmp = (addrLastHourTemp + numSensDHT22*120) + (unsigned int) minute() * sizeof(u2);
+      i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+      delay(2);
+
+      Serial.print(cTemperatura[i] - ((u2.uival/100.0)-50.0), 2);
+      
+      if (abs(u2.uival - cTemperatura[i]*100.0) > 1) {
+        u2.uival = (unsigned int) ((cTemperatura[i]+0.005+50.0)*100.0);
+        delay(2);
+        i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+      }
+      delay(2);   
+      Serial.print(F(")"));       
+    }   
+    
     Serial.print(F("/"));
     Serial.print(cVlaznost[i-numSensDS]);
+    
+    
+    Serial.print(F("("));
+    addrTmp = (addrLastHourTemp + 2*(numSensDHT22*120)) + (unsigned int) minute() * sizeof(u2);
+      i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+      delay(2);
+
+      Serial.print(cVlaznost[i-numSensDS] - u2.uival/100.0, 2);
+      
+      if (abs(u2.uival - cVlaznost[i-numSensDS]*100.0) > 1) {
+        u2.uival = (unsigned int) ((cVlaznost[i-numSensDS]+0.005)*100.0);
+        delay(2);
+        i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+      }
+      delay(2);   
+      Serial.print(F(")"));       
+      
+    
     Serial.print(F("/"));
     Serial.print(cTempRosicsa[i-numSensDS]);
     Serial.print(F("/"));
@@ -518,7 +563,10 @@ static void PrintTemperatureAll(void)
     Serial.print(i+1);
     Serial.print(F(":"));
     Serial.print(cTemperatura[i], 2);
-
+    
+    
+    
+    
     /*
     Serial.print(F("/"));
     Serial.print(cTemperatura[i] - cTemperatura[OKOLICA_0], 2);
