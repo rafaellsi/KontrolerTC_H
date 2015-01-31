@@ -7,7 +7,7 @@ extern int coRawVal;
 // SD spremenljivke
 Sd2Card cardSD;
 
-File myFile;
+
 
 //--------------------------------------------------------------------------------
 void SDInit(void) {  
@@ -46,7 +46,7 @@ static void ImeDatoteke(char* ime)
 }
 
 //--------------------------------------------------------------------------------
-static void ImeDatotekeOnOff(char* ime)
+void ImeDatotekeOnOff(char* ime)
 {
     sprintf(ime, "%02d%02d%02d.dat", year()-2000, month(), day());
 }
@@ -54,18 +54,18 @@ static void ImeDatotekeOnOff(char* ime)
 //--------------------------------------------------------------------------------
 File OdpriDatoteko(char* imeDat, byte typeDat)
 {
-  File myDat;
+  File myFile;
   
-  myDat = SD.open(imeDat, typeDat); 
+  myFile = SD.open(imeDat, typeDat); 
  
- if (!myDat) {
+ if (!myFile) {
     sprintf(infoErr," ErrF01");
     Serial.print(infoErr);
     Serial.print(F(" "));
     Serial.print(imeDat);
     Serial.print(F(" "));
     delay(5);
-    myDat = SD.open(imeDat, typeDat);
+    myFile = SD.open(imeDat, typeDat);
     delay(2);
     if (!myFile) {
       sprintf(infoErr," ErF01a");
@@ -73,7 +73,7 @@ File OdpriDatoteko(char* imeDat, byte typeDat)
       delay(5);
       SDInit();
       delay(5);
-      myDat = SD.open(imeDat, typeDat);
+      myFile = SD.open(imeDat, typeDat);
       delay(2);
       if (!myFile) {
         sprintf(infoErr," ErF01b");
@@ -81,14 +81,14 @@ File OdpriDatoteko(char* imeDat, byte typeDat)
       }
     }
   }
-  return(myDat);
+  return(myFile);
 }
 
 
 //--------------------------------------------------------------------------------
 static void PrintTempAllSDbin(void)
 {
-
+  File myFile;
   char ime[13];
   
   ImeDatoteke(ime);
@@ -146,10 +146,16 @@ static void PrintTempAllSDbin(void)
     myFile.print(AC_mimax(), 3); 
     
     myFile.print(F("A CO:"));
-    myFile.println(coRawVal);
+    myFile.print(coRawVal);
     
     myFile.print(F(" I(12V):"));
     myFile.print(Tok_12V());
+    myFile.print(F("("));
+    myFile.print(AvgVal(sumTok_12V, (float) nMerTok_12V), 4);
+ //   myFile.print(sumTok_12V/((float) nMerTok_12V), 3);
+    myFile.print(F("/"));
+    myFile.print(maxTok_12V);
+    myFile.println(F(")A"));
     
     myFile.close();
     
@@ -159,8 +165,9 @@ static void PrintTempAllSDbin(void)
 }
 
 
+
 //-------------------------------------------------------------------------
-static void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
+void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
 {
   // tipSpremembe:
   // * 0 - vklop/izklop TC
@@ -173,7 +180,7 @@ static void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
   // * 0 - izklop naprave
   // * 1 - vklop naprave
   // * 10 - info
-  
+  File myFile;
   
   char ime[13];
   ImeDatotekeOnOff(ime);
@@ -324,6 +331,64 @@ static void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
 }
 
 
+
+
+//------------
+void IzpisDataOnOffSerial(void)
+{
+//  char ch;
+  File myFile;
+  
+  char ime[13];
+  
+  ImeDatotekeOnOff(ime);
+  Serial.println(F(""));
+  Serial.println(ime);
+  
+  
+//  myFile = SD.open(ime, FILE_READ);
+  myFile = OdpriDatoteko(ime, FILE_READ);
+  if (!myFile)
+    Serial.println(F("error"));
+  else {
+      while (myFile.available()) {
+        Serial.write(myFile.read());  
+      }
+      myFile.close();
+  }    
+//  myFile.close();
+  Serial.println(F("")); 
+  delay(50); 
+}
+
+
+//--------------------------------------------------------------------------------
+void IzpisDatnaSerial(void)
+{
+ // char ch;
+  File myFile; 
+ 
+  char ime[13];
+  
+  ImeDatoteke(ime);
+  Serial.println(F(""));
+  Serial.println(ime);
+  
+//  myFile = SD.open(ime, FILE_READ);
+  myFile = OdpriDatoteko(ime, FILE_READ);
+  if (!myFile)
+      Serial.println("error"); 
+  else {
+    while (myFile.available()) {
+      Serial.write(myFile.read());
+      delay(5); 
+    }
+    myFile.close();
+  } 
+//  myFile.close(); 
+  Serial.println(F(""));  
+  delay(5);  
+}
 
 
 

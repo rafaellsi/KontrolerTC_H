@@ -10,8 +10,8 @@
 //RH_NRF24 driver(NRF24_CE, NRF24_CSN);
 //RHReliableDatagram manager(driver, CLIENT_ADDRESS);
   
-
-void EthernetInit(void) {
+//-----------------------------------------------------------------
+void EthernetInit(boolean izpisShort) {
   
   if (ether.begin(sizeof Ethernet::buffer, mymac, ETHER_CS_PIN) == 0) 
     Serial.println( "Failed to access Ethernet controller");
@@ -22,11 +22,16 @@ void EthernetInit(void) {
   
   
     
+  if (!izpisShort) {
+    ether.printIp("IP:  ", ether.myip);
+    ether.printIp("GW:  ", ether.gwip); 
+    ether.printIp("DNS: ", ether.dnsip); 
+  }
+  else {
+    Serial.print(F(" EthRein "));
+  }  
   
-  ether.printIp("IP:  ", ether.myip);
-  ether.printIp("GW:  ", ether.gwip); 
-  ether.printIp("DNS: ", ether.dnsip); 
-  
+  ether.parseIp(ether.hisip, "192.168.1.1");
 //  Serial.println(ether.packetLoopIcmpCheckReply(gwip));	
 //  ether.ntpRequest(ntpip, 8888); 
 //  uint32_t *t;
@@ -110,9 +115,93 @@ static word homePage() {
       coRawVal);
   return bfill.position();
 }
+
+
 //--------------------------------------------------------------------------------
 
+  
+  float sumPing = 0;
+  unsigned long numPing = 0;
 
+//--------------------------------------------------------------------------------
+
+void CheckEthernet() {
+ 
+  word len = ether.packetReceive();
+  word pos = ether.packetLoop(len);  
+//-----   
+  // wait for an incoming TCP packet, but ignore its contents
+
+/*
+  if (ether.packetLoop(ether.packetReceive())) {
+    memcpy_P(ether.tcpOffset(), page, sizeof page);
+    ether.httpServerReply(sizeof page - 1);
+  }
+*/  
+
+  
+  static unsigned long timerPing = millis();
+  static boolean statusPing = true;
+/*
+  if (len > 0 && ether.packetLoopIcmpCheckReply(ether.hisip)) {
+     sumPing += (millis() - timerPing); 
+     numPing ++;
+     statusPing = true;  
+  }
+  else if (millis() - timerPing > 15000 && statusPing == false) {
+     EthernetInit(true);
+     timerPing = millis();
+     statusPing = true;
+  }  
+  else if (pos)  // check if valid tcp data is received
+    ether.httpServerReply(homePage()); // send web page data
+  
+  // ping a remote server once every few seconds
+  
+  if (millis() - timerPing >= 58750) {
+   // ether.printIp("Pinging: ", ether.hisip);
+    timerPing = millis();
+    ether.clientIcmpRequest(ether.hisip);
+    statusPing = false;
+  }
+  
+*/  
+ if (millis() - timerPing > 58750) {
+   // ether.printIp("Pinging: ", ether.hisip);
+    timerPing = millis();
+    ether.clientIcmpRequest(ether.hisip);
+    statusPing = false;
+    do {
+      len = ether.packetReceive();
+      pos = ether.packetLoop(len);
+      if (len > 0 && ether.packetLoopIcmpCheckReply(ether.hisip)) {  
+        Serial.print(F(" Ep("));
+        Serial.print(len);
+        Serial.print(F(";"));
+        Serial.print(pos);
+        Serial.print(F(") "));
+        sumPing += (millis() - timerPing); 
+        numPing ++;
+        statusPing = true;  
+      } 
+    }  while (statusPing == false && millis() - timerPing < 1000);
+    if (statusPing == false) {
+      EthernetInit(true);
+      timerPing = millis();
+      statusPing = true;
+    }      
+  }
+  
+  if (pos)  {  // check if valid tcp data is received
+    ether.httpServerReply(homePage()); // send web page data
+    Serial.print(F(" Ew("));
+    Serial.print(len);
+    Serial.print(F(";"));
+    Serial.print(pos);
+    Serial.print(F(") "));
+  }
+}  
+  
 
 
 #endif

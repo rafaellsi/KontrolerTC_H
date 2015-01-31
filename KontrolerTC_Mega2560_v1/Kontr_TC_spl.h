@@ -4,7 +4,10 @@
 //#include "Temperature.h"
 
 extern boolean IsNTempCas();
-
+extern time_t processSyncMessage();
+extern void EthernetInit(boolean izpisShort);
+extern void SDInit(void);
+extern void ImeDatotekeOnOff(char* ime);
 
 static float Sec2Hour(unsigned long sec);
 static float AvgVal(float suma, float num);
@@ -25,7 +28,9 @@ float TempIzklopa(void);
 static float IzracunLimitTemp(int state, float ciTemp);
 static float IzracunTempVTOff(void);
 static boolean UpostevajElTarife(void);
-
+void CheckSerial(void);
+static void IzpisDataOnOffSerial(void);
+static void IzpisDatnaSerial(void);
 
 
 //--------------------------------------------------------------------------------
@@ -42,7 +47,9 @@ static float Sec2Hour(unsigned long sec)
 
 static float AvgVal(float suma, float num)
 {
-  return(suma/num);
+  if (num != 0)
+    return(suma/num);
+  return(0.0);
 }
 
 
@@ -420,5 +427,121 @@ static boolean UpostevajElTarife(void)
 }
 
 
+
+//---------------------
+void CheckSerial(void) {
+  char casun[5];
+  char c;
+  
+  if (Serial.available() >  0 ) {
+    c = Serial.peek();  
+    
+    if (Serial.available() >=  TIME_MSG_LEN ) {
+      casun[0]= c;  
+      if (casun[0] ==  TIME_HEADER) {
+        time_t t = processSyncMessage();
+        if(t >0)  {
+          RTC.set(t);   // set the RTC and the system time to the received value
+          setTime(t);
+          Serial.println(F("Cas je nastavljen"));
+          prevCasMeritve = now();        
+        }
+      }   
+    }    
+    else if (Serial.available() == 3) {
+     Serial.println(F(""));
+     Serial.print(c);
+       
+     if (c == 'p') {
+       c = Serial.read();
+       c = Serial.read();
+       Serial.print(c);
+       if (c == 'o') {
+         IzpisDataOnOffSerial();  
+       }
+       if (c == 'a') {
+         IzpisDatnaSerial();
+       }
+       Serial.read();
+     } // if p
+     else if (c == 'm') {
+       c = Serial.read();
+       c = Serial.read();
+       Serial.print(c);
+       if (c == 'c') {
+         c = Serial.read();
+         Serial.print(c);
+         if (c == '0') {
+           manuCrpTCState = B01;  
+         }
+         else if (c == '1') {
+           manuCrpTCState = B11;
+         }
+         else {
+           manuCrpTCState = 0;
+         }
+         Serial.print(F("  "));
+         Serial.print(manuCrpTCState);  
+       }   
+       else if (c == 'r') {      //mrX
+         c = Serial.read();
+         Serial.print(c);
+         if (c == '0') {
+           PreklopiCrpalkoRad(0);;  
+         }
+         else if (c == '1') {
+           PreklopiCrpalkoRad(1);;
+         }
+       }       
+     }  // if m**
+     else if (c == 'e') {
+       c = Serial.read();
+       c = Serial.read();
+       if (c == 'r') {
+         c = Serial.read();
+         Serial.print(c);
+         if (c == 's') {
+           EthernetInit(true);
+         }  
+       }
+     }  // if e**
+     else if (c == 's') {
+       c = Serial.read();
+       c = Serial.read();
+       if (c == 'd') {
+         c = Serial.read();
+         Serial.print(c);
+         if (c == 'r') {
+           SDInit() ;
+         }  
+       }
+     } // if s**
+   } // if alaiable == 3
+   Serial.flush(); 
+  }  // if (Serial.available() >  0 ) 
+}  
+
+
+void IzpisPorabaWH(float porabaWH) {
+  
+  if (porabaWH >= 1000) {
+    if (porabaWH/1000.0 > 100)
+      Serial.print(porabaWH/1000.0, 1);
+    else if (porabaWH/1000.0 > 10)
+      Serial.print(porabaWH/1000.0, 2);
+    else 
+      Serial.print(porabaWH/1000.0, 3);  
+    Serial.print(F("kVAh"));
+  }
+  else {
+    if (porabaWH > 100)
+      Serial.print(porabaWH, 1);
+    else if (porabaWH > 10)
+      Serial.print(porabaWH, 2);
+    else
+      Serial.print(porabaWH, 3);  
+    Serial.print(F("VAh"));  
+  }
+}
 
 #endif

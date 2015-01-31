@@ -360,17 +360,33 @@ float IzracunHumidex(float temp, float tempRos) {
 
 //--------------------------------------------------------------------------------
 float PreberiTemperaturoK(int n) {
-  int numSamples = 3;
-  int tempRaw = 0;
+  int numSamples = 5;
+  int sumTempRaw = 0;
+  int tempRaw;
+  int maxTRaw;
+  int minTRaw;
   
-  noInterrupts();
-  for (int i=0; i<numSamples; i++) {
-    tempRaw += analogRead(T_KTYP_01_PIN);
+//  noInterrupts();
+  tempRaw = analogRead(T_KTYP_01_PIN);
+  maxTRaw = tempRaw;
+  minTRaw = tempRaw;
+  sumTempRaw = tempRaw;
+  for (int i=1; i<numSamples; i++) {
+    delay(1);
+    tempRaw = analogRead(T_KTYP_01_PIN);
+    sumTempRaw += tempRaw;
+    if (tempRaw > maxTRaw) {
+      maxTRaw = tempRaw;
+    }
+    else if (tempRaw < minTRaw) {
+      minTRaw = tempRaw;  
+    }  
   }
-  interrupts();
-  tempRaw /= numSamples;
+//  interrupts();
+  sumTempRaw -= (maxTRaw + minTRaw);
+  sumTempRaw /= (numSamples - 2);
   
-  return((vccInternal * 100.0 * tempRaw/1023.0)+kTypeOffset);
+  return((vccInternal * 100.0 * sumTempRaw/1023.0)+kTypeOffset);
 }  
 
 /*

@@ -300,6 +300,8 @@ float Qv;
 float We;
 float porabaWH;
 
+byte manuCrpTCState = 0;
+
 char infoErr[8];
 
 ul2byte4b u4;

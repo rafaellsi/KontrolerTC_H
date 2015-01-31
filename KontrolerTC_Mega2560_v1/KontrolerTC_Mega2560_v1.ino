@@ -103,8 +103,10 @@
 #include "Eprom_external.h"
 
 #include "Cas_funkcije.h"
+#include "Kontr_TC_izvrs.h"
 #include "Kontr_TC_spl.h"
 #include "Kontr_TC.h"
+
 
 
 #include "Tok_napetost.h"
@@ -116,7 +118,7 @@
 #include "Ethernet_funk.h"
 #include "Gas_Sensor.h"
 
-static void PreklopiVentil(byte newState);
+//void PreklopiVentil(byte newState);
 // splosne spremenljivke
 //unsigned long casMeritve;
 
@@ -136,14 +138,13 @@ unsigned long lastReleChg;    // cas zadnje spremembe stanja releja TC
 
 // splosne spremenljivke
 
-unsigned long lastVentTCChg[2];
+
 
 int preklopCrpTCVzr = 0;
 
-byte prevCrpTCState = 0;
-byte prevVentTCState = 255;
 
-byte manuCrpTCState = 0;
+
+
 
 int stateCevStPecTC;
 
@@ -204,7 +205,7 @@ void setup(void)
   
   //-------------------
   LCDInitializacija();
-  EthernetInit();
+  EthernetInit(false);
   
   PreveriNapetosti(true, true, false);
   Serial.println(F(""));
@@ -273,9 +274,6 @@ void setup(void)
 
   InitParametri();
   
-//  prevCasMeritve = 0;
-
-  
   
 //  NastaviTempCrpRad(limTempCrpRad, limTempFactCrpRad, crpRadAsAbsTemp);
   temeratureIzmerjene = true;
@@ -317,20 +315,19 @@ void setup(void)
   Serial.println(F("Init. OK"));
   Beep(200);
   analogWrite(LCD_OSW_SW, 0);
-//  while (now()/(merXMin*60) == prevCasMeritve/(merXMin*60)) 
-//    delay(100);
     
 }
+
+
 
 //--------------------------------------------------------------------------------
 void loop(void)
 { 
   float tok = -100.0;
-  char casun[5];
   byte newCrpTCState;
   float alpha;
-  char c;
-   
+  
+  //----- 
   if (cycStart > 0 && millis() > cycStart) {
     unsigned long lastCycle = (millis() - cycStart);
 //    sumCycle += (millis() - cycStart);
@@ -352,152 +349,35 @@ void loop(void)
     ncyc = 0;
   }  
   cycStart = millis();  
-   
-     if (Serial.available() >  0 ) {
-       c = Serial.peek();
-     }  
-     if (Serial.available() >=  TIME_MSG_LEN ) {
-       casun[0]= c;  
-       if (casun[0] ==  TIME_HEADER) {
-         time_t t = processSyncMessage();
-         if(t >0)  {
-           RTC.set(t);   // set the RTC and the system time to the received value
-           setTime(t);
-           Serial.println(F("Cas je nastavljen"));
-           prevCasMeritve = now();        
-         }
-       }   
-     }  
-     
-     else if (Serial.available() == 3) {
-//       c = Serial.peek();
-       Serial.println(F(""));
-       Serial.print(c);
-       
-       if (c == 'p') {
-         c = Serial.read();
-         c = Serial.read();
-         Serial.print(c);
-         if (c == 'o')
-           IzpisDataOnOffSerial();  
-         if (c == 'a')
-           IzpisDatnaSerial();
-         Serial.read();
-       
-       }
-       else if (c == 'm') {
-         c = Serial.read();
-         c = Serial.read();
-         Serial.print(c);
-         if (c == 'c') {
-           c = Serial.read();
-           Serial.print(c);
-           if (c == '0') {
-             manuCrpTCState = B01;
-             
-           }
-           else if (c == '1') {
-             manuCrpTCState = B11;
-           }
-           else {
-             manuCrpTCState = 0;
-           }
-           Serial.print(F("  "));
-           Serial.print(manuCrpTCState);  
-         }
-         
-         
-         if (c == 'r') {      //mrX
-           c = Serial.read();
-           Serial.print(c);
-           if (c == '0') {
-             PreklopiCrpalkoRad(0);;
-             
-           }
-           else if (c == '1') {
-             PreklopiCrpalkoRad(1);;
-           }
-         }       
-       }
-       else if (c == 'e') {
-         c = Serial.read();
-         c = Serial.read();
-         if (c == 'r') {
-           c = Serial.read();
-           Serial.print(c);
-           if (c == 's') {
-             EthernetInit();
-           }  
-         }
-       }
-       else if (c == 's') {
-         c = Serial.read();
-         c = Serial.read();
-         if (c == 'd') {
-           c = Serial.read();
-           Serial.print(c);
-           if (c == 'r') {
-             SDInit() ;
-           }  
-         }
-       }
-        
-       while (Serial.available() > 0) {
-         Serial.print(Serial.read());  
-       }  
-       Serial.flush();  
-     }
-   else {
-     while (Serial.available() > 0) {
-         Serial.print(Serial.read());  
-       } 
-     Serial.flush();  
-   }  
-//     else 
-//       delay(10);
-//  } while (millis() - lastPavza < 250);
-//  lastPavza = millis();
   
-  
-  // wait for an incoming TCP packet, but ignore its contents
- 
-/*
-  if (ether.packetLoop(ether.packetReceive())) {
-    memcpy_P(ether.tcpOffset(), page, sizeof page);
-    ether.httpServerReply(sizeof page - 1);
-  }
-*/  
-  word len = ether.packetReceive();
-  word pos = ether.packetLoop(len);
- 
-  if (pos)  // check if valid tcp data is received
-    ether.httpServerReply(homePage()); // send web page data
-
+  //----- 
+  CheckSerial();
+  CheckEthernet();
   Encoder_check();
+//-----   
   
   stateCevStPecTC = digitalRead(CEVTERM_PEC_TC);
-  
+
+  //-----
+  // če je od zadnje meritve preteklo več kot "merXMin*60"
+  // preberi temperature
+  // merXMin - število meritev na minuto
+  // pošlju ukaz vsem senzorjem DS18x20 in preberi ostale senzorje
   if (((now()/(merXMin*60)) > (prevCasMeritve/(merXMin*60))) && temeratureIzmerjene == true) {  /* || (minute() < 30 && prevMinute > 30)*/
-//    temeratureIzmerjene = PreberiTemperature(false, true);
     PreberiTemperature(false, true);
     temeratureIzmerjene = false;
     casMeritve = now();
-    
   }
+  // po preteku convWaitTime preberi temperature DS18X20
+  // convWaitTime - v ms
   if ((now() >= (casMeritve + convWaitTime/1000)) && (temeratureIzmerjene == false)) {
-//  if (now()/(merXMin*60) > prevCasMeritve/(merXMin*60)) {  /* || (minute() < 30 && prevMinute > 30)*/
-//    temeratureIzmerjene = PreberiTemperature(true, false);
     PreberiTemperature(true, false);
     temeratureIzmerjene = true;
     casMeritve = now();
-
     
- //   if ((now() - lastTCStateChg > (1 + prevTCState*0.5)*minRunTimeMin * 60) && (now() - lastReleChg > minRunTimeMin * 60)) {
-   
-   if (izracHitrGret || izracHitrGretInfo) {
+    if (izracHitrGret || izracHitrGretInfo) {
       if (prevTCState == 0) {
-        if (now() - lastTCStateChg > 15*60L) {
-          
+        if (now() - lastTCStateChg > 15*60L) {  
           alpha = 0.99;
           if (izracHitrGret) {  
             alpha = 0.9;
@@ -514,13 +394,7 @@ void loop(void)
           
           lastDeltaThSt = IzracDeltaThSt();
           deltaThSt = PovpreciVred(alpha, deltaThSt, lastDeltaThSt);
-          
-          
-//          deltaTh = (deltaTh * alpha + (1.0-alpha) * lastDeltaTh);
-          
-//         deltaThOk = (deltaThOk * alpha + (1.0-alpha) * lastDeltaThOk);
-          
-           
+                   
           Serial.println(F(""));
           if (izracHitrGretInfo) {
             Serial.println(F("Info - "));
@@ -561,7 +435,6 @@ void loop(void)
           Serial.print(tKompOK, 2);
           Serial.print(F(" tkompSt: "));
           Serial.print(tKompSt, 2);
-          
           
           Serial.print(F(" Nova komp.ok: "));
           Serial.print(KompenzacijaTempOkolice(tempOkolicaSt),4);
@@ -757,8 +630,15 @@ void loop(void)
       Serial.print(F("Min-Max(last h): "));
       Serial.print(minCycle);
       Serial.print(F("-"));
-      Serial.println(maxCycle);
+      Serial.print(maxCycle);
       maxCycle = 0;
+      
+      Serial.print(F(" Avg.ping time(n="));
+      Serial.print(numPing);
+      Serial.print(F("): "));
+      Serial.print(AvgCycleTime(sumPing, numPing));
+      Serial.print(F("ms ")); 
+      
 
       
 //      PreveriNapetosti(true, true, false);
@@ -775,24 +655,8 @@ void loop(void)
     Serial.print(F("A("));
     
     porabaWH += (tok *(230.0/60.0));
-    if (porabaWH >= 1000) {
-       if (porabaWH/1000.0 > 100)
-         Serial.print(porabaWH/1000.0, 1);
-       else if (porabaWH/1000.0 > 10)
-         Serial.print(porabaWH/1000.0, 2);
-       else 
-         Serial.print(porabaWH/1000.0, 3);  
-       Serial.print(F("kVAh"));
-    }
-    else {
-      if (porabaWH > 100)
-        Serial.print(porabaWH, 1);
-      else if (porabaWH > 10)
-        Serial.print(porabaWH, 2);
-      else
-        Serial.print(porabaWH, 3);  
-      Serial.print(F("VAh"));  
-    }
+    IzpisPorabaWH(porabaWH);
+    
     Serial.print(F(") "));
     
     Serial.flush();
@@ -836,7 +700,13 @@ void loop(void)
      
      Serial.print(F(" I(12v):"));
      Serial.print(Tok_12V());
-     Serial.print(F(" "));  
+     Serial.print(F("("));
+     Serial.print(AvgVal(sumTok_12V, (float) nMerTok_12V), 4);
+//     Serial.print(sumTok_12V/((float) nMerTok_12V), 3);
+     Serial.print(F("/"));
+     Serial.print(maxTok_12V);
+     
+     Serial.print(F(")A "));  
      PreveriNapetosti(true, true, false);
       
 /*     Serial.print(F("Stikalo crpalke rad: "));
@@ -939,6 +809,8 @@ void loop(void)
         i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrOnTime, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4)); 
         sprintf(infoErr,"        ");
         porabaWH = 0;
+        sumTok_12V = 0.0;
+        nMerTok_12V = 0;
       }
     }
   }  
@@ -954,6 +826,7 @@ void loop(void)
     prevLCDizp = now();
     IzpisiNaLCD();
   }
+  Tok_12V();
   PreveriCO_Senzor();
   
 /*
@@ -1264,64 +1137,7 @@ static void ResetCrpTCVzr()
 {
   preklopCrpTCVzr = 0; 
 }
-//--------------------------------------------------------------------------------
-static void PreklopiVentil(byte newState)
-{
-  char cas[13];
-  static byte lastCommand;
-  
-  if (newState < 2) {
-    lastCommand = newState;
-    delay(10);
-    return;
-  }  
-  
-  if (lastCommand < 2) {
-    newState = lastCommand;
-  }
-  else {
-    return;
-  }  
-  
-  if (prevVentTCState == newState) {
-    return;
-  }
-  
-  if (newState < 2) {
-    prevVentTCState = newState;
-    lastVentTCChg[(int) newState] = now();
-    if (newState == 1) {
-      digitalWrite(VENTTC_2, LOW);
-      digitalWrite(VENTTC_1, HIGH);
-      
-      Serial.println(F(""));
-      PreveriNapetosti(true, true, false);
-      ZapisiOnOffSD(1, 1);
 
-      Serial.println(F(" "));
-      NarediTimeStr(cas, now());
-      Serial.print(cas);
-      Serial.print(" ");
-      Serial.print(millis());
-      Serial.print(F(" Odpiram ventil "));
-
-    }
-    else if (newState == 0){
-      digitalWrite(VENTTC_1, LOW);
-      digitalWrite(VENTTC_2, HIGH);
-      
-      ZapisiOnOffSD(0, 1);
-      
-      Serial.println(F(" "));
-      NarediTimeStr(cas, now());
-      Serial.print(cas);
-      Serial.print(" ");
-      Serial.print(millis());
-      PreveriNapetosti(true, true, false);
-      Serial.print(F(" Zapiram ventil"));
-    }
-  }
-}
 
 
 //--------------------------------------------------------------------------------
@@ -1408,32 +1224,7 @@ static float MejnaTempPreklCrpRad(byte newState)
   }
 }
 
-//--------------------------------------------------------------------------------
-static void PreklopiCrpalkoRad(byte newState)
-{
-  char cas[13];
-  prevCrpRadState = newState;
-  lastCrpRadStateChg = now();
-  
-  if (newState == 1) {
-    digitalWrite(RELE_CRAD, R_CRAD_ON);
-    
-    ZapisiOnOffSD(1, 10);
-    Serial.println(F(" "));
-    NarediTimeStr(cas, now());
-    Serial.print(cas);
-    Serial.print(F(" Vklop crp. radiator"));
-  }
-  else {
-    digitalWrite(RELE_CRAD, R_CRAD_OFF);
-    
-    ZapisiOnOffSD(0, 10);
-    Serial.println(F(" "));
-    NarediTimeStr(cas, now());
-    Serial.print(cas);
-    Serial.print(F(" Izkolp crp. radiator"));
-  }
-}
+
 
 
 //--------------------------------------------------------------------------------
@@ -1465,31 +1256,7 @@ void check_mem() {
 }
 
 
-//--------------------------------------------------------------------------------
-static void IzpisDatnaSerial(void)
-{
- // char ch;
-  char ime[13];
-  
-  ImeDatoteke(ime);
-  Serial.println(F(""));
-  Serial.println(ime);
-  
-//  myFile = SD.open(ime, FILE_READ);
-  myFile = OdpriDatoteko(ime, FILE_READ);
-  if (!myFile)
-      Serial.println("error"); 
-  else {
-    while (myFile.available()) {
-      Serial.write(myFile.read());
-      delay(5); 
-    }
-    myFile.close();
-  } 
-//  myFile.close(); 
-  Serial.println(F(""));  
-  delay(5);  
-}
+
 
 
 //--------------------------------------------------------------------------------
@@ -1503,31 +1270,7 @@ static void IzpisDatnaSerial(void)
 
 
 //--------------------------------------------------------------------------------
-//------------
-static void IzpisDataOnOffSerial(void)
-{
-//  char ch;
-  char ime[13];
-  
-  ImeDatotekeOnOff(ime);
-  Serial.println(F(""));
-  Serial.println(ime);
-  
-  
-//  myFile = SD.open(ime, FILE_READ);
-  myFile = OdpriDatoteko(ime, FILE_READ);
-  if (!myFile)
-    Serial.println(F("error"));
-  else {
-      while (myFile.available()) {
-        Serial.write(myFile.read());  
-      }
-      myFile.close();
-  }    
-//  myFile.close();
-  Serial.println(F("")); 
-  delay(50); 
-}
+
 
 
 

@@ -116,14 +116,27 @@ static float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
   return (efI);
 } 
 
+
+float sumTok_12V = 0.0;
+float maxTok_12V;
+unsigned long nMerTok_12V = 0;
 //--------------------------------------------------------------------------------
 float Tok_12V(void) {
   
-  int val_I;
+  int raw_I;
+  float tok_12V;
   
-  val_I = analogRead(SENS_TOK_12V);
+  raw_I = analogRead(SENS_TOK_12V);
   
-  return(PretvoriV2A_asc712_DC(val_I));
+  tok_12V = PretvoriV2A_asc712_DC(raw_I);
+  
+  sumTok_12V += tok_12V;
+  nMerTok_12V++;
+  
+  if (tok_12V > maxTok_12V)
+    maxTok_12V = tok_12V;    
+  
+  return(tok_12V);
 }  
 
 //--------------------------------------------------------------------------------
