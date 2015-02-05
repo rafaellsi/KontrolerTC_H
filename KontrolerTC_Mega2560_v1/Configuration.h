@@ -27,8 +27,7 @@ extern void Beep(unsigned char);
 #define CEV_TERM_ON   LOW    //cevni termostat - internal pullup
 #define CEV_TERM_OFF  HIGH
 
-#define STIKALO_ON   LOW
-#define STIKALO_OFF  HIGH
+
 
 
 //----------
@@ -86,6 +85,9 @@ extern void Beep(unsigned char);
 #define STIKALO_CRP_TC_OFF 36
 #define STIKALO_TC_ON 37         //stikalo 3
 #define STIKALO_TC_OFF 38
+
+
+
 //#define stikalo  37            //stikalo 4
 //#define stikalo  38
 
@@ -166,19 +168,7 @@ typedef union  {
 ui2byte2 u2;
 
 
-//------------------------------------------
-static byte myip[] = {192,168,1,50}; // ethernet interface ip address
-static byte gwip[] = {192,168,1,1};  // gateway ip address
-static byte dnsip[] = {193,189,160,13}; // dnc ip address
-//static byte ipmask[] = { 255,255,252,0 }; // ip mask 
-//static byte ntpip[] = {5, 9, 80, 113}; // time-a.timefreq.bldrdoc.gov
-//static byte ntpip[] = {129, 6, 15, 28}; // time-a.timefreq.bldrdoc.gov
 
-// ethernet mac address - must be unique on your network
-static byte mymac[] = { 0x74,0x69,0x69,0x2D,0x30,0x31 };
-
-byte Ethernet::buffer[500]; // tcp/ip send and receive buffer
-BufferFiller bfill;
 
 
 
@@ -247,6 +237,8 @@ float maxTempPVRad = 50.0; // max temperatura povratnega voda
 float maxTempDVPec = 90.01; // max. temperatura dviznega voda peci
 float maxDeltaDev = 5.0;
 
+boolean isCrpRadAsAbsTemp = true; //upobi absol. temp za zagon crpalke
+
 
 static float vccInternal = 5.0;
 
@@ -295,12 +287,21 @@ float lastDeltaThSt;
 unsigned long lastRunTime;
 float tempOkolicaSt;
 
+float porabaWH = 0.0;
 float zacPorabaWH;
 float Qv;
 float We;
-float porabaWH;
+
+float Vrms = 230.0;
 
 byte manuCrpTCState = 0;
+
+int coRawVal;
+int osvetlitevLCD = 0;
+
+float sumTok_12V = 0.0;
+float maxTok_12V;
+unsigned long nMerTok_12V = 0;
 
 char infoErr[8];
 

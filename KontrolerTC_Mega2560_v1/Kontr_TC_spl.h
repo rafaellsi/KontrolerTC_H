@@ -3,11 +3,21 @@
 
 //#include "Temperature.h"
 
+
+
 extern boolean IsNTempCas();
 extern time_t processSyncMessage();
 extern void EthernetInit(boolean izpisShort);
 extern void SDInit(void);
+extern void PrintTempAllSDbin(void);
 extern void ImeDatotekeOnOff(char* ime);
+extern void IzpisDataOnOffSerial(void);
+extern void IzpisDatnaSerial(void);
+extern unsigned int ObsegZgodovine(int sensor, unsigned int pred=0);
+extern float AC_mimax(boolean izpis, boolean forceCalc);
+extern float Tok_12V(void);
+extern void PreveriStikala(boolean izpisState);
+extern void PrintTemperatureAll(void);
 
 static float Sec2Hour(unsigned long sec);
 static float AvgVal(float suma, float num);
@@ -29,9 +39,13 @@ static float IzracunLimitTemp(int state, float ciTemp);
 static float IzracunTempVTOff(void);
 static boolean UpostevajElTarife(void);
 void CheckSerial(void);
-static void IzpisDataOnOffSerial(void);
-static void IzpisDatnaSerial(void);
 
+void IzpisPorabaWH(float porabaWH);
+void IzracunHitrostiGretjaTC(void);
+float PovpreciVred(float a, float povVred, float lastVred);
+void ZapisiInIzpisiPodatke(void);
+void PrintData(void);
+float MejnaTempPreklCrpRad(byte newState);
 
 //--------------------------------------------------------------------------------
 // Pretvorba sekunde v ure, decimalno
@@ -521,7 +535,7 @@ void CheckSerial(void) {
   }  // if (Serial.available() >  0 ) 
 }  
 
-
+//---------------------
 void IzpisPorabaWH(float porabaWH) {
   
   if (porabaWH >= 1000) {
@@ -543,5 +557,383 @@ void IzpisPorabaWH(float porabaWH) {
     Serial.print(F("VAh"));  
   }
 }
+
+//---------------------
+void IzracunHitrostiGretjaTC(void) {
+  
+  float alpha;
+  
+      if (prevTCState == 0) {
+        if (now() - lastTCStateChg > 15*60L) {  
+          alpha = 0.99;
+          if (izracHitrGret) {  
+            alpha = 0.9;
+          }
+          else {
+            alpha = 0.99;
+          }
+          
+          lastDeltaTh = IzracDeltaTh();     
+          deltaTh = PovpreciVred(alpha, deltaTh, lastDeltaTh);
+          
+          lastDeltaThOk = IzracDeltaThOk();
+          deltaThOk = PovpreciVred(alpha, deltaThOk, lastDeltaThOk);
+          
+          lastDeltaThSt = IzracDeltaThSt();
+          deltaThSt = PovpreciVred(alpha, deltaThSt, lastDeltaThSt);
+                   
+          Serial.println(F(""));
+          if (izracHitrGretInfo) {
+            Serial.println(F("Info - "));
+          }
+          
+          Serial.print(F(" H.gret:"));
+          Serial.print(deltaTh, 3);
+          Serial.print(F(" Last:"));
+          Serial.print(lastDeltaTh, 3);
+          uf.fval =  deltaTh;
+          delay(5);
+          i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrDeltaTh, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
+          
+          Serial.print(F(" Komp.ok:"));
+          Serial.print(deltaThOk, 4);
+          Serial.print(F(" Last:"));
+          Serial.print(lastDeltaThOk, 4);
+          uf.fval =  deltaThOk;
+          delay(5);
+          i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrDeltaThOk, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
+          
+          Serial.print(F(" Komp.st:"));
+          Serial.print(deltaThSt, 4);
+          Serial.print(F(" Last:"));
+          Serial.print(lastDeltaThSt, 4);
+          uf.fval =  deltaThSt;
+          delay(5);
+          i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrDeltaThSt, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
+          
+          
+          Serial.print(F(" Info cal.(startTemp): "));
+          Serial.print(startTemp, 2);
+          Serial.print(F(" temp okolice st: "));
+          Serial.print(tempOkolicaSt, 2);
+          Serial.print(F(" run time(h): "));
+          Serial.print(Sec2Hour(lastRunTime), 4);
+          Serial.print(F(" tkomp0: "));
+          Serial.print(tKompOK, 2);
+          Serial.print(F(" tkompSt: "));
+          Serial.print(tKompSt, 2);
+          
+          Serial.print(F(" Nova komp.ok: "));
+          Serial.print(KompenzacijaTempOkolice(tempOkolicaSt),4);
+          Serial.print(F(" komp.st: "));
+          Serial.print(KompenzZacTemp(startTemp),4);
+          
+          Serial.print(F(" Info deltaTh: "));
+          Serial.print(IzracDeltaTh(),4);
+          Serial.print(F(" Info deltaThOk: "));
+          Serial.print(IzracDeltaThOk(),4);
+          Serial.print(F(" Info deltaThSt: "));
+          Serial.print(IzracDeltaThSt(),4);
+          
+          Serial.print(F(" Cop: "));
+          Serial.print(Cop(),2);
+          
+          izracHitrGret=false;
+          izracHitrGretInfo=false;
+          if (izracHitrGret) {
+            ZapisiOnOffSD(10, 100);
+          }  
+          else {
+            ZapisiOnOffSD(11, 100);
+          }        
+        }
+      }  
+
+}
+//--------------------------------------------------------------------------------------------
+
+float PovpreciVred(float a, float povVred, float lastVred) {
+
+  return((povVred * a) + ((lastVred)*(1.0-a)));
+} 
+
+
+float sumPing = 0;
+unsigned long numPing = 0;
+
+int stateCevStPecTC;
+int preklopCrpTCVzr = 0;
+
+float tok230V = -100.0;
+//--------------------------------------------------------------------------------------------
+void ZapisiInIzpisiPodatke(void) {
+    Serial.println(F(""));   
+    PrintData();
+    
+ //   printDataRF();
+    
+    
+    Serial.print(F(" "));
+    Serial.print(prevCrpTCState);
+    Serial.print(prevVentTCState);
+    Serial.print(prevCrpRadState);
+    Serial.print(stateCevStPecTC);
+    Serial.print(F(" "));
+    Serial.print(manuCrpTCState, BIN);
+    Serial.print(F(" "));
+    Serial.print(preklopCrpTCVzr);
+
+    
+    if (UpostevajElTarife())
+      Serial.print(F(" E"));
+    else 
+      Serial.print(F(" P"));  
+    
+    
+    if (prevCasMeritve/(zapisXMin*60) < now()/(zapisXMin*60)) {     
+      Serial.println(F(""));
+//      for (int j = 0; j < numSensDS; j++) {
+      for (int j = 0; j < numSens; j++) {
+//        addrTmp = elapsedSecsToday(now())/(zapisXMin*60);
+        addrTmp = ObsegZgodovine(j);
+//        addrTmp += (j * histLen);    
+//        addrTmp *= sizeof(u2);
+//        addrTmp += addrTempBack;
+ //     addrTmp = addrTempBack + sizeof(uf)*((elapsedSecsToday(now())/(zapisXMin*60)) + (day()-1)*144); //1440/zapisXMin
+        delay(2);
+        i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+        delay(2);
+
+        Serial.print(F(" Ta"));
+        Serial.print(j+1);
+        Serial.print(F(":"));
+        
+        Serial.print(F("("));
+        Serial.print((u2.uival/100.0)-50.0);
+        
+        Serial.print(F(">"));
+        Serial.print(addrTmp);
+        
+        Serial.print(F(")"));
+        
+        // dodano kot kontrola vrenja
+        if (j == CRPALKA_0) {
+          pTempCrp[2] = pTempCrp[1];
+          pTempCrp[1] = pTempCrp[0];
+          pTempCrp[0] = cTemperatura[j];
+          if (VodaVre(false))
+            Serial.print(F("P "));
+          else
+            Serial.print(F("V "));  
+        }
+        // dodano kot kontrola vrenja  
+        
+        float diff = cTemperatura[j] - ((u2.uival/100.0)-50.0);
+        if (abs(diff) > 0.01) {
+          sumTemp[j] -= (((u2.uival)/100.0) - 50.0);
+          u2.uival =  (cTemperatura[j]+0.005+50.0)*100;
+          sumTemp[j] += (cTemperatura[j]);
+
+          delay(2);
+          i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+          delay(2);
+        }
+
+        Serial.print(AvgVal(sumTemp[j], histLen*1.0),2);
+
+      }
+      Serial.println(F(""));
+      for (int j = numSens; j < numSens + numSensDHT22; j++) {
+        addrTmp = ObsegZgodovine(j);
+        i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+        Serial.print(F(" RHa"));
+        Serial.print(j-numSens+1);
+        Serial.print(F(":"));
+        
+        Serial.print(F("("));
+        Serial.print(u2.uival/100.0);
+        
+        Serial.print(F(">"));
+        Serial.print(addrTmp);
+        
+        Serial.print(F(")"));
+        float diff = cVlaznost[j-numSens] - (u2.uival/100.0);
+        if (abs(diff) > 0.01) {
+          sumTemp[j] -= (u2.uival)/100.0;
+          u2.uival =  (cVlaznost[j-numSens]+0.005)*100;
+          sumTemp[j] += (cVlaznost[j-numSens]);
+        
+          i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+          delay(2);
+        }
+        Serial.print(AvgVal(sumTemp[j], histLen*1.0),2);
+      }
+      Serial.println(F(""));
+
+          
+      Serial.print(F("  Avg.cycleTime(n="));
+      Serial.print(ncyc);
+      Serial.print(F("): "));
+      Serial.print(AvgCycleTime(sumCycle, ncyc));
+      Serial.print(F("ms "));    
+      Serial.print(F("Min-Max(last h): "));
+      Serial.print(minCycle);
+      Serial.print(F("-"));
+      Serial.print(maxCycle);
+      maxCycle = 0;
+      
+      Serial.print(F(" Avg.ping time(n="));
+      Serial.print(numPing);
+      Serial.print(F("): "));
+      Serial.print(AvgCycleTime(sumPing, numPing));
+      Serial.print(F("ms ")); 
+      
+
+      
+//      PreveriNapetosti(true, true, false);
+      Serial.println(F(""));
+    }
+    PrintTempAllSDbin();  
+    
+    Serial.println("");
+    Serial.print(F("       "));
+    
+    Serial.print(F(" Tok: "));
+    tok230V = AC_mimax(showCRC, true);
+    Serial.print(tok230V);  
+    Serial.print(F("A("));
+    
+//    porabaWH += (tok *(230.0/60.0));
+    IzpisPorabaWH(porabaWH);
+    
+    Serial.print(F(") "));
+    
+    Serial.flush();
+    Serial.print(F("On time: "));
+     
+
+    if (prevTCState == 0) {
+      if (onTimeTC > 0) 
+      Serial.print(Sec2Hour(onTimeTC));  
+    }
+    else if (prevTCState == 1)
+       Serial.print(Sec2Hour(onTimeTC + now() - lastTCStateChg));
+
+
+     
+     Serial.print(F(" Tv:"));
+     Serial.print(TempVklopa(), 3);  
+     Serial.print(F(" Ti "));
+     Serial.print(TempIzklopa(), 1);
+     Serial.print(F(" ("));
+     Serial.print(TempVklopaCrpTC_NTemp(), 1);
+     Serial.print(F("-"));
+     Serial.print(TempIzklopaCrpTC_NTemp(), 1);
+     Serial.print(F("->"));
+     Serial.print(MejnaTempPreklCrpRad(0), 1);
+     Serial.print(F("-"));
+     Serial.print(MejnaTempPreklCrpRad(1), 1);
+//     Serial.print(F(") "));
+     
+     Serial.print(F(") CO:"));
+ #ifdef CO_INIT    
+     Serial.print((float)coRawVal/(float)numMerCO, 2);
+     numMerCO = 0;
+     coRawVal = 0;
+ #else
+     Serial.print(coRawVal);
+ #endif 
+     Serial.print(F(" "));
+     
+     Serial.print(osvetlitevLCD);
+     
+     Serial.print(F(" I(12v):"));
+     Serial.print(Tok_12V());
+     Serial.print(F("("));
+     Serial.print(AvgVal(sumTok_12V, (float) nMerTok_12V), 4);
+//     Serial.print(sumTok_12V/((float) nMerTok_12V), 3);
+     Serial.print(F("/"));
+     Serial.print(maxTok_12V);
+     
+     Serial.print(F(")A "));  
+     PreveriNapetosti(true, true, false);
+     Serial.print(F("V ")); 
+     PreveriStikala(true);
+  }
+
+
+//--------------------------------------------------------------------------------
+// main function to print information about a device
+void PrintData(void)
+{
+  char cas[13];
+ 
+  NarediTimeStr(cas, now());
+  Serial.print(cas);
+
+  Serial.print(F(" -> "));
+  PrintTemperatureAll();
+  
+  if (releState_1 == R_TC_ON) {
+    if (prevTCState == 1) 
+       Serial.print(F("ON"));
+     else
+       Serial.print(F("SB"));
+   }
+   else
+     Serial.print(F("OFF"));
+
+}
+
+//--------------------------------------------------------------------------------
+float MejnaTempPreklCrpRad(byte newState)
+{
+  // dodaj kot glob
+  int ref_prostor_1 = 0;
+  float kTemp = 0.25;
+  float cTemperaturaZun = 0.0;
+  // mogce spremeni abs temp
+  float zeljTemp;
+  
+  
+  float refTemp;
+  float tmpTemp;
+  float dTemp = 0.0;
+  
+  refTemp = (float)limTempCrpRad[hour()] + limTempFactCrpRad[hour()] * cTemperatura[RAD_DV];
+  if (newState == 1) {
+    tmpTemp = cTemperatura[RAD_DV] - refTemp;
+    if (isCrpRadAsAbsTemp) {
+      zeljTemp =  (float)crpRadAsAbsTemp[hour()] - 10.0;
+ 
+        dTemp = (zeljTemp - cTemperaturaZun) * kTemp; 
+ //       if (cTemperatura[ref_prostor_1] < zeljTemp) {
+        dTemp *= (zeljTemp / cTemperatura[ref_prostor_1]);
+ //     }
+      tmpTemp = min((float)crpRadAsAbsTemp[hour()] + dTemp, tmpTemp);
+    }
+    if (cTemperatura[PEC_DV] >  maxTempDVPec) {
+      return(maxTempDVPec);  
+    }
+    if (tmpTemp < 5.00)  {
+      return(5.0);
+    }  
+    return(tmpTemp);
+  }
+  else {
+    refTemp *= minMejnaTempRel;
+    if (refTemp < 5.0)
+      refTemp = 5.0;
+    if (cTemperatura[RAD_DV] - refTemp > maxTempPVRad)
+      return(maxTempPVRad);
+    
+    if (cTemperatura[RAD_DV] - refTemp < 5.00)  {
+      return(5.0);
+    }  
+    return(cTemperatura[RAD_DV] - refTemp);
+  }
+}
+
+
 
 #endif

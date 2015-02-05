@@ -25,7 +25,7 @@ void Initilizacija_CO(void) {
   int numMerCO=0;
 #endif
 
-int coRawVal;
+
 //------------------
 void PreveriCO_Senzor() {
   static unsigned long t_CO_timer = 0;

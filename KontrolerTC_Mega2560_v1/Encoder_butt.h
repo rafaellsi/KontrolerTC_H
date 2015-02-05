@@ -91,7 +91,7 @@ void Encoder_init(void) {
 //    Serial.println("Start");
 
 } // setup
-int osvetlitevLCD = 0;
+
 #define MAX_LCD_OSV 160
 // -----------------------------------------------------------------------------
 

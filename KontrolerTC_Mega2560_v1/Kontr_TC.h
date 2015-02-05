@@ -22,6 +22,14 @@ extern void Beep(unsigned char delayms);
 //--------------------------------------------------------------------------------
 void NastavitevPinov(void) {
   // init portov
+  
+  pinMode(53, OUTPUT);
+  if (SD_CS_PIN != 53)
+    pinMode(SD_CS_PIN, OUTPUT);
+  
+  if (ETHER_CS_PIN != 53)
+    pinMode(ETHER_CS_PIN, OUTPUT);
+  
   pinMode(BEEP_PIN, OUTPUT);
   
   pinMode(RELE_TC, OUTPUT);
@@ -38,7 +46,6 @@ void NastavitevPinov(void) {
   pinMode(VENTTC_EN, OUTPUT);
   digitalWrite(VENTTC_EN, HIGH);
   
-  pinMode(SD_CS_PIN, OUTPUT);
   
   pinMode(CEVTERM_PEC_TC, INPUT_PULLUP);
   
@@ -246,6 +253,80 @@ void InitParametri(void) {
   
 }
 
+#define STIKALO_ON   LOW
+#define STIKALO_OFF  HIGH
+
+#define STIKALO_STATE_AUT  0
+#define STIKALO_STATE_ON   1
+#define STIKALO_STATE_OFF  2
+
+#define STIKALO_CRP_RAD 0
+#define STIKALO_CRP_TC  1
+#define STIKALO_TC      2
+
+uint8_t stikaloState[3];
+//uint8_t stikaloState02;
+//uint8_t stikaloState03;
+
+char stikaloStateTxt[3][4] = {"AUT", "ON", "OFF"};
+
+//--------------------------------------------------------------------------------
+void PreveriStikala(boolean izpisState) {
+  
+  if (digitalRead(STIKALO_CRP_RAD_ON) == STIKALO_ON)
+    stikaloState[STIKALO_CRP_RAD] = STIKALO_STATE_ON;
+  else if (digitalRead(STIKALO_CRP_RAD_OFF) == STIKALO_ON)
+    stikaloState[STIKALO_CRP_RAD] = STIKALO_STATE_OFF;
+  else
+    stikaloState[STIKALO_CRP_RAD] = STIKALO_STATE_AUT;   
+  
+  if (digitalRead(STIKALO_CRP_TC_ON) == STIKALO_ON)
+    stikaloState[STIKALO_CRP_TC] = STIKALO_STATE_ON;
+  else if (digitalRead(STIKALO_CRP_TC_OFF) == STIKALO_ON)
+    stikaloState[STIKALO_CRP_TC] = STIKALO_STATE_OFF;
+  else
+    stikaloState[STIKALO_CRP_TC] = STIKALO_STATE_AUT; 
+  
+  if (digitalRead(STIKALO_TC_ON) == STIKALO_ON)
+    stikaloState[STIKALO_TC] = STIKALO_STATE_ON;
+  else if (digitalRead(STIKALO_TC_OFF) == STIKALO_ON)
+    stikaloState[STIKALO_TC] = STIKALO_STATE_OFF;
+  else
+    stikaloState[STIKALO_TC] = STIKALO_STATE_AUT;     
+  
+  if (izpisState) {
+    for (int i=0; i<3; i++) {
+      Serial.print(stikaloStateTxt[stikaloState[i]]);
+      Serial.print(F(" "));
+    }
+  }  
+  
+/*  
+  Serial.print(F("Stikalo crpalke rad: "));
+  if (digitalRead(STIKALO_CRP_RAD_ON) == STIKALO_ON)
+    Serial.println(F("ON"));
+  else if (digitalRead(STIKALO_CRP_RAD_OFF) == STIKALO_ON)
+    Serial.println(F("OFF"));
+  else
+    Serial.println(F("AUTO")); 
+    
+  Serial.print(F("Stikalo crpalke TC: "));
+  if (digitalRead(STIKALO_CRP_TC_ON) == STIKALO_ON)
+    Serial.println(F("ON"));
+  else if (digitalRead(STIKALO_CRP_TC_OFF) == STIKALO_ON)
+    Serial.println(F("OFF"));  
+  else
+    Serial.println(F("AUTO"));
+  
+  Serial.print(F("Stikalo 3: "));
+  if (digitalRead(STIKALO_TC_ON) == STIKALO_ON)
+    Serial.println(F("ON"));
+  else if (digitalRead(STIKALO_TC_OFF) == STIKALO_ON)
+    Serial.println(F("OFF"));  
+  else
+    Serial.println(F("AUTO")); 
+*/
+}
 
 
 

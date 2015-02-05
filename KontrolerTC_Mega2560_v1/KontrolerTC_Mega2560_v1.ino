@@ -97,7 +97,7 @@
 
 //#include <RHReliableDatagram.h>
 //#include <RH_NRF24.h>
-//#include <SPI.h>
+#include <SPI.h>
 
 #include "Configuration.h"
 #include "Eprom_external.h"
@@ -140,15 +140,15 @@ unsigned long lastReleChg;    // cas zadnje spremembe stanja releja TC
 
 
 
-int preklopCrpTCVzr = 0;
 
 
 
 
 
-int stateCevStPecTC;
 
-boolean isCrpRadAsAbsTemp = true; //upobi absol. temp za zagon crpalke
+
+
+
 //float crpRadAsAbsTemp[24];
 
 
@@ -163,28 +163,7 @@ boolean isCrpRadAsAbsTemp = true; //upobi absol. temp za zagon crpalke
 
 
 
-//--------------------------------------------------------------------------------
-// main function to print information about a device
-static void PrintData()
-{
-  char cas[13];
- 
-  NarediTimeStr(cas, now());
-  Serial.print(cas);
 
-  Serial.print(F(" -> "));
-  PrintTemperatureAll();
-  
-  if (releState_1 == R_TC_ON) {
-    if (prevTCState == 1) 
-       Serial.print(F("ON"));
-     else
-       Serial.print(F("SB"));
-   }
-   else
-     Serial.print(F("OFF"));
-
-}
 
 //--------------------------------------------------------------------------------
 void setup(void)
@@ -193,22 +172,27 @@ void setup(void)
   char infoSet[9];
   
   NastavitevPinov();
- 
+//  SPI.setClockDivider(SPI_CLOCK_DIV16); 
+   
   Serial.begin(115200);
   Serial.flush();
+  Serial.println(F(""));
   Serial.println(F("Kontroler TC"));
   Serial.println(VERSION);
   
+  PreveriNapetosti(true, true, false);
+  Serial.println(F(""));
+  Serial.print(F("Tok: "));
+  Serial.println(Tok_12V());
   
     //-------------------
   Wire.begin();
   
   //-------------------
   LCDInitializacija();
-  EthernetInit(false);
+//  EthernetInit(false);
   
-  PreveriNapetosti(true, true, false);
-  Serial.println(F(""));
+  
   TempSensorsInit(); 
   
   Initilizacija_CO();
@@ -264,6 +248,8 @@ void setup(void)
 
   delay(2000);
   
+  EthernetInit(false);
+  
   lcdA.clear();
   lcdA.print(F("Free RAM"));
   lcdA.setCursor(1, 1);
@@ -280,30 +266,9 @@ void setup(void)
   prevCasMeritve = now();
   casMeritve = now();
   
-  Serial.print(F("Stikalo crpalke rad: "));
-  if (digitalRead(STIKALO_CRP_RAD_ON) == STIKALO_ON)
-    Serial.println(F("ON"));
-  else if (digitalRead(STIKALO_CRP_RAD_OFF) == STIKALO_ON)
-    Serial.println(F("OFF"));
-  else
-    Serial.println(F("AUTO")); 
-    
-  Serial.print(F("Stikalo crpalke TC: "));
-  if (digitalRead(STIKALO_CRP_TC_ON) == STIKALO_ON)
-    Serial.println(F("ON"));
-  else if (digitalRead(STIKALO_CRP_TC_OFF) == STIKALO_ON)
-    Serial.println(F("OFF"));  
-  else
-    Serial.println(F("AUTO"));
-  
-  Serial.print(F("Stikalo 3: "));
-  if (digitalRead(STIKALO_TC_ON) == STIKALO_ON)
-    Serial.println(F("ON"));
-  else if (digitalRead(STIKALO_TC_OFF) == STIKALO_ON)
-    Serial.println(F("OFF"));  
-  else
-    Serial.println(F("AUTO"));
-  
+  Serial.print(F("Stikala: "));
+  PreveriStikala(true);
+ 
  /* 
   if (!manager.init()) {
     Serial.println("init failed");
@@ -323,9 +288,10 @@ void setup(void)
 //--------------------------------------------------------------------------------
 void loop(void)
 { 
-  float tok = -100.0;
+  
+  static int prevDay = day();
   byte newCrpTCState;
-  float alpha;
+  
   
   //----- 
   if (cycStart > 0 && millis() > cycStart) {
@@ -376,91 +342,7 @@ void loop(void)
     casMeritve = now();
     
     if (izracHitrGret || izracHitrGretInfo) {
-      if (prevTCState == 0) {
-        if (now() - lastTCStateChg > 15*60L) {  
-          alpha = 0.99;
-          if (izracHitrGret) {  
-            alpha = 0.9;
-          }
-          else {
-            alpha = 0.99;
-          }
-          
-          lastDeltaTh = IzracDeltaTh();     
-          deltaTh = PovpreciVred(alpha, deltaTh, lastDeltaTh);
-          
-          lastDeltaThOk = IzracDeltaThOk();
-          deltaThOk = PovpreciVred(alpha, deltaThOk, lastDeltaThOk);
-          
-          lastDeltaThSt = IzracDeltaThSt();
-          deltaThSt = PovpreciVred(alpha, deltaThSt, lastDeltaThSt);
-                   
-          Serial.println(F(""));
-          if (izracHitrGretInfo) {
-            Serial.println(F("Info - "));
-          }
-          
-          Serial.print(F(" H.gret:"));
-          Serial.print(deltaTh, 3);
-          Serial.print(F(" Last:"));
-          Serial.print(lastDeltaTh, 3);
-          uf.fval =  deltaTh;
-          delay(5);
-          i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrDeltaTh, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
-          
-          Serial.print(F(" Komp.ok:"));
-          Serial.print(deltaThOk, 4);
-          Serial.print(F(" Last:"));
-          Serial.print(lastDeltaThOk, 4);
-          uf.fval =  deltaThOk;
-          delay(5);
-          i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrDeltaThOk, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
-          
-          Serial.print(F(" Komp.st:"));
-          Serial.print(deltaThSt, 4);
-          Serial.print(F(" Last:"));
-          Serial.print(lastDeltaThSt, 4);
-          uf.fval =  deltaThSt;
-          delay(5);
-          i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrDeltaThSt, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
-          
-          
-          Serial.print(F(" Info cal.(startTemp): "));
-          Serial.print(startTemp, 2);
-          Serial.print(F(" temp okolice st: "));
-          Serial.print(tempOkolicaSt, 2);
-          Serial.print(F(" run time(h): "));
-          Serial.print(Sec2Hour(lastRunTime), 4);
-          Serial.print(F(" tkomp0: "));
-          Serial.print(tKompOK, 2);
-          Serial.print(F(" tkompSt: "));
-          Serial.print(tKompSt, 2);
-          
-          Serial.print(F(" Nova komp.ok: "));
-          Serial.print(KompenzacijaTempOkolice(tempOkolicaSt),4);
-          Serial.print(F(" komp.st: "));
-          Serial.print(KompenzZacTemp(startTemp),4);
-          
-          Serial.print(F(" Info deltaTh: "));
-          Serial.print(IzracDeltaTh(),4);
-          Serial.print(F(" Info deltaThOk: "));
-          Serial.print(IzracDeltaThOk(),4);
-          Serial.print(F(" Info deltaThSt: "));
-          Serial.print(IzracDeltaThSt(),4);
-          
-          Serial.print(F(" Cop: "));
-          Serial.print(Cop(),2);
-          
-          izracHitrGret=false;
-          izracHitrGretInfo=false;
-          if (izracHitrGret) {
-            ZapisiOnOffSD(10, 100);
-          }  
-          else {
-            ZapisiOnOffSD(11, 100);
-          }        
-        }
-      }  
+      IzracunHitrostiGretjaTC(); 
     }  
 
    if ((now() - lastTCStateChg > (1 + prevTCState*4.0)*(unsigned)minRunTimeMin * 60) && (now() - lastReleChg > (unsigned)minRunTimeMin * 60)) {   
@@ -478,287 +360,17 @@ void loop(void)
     }
 
     
-    
-    Serial.println(F(""));   
-    PrintData();
-    
- //   printDataRF();
-    
-    
-    
-    
-    
-    
-    
-    
-    Serial.print(F(" "));
-    Serial.print(prevCrpTCState);
-    Serial.print(prevVentTCState);
-    Serial.print(prevCrpRadState);
-    Serial.print(stateCevStPecTC);
-    Serial.print(F(" "));
-    Serial.print(manuCrpTCState, BIN);
-    Serial.print(F(" "));
-    Serial.print(preklopCrpTCVzr);
-
-    
-    if (UpostevajElTarife())
-      Serial.print(F(" E"));
-    else 
-      Serial.print(F(" P"));  
-    
-    
-    if (prevCasMeritve/(zapisXMin*60) < now()/(zapisXMin*60)) {     
-      Serial.println(F(""));
-//      for (int j = 0; j < numSensDS; j++) {
-      for (int j = 0; j < numSens; j++) {
-//        addrTmp = elapsedSecsToday(now())/(zapisXMin*60);
-        addrTmp = ObsegZgodovine(j);
-//        addrTmp += (j * histLen);    
-//        addrTmp *= sizeof(u2);
-//        addrTmp += addrTempBack;
- //     addrTmp = addrTempBack + sizeof(uf)*((elapsedSecsToday(now())/(zapisXMin*60)) + (day()-1)*144); //1440/zapisXMin
-        delay(2);
-        i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
-        delay(2);
-
-        Serial.print(F(" Ta"));
-        Serial.print(j+1);
-        Serial.print(F(":"));
-        
-        Serial.print(F("("));
-        Serial.print((u2.uival/100.0)-50.0);
-        
-        Serial.print(F(">"));
-        Serial.print(addrTmp);
-        
-        Serial.print(F(")"));
-        
-        // dodano kot kontrola vrenja
-        if (j == CRPALKA_0) {
-          pTempCrp[2] = pTempCrp[1];
-          pTempCrp[1] = pTempCrp[0];
-          pTempCrp[0] = cTemperatura[j];
-          if (VodaVre(false))
-            Serial.print(F("P "));
-          else
-            Serial.print(F("V "));  
-        }
-        // dodano kot kontrola vrenja  
-        
-        float diff = cTemperatura[j] - ((u2.uival/100.0)-50.0);
-        if (abs(diff) > 0.01) {
-          sumTemp[j] -= (((u2.uival)/100.0) - 50.0);
-          u2.uival =  (cTemperatura[j]+0.005+50.0)*100;
-          sumTemp[j] += (cTemperatura[j]);
-
-          delay(2);
-          i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
-          delay(2);
-        }
-
-        Serial.print(AvgVal(sumTemp[j], histLen*1.0),2);
-
-      }
-      Serial.println(F(""));
-      for (int j = numSens; j < numSens + numSensDHT22; j++) {
-        addrTmp = ObsegZgodovine(j);
-        i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
-        Serial.print(F(" RHa"));
-        Serial.print(j-numSens+1);
-        Serial.print(F(":"));
-        
-        Serial.print(F("("));
-        Serial.print(u2.uival/100.0);
-        
-        Serial.print(F(">"));
-        Serial.print(addrTmp);
-        
-        Serial.print(F(")"));
-        float diff = cVlaznost[j-numSens] - (u2.uival/100.0);
-        if (abs(diff) > 0.01) {
-          sumTemp[j] -= (u2.uival)/100.0;
-          u2.uival =  (cVlaznost[j-numSens]+0.005)*100;
-          sumTemp[j] += (cVlaznost[j-numSens]);
-        
-          i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
-          delay(2);
-        }
-        Serial.print(AvgVal(sumTemp[j], histLen*1.0),2);
-      }
-      Serial.println(F(""));
-
-      
-
-/*      
-      last24H_Info();
-      Serial.print(F("24h"));
-      for (int i=0; i<numSensDS; i++) {
-        Serial.print(F("  T"));
-        Serial.print(i+1);
-        Serial.print(F(" min:"));
-        Serial.print(minTemp24[i]);
-        Serial.print(F("@"));
-        Serial.print(day(minTemp24Time[i]));
-        Serial.print(F(" "));
-        Serial.print(hour(minTemp24Time[i]));
-        Serial.print(F(":"));
-        if (minute(minTemp24Time[i]) < 10)
-          Serial.print(F("0"));  
-        Serial.print(minute(minTemp24Time[i]));
-        Serial.print(F(": max:"));
-        Serial.print(maxTemp24[i]);
-        Serial.print(F("@"));
-        Serial.print(day(maxTemp24Time[i]));
-        Serial.print(F(" "));
-        Serial.print(hour(maxTemp24Time[i]));
-        Serial.print(F(":"));
-        if (minute(maxTemp24Time[i]) < 10)
-          Serial.print(F("0")); 
-        Serial.print(minute(maxTemp24Time[i]));
-        Serial.print(F(" avg:"));
-        Serial.print(sum24[i]/24.0, 2);
-        if (i==2 || i==5)
-          Serial.println(F(""));  
-      }
-*/      
-      Serial.print(F("  Avg.cycleTime(n="));
-      Serial.print(ncyc);
-      Serial.print(F("): "));
-      Serial.print(AvgCycleTime(sumCycle, ncyc));
-      Serial.print(F("ms "));    
-      Serial.print(F("Min-Max(last h): "));
-      Serial.print(minCycle);
-      Serial.print(F("-"));
-      Serial.print(maxCycle);
-      maxCycle = 0;
-      
-      Serial.print(F(" Avg.ping time(n="));
-      Serial.print(numPing);
-      Serial.print(F("): "));
-      Serial.print(AvgCycleTime(sumPing, numPing));
-      Serial.print(F("ms ")); 
-      
-
-      
-//      PreveriNapetosti(true, true, false);
-      Serial.println(F(""));
-    }
-    PrintTempAllSDbin();  
-    
-    Serial.println("");
-    Serial.print(F("       "));
-    
-    Serial.print(F(" Tok: "));
-    tok = AC_mimax(showCRC, true);
-    Serial.print(tok);  
-    Serial.print(F("A("));
-    
-    porabaWH += (tok *(230.0/60.0));
-    IzpisPorabaWH(porabaWH);
-    
-    Serial.print(F(") "));
-    
-    Serial.flush();
-    Serial.print(F("On time: "));
-     
-
-    if (prevTCState == 0) {
-      if (onTimeTC > 0) 
-      Serial.print(Sec2Hour(onTimeTC));  
-    }
-    else if (prevTCState == 1)
-       Serial.print(Sec2Hour(onTimeTC + now() - lastTCStateChg));
-
-
-     
-     Serial.print(F(" Tv:"));
-     Serial.print(TempVklopa(), 3);  
-     Serial.print(F(" Ti "));
-     Serial.print(TempIzklopa(), 1);
-     Serial.print(F(" ("));
-     Serial.print(TempVklopaCrpTC_NTemp(), 1);
-     Serial.print(F("-"));
-     Serial.print(TempIzklopaCrpTC_NTemp(), 1);
-     Serial.print(F("->"));
-     Serial.print(MejnaTempPreklCrpRad(0), 1);
-     Serial.print(F("-"));
-     Serial.print(MejnaTempPreklCrpRad(1), 1);
-//     Serial.print(F(") "));
-     
-     Serial.print(F(") CO:"));
- #ifdef CO_INIT    
-     Serial.print((float)coRawVal/(float)numMerCO, 2);
-     numMerCO = 0;
-     coRawVal = 0;
- #else
-     Serial.print(coRawVal);
- #endif 
-     Serial.print(F(" "));
-     
-     Serial.print(osvetlitevLCD);
-     
-     Serial.print(F(" I(12v):"));
-     Serial.print(Tok_12V());
-     Serial.print(F("("));
-     Serial.print(AvgVal(sumTok_12V, (float) nMerTok_12V), 4);
-//     Serial.print(sumTok_12V/((float) nMerTok_12V), 3);
-     Serial.print(F("/"));
-     Serial.print(maxTok_12V);
-     
-     Serial.print(F(")A "));  
-     PreveriNapetosti(true, true, false);
-      
-/*     Serial.print(F("Stikalo crpalke rad: "));
-     Serial.print(F("  "));
-     int info1 = digitalRead(STIKALO_CRP_RAD_ON);
-     Serial.print(info1);
-     delay(2);
-     info1 = digitalRead(STIKALO_CRP_RAD_OFF);
-     Serial.print(info1);
-     delay(2);
-     info1 = digitalRead(STIKALO_CRP_TC_ON);
-     Serial.print(info1);
-     delay(2);
-     info1 = digitalRead(STIKALO_CRP_TC_OFF);
-     Serial.print(info1);
-     info1 = digitalRead(STIKALO_TC_ON);
-     Serial.print(info1);
-     delay(2);
-     info1 = digitalRead(STIKALO_TC_OFF);
-     Serial.print(info1);
-*/     
-     if (digitalRead(STIKALO_CRP_RAD_ON) == STIKALO_ON)
-       Serial.print(F(" ON"));
-     else if (digitalRead(STIKALO_CRP_RAD_OFF) == STIKALO_ON)
-       Serial.print(F(" OFF"));
-     else
-       Serial.print(F(" AUT")); 
-    
-//     Serial.print(F("Stikalo crpalke TC: "));
-     if (digitalRead(STIKALO_CRP_TC_ON) == STIKALO_ON)
-       Serial.print(F(" ON"));
-     else if (digitalRead(STIKALO_CRP_TC_OFF) == STIKALO_ON)
-       Serial.print(F(" OFF"));  
-     else
-       Serial.print(F(" AUT"));
-    
-     if (digitalRead(STIKALO_TC_ON) == STIKALO_ON)
-       Serial.print(F(" ON"));
-     else if (digitalRead(STIKALO_TC_OFF) == STIKALO_ON)
-       Serial.print(F(" OFF"));  
-     else
-       Serial.print(F(" AUT"));
+    ZapisiInIzpisiPodatke();
 
     prevCasMeritve = now();
   }
   delay(2);
   
-  if (tok < 0)
-    tok = AC_mimax();
+  if (tok230V < 0)
+    tok230V = AC_mimax();
   
   if (releState_1 == R_TC_ON || measureOnly) {
-    if (tok >= mejaToka) {
+    if (tok230V >= mejaToka) {
       if (AC_mimax() >= mejaToka) {
         if (prevTCState == 0) {
           prevTCState =  1;
@@ -779,7 +391,7 @@ void loop(void)
     }
   }
   if (prevTCState == 1) {
-    if (tok < mejaToka) {
+    if (tok230V < mejaToka) {
       if (AC_mimax() < mejaToka) {
         prevTCState = 0;
         lastRunTime = (now() - lastTCStateChg);
@@ -803,7 +415,7 @@ void loop(void)
   }
   if (prevTCState == 0) {
     if (onTimeTC > 0) {
-      if (day(lastTCStateChg) != day()) {
+      if (prevDay != day()) {
         onTimeTC = 0;
         u4.ulval = onTimeTC;
         i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrOnTime, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4)); 
@@ -811,6 +423,7 @@ void loop(void)
         porabaWH = 0;
         sumTok_12V = 0.0;
         nMerTok_12V = 0;
+        prevDay = day();
       }
     }
   }  
@@ -1175,55 +788,6 @@ static void StateCrpalkeRad()
     }  
   }  
 }
-//--------------------------------------------------------------------------------
-static float MejnaTempPreklCrpRad(byte newState)
-{
-  // dodaj kot glob
-  int ref_prostor_1 = 0;
-  float kTemp = 0.25;
-  float cTemperaturaZun = 0.0;
-  // mogce spremeni abs temp
-  float zeljTemp;
-  
-  
-  float refTemp;
-  float tmpTemp;
-  float dTemp = 0.0;
-  
-  refTemp = (float)limTempCrpRad[hour()] + limTempFactCrpRad[hour()] * cTemperatura[RAD_DV];
-  if (newState == 1) {
-    tmpTemp = cTemperatura[RAD_DV] - refTemp;
-    if (isCrpRadAsAbsTemp) {
-      zeljTemp =  (float)crpRadAsAbsTemp[hour()] - 10.0;
- 
-        dTemp = (zeljTemp - cTemperaturaZun) * kTemp; 
- //       if (cTemperatura[ref_prostor_1] < zeljTemp) {
-        dTemp *= (zeljTemp / cTemperatura[ref_prostor_1]);
- //     }
-      tmpTemp = min((float)crpRadAsAbsTemp[hour()] + dTemp, tmpTemp);
-    }
-    if (cTemperatura[PEC_DV] >  maxTempDVPec) {
-      return(maxTempDVPec);  
-    }
-    if (tmpTemp < 5.00)  {
-      return(5.0);
-    }  
-    return(tmpTemp);
-  }
-  else {
-    refTemp *= minMejnaTempRel;
-    if (refTemp < 5.0)
-      refTemp = 5.0;
-    if (cTemperatura[RAD_DV] - refTemp > maxTempPVRad)
-      return(maxTempPVRad);
-    
-    if (cTemperatura[RAD_DV] - refTemp < 5.00)  {
-      return(5.0);
-    }  
-    return(cTemperatura[RAD_DV] - refTemp);
-  }
-}
-
 
 
 
@@ -1277,12 +841,7 @@ void check_mem() {
 
 
 
-//--------------------------------------------------------------------------------------------
 
-static float PovpreciVred(float a, float povVred, float lastVred) {
-
-  return((povVred * a) + ((lastVred)*(1.0-a)));
-} 
 
 //--------------------------------------------------------------------------------------------
 /*

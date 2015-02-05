@@ -5,7 +5,7 @@ extern boolean releState_1;
 //extern float vccInternal;
 //extern int midR;
 
-static float AC_mimax(boolean izpis, boolean forceCalc);
+float AC_mimax(boolean izpis, boolean forceCalc);
 float Tok_12V(void);
 float PretvoriV2A_asc712_DC(int sensVal);
 static float PretvoriV2A_asc712(int sensVal);
@@ -14,17 +14,23 @@ void PreveriNapetosti(boolean internal, boolean external, boolean battery);
 long readVcc();
 
 
-static int midR = 512;
+
+
+int midR = 512;
 
 //--------------------------------------------------------------------------------
 // branje senzorja toka, pretvorba, izracun efektivne vrednosti toka
-static float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
+float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
+  
+  static unsigned long lastMerPorabeWH = millis();
   int val_I;                      // prebrana vrednost senzorja
   int maxR, minR;                 // min/max prebrana vrednost senzorja 
   unsigned long startTime;        // zacetek meritve 
   unsigned long  dTRSt;           // cas zadnjega branja senzorja
   unsigned long  dTRStMin = 200;  // minimalni cas med dvema branjema senzorja - v microsecundah
 
+  unsigned long timeDiff;
+  
   int numMerAC = 1;
   float efI;  
   float tok01;
@@ -113,13 +119,21 @@ static float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
 //  poraba += (((now() - lastAMesTime)/3600.0) * efI);
 //  lastAMesTime = now();
   midR = (3*midR + minR + maxR)/5;
+  
+  if (millis() >= lastMerPorabeWH) {
+    timeDiff = millis() - lastMerPorabeWH; 
+  }
+  else {
+    timeDiff = millis();
+  }  
+  lastMerPorabeWH = millis();
+  porabaWH += (efI *(Vrms * ((float) timeDiff/1000.0)/3600.0));  // poraba v VAh - (timer [ms]/1000)[s] /3600 [h]
+  
   return (efI);
 } 
 
 
-float sumTok_12V = 0.0;
-float maxTok_12V;
-unsigned long nMerTok_12V = 0;
+
 //--------------------------------------------------------------------------------
 float Tok_12V(void) {
   
@@ -131,7 +145,7 @@ float Tok_12V(void) {
   tok_12V = PretvoriV2A_asc712_DC(raw_I);
   
   sumTok_12V += tok_12V;
-  nMerTok_12V++;
+  nMerTok_12V += 1;
   
   if (tok_12V > maxTok_12V)
     maxTok_12V = tok_12V;    

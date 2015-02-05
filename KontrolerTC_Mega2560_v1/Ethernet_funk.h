@@ -2,36 +2,130 @@
 #define Ethernet_funk_h
 
 
+static void gotPinged (byte* ptr);
+void EthernetInit(boolean izpisShort);
+void CheckEthernet(void);
+void EthernetIzpisInfo(void);
+static word homePage(void);
 
-#define CLIENT_ADDRESS 1
-#define SERVER_ADDRESS 2
+
+//#define CLIENT_ADDRESS 1
+//#define SERVER_ADDRESS 2
 //     #define RH_RF24_MAX_MESSAGE_LEN 28
     
 //RH_NRF24 driver(NRF24_CE, NRF24_CSN);
 //RHReliableDatagram manager(driver, CLIENT_ADDRESS);
+
+
+//------------------------------------------
+static byte myip[] = {192,168,1,50}; // ethernet interface ip address
+static byte gwip[] = {192,168,1,1};  // gateway ip address
+static byte dnsip[] = {193,189,160,13}; // dnc ip address
+static byte ipmask[] = { 255,255,252,0 }; // ip mask 
+//static byte ntpip[] = {5, 9, 80, 113}; // time-a.timefreq.bldrdoc.gov
+//static byte ntpip[] = {129, 6, 15, 28}; // time-a.timefreq.bldrdoc.gov
+
+// ethernet mac address - must be unique on your network
+static byte mymac[] = { 0x74,0x69,0x69,0x2D,0x30,0x31 };
+
+byte Ethernet::buffer[500]; // tcp/ip send and receive buffer
+BufferFiller bfill;
+
+
+
+
+//-----------------------------------------------------------------
+// called when a ping comes in (replies to it are automatic)
+static void gotPinged (byte* ptr) {
+  ether.printIp(">>> ping from: ", ptr);
+}
+
   
 //-----------------------------------------------------------------
 void EthernetInit(boolean izpisShort) {
   
-  if (ether.begin(sizeof Ethernet::buffer, mymac, ETHER_CS_PIN) == 0) 
+  uint8_t sucess;
+  
+  for (int i= 0; i<5; i++) {
+    
+    
+  if (izpisShort) {
+    pinMode(ETHER_CS_PIN, OUTPUT);
+    digitalWrite(ETHER_CS_PIN, LOW);
+    delay(250);
+    digitalWrite(ETHER_CS_PIN, HIGH);
+    delay(250);
+  }
+    
+  if (ether.begin(sizeof Ethernet::buffer, mymac, ETHER_CS_PIN) == 0) {
     Serial.println( "Failed to access Ethernet controller");
- 
-  if (!ether.staticSetup(myip, gwip, dnsip)) {
+    continue;
+  }
+  
+  if (!ether.staticSetup(myip, gwip, dnsip, ipmask)) {
     Serial.println(F("Preveri povezavo ethernet modula!"));
+    continue;
   }  
-  
-  
+  /*
+  if (ether.clientWaitingGW() == false) {
+    
+  }  	
+  */
+  sucess = ether.parseIp(ether.hisip, "192.168.1.1"); 
+  delay(5);
+  if (sucess != 0) {
+    Serial.print(F(" sucess: "));
+    Serial.print(sucess);
+    ether.printIp(" Hisip: ", ether.hisip);
+    
+    sucess = ether.parseIp(ether.hisip, "192.168.2.2");
+    delay(5);
+    if (sucess != 0) {
+      Serial.print(F(" sucess: "));
+      Serial.print(sucess);
+      ether.printIp(" Hisip: ", ether.hisip);
+    
+      sucess = ether.parseIp(ether.hisip, "192.168.2.3");
+      delay(5);
+      if (sucess != 0) {
+        Serial.print(F(" sucess: "));
+        Serial.print(sucess);
+        ether.printIp(" Hisip: ", ether.hisip);
+    
+        sucess = ether.parseIp(ether.hisip, "192.168.2.20");
+        delay(5);
+        if (sucess != 0) {
+          Serial.print(F(" sucess: "));
+          Serial.print(sucess);
+          ether.printIp(" Hisip: ", ether.hisip);
+    
+          ether.doBIST(ETHER_CS_PIN);
+          delay(5);
+          Serial.print(F(" sucess: "));
+          Serial.print(sucess);
+          continue;
+        }
+      }
+    }    
+  }
+ 
     
   if (!izpisShort) {
-    ether.printIp("IP:  ", ether.myip);
-    ether.printIp("GW:  ", ether.gwip); 
-    ether.printIp("DNS: ", ether.dnsip); 
+//    Serial.print(F(" EthRein "));
+    EthernetIzpisInfo();
+   
   }
   else {
-    Serial.print(F(" EthRein "));
+    Serial.print(F(" sucess: "));
+    Serial.print(sucess);
+    ether.printIp("EthRein: ", ether.hisip);  
   }  
   
-  ether.parseIp(ether.hisip, "192.168.1.1");
+  
+  ether.registerPingCallback(gotPinged);
+  break;
+  }
+//  digitalWrite(ETHER_CS_PIN, LOW);
 //  Serial.println(ether.packetLoopIcmpCheckReply(gwip));	
 //  ether.ntpRequest(ntpip, 8888); 
 //  uint32_t *t;
@@ -120,13 +214,13 @@ static word homePage() {
 //--------------------------------------------------------------------------------
 
   
-  float sumPing = 0;
-  unsigned long numPing = 0;
-
+ 
 //--------------------------------------------------------------------------------
 
 void CheckEthernet() {
- 
+  
+//  digitalWrite(ETHER_CS_PIN, HIGH);
+  
   word len = ether.packetReceive();
   word pos = ether.packetLoop(len);  
 //-----   
@@ -166,42 +260,85 @@ void CheckEthernet() {
   }
   
 */  
- if (millis() - timerPing > 58750) {
+ if (millis() - timerPing > 128750) {
    // ether.printIp("Pinging: ", ether.hisip);
+//    ether.parseIp(ether.hisip, "192.168.1.1");
     timerPing = millis();
     ether.clientIcmpRequest(ether.hisip);
     statusPing = false;
     do {
       len = ether.packetReceive();
       pos = ether.packetLoop(len);
-      if (len > 0 && ether.packetLoopIcmpCheckReply(ether.hisip)) {  
+      if (len > 0 && ether.packetLoopIcmpCheckReply(ether.hisip) == true) {  
         Serial.print(F(" Ep("));
-        Serial.print(len);
+        Serial.print(len, DEC);
         Serial.print(F(";"));
-        Serial.print(pos);
+        Serial.print(pos, DEC);
         Serial.print(F(") "));
-        sumPing += (millis() - timerPing); 
-        numPing ++;
+        if (millis() < timerPing) {
+          sumPing = millis();
+          numPing = 1;
+        }
+        else {  
+          sumPing += (millis() - timerPing); 
+          numPing ++;
+        }
         statusPing = true;  
       } 
-    }  while (statusPing == false && millis() - timerPing < 1000);
+    }  while (statusPing == false && millis() - timerPing < 1500);
     if (statusPing == false) {
-      EthernetInit(true);
+      ether.printIp("No ping: ", ether.hisip);   
+//      EthernetInit(true);
       timerPing = millis();
       statusPing = true;
+      Serial.print(F("delaycnt: "));
+      Serial.print(ether.delaycnt);
+      
+      if (ether.clientWaitingGw() == false) {
+        Serial.print(F("Gateway IP not found"));
+      }  
     }      
   }
   
   if (pos)  {  // check if valid tcp data is received
     ether.httpServerReply(homePage()); // send web page data
     Serial.print(F(" Ew("));
-    Serial.print(len);
+    Serial.print(len, DEC);
     Serial.print(F(";"));
-    Serial.print(pos);
+    Serial.print(pos, DEC);
     Serial.print(F(") "));
   }
+//  digitalWrite(ETHER_CS_PIN, LOW);
 }  
   
-
+//--------------------------------------------------------------------------------
+void EthernetIzpisInfo(void) {
+  
+  uint8_t sucess = 0;
+  
+    ether.printIp("IP:  ", ether.myip);
+    ether.printIp("GW:  ", ether.gwip); 
+    ether.printIp("DNS: ", ether.dnsip);
+    ether.printIp("Netmask: ", ether.netmask);
+    ether.printIp("Broadcast: ", ether.broadcastip);
+    ether.printIp("DHCP: ", ether.dhcpip);
+    Serial.print(F(" sucess: "));
+    Serial.print(sucess);
+    ether.printIp("Hisip: ", ether.hisip);
+    Serial.print(F("Hisport: "));
+    Serial.println(ether.hisport);
+    Serial.print(F("Use DHCP: "));
+    if (ether.using_dhcp)
+      Serial.println(F("true"));
+    else
+      Serial.println(F("false"));  
+    Serial.print(F("persist_tcp_connection: "));
+    if (ether.persist_tcp_connection)
+      Serial.println(F("true"));
+    else
+      Serial.println(F("false"));
+    Serial.print(F("delaycnt: "));
+    Serial.println(ether.delaycnt);
+}
 
 #endif

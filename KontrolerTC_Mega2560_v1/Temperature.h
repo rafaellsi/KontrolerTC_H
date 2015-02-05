@@ -23,14 +23,14 @@ float IzracunHumidex(float temp, float tempRos);
 float PreberiTemperaturoK(int n);
 
 static void PrintAddress(DeviceAddress deviceAddress);
-static void PrintTemperatureAll(void);
+void PrintTemperatureAll(void);
 
 time_t processSyncMessage();
 static float AutoTimeUnitConv(unsigned long cas, char *cunits);
 boolean IsNTempCas();
 static boolean IsCasTransfTopl();
 //static boolean IsWeekend(void);
-static unsigned int ObsegZgodovine(int sensor, unsigned int pred);
+unsigned int ObsegZgodovine(int sensor, unsigned int pred);
 void last24H_Info(void);
 
 
@@ -457,7 +457,7 @@ float sumCTempEMA=0.0;
 extern float vccInternal;
 
 
-static void PrintTemperatureAll(void)
+void PrintTemperatureAll(void)
 {
   unsigned int addrTmp;
  
@@ -740,7 +740,7 @@ void last24H_Info(void)
 
 
 //--------------------------------------------------------------------------------------------
-static unsigned int ObsegZgodovine(int sensor, unsigned int pred =0)
+unsigned int ObsegZgodovine(int sensor, unsigned int pred)
 {
   unsigned int addrTmp;
   

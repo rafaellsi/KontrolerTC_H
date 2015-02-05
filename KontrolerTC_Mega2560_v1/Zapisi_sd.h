@@ -86,7 +86,7 @@ File OdpriDatoteko(char* imeDat, byte typeDat)
 
 
 //--------------------------------------------------------------------------------
-static void PrintTempAllSDbin(void)
+void PrintTempAllSDbin(void)
 {
   File myFile;
   char ime[13];
