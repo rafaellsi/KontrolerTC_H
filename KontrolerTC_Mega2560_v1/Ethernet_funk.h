@@ -56,11 +56,16 @@ void EthernetInit(boolean izpisShort) {
     digitalWrite(ETHER_CS_PIN, HIGH);
     delay(250);
   }
-    
-  if (ether.begin(sizeof Ethernet::buffer, mymac, ETHER_CS_PIN) == 0) {
+   
+  sucess = ether.begin(sizeof Ethernet::buffer, mymac, ETHER_CS_PIN);  
+  if (sucess == 0) {
     Serial.println( "Failed to access Ethernet controller");
     continue;
   }
+  else if (!izpisShort) {
+    Serial.print(F("Eth. firware rev: "));
+    Serial.println(sucess);
+  }  
   
   if (!ether.staticSetup(myip, gwip, dnsip, ipmask)) {
     Serial.println(F("Preveri povezavo ethernet modula!"));
@@ -275,6 +280,9 @@ void CheckEthernet() {
         Serial.print(F(";"));
         Serial.print(pos, DEC);
         Serial.print(F(") "));
+//        Serial.print(F("delaycnt: "));
+//        Serial.print(ether.delaycnt);
+        
         if (millis() < timerPing) {
           sumPing = millis();
           numPing = 1;
@@ -292,10 +300,14 @@ void CheckEthernet() {
       timerPing = millis();
       statusPing = true;
       Serial.print(F("delaycnt: "));
-      Serial.print(ether.delaycnt);
+      Serial.print((unsigned int) ether.delaycnt);
       
       if (ether.clientWaitingGw() == false) {
-        Serial.print(F("Gateway IP not found"));
+        Serial.print(F("Gateway IP not found "));
+        ether.printIp("GW: ", ether.gwip);
+        if (!ether.staticSetup(myip, gwip, dnsip, ipmask)) {
+          Serial.println(F("ReSt unsuc!"));
+        } 
       }  
     }      
   }
@@ -322,8 +334,8 @@ void EthernetIzpisInfo(void) {
     ether.printIp("Netmask: ", ether.netmask);
     ether.printIp("Broadcast: ", ether.broadcastip);
     ether.printIp("DHCP: ", ether.dhcpip);
-    Serial.print(F(" sucess: "));
-    Serial.print(sucess);
+//    Serial.print(F(" sucess: "));
+//    Serial.print(sucess);
     ether.printIp("Hisip: ", ether.hisip);
     Serial.print(F("Hisport: "));
     Serial.println(ether.hisport);
@@ -338,7 +350,12 @@ void EthernetIzpisInfo(void) {
     else
       Serial.println(F("false"));
     Serial.print(F("delaycnt: "));
-    Serial.println(ether.delaycnt);
+    Serial.println((unsigned int)ether.delaycnt);
+    Serial.print(F(" isLinkUp:"));
+    if (ether.isLinkUp() == true)
+      Serial.println(F("t"));
+    else
+      Serial.println(F("f"));  
 }
 
 #endif

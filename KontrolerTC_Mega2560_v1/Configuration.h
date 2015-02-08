@@ -271,8 +271,8 @@ float cTempRosicsa[MAX_DHT22_SENS];
 
 unsigned long onTimeTC = 0;
 byte prevTCState;
-unsigned long lastTCStateChg = 0;
-boolean releState_1 = R_TC_OFF;  // stanje releja vklopa TC
+unsigned long lastTCStateChg = 0;  //cas zadnjega preklopa TC ali kompresorja TC
+boolean releState_TC = R_TC_OFF;  // stanje releja vklopa TC
 
 unsigned long casMeritve;        //cas meritve parametrov
 unsigned long prevCasMeritve;    //cas prejšnje meritve parametrov

@@ -222,7 +222,7 @@ void IzpisInfoMenu(int infoLCD)
        lcdA.print(cTemperatura[CRPALKA_0] - (((u2.uival)/100.0) - 50.0), 2);
       
       lcdA.setCursor(0, 1);
-      if (releState_1 == R_TC_ON) {
+      if (releState_TC == R_TC_ON) {
         if (prevTCState == 1) 
           lcdA.print(F("ON"));
         else
@@ -315,7 +315,7 @@ void IzpisInfoMenu(int infoLCD)
       lcdA.print(F("A"));
       
       lcdA.setCursor(11, 0);
-      if (releState_1 == R_TC_ON) {
+      if (releState_TC == R_TC_ON) {
         if (prevTCState == 1) 
           lcdA.print(F("ON"));
         else

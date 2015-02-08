@@ -1,7 +1,7 @@
 #ifndef Tok_napetost_h
 #define Tok_napetost_h
 
-extern boolean releState_1;
+extern boolean releState_TC;
 //extern float vccInternal;
 //extern int midR;
 
@@ -36,7 +36,7 @@ float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
   float tok01;
   float vccFactor = 1.0;
   
-  if (releState_1 == R_TC_OFF && forceCalc == false)
+  if (releState_TC == R_TC_OFF && forceCalc == false)
     return(0.0);
   
   
@@ -218,6 +218,8 @@ float VoltageDivider(int analRead, float r1, float r2, float korFact = 1.0) {
   return (napetost * korFact);
 }  
 
+static float v5_3_r1 = 2200;
+static float v5_3_r2 = 2200;
 //--------------------------------------------------------------------------------------------
 void PreveriNapetosti(boolean internal = false, boolean external = false, boolean battery = false)
 {
@@ -225,8 +227,7 @@ void PreveriNapetosti(boolean internal = false, boolean external = false, boolea
   static float v12_r2 = 3300;
   static float v5_r1 =  1000;
   static float v5_r2 =  3900;
-  static float v5_3_r1 = 2200;
-  static float v5_3_r2 = 2200;
+  
   
   float vTemp;
   
@@ -257,7 +258,7 @@ void PreveriNapetosti(boolean internal = false, boolean external = false, boolea
     Serial.print(VoltageDivider(SENS_V5_2, v5_r1, v5_r2, 1.0041)); 
     Serial.print(F("  5V3:"));
     delay(5);
-    Serial.print(VoltageDivider(SENS_V5_3, v5_3_r1, v5_3_r1)); 
+    Serial.print(VoltageDivider(SENS_V5_3, v5_3_r1, v5_3_r2)); 
 
   }
   if (battery) {

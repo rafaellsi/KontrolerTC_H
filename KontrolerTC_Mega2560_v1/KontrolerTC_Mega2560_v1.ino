@@ -291,25 +291,29 @@ void loop(void)
   
   static int prevDay = day();
   byte newCrpTCState;
+  static boolean hitEnd = true;
   
   
   //----- 
   if (cycStart > 0 && millis() > cycStart) {
-    unsigned long lastCycle = (millis() - cycStart);
+    if (hitEnd) {
+      hitEnd = false;
+      unsigned long lastCycle = (millis() - cycStart);
 //    sumCycle += (millis() - cycStart);
-    sumCycle += lastCycle;
-    ncyc ++;
-    if (maxCycle == 0) {
-      maxCycle = lastCycle;
-      minCycle = lastCycle;
-    }  
-    else if (maxCycle < lastCycle) {
-       maxCycle = lastCycle; 
-    }   
-    else if (minCycle > lastCycle) {
-       minCycle = lastCycle;   
+      sumCycle += lastCycle;
+      ncyc ++;
+      if (maxCycle == 0) {
+        maxCycle = lastCycle;
+        minCycle = lastCycle;
+      }  
+      else if (maxCycle < lastCycle) {
+        maxCycle = lastCycle; 
+      }   
+      else if (minCycle > lastCycle) {
+        minCycle = lastCycle;   
+      }
     }
-  }
+  }  
   else {
     sumCycle = 0;
     ncyc = 0;
@@ -345,10 +349,10 @@ void loop(void)
       IzracunHitrostiGretjaTC(); 
     }  
 
-   if ((now() - lastTCStateChg > (1 + prevTCState*4.0)*(unsigned)minRunTimeMin * 60) && (now() - lastReleChg > (unsigned)minRunTimeMin * 60)) {   
-      if (releState_1 == R_TC_OFF) {
+    if ((now() - lastTCStateChg > (1 + prevTCState*4.0)*(unsigned)minRunTimeMin * 60) && (now() - lastReleChg > (unsigned)minRunTimeMin * 60)) {   
+      if (releState_TC == R_TC_OFF) {
         if (RefTemp() < TempVklopa()) {
-          PreklopiRele(RELE_TC, R_TC_ON);
+          PreklopiTC(RELE_TC, R_TC_ON);
           if (seRracunaHitrGret)
             izracHitrGret=true;
           else
@@ -356,12 +360,10 @@ void loop(void)
         }
       }  
       else if (RefTemp() > TempIzklopa())
-        PreklopiRele(RELE_TC, R_TC_OFF);
+        PreklopiTC(RELE_TC, R_TC_OFF);
     }
 
-    
     ZapisiInIzpisiPodatke();
-
     prevCasMeritve = now();
   }
   delay(2);
@@ -369,7 +371,7 @@ void loop(void)
   if (tok230V < 0)
     tok230V = AC_mimax();
   
-  if (releState_1 == R_TC_ON || measureOnly) {
+  if (releState_TC == R_TC_ON || measureOnly) {
     if (tok230V >= mejaToka) {
       if (AC_mimax() >= mejaToka) {
         if (prevTCState == 0) {
@@ -421,8 +423,12 @@ void loop(void)
         i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrOnTime, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4)); 
         sprintf(infoErr,"        ");
         porabaWH = 0;
+        
         sumTok_12V = 0.0;
         nMerTok_12V = 0;
+        
+        coRawValSum = 0.0;
+        numMerCO = 0;
         prevDay = day();
       }
     }
@@ -441,7 +447,7 @@ void loop(void)
   }
   Tok_12V();
   PreveriCO_Senzor();
-  
+  hitEnd = true;
 /*
   uint8_t buf[RH_NRF24_MAX_MESSAGE_LEN];
   if (manager.available())
@@ -693,7 +699,8 @@ static void PovezTCPec(byte newState) {
        PreklopiVentil(0);         //1 - odpre ventil
     }   
   }
-//  PreklopiVentil(100);   
+//  PreklopiVentil(100);  
+  
 }
 
 
@@ -791,26 +798,32 @@ static void StateCrpalkeRad()
 
 
 
+
+
+
+
 //--------------------------------------------------------------------------------
 //
-
-
-
-//--------------------------------------------------------------------------------
-//
-static void  PreklopiRele(int relePin, int newState)
+static void  PreklopiTC(int relePin, int newState)
 {
-  
-  releState_1 = newState;
+ 
+/*  
+  #ifdef TC_EL_GRELEC
+   
+  #endif
+  if (releTC = )
+*/  
   if (measureOnly)
     digitalWrite(relePin, R_TC_ON);
   else  
     digitalWrite(relePin, newState);
   
+  releState_TC = newState;
   lastReleChg = now();  
 }
 
-
+//--------------------------------------------------------------------------------
+//
 uint8_t * heapptr, * stackptr;
 void check_mem() {
   stackptr = (uint8_t *)malloc(4);          // use stackptr temporarily

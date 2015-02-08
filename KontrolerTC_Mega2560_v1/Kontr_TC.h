@@ -33,7 +33,7 @@ void NastavitevPinov(void) {
   pinMode(BEEP_PIN, OUTPUT);
   
   pinMode(RELE_TC, OUTPUT);
-  digitalWrite(RELE_TC, releState_1);
+  digitalWrite(RELE_TC, releState_TC);
   
   pinMode(RELE_CTC, OUTPUT);
   PreklopiCrpalkoTC(0);

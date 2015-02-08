@@ -8,6 +8,7 @@
 extern boolean IsNTempCas();
 extern time_t processSyncMessage();
 extern void EthernetInit(boolean izpisShort);
+extern void EthernetIzpisInfo(void);
 extern void SDInit(void);
 extern void PrintTempAllSDbin(void);
 extern void ImeDatotekeOnOff(char* ime);
@@ -15,7 +16,7 @@ extern void IzpisDataOnOffSerial(void);
 extern void IzpisDatnaSerial(void);
 extern unsigned int ObsegZgodovine(int sensor, unsigned int pred=0);
 extern float AC_mimax(boolean izpis, boolean forceCalc);
-extern float Tok_12V(void);
+extern  float Tok_12V(void);
 extern void PreveriStikala(boolean izpisState);
 extern void PrintTemperatureAll(void);
 
@@ -511,6 +512,7 @@ void CheckSerial(void) {
      else if (c == 'e') {
        c = Serial.read();
        c = Serial.read();
+       Serial.print(c);
        if (c == 'r') {
          c = Serial.read();
          Serial.print(c);
@@ -518,6 +520,14 @@ void CheckSerial(void) {
            EthernetInit(true);
          }  
        }
+       else if (c == 'i') {
+         c = Serial.read();
+         Serial.print(c);
+         if (c == 'i') {
+           EthernetIzpisInfo();
+         }  
+       }
+         
      }  // if e**
      else if (c == 's') {
        c = Serial.read();
@@ -531,8 +541,15 @@ void CheckSerial(void) {
        }
      } // if s**
    } // if alaiable == 3
-   Serial.flush(); 
-  }  // if (Serial.available() >  0 ) 
+   if (Serial.available() >  0) {
+     while (Serial.available() > 0) {
+        Serial.print(Serial.read());
+     }
+     Serial.print(F(" "));    
+   }  
+//   Serial.flush(); 
+  }  // if (Serial.available() >  0 )
+//  Serial.flush(); 
 }  
 
 //---------------------
@@ -665,6 +682,13 @@ int stateCevStPecTC;
 int preklopCrpTCVzr = 0;
 
 float tok230V = -100.0;
+
+extern float coRawValSum;
+extern unsigned long numMerCO;
+extern int coRawValMax;
+
+extern float minVoltGas;
+extern float maxVoltGas;
 //--------------------------------------------------------------------------------------------
 void ZapisiInIzpisiPodatke(void) {
     Serial.println(F(""));   
@@ -842,6 +866,11 @@ void ZapisiInIzpisiPodatke(void) {
      coRawVal = 0;
  #else
      Serial.print(coRawVal);
+     Serial.print(F("("));
+     Serial.print(AvgVal(coRawValSum, (float) numMerCO));
+     Serial.print(F("/"));
+     Serial.print(coRawValMax);
+     Serial.print(F(")"));
  #endif 
      Serial.print(F(" "));
      
@@ -854,11 +883,24 @@ void ZapisiInIzpisiPodatke(void) {
 //     Serial.print(sumTok_12V/((float) nMerTok_12V), 3);
      Serial.print(F("/"));
      Serial.print(maxTok_12V);
-     
      Serial.print(F(")A "));  
+     
      PreveriNapetosti(true, true, false);
-     Serial.print(F("V ")); 
+     Serial.print(F(" ("));
+     Serial.print(minVoltGas);
+     Serial.print(F("/"));
+     Serial.print(maxVoltGas);
+     Serial.print(F(")V ")); 
+     
      PreveriStikala(true);
+     
+      Serial.print(F(" dcnt:"));
+      Serial.print((unsigned int)ether.delaycnt);
+      Serial.print(F(" LU:"));
+      if (ether.isLinkUp() == true)
+        Serial.print(F("t"));
+      else
+        Serial.print(F("f"));  
   }
 
 
@@ -874,7 +916,7 @@ void PrintData(void)
   Serial.print(F(" -> "));
   PrintTemperatureAll();
   
-  if (releState_1 == R_TC_ON) {
+  if (releState_TC == R_TC_ON) {
     if (prevTCState == 1) 
        Serial.print(F("ON"));
      else

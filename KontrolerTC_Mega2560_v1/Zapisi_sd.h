@@ -132,7 +132,7 @@ void PrintTempAllSDbin(void)
       myFile.print(F("%"));
     }  
     myFile.print(F(" "));
-    if (releState_1 == R_TC_ON) {
+    if (releState_TC == R_TC_ON) {
       if (prevTCState == 1) 
         myFile.print(F("ON"));
        else
