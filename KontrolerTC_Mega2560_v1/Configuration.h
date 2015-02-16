@@ -3,6 +3,7 @@
 
 
 extern void Beep(unsigned char);
+
 //#define INTFACT
 #define VERSION "v1"
 #define MAXSENSORS 9     //maksimalno stevilo temp sensorjev DS18x20
@@ -148,7 +149,7 @@ float kTypeOffset = 0.0; //3.67;
 #define  RAD_DV     5   // radijatorji, dvizni vod
 #define  PEC_TC_DV  6   // dvizni vod proti TC
 
-char sensorIme[MAXSENSORS][8] = {"Okolica", "ToplCrp", "Pec PV", "Pec DV", "Rad PV", "Rad DV", "Pec TC", "Okolica", "Dimnik"};
+char sensorIme[MAXSENSORS][6] = {"Okol", "ToCrp", "PecPV", "PecDV", "RadPV", "RadDV", "PecTC", "Okol", "Dimn"};
 
 typedef union  {
     byte by[4];

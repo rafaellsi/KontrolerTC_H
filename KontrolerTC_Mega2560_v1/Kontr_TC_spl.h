@@ -20,25 +20,26 @@ extern  float Tok_12V(void);
 extern void PreveriStikala(boolean izpisState);
 extern void PrintTemperatureAll(void);
 
-static float Sec2Hour(unsigned long sec);
-static float AvgVal(float suma, float num);
+
+inline float Sec2Hour(unsigned long sec);
+inline float AvgValFF_F(float suma, float num);
+inline float AvgValULUL_F(unsigned long sum, unsigned long num);
 float KompenzacijaTempOkolice(float tOkolice);
 float KompenzZacTemp(float tStart);
 float IzracDeltaTh();
 float IzracDeltaThOk();
 float IzracDeltaThSt();
-static float Cop(void);
-static float AvgCycleTime(unsigned long sum, unsigned long num);
-static boolean VodaVre(boolean izpis);
-static boolean MaxCrpTCRunTime();
+float Cop(void);
+boolean VodaVre(boolean izpis);
+boolean MaxCrpTCRunTime();
 float TempVklopaCrpTC_NTemp();
-static float TempIzklopaCrpTC_NTemp();
-static boolean RelaksTimeLimitSec(unsigned long cTime, unsigned long pTime,int rTime);
+float TempIzklopaCrpTC_NTemp();
+boolean RelaksTimeLimitSec(unsigned long cTime, unsigned long pTime,int rTime);
 float TempVklopa(void);
 float TempIzklopa(void);
-static float IzracunLimitTemp(int state, float ciTemp);
-static float IzracunTempVTOff(void);
-static boolean UpostevajElTarife(void);
+float IzracunLimitTemp(int state, float ciTemp);
+float IzracunTempVTOff(void);
+boolean UpostevajElTarife(void);
 void CheckSerial(void);
 
 void IzpisPorabaWH(float porabaWH);
@@ -48,25 +49,41 @@ void ZapisiInIzpisiPodatke(void);
 void PrintData(void);
 float MejnaTempPreklCrpRad(byte newState);
 
+//unsigned int addrTmp;
 //--------------------------------------------------------------------------------
 // Pretvorba sekunde v ure, decimalno
-static float Sec2Hour(unsigned long sec)
+inline float Sec2Hour(unsigned long sec)
 {
   return((float)sec/(float)SECS_PER_HOUR);
 }
 
-  unsigned int addrTmp;
+
 
 
 //--------------------------------------------------------------------------------
 
-static float AvgVal(float suma, float num)
+inline float AvgValFF_F(float suma, float num)
 {
-  if (num != 0)
-    return(suma/num);
-  return(0.0);
+  if (abs(num) < 0.0001)
+    return(0.0);
+  
+  return(suma/num);
 }
 
+//--------------------------------------------------------------------------------
+unsigned long cycStart;
+unsigned long sumCycle;
+unsigned long ncyc;
+unsigned long minCycle = 0;
+unsigned long maxCycle = 0;
+
+//-----------------------
+inline float AvgValULUL_F(unsigned long sum, unsigned long num)
+{
+  if (num > 0)
+    return((float)sum/(float)num);
+  return(-1.0);
+}
 
 //--------------------------------------------------------------------------------------------
 float KompenzacijaTempOkolice(float tOkolice)
@@ -192,7 +209,7 @@ float IzracDeltaThSt() {
 } 
 
 //--------------------------------------------------------------------------------------------
-static float Cop(void)
+float Cop(void)
 {
   //float Q;
   //float W;
@@ -213,28 +230,14 @@ static float Cop(void)
 
 
 //--------------------------------------------------------------------------------
-unsigned long cycStart;
-unsigned long sumCycle;
-unsigned long ncyc;
-unsigned long minCycle = 0;
-unsigned long maxCycle = 0;
 
-//--------------------------------------------------------------------------------
-static float AvgCycleTime(unsigned long sum, unsigned long num)
-{
-  if (num > 0)
-    return((float)sum/(float)num);
-  return(-1.0);
-}
 
 
 float pTempCrp[3];
 //--------------------------------------------------------------------------------
-static boolean VodaVre(boolean izpis) {
-  float dTemp;
+boolean VodaVre(boolean izpis) {
   
-//  dTemp = (float) abs((float) pTempCrp[2] - (float) cTemperatura[CRPALKA_0]);
-//  dTemp += ((float) abs((float) pTempCrp[1] - (float) cTemperatura[CRPALKA_0]));
+  float dTemp;
   
   if (cTemperatura[PEC_TC_DV] < tempVklopaCrpTC) {
     return(false); 
@@ -261,7 +264,7 @@ static boolean VodaVre(boolean izpis) {
 
 unsigned long lastCrpTCStateChg;
 //--------------------------------------------------------------------------------
-static boolean MaxCrpTCRunTime()
+boolean MaxCrpTCRunTime()
 {
   return(RelaksTimeLimitSec(now(), lastCrpTCStateChg, 30*60)); // 30 min  
 }
@@ -278,7 +281,7 @@ float TempVklopaCrpTC_NTemp() {
 }
 
 //--------------------------------------------------------------------------------
-static float TempIzklopaCrpTC_NTemp() {
+float TempIzklopaCrpTC_NTemp() {
   float tmpTemp;
   
   if (!IsWeekend()) {
@@ -289,7 +292,7 @@ static float TempIzklopaCrpTC_NTemp() {
 }
 
 //-------------------------------------------------------------------------------- 
-static boolean RelaksTimeLimitSec(unsigned long cTime, unsigned long pTime,int rTime)
+boolean RelaksTimeLimitSec(unsigned long cTime, unsigned long pTime,int rTime)
 {
   if (cTime - pTime > (unsigned long)rTime)
     return(true);
@@ -357,7 +360,7 @@ float TempIzklopa(void)
 //--------------------------------------------------------------------------------
 //
 
-static float IzracunLimitTemp(int state, float ciTemp)
+float IzracunLimitTemp(int state, float ciTemp)
 {
   float tUra;
   float refTemp;
@@ -398,7 +401,7 @@ static float IzracunLimitTemp(int state, float ciTemp)
 
 
 //--------------------------------------------------------------------------------
-static float IzracunTempVTOff(void)
+float IzracunTempVTOff(void)
 {
   float rel;
   float relT;
@@ -424,14 +427,14 @@ static int FreeMemory() {
 */
 
 //------------
-static boolean UpostevajElTarife(void)
+boolean UpostevajElTarife(void)
 {
   
   float diff_factor_01 = 4.0 * dTemp;
   float diff_factor_02 = 2.0 * dTemp;
   
-  if (AvgVal(sumTemp[OKOLICA_0], histLen*1.0) < (AvgVal(sumTemp[PEC_TC_DV], histLen*1.0) - diff_factor_01) && 
-      (AvgVal(sumTemp[PEC_TC_DV], histLen*1.0) > (minTempVTOn + diff_factor_02 ))) {
+  if (AvgValFF_F(sumTemp[OKOLICA_0], histLen*1.0) < (AvgValFF_F(sumTemp[PEC_TC_DV], histLen*1.0) - diff_factor_01) && 
+      (AvgValFF_F(sumTemp[PEC_TC_DV], histLen*1.0) > (minTempVTOn + diff_factor_02 ))) {
     //minTempVTOn + dTemp
  //   minRunTimeMin = 30;
     return(false);
@@ -445,15 +448,15 @@ static boolean UpostevajElTarife(void)
 
 //---------------------
 void CheckSerial(void) {
-  char casun[5];
+//  char casun[5];
   char c;
   
   if (Serial.available() >  0 ) {
     c = Serial.peek();  
     
     if (Serial.available() >=  TIME_MSG_LEN ) {
-      casun[0]= c;  
-      if (casun[0] ==  TIME_HEADER) {
+//      casun[0]= c;  
+      if (c /*casun[0]*/ ==  TIME_HEADER) {
         time_t t = processSyncMessage();
         if(t >0)  {
           RTC.set(t);   // set the RTC and the system time to the received value
@@ -673,8 +676,21 @@ float PovpreciVred(float a, float povVred, float lastVred) {
 
   return((povVred * a) + ((lastVred)*(1.0-a)));
 } 
+//--------------------------------------------------------------------------------------------
+static float PretvotiEETemp2Float(unsigned int u2uival) {
+  
+  
+  return((u2uival/100.0)-50.0);
+}
+
+//--------------------------------------------------------------------------------------------
+static unsigned int PretvoriFloat2EETemp(float temp) {
+  
+  return((temp+0.005+50.0)*100);
+}
 
 
+//--------------------------------------------------------------------------------------------
 float sumPing = 0;
 unsigned long numPing = 0;
 
@@ -683,15 +699,21 @@ int preklopCrpTCVzr = 0;
 
 float tok230V = -100.0;
 
-extern float coRawValSum;
+extern unsigned long coRawValSum;
 extern unsigned long numMerCO;
 extern int coRawValMax;
 
 extern float minVoltGas;
 extern float maxVoltGas;
+
+
+//static uint8_t addr[4];
+static word homePage(void);
 //--------------------------------------------------------------------------------------------
 void ZapisiInIzpisiPodatke(void) {
-    Serial.println(F(""));   
+  unsigned int addrTmp; 
+  
+  Serial.println(F(""));   
     PrintData();
     
  //   printDataRF();
@@ -714,7 +736,7 @@ void ZapisiInIzpisiPodatke(void) {
       Serial.print(F(" P"));  
     
     
-    if (prevCasMeritve/(zapisXMin*60) < now()/(zapisXMin*60)) {     
+    if (now()/((unsigned long)zapisXMin*60) > prevCasMeritve/((unsigned long)zapisXMin*60)) {     
       Serial.println(F(""));
 //      for (int j = 0; j < numSensDS; j++) {
       for (int j = 0; j < numSens; j++) {
@@ -733,7 +755,8 @@ void ZapisiInIzpisiPodatke(void) {
         Serial.print(F(":"));
         
         Serial.print(F("("));
-        Serial.print((u2.uival/100.0)-50.0);
+//        Serial.print((u2.uival/100.0)-50.0);
+        Serial.print(PretvotiEETemp2Float(u2.uival));
         
         Serial.print(F(">"));
         Serial.print(addrTmp);
@@ -752,10 +775,15 @@ void ZapisiInIzpisiPodatke(void) {
         }
         // dodano kot kontrola vrenja  
         
-        float diff = cTemperatura[j] - ((u2.uival/100.0)-50.0);
+ //       float diff = cTemperatura[j] - ((u2.uival/100.0)-50.0);
+        float diff = cTemperatura[j] - PretvotiEETemp2Float(u2.uival); 
+        
         if (abs(diff) > 0.01) {
-          sumTemp[j] -= (((u2.uival)/100.0) - 50.0);
-          u2.uival =  (cTemperatura[j]+0.005+50.0)*100;
+          //sumTemp[j] -= (((u2.uival)/100.0) - 50.0);
+          sumTemp[j] -= PretvotiEETemp2Float(u2.uival);
+//          u2.uival =  (cTemperatura[j]+0.005+50.0)*100;
+          u2.uival =  PretvoriFloat2EETemp(cTemperatura[j]);
+
           sumTemp[j] += (cTemperatura[j]);
 
           delay(2);
@@ -763,7 +791,7 @@ void ZapisiInIzpisiPodatke(void) {
           delay(2);
         }
 
-        Serial.print(AvgVal(sumTemp[j], histLen*1.0),2);
+        Serial.print(AvgValFF_F(sumTemp[j], histLen*1.0),2);
 
       }
       Serial.println(F(""));
@@ -790,7 +818,7 @@ void ZapisiInIzpisiPodatke(void) {
           i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
           delay(2);
         }
-        Serial.print(AvgVal(sumTemp[j], histLen*1.0),2);
+        Serial.print(AvgValFF_F(sumTemp[j], histLen*1.0),2);
       }
       Serial.println(F(""));
 
@@ -798,7 +826,7 @@ void ZapisiInIzpisiPodatke(void) {
       Serial.print(F("  Avg.cycleTime(n="));
       Serial.print(ncyc);
       Serial.print(F("): "));
-      Serial.print(AvgCycleTime(sumCycle, ncyc));
+      Serial.print(AvgValULUL_F(sumCycle, ncyc));
       Serial.print(F("ms "));    
       Serial.print(F("Min-Max(last h): "));
       Serial.print(minCycle);
@@ -809,7 +837,7 @@ void ZapisiInIzpisiPodatke(void) {
       Serial.print(F(" Avg.ping time(n="));
       Serial.print(numPing);
       Serial.print(F("): "));
-      Serial.print(AvgCycleTime(sumPing, numPing));
+      Serial.print(AvgValULUL_F(sumPing, numPing));
       Serial.print(F("ms ")); 
       
 
@@ -860,18 +888,12 @@ void ZapisiInIzpisiPodatke(void) {
 //     Serial.print(F(") "));
      
      Serial.print(F(") CO:"));
- #ifdef CO_INIT    
-     Serial.print((float)coRawVal/(float)numMerCO, 2);
-     numMerCO = 0;
-     coRawVal = 0;
- #else
      Serial.print(coRawVal);
      Serial.print(F("("));
-     Serial.print(AvgVal(coRawValSum, (float) numMerCO));
+     Serial.print(AvgValULUL_F(coRawValSum, numMerCO), 3);
      Serial.print(F("/"));
      Serial.print(coRawValMax);
      Serial.print(F(")"));
- #endif 
      Serial.print(F(" "));
      
      Serial.print(osvetlitevLCD);
@@ -879,7 +901,7 @@ void ZapisiInIzpisiPodatke(void) {
      Serial.print(F(" I(12v):"));
      Serial.print(Tok_12V());
      Serial.print(F("("));
-     Serial.print(AvgVal(sumTok_12V, (float) nMerTok_12V), 4);
+     Serial.print(AvgValFF_F(sumTok_12V, (float) nMerTok_12V), 4);
 //     Serial.print(sumTok_12V/((float) nMerTok_12V), 3);
      Serial.print(F("/"));
      Serial.print(maxTok_12V);
@@ -901,7 +923,14 @@ void ZapisiInIzpisiPodatke(void) {
         Serial.print(F("t"));
       else
         Serial.print(F("f"));  
-  }
+  
+  
+//  ether.printIp(" addr: ", addr);
+//  ether.sendUdp((char*)homePage(), sizeof(ether.buffer[500]), 80, addr, 10002);
+	
+
+
+}
 
 
 //--------------------------------------------------------------------------------
@@ -976,6 +1005,64 @@ float MejnaTempPreklCrpRad(byte newState)
   }
 }
 
+
+/*
+#ifndef ARDPRINTF
+#define ARDPRINTF
+#define ARDBUFFER 16
+#include <stdarg.h>
+#include <Arduino.h>
+
+int ardprintf(char *str, ...)
+{
+  int i, count=0, j=0, flag=0;
+  char temp[ARDBUFFER+1];
+  for(i=0; str[i]!='\0';i++)  if(str[i]=='%')  count++;
+
+  va_list argv;
+  va_start(argv, count);
+  for(i=0,j=0; str[i]!='\0';i++)
+  {
+    if(str[i]=='%')
+    {
+      temp[j] = '\0';
+      Serial.print(temp);
+      j=0;
+      temp[0] = '\0';
+
+      switch(str[++i])
+      {
+        case 'd': Serial.print(va_arg(argv, int));
+                  break;
+        case 'l': Serial.print(va_arg(argv, long));
+                  break;
+        case 'f': Serial.print(va_arg(argv, double));
+                  break;
+        case 'c': Serial.print((char)va_arg(argv, int));
+                  break;
+        case 's': Serial.print(va_arg(argv, char *));
+                  break;
+        default:  ;
+      };
+    }
+    else 
+    {
+      temp[j] = str[i];
+      j = (j+1)%ARDBUFFER;
+      if(j==0) 
+      {
+        temp[ARDBUFFER] = '\0';
+        Serial.print(temp);
+        temp[0]='\0';
+      }
+    }
+  };
+  Serial.println();
+  return count + 1;
+}
+#undef ARDBUFFER
+#endif
+*/
 
 
 #endif

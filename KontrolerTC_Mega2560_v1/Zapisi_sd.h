@@ -2,7 +2,16 @@
 #define Zapisi_sd_h
 
 
-extern int coRawVal;
+//extern int coRawVal;
+
+void SDInit(void);
+void ImeDatoteke(char *ime);
+void ImeDatotekeOnOff(char* ime);
+File OdpriDatoteko(char* imeDat, byte typeDat);
+void PrintTempAllSDbin(void);
+void ZapisiOnOffSD(int state, byte tipSpremembe);
+void IzpisDataOnOffSerial(void);
+void IzpisDatnaSerial(void);
 
 // SD spremenljivke
 Sd2Card cardSD;
@@ -34,11 +43,8 @@ void SDInit(void) {
   }
 }
 
-
-
-
 //--------------------------------------------------------------------------------
-static void ImeDatoteke(char* ime)
+void ImeDatoteke(char* ime)
 {
     
     sprintf(ime, "%04d%02d%02d.dat", year(), month(), day());
@@ -84,7 +90,6 @@ File OdpriDatoteko(char* imeDat, byte typeDat)
   return(myFile);
 }
 
-
 //--------------------------------------------------------------------------------
 void PrintTempAllSDbin(void)
 {
@@ -119,7 +124,7 @@ void PrintTempAllSDbin(void)
     myFile.print(ime);
 
     myFile.print(F(" "));
-    myFile.print(casMeritve);
+    myFile.print(now());
     
     for (int i=0; i<numSens; i++) { 
       myFile.print(F(" "));
@@ -148,23 +153,28 @@ void PrintTempAllSDbin(void)
     myFile.print(F("A CO:"));
     myFile.print(coRawVal);
     
+    
+    
     myFile.print(F(" I(12V):"));
     myFile.print(Tok_12V());
     myFile.print(F("("));
-    myFile.print(AvgVal(sumTok_12V, (float) nMerTok_12V), 4);
+    myFile.print(AvgValFF_F(sumTok_12V, (float) nMerTok_12V), 4);
  //   myFile.print(sumTok_12V/((float) nMerTok_12V), 3);
     myFile.print(F("/"));
     myFile.print(maxTok_12V);
-    myFile.println(F(")A"));
+    myFile.print(F(")A"));
     
+    if (digitalRead(CO_DOUT_PIN) == HIGH) 
+      myFile.println(F(" CO alarm"));
+    else
+      myFile.println(F(""));
+      
     myFile.close();
     
 
   } 
   delay(100);  
 }
-
-
 
 //-------------------------------------------------------------------------
 void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
@@ -329,9 +339,6 @@ void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
   }
   delay(100);
 }
-
-
-
 
 //------------
 void IzpisDataOnOffSerial(void)

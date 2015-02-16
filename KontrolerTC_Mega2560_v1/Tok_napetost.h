@@ -1,3 +1,4 @@
+
 #ifndef Tok_napetost_h
 #define Tok_napetost_h
 
@@ -8,10 +9,10 @@ extern boolean releState_TC;
 float AC_mimax(boolean izpis, boolean forceCalc);
 float Tok_12V(void);
 float PretvoriV2A_asc712_DC(int sensVal);
-static float PretvoriV2A_asc712(int sensVal);
+float PretvoriV2A_asc712(int sensVal);
 float VoltageDivider(int analRead, float r1, float r2, float korFact);
 void PreveriNapetosti(boolean internal, boolean external, boolean battery);
-long readVcc();
+long readVcc(void);
 
 
 
@@ -50,9 +51,9 @@ float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
   startTime = millis();
   
   dTRSt = micros();
-  noInterrupts();
+//  noInterrupts();
   val_I = analogRead(SENS_TOK) *vccFactor;
-  interrupts();
+//  interrupts();
   tok01 = PretvoriV2A_asc712(val_I);
   efI = (tok01 * tok01);
   
@@ -68,9 +69,9 @@ float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
 //      delayMicroseconds((dTRStMin+5) - (micros() - dTRSt));
 
     dTRSt = micros();
-    noInterrupts();
+//    noInterrupts();
     val_I = analogRead(SENS_TOK)* vccFactor;
-    interrupts();
+//    interrupts();
     
     tok01 = PretvoriV2A_asc712(val_I);
     
@@ -179,7 +180,7 @@ float PretvoriV2A_asc712_DC(int sensVal) {
 
 //--------------------------------------------------------------------------------
 // pretvorba prebrane vrednosti senzorj v tok
-static float PretvoriV2A_asc712(int sensVal) {
+float PretvoriV2A_asc712(int sensVal) {
     float tok;  
     int cVal = sensVal - midR;
     
@@ -207,13 +208,13 @@ float VoltageDivider(int analRead, float r1, float r2, float korFact = 1.0) {
   int numSamples = 5;
   float napetost = 0.0;
    
-  noInterrupts();
+//  noInterrupts();
  
   for (int i = 0; i < numSamples; i++) {
       delay(2);
       napetost += (analogRead(analRead) * vccInternal/ 1023.0) * (r1 + r2) / r2;
   }
-  interrupts();
+//  interrupts();
   napetost /= ((float) numSamples);
   return (napetost * korFact);
 }  
@@ -275,11 +276,11 @@ void PreveriNapetosti(boolean internal = false, boolean external = false, boolea
 
 
 //--------------------------------------------------------------------------------------------
-long readVcc() {
+long readVcc(void) {
   // Read 1.1V reference against AVcc
   // set the reference to Vcc and the measurement to the internal 1.1V reference
 //  delay(3); 
-  noInterrupts();
+//  noInterrupts();
   #if defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
     ADMUX = _BV(REFS0) | _BV(MUX4) | _BV(MUX3) | _BV(MUX2) | _BV(MUX1);
   #elif defined (__AVR_ATtiny24__) || defined(__AVR_ATtiny44__) || defined(__AVR_ATtiny84__)
@@ -301,7 +302,7 @@ long readVcc() {
   
   uint8_t low  = ADCL; // must read ADCL first - it then locks ADCH  
   uint8_t high = ADCH; // unlocks both
-  interrupts();
+//  interrupts();
   long result = (high<<8) | low;
   
   result = 1125300L / result; // Calculate Vcc (in mV); 1125300 = 1.1*1023*1000

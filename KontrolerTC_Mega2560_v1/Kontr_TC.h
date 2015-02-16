@@ -72,18 +72,10 @@ void NastavitevPinov(void) {
 
 //--------------------------------------------------------------------------------
 void InitParametri(void) {
+  
+  unsigned int addrTmp;
   char infoTime[9];
-//  char infoSet[8];
-//  unsigned int addrTmp;
  
-/*   u2.uival = 0;
-   for (int i=0; i<60; i++) {
-     addrTmp = addrLastHourTemp + (unsigned int) i * sizeof(u2);
-        
-        delay(2);
-        i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
-      }
- */ 
   i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrOnTime, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4) );
   delay(2);
   onTimeTC = u4.ulval;
@@ -206,19 +198,22 @@ void InitParametri(void) {
 
       if (isnan(u2.uival)) {
         if (i > 0)
-          u2.uival = ((sumTemp[j] * 100) /(i)) + 5000;
+//          u2.uival = ((sumTemp[j] * 100) /(i)) + 5000;
+          u2.uival = PretvoriFloat2EETemp(sumTemp[j]/(float) i);
+          
        else
            u2.uival = 0;
         delay(2);
 
         i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
       }
-      sumTemp[j] += (float)((u2.uival/100.0)-50.0);
+//      sumTemp[j] += (float)((u2.uival/100.0)-50.0);
+      sumTemp[j] += PretvotiEETemp2Float(u2.uival);
       delay(10);
     }
     Serial.print(j+1);
     Serial.print(F(": "));
-    Serial.print(AvgVal(sumTemp[j], histLen*1.0), 3); 
+    Serial.print(AvgValFF_F(sumTemp[j], histLen*1.0), 3); 
     Serial.println(F(" ")); 
   }
   
@@ -247,7 +242,7 @@ void InitParametri(void) {
     }
     Serial.print(j+1);
     Serial.print(F(": "));
-    Serial.print(AvgVal(sumTemp[j], histLen*1.0), 3); 
+    Serial.print(AvgValFF_F(sumTemp[j], histLen*1.0), 3); 
     Serial.println(F(" ")); 
   }
   

@@ -78,6 +78,7 @@
 
 #include <avr/pgmspace.h>
 #include <Arduino.h>
+
 /*
 #ifdef PROGMEM
 #undef PROGMEM
@@ -118,52 +119,11 @@
 #include "Ethernet_funk.h"
 #include "Gas_Sensor.h"
 
-//void PreklopiVentil(byte newState);
-// splosne spremenljivke
-//unsigned long casMeritve;
 
 int prevMinute = -1;
 
-//unsigned long startProg;
-
-// rele spremenljivke
-//boolean releState_1 = R_TC_OFF;  // stanje releja vklopa TC
 unsigned long lastReleChg;    // cas zadnje spremembe stanja releja TC
-
-// LCD
-
-
-//extern int modeLCD;                // slika izpisanega zaslona 
- unsigned long prevLCDizp;     // cas zadnjega izpisa na LCD
-
-// splosne spremenljivke
-
-
-
-
-
-
-
-
-
-
-
-
-//float crpRadAsAbsTemp[24];
-
-
-
-
-
-//unsigned long lastPavza;
-
-
-
-
-
-
-
-
+unsigned long prevLCDizp;     // cas zadnjega izpisa na LCD
 
 //--------------------------------------------------------------------------------
 void setup(void)
@@ -213,7 +173,7 @@ void setup(void)
   }  
   
   setSyncProvider(RTC.get);   // the function to get the time from the RTC
-  setSyncInterval(119);
+  setSyncInterval(60);
   lcdA.clear();
   lcdA.print(F("Time:"));
   lcdA.setCursor(0, 1);
@@ -263,8 +223,8 @@ void setup(void)
   
 //  NastaviTempCrpRad(limTempCrpRad, limTempFactCrpRad, crpRadAsAbsTemp);
   temeratureIzmerjene = true;
-  prevCasMeritve = now();
-  casMeritve = now();
+  prevCasMeritve = now()-30UL;
+//  casMeritve = now();
   
   Serial.print(F("Stikala: "));
   PreveriStikala(true);
@@ -333,17 +293,37 @@ void loop(void)
   // preberi temperature
   // merXMin - število meritev na minuto
   // pošlju ukaz vsem senzorjem DS18x20 in preberi ostale senzorje
-  if (((now()/(merXMin*60)) > (prevCasMeritve/(merXMin*60))) && temeratureIzmerjene == true) {  /* || (minute() < 30 && prevMinute > 30)*/
-    PreberiTemperature(false, true);
+
+//  static unsigned long pcm; //zmanjaj z prevCasMeritve
+
+//  if (((now()/(merXMin*60)) > (prevCasMeritve/(merXMin*60))) && temeratureIzmerjene == true) {  /* || (minute() < 30 && prevMinute > 30)*/
+  if (temeratureIzmerjene) {
+  if (now()/((unsigned long) merXMin*60) > prevCasMeritve/((unsigned long)merXMin*60)) {  /* || (minute() < 30 && prevMinute > 30)*/
+ //   if (now()/((unsigned long) merXMin*60) > pcm/((unsigned long)merXMin*60)) {  /* || (minute() < 30 && prevMinute > 30) */
+//    PreberiTemperature(false, true);
+    PreberiTemperature(!temeratureIzmerjene, true);
     temeratureIzmerjene = false;
-    casMeritve = now();
+//    casMeritve = now();
+    casMeritve = millis();
+    Serial.print(F("'"));
+    Serial.print(now() - prevCasMeritve);
+//    Serial.print(now() - pcm);
+//    Serial.print(F("'"));
+//    pcm = now();
+  }
   }
   // po preteku convWaitTime preberi temperature DS18X20
   // convWaitTime - v ms
-  if ((now() >= (casMeritve + convWaitTime/1000)) && (temeratureIzmerjene == false)) {
-    PreberiTemperature(true, false);
+//  if ((now() >= (casMeritve + convWaitTime/1000)) && (temeratureIzmerjene == false)) {
+  if ((millis() >= (casMeritve + convWaitTime)) && (temeratureIzmerjene == false)) {
+//    PreberiTemperature(true, false);
+    
+    Serial.print(F("/"));
+    Serial.print(millis() - casMeritve);
+    Serial.print(F("'"));
+    PreberiTemperature(!temeratureIzmerjene, false);
     temeratureIzmerjene = true;
-    casMeritve = now();
+//    casMeritve = now();
     
     if (izracHitrGret || izracHitrGretInfo) {
       IzracunHitrostiGretjaTC(); 
@@ -364,7 +344,10 @@ void loop(void)
     }
 
     ZapisiInIzpisiPodatke();
+    
     prevCasMeritve = now();
+//    pcm = now();
+//    prevCasMeritve = pcm;
   }
   delay(2);
   
@@ -416,7 +399,7 @@ void loop(void)
     }
   }
   if (prevTCState == 0) {
-    if (onTimeTC > 0) {
+//    if (onTimeTC > 0) {
       if (prevDay != day()) {
         onTimeTC = 0;
         u4.ulval = onTimeTC;
@@ -426,12 +409,14 @@ void loop(void)
         
         sumTok_12V = 0.0;
         nMerTok_12V = 0;
+        maxTok_12V = 0;
         
         coRawValSum = 0.0;
         numMerCO = 0;
+        coRawValMax = 0;
         prevDay = day();
       }
-    }
+ //   }
   }  
 
   StateCrpalkeRad();
@@ -761,7 +746,7 @@ static void ResetCrpTCVzr()
 
 
 //--------------------------------------------------------------------------------
-float TempIzklopaCrpTC() 
+static float TempIzklopaCrpTC() 
 {
   return(tempVklopaCrpTC - histCrpTC);
 }  
@@ -824,6 +809,7 @@ static void  PreklopiTC(int relePin, int newState)
 
 //--------------------------------------------------------------------------------
 //
+/*
 uint8_t * heapptr, * stackptr;
 void check_mem() {
   stackptr = (uint8_t *)malloc(4);          // use stackptr temporarily
@@ -831,7 +817,7 @@ void check_mem() {
   free(stackptr);      // free up the memory again (sets stackptr to 0)
   stackptr =  (uint8_t *)(SP);           // save value of stack pointer
 }
-
+*/
 
 
 

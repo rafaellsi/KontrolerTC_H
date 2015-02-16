@@ -5,7 +5,7 @@
 #include <DHT.h>
 
 //deklaracije zunanjih funkcij
-extern void IzpisHex2(int num);
+extern  void IzpisHex2(int num);
 extern void Beep(unsigned char delayms);
 
 //deklaracije internih funkcij
@@ -15,29 +15,28 @@ static boolean PreberiTemperature(boolean zahtevajBranje, boolean allSens);
 
 float PreberiTemperaturoDHT22(int n);
 float PreberiVlaznostDHT22(int n);
-//float IzracunTRosicsa(int n);
 float IzracunTRosicsa(float temp, float vlaz);
-//float IzracunHumidex(int n);
 float IzracunHumidex(float temp, float tempRos);
 
 float PreberiTemperaturoK(int n);
 
-static void PrintAddress(DeviceAddress deviceAddress);
+void PrintAddress(DeviceAddress deviceAddress);
 void PrintTemperatureAll(void);
 
 time_t processSyncMessage();
-static float AutoTimeUnitConv(unsigned long cas, char *cunits);
+float AutoTimeUnitConv(unsigned long cas, char *cunits);
 boolean IsNTempCas();
-static boolean IsCasTransfTopl();
-//static boolean IsWeekend(void);
-unsigned int ObsegZgodovine(int sensor, unsigned int pred);
+boolean IsCasTransfTopl();
+
 void last24H_Info(void);
+unsigned int ObsegZgodovine(int sensor, unsigned int pred);
+float RefTemp(void);
 
 
 
 //definicija spremenljivk
 DeviceAddress devAddress[MAXSENSORS_DS];  //
-unsigned long convWaitTime = 1000;
+unsigned long convWaitTime = 850;  //1000
 boolean temeratureIzmerjene=true;
 
 
@@ -437,7 +436,7 @@ float PreberiTemperaturoK(int n) {
 
 //--------------------------------------------------------------------------------
 // function to print a device address
-static void PrintAddress(DeviceAddress deviceAddress)
+void PrintAddress(DeviceAddress deviceAddress)
 {
   for (uint8_t i = 0; i < 8; i++)
   {
@@ -489,12 +488,15 @@ void PrintTemperatureAll(void)
       i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
       delay(2);
 
-      Serial.print(cTemperatura[i] - ((u2.uival/100.0)-50.0), 2);
-      
+//      Serial.print(cTemperatura[i] - ((u2.uival/100.0)-50.0), 2);
+      Serial.print(cTemperatura[i] - PretvotiEETemp2Float(u2.uival), 2);
+
 
      
       if (abs(u2.uival - ((cTemperatura[i]*100.0))+50.0) > 1) {
-        u2.uival = (unsigned int) ((cTemperatura[i]+0.005+50.0)*100.0);
+//        u2.uival = (unsigned int) ((cTemperatura[i]+0.005+50.0)*100.0);
+        u2.uival = PretvoriFloat2EETemp(cTemperatura[i]);
+
  //       Serial.print(F("z"));
  //       Serial.print(addrTmp);
         delay(2);
@@ -537,10 +539,14 @@ void PrintTemperatureAll(void)
       i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
       delay(2);
 
-      Serial.print(cTemperatura[i] - ((u2.uival/100.0)-50.0), 2);
+//      Serial.print(cTemperatura[i] - ((u2.uival/100.0)-50.0), 2);
+      Serial.print(cTemperatura[i] - PretvotiEETemp2Float(u2.uival), 2);
+
       
       if (abs(u2.uival - cTemperatura[i]*100.0) > 1) {
-        u2.uival = (unsigned int) ((cTemperatura[i]+0.005+50.0)*100.0);
+//        u2.uival = (unsigned int) ((cTemperatura[i]+0.005+50.0)*100.0);
+        u2.uival = PretvoriFloat2EETemp(cTemperatura[i]);
+
         delay(2);
         i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
       }
@@ -561,6 +567,7 @@ void PrintTemperatureAll(void)
       
       if (abs(u2.uival - cVlaznost[i-numSensDS]*100.0) > 1) {
         u2.uival = (unsigned int) ((cVlaznost[i-numSensDS]+0.005)*100.0);
+
         delay(2);
         i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
       }
@@ -626,7 +633,7 @@ time_t processSyncMessage() {
 
 
 //--------------------------------------------------------------------------------
-static float AutoTimeUnitConv(unsigned long cas, char *cunits)
+float AutoTimeUnitConv(unsigned long cas, char *cunits)
 {
   float ccas;
   
@@ -663,7 +670,7 @@ boolean IsNTempCas()
 
 //-------------------------------------------------------------------------------
 // Ali je trenutno obdobje vzdrzevanja nizje (nocne) temperature
-static boolean IsCasTransfTopl()
+boolean IsCasTransfTopl()
 {
   if (hour() >= 22 || hour() < 4)
     return(true);
@@ -892,7 +899,7 @@ void last24H_Info(void)
 
 //--------------------------------------------------------------------------------
 //
-static float RefTemp()
+float RefTemp(void)
 {
  // return(AvgAllTimeTemp(CRPALKA_0));
   return(cTemperatura[CRPALKA_0]);

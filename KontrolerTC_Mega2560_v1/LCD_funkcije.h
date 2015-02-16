@@ -6,7 +6,7 @@
 void LCDInitializacija(void);
 void Beep(unsigned char delayms);
 void IzpisHex2(int num);
-static void PrintDigitsLCDA(int digits);
+void PrintDigitsLCDA(int digits);
 void IzpisiNaLCD(void);
 void IzpisControlMenu(void);
 void IzpisInfoMenu(int infoLCD);
@@ -44,7 +44,7 @@ void IzpisHex2(int num) {
 }
 //--------------------------------------------------------------------------------
 // izpais vodilni nicel za stevila manjsa od 10, za dvomestni izpis na LCDA
-static void PrintDigitsLCDA(int digits)
+void PrintDigitsLCDA(int digits)
 {
   if(digits < 10)
     lcdA.print(F("0"));
@@ -219,7 +219,8 @@ void IzpisInfoMenu(int infoLCD)
        i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
 //       delay(2);
 //       lcdA.setCursor(14, 1); 
-       lcdA.print(cTemperatura[CRPALKA_0] - (((u2.uival)/100.0) - 50.0), 2);
+//       lcdA.print(cTemperatura[CRPALKA_0] - (((u2.uival)/100.0) - 50.0), 2);
+       lcdA.print(cTemperatura[CRPALKA_0] - PretvotiEETemp2Float(u2.uival), 2);
       
       lcdA.setCursor(0, 1);
       if (releState_TC == R_TC_ON) {
@@ -270,7 +271,8 @@ void IzpisInfoMenu(int infoLCD)
        i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
 //       delay(2);
        lcdA.setCursor(14, 1); 
-       lcdA.print(cTemperatura[CRPALKA_0] - (((u2.uival)/100.0)-50.0), 2);
+//       lcdA.print(cTemperatura[CRPALKA_0] - (((u2.uival)/100.0)-50.0), 2);
+       lcdA.print(cTemperatura[CRPALKA_0] - PretvotiEETemp2Float(u2.uival), 2); 
        
 //       infoModeLCD=10;
     break;

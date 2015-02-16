@@ -2,11 +2,11 @@
 #define Ethernet_funk_h
 
 
-static void gotPinged (byte* ptr);
+void gotPinged (byte* ptr);
 void EthernetInit(boolean izpisShort);
 void CheckEthernet(void);
 void EthernetIzpisInfo(void);
-static word homePage(void);
+word homePage(void);
 
 
 //#define CLIENT_ADDRESS 1
@@ -36,11 +36,11 @@ BufferFiller bfill;
 
 //-----------------------------------------------------------------
 // called when a ping comes in (replies to it are automatic)
-static void gotPinged (byte* ptr) {
+void gotPinged (byte* ptr) {
   ether.printIp(">>> ping from: ", ptr);
 }
 
-  
+
 //-----------------------------------------------------------------
 void EthernetInit(boolean izpisShort) {
   
@@ -76,28 +76,28 @@ void EthernetInit(boolean izpisShort) {
     
   }  	
   */
-  sucess = ether.parseIp(ether.hisip, "192.168.1.1"); 
+  sucess = ether.parseIp(ether.hisip, (char*)"192.168.1.1"); 
   delay(5);
   if (sucess != 0) {
     Serial.print(F(" sucess: "));
     Serial.print(sucess);
     ether.printIp(" Hisip: ", ether.hisip);
     
-    sucess = ether.parseIp(ether.hisip, "192.168.2.2");
+    sucess = ether.parseIp(ether.hisip, (char*)"192.168.2.2");
     delay(5);
     if (sucess != 0) {
       Serial.print(F(" sucess: "));
       Serial.print(sucess);
       ether.printIp(" Hisip: ", ether.hisip);
     
-      sucess = ether.parseIp(ether.hisip, "192.168.2.3");
+      sucess = ether.parseIp(ether.hisip, (char*)"192.168.2.3");
       delay(5);
       if (sucess != 0) {
         Serial.print(F(" sucess: "));
         Serial.print(sucess);
         ether.printIp(" Hisip: ", ether.hisip);
     
-        sucess = ether.parseIp(ether.hisip, "192.168.2.20");
+        sucess = ether.parseIp(ether.hisip, (char*)"192.168.2.20");
         delay(5);
         if (sucess != 0) {
           Serial.print(F(" sucess: "));
@@ -135,6 +135,10 @@ void EthernetInit(boolean izpisShort) {
 //  ether.ntpRequest(ntpip, 8888); 
 //  uint32_t *t;
 //  Serial.println(ether.ntpProcessAnswer(t, 0)); 		
+
+  
+  
+//  ether.parseIp(addr, (char*)"192.168.2.3");
 
 }
 /*
@@ -326,7 +330,7 @@ void CheckEthernet() {
 //--------------------------------------------------------------------------------
 void EthernetIzpisInfo(void) {
   
-  uint8_t sucess = 0;
+//  uint8_t sucess = 0;
   
     ether.printIp("IP:  ", ether.myip);
     ether.printIp("GW:  ", ether.gwip); 

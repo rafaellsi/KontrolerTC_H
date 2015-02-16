@@ -48,7 +48,7 @@ boolean B_set = false;
 boolean rotating=false;
 
 // ------------------
-void doEncoderA() {
+static void doEncoderA() {
 
    if (rotating) 
      delay (1);  // wait a little until the bouncing is done
@@ -62,7 +62,7 @@ void doEncoderA() {
 }
 
 // ------------------
-void doEncoderB() {
+static void doEncoderB() {
 
   if (rotating) 
      delay (1);  // wait a little until the bouncing is done
@@ -95,7 +95,7 @@ void Encoder_init(void) {
 #define MAX_LCD_OSV 160
 // -----------------------------------------------------------------------------
 
-void Encoder_check(void) {
+static void Encoder_check(void) {
 
   static byte prevSwState = LOW;
   byte lastSwState;

@@ -6,7 +6,7 @@
 void waitEEReady(int deviceAddress);
 
 //--------------------------------------------------------------------------------
-static void i2c_eeprom_write_page( int deviceaddress, unsigned int eeaddresspage, byte addrlen, byte* up, byte length ) 
+void i2c_eeprom_write_page( int deviceaddress, unsigned int eeaddresspage, byte addrlen, byte* up, byte length ) 
 {   
 //  waitEEReady(deviceaddress);
   
@@ -35,7 +35,7 @@ static void i2c_eeprom_write_page( int deviceaddress, unsigned int eeaddresspage
 }
 
 //--------------------------------------------------------------------------------
- static void i2c_eeprom_write_byte(int deviceaddress,unsigned int eeaddress, byte addrlen, byte data) {
+void i2c_eeprom_write_byte(int deviceaddress,unsigned int eeaddress, byte addrlen, byte data) {
 //    int rdata = data;
     byte numW = 0;
     
@@ -67,7 +67,7 @@ static void i2c_eeprom_write_page( int deviceaddress, unsigned int eeaddresspage
 
 
 //--------------------------------------------------------------------------------
-static void i2c_eeprom_read_buffer( int deviceaddress, unsigned int eeaddress, byte addrlen, byte *up, int length ) {
+void i2c_eeprom_read_buffer( int deviceaddress, unsigned int eeaddress, byte addrlen, byte *up, int length ) {
     byte success = 1;  
   
     waitEEReady(deviceaddress);
@@ -112,7 +112,7 @@ static void i2c_eeprom_read_buffer( int deviceaddress, unsigned int eeaddress, b
   }
   
 //--------------------------------------------------------------------------------  
-static byte i2c_eeprom_read_byte( int deviceaddress, unsigned int eeaddress, byte addrlen) {
+byte i2c_eeprom_read_byte( int deviceaddress, unsigned int eeaddress, byte addrlen) {
     byte rdata = 0xFF;
     byte success = 1;
     

@@ -3,8 +3,8 @@
 
 extern void ZapisiOnOffSD(int state, byte tipSpremembe);
 
-extern void PreveriNapetosti(boolean internal, boolean external, boolean battery);
 
+void PreveriNapetosti(boolean internal, boolean external, boolean battery);
 void PreklopiCrpalkoRad(byte newState);
 void PreklopiVentil(byte newState);
 
@@ -73,7 +73,7 @@ void PreklopiVentil(byte newState)
       digitalWrite(VENTTC_1, HIGH);
       
       Serial.println(F(""));
-      PreveriNapetosti(true, true, false);
+//      PreveriNapetosti(true, true, false);
       ZapisiOnOffSD(1, 1);
 
       Serial.println(F(" "));
@@ -95,7 +95,7 @@ void PreklopiVentil(byte newState)
       Serial.print(cas);
       Serial.print(" ");
       Serial.print(millis());
-      PreveriNapetosti(true, true, false);
+//      PreveriNapetosti(true, true, false);
       Serial.print(F(" Zapiram ventil"));
     }
   }
