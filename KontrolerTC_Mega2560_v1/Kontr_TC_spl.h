@@ -262,7 +262,7 @@ boolean VodaVre(boolean izpis) {
   return(false);  
 }  
 
-
+unsigned long lastCrpTCStateChg;
 //--------------------------------------------------------------------------------
 boolean MaxCrpTCRunTime()
 {
@@ -505,10 +505,10 @@ void CheckSerial(void) {
          c = Serial.read();
          Serial.print(c);
          if (c == '0') {
-           PreklopiCrpalkoRad(0);
+           PreklopiCrpalkoRad(0);;  
          }
          else if (c == '1') {
-           PreklopiCrpalkoRad(1);
+           PreklopiCrpalkoRad(1);;
          }
        }       
      }  // if m**
@@ -695,6 +695,7 @@ float sumPing = 0;
 unsigned long numPing = 0;
 
 int stateCevStPecTC;
+int preklopCrpTCVzr = 0;
 
 float tok230V = -100.0;
 

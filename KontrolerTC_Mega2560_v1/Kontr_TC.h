@@ -14,7 +14,7 @@
 
 
 
-//extern void PreklopiCrpalkoTC(byte newState);
+extern void PreklopiCrpalkoTC(byte newState);
 extern void Beep(unsigned char delayms);
 
 
