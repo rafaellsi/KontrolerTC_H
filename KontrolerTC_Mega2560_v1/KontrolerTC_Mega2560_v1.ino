@@ -104,11 +104,10 @@
 #include "Eprom_external.h"
 
 #include "Cas_funkcije.h"
+
 #include "Kontr_TC_izvrs.h"
 #include "Kontr_TC_spl.h"
 #include "Kontr_TC.h"
-
-
 
 #include "Tok_napetost.h"
 #include "Temperature.h"
@@ -251,13 +250,13 @@ void loop(void)
   
   static int prevDay = day();
   byte newCrpTCState;
-  static boolean hitEnd = true;
+//  static boolean hitEnd = true;
   
   
   //----- 
   if (cycStart > 0 && millis() > cycStart) {
-    if (hitEnd) {
-      hitEnd = false;
+//    if (hitEnd) {
+//      hitEnd = false;
       unsigned long lastCycle = (millis() - cycStart);
 //    sumCycle += (millis() - cycStart);
       sumCycle += lastCycle;
@@ -272,7 +271,7 @@ void loop(void)
       else if (minCycle > lastCycle) {
         minCycle = lastCycle;   
       }
-    }
+//    }
   }  
   else {
     sumCycle = 0;
@@ -293,37 +292,24 @@ void loop(void)
   // preberi temperature
   // merXMin - število meritev na minuto
   // pošlju ukaz vsem senzorjem DS18x20 in preberi ostale senzorje
-
-//  static unsigned long pcm; //zmanjaj z prevCasMeritve
-
-//  if (((now()/(merXMin*60)) > (prevCasMeritve/(merXMin*60))) && temeratureIzmerjene == true) {  /* || (minute() < 30 && prevMinute > 30)*/
+  
   if (temeratureIzmerjene) {
-  if (now()/((unsigned long) merXMin*60) > prevCasMeritve/((unsigned long)merXMin*60)) {  /* || (minute() < 30 && prevMinute > 30)*/
- //   if (now()/((unsigned long) merXMin*60) > pcm/((unsigned long)merXMin*60)) {  /* || (minute() < 30 && prevMinute > 30) */
-//    PreberiTemperature(false, true);
-    PreberiTemperature(!temeratureIzmerjene, true);
-    temeratureIzmerjene = false;
-//    casMeritve = now();
-    casMeritve = millis();
-    Serial.print(F("'"));
-    Serial.print(now() - prevCasMeritve);
-//    Serial.print(now() - pcm);
-//    Serial.print(F("'"));
-//    pcm = now();
-  }
+    if (now()/((unsigned long) merXMin*60) > prevCasMeritve/((unsigned long)merXMin*60)) {  /* || (minute() < 30 && prevMinute > 30)*/
+      PreberiTemperature(!temeratureIzmerjene, true);
+      temeratureIzmerjene = false;
+      casMeritve = millis();
+      Serial.print(F("'"));
+      Serial.print(now() - prevCasMeritve);
+    }
   }
   // po preteku convWaitTime preberi temperature DS18X20
   // convWaitTime - v ms
-//  if ((now() >= (casMeritve + convWaitTime/1000)) && (temeratureIzmerjene == false)) {
   if ((millis() >= (casMeritve + convWaitTime)) && (temeratureIzmerjene == false)) {
-//    PreberiTemperature(true, false);
-    
     Serial.print(F("/"));
     Serial.print(millis() - casMeritve);
     Serial.print(F("'"));
     PreberiTemperature(!temeratureIzmerjene, false);
     temeratureIzmerjene = true;
-//    casMeritve = now();
     
     if (izracHitrGret || izracHitrGretInfo) {
       IzracunHitrostiGretjaTC(); 
@@ -333,27 +319,29 @@ void loop(void)
       if (releState_TC == R_TC_OFF) {
         if (RefTemp() < TempVklopa()) {
           PreklopiTC(RELE_TC, R_TC_ON);
-          if (seRracunaHitrGret)
+          if (seRracunaHitrGret) {
             izracHitrGret=true;
-          else
+          }  
+          else {
             izracHitrGretInfo=true;  
+          }
         }
       }  
       else if (RefTemp() > TempIzklopa())
         PreklopiTC(RELE_TC, R_TC_OFF);
     }
-
     ZapisiInIzpisiPodatke();
-    
     prevCasMeritve = now();
-//    pcm = now();
-//    prevCasMeritve = pcm;
   }
   delay(2);
   
   if (tok230V < 0)
     tok230V = AC_mimax();
-  
+
+  //----------------------
+  // če je rele vklopljen
+  // kontrola toka, če je kompresor vklopljen in start meritve porabe ...
+  // stanje TC v -> prevTCState =  1
   if (releState_TC == R_TC_ON || measureOnly) {
     if (tok230V >= mejaToka) {
       if (AC_mimax() >= mejaToka) {
@@ -366,29 +354,25 @@ void loop(void)
           u4.ulval = lastTCStateChg;
           i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrLastChg, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
           delay(5);
-          i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrPrevTCState, AT24C32_ADDR_LENGH, prevTCState);
-          
+          i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrPrevTCState, AT24C32_ADDR_LENGH, prevTCState); 
           izracHitrGretInfo = true;
-          
           ZapisiOnOffSD(1);
         }
       }
     }
   }
+  //----------------------
+  // če je bola TC vklopljena
+  // kontrola toka, če je kompresor izklopljen in priprava podatkov in zapis podatkov ...
   if (prevTCState == 1) {
     if (tok230V < mejaToka) {
       if (AC_mimax() < mejaToka) {
         prevTCState = 0;
         lastRunTime = (now() - lastTCStateChg);
         onTimeTC += (now() - lastTCStateChg); 
-        
         hitrGret = 3600.0 * (RefTemp() - startTemp)/((float) lastRunTime);
-        
-      
         u4.ulval = onTimeTC;
-        i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrOnTime, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4)); // write to EEPROM 
-      
-      
+        i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrOnTime, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4)); // write to EEPROM  
         ZapisiOnOffSD(0);
         lastTCStateChg = now();
         u4.ulval = lastTCStateChg;
@@ -398,8 +382,9 @@ void loop(void)
       }
     }
   }
+  //--------------------
+  // resetiranje in zapis podtkov konec dneva
   if (prevTCState == 0) {
-//    if (onTimeTC > 0) {
       if (prevDay != day()) {
         onTimeTC = 0;
         u4.ulval = onTimeTC;
@@ -420,11 +405,12 @@ void loop(void)
   }  
 
   StateCrpalkeRad();
+//!!!  lastCrpRadStateChg
   
   newCrpTCState = StatePovezTCPec(prevCrpTCState); 
   PovezTCPec(newCrpTCState);
   
-  PreklopiVentil(100);
+  PreklopiVentilTCPec(100);
     
   if (now() > prevLCDizp) {
     prevLCDizp = now();
@@ -432,7 +418,7 @@ void loop(void)
   }
   Tok_12V();
   PreveriCO_Senzor();
-  hitEnd = true;
+//  hitEnd = true;
 /*
   uint8_t buf[RH_NRF24_MAX_MESSAGE_LEN];
   if (manager.available())
@@ -457,7 +443,7 @@ void loop(void)
 }
 
 //--------------------------------------------------------------------------------
-static byte StatePovezTCPec(byte state)
+byte StatePovezTCPec(byte state)
 {
 
   if (preklopCrpTCVzr == 1) {
@@ -480,6 +466,8 @@ static byte StatePovezTCPec(byte state)
   
   
   if (manuCrpTCState > 0) {
+    if (preklopCrpTCVzr != 0)
+      preklopCrpTCVzr = 0; 
     return(state);
   }  
   
@@ -502,12 +490,13 @@ static byte StatePovezTCPec(byte state)
       if (prevTCState == 1) {
         preklopCrpTCVzr = 3;
         return(1);
+      }
+      if ((stateCevStPecTC == CEV_TERM_ON) && (cTemperatura[CRPALKA_0] < cTemperatura[PEC_DV])) {
+        preklopCrpTCVzr = 2;  // cevni termostat vklop
+        return(1);
       }  
     }
-    if ((stateCevStPecTC == CEV_TERM_ON) && (cTemperatura[CRPALKA_0] < cTemperatura[PEC_DV])) {
-        preklopCrpTCVzr = 2;  // cevni termostat vklople
-        return(1);
-     }
+    
      if (!IsCasTransfTopl()) {
        if (cTemperatura[PEC_DV] < (tempIzklopaVentCrpTC - 5.0)) { 
 //       if (min(cTemperatura[PEC_DV], cTemperatura[PEC_TC_DV]) < tempIzklopaVentCrpTC - 5.0) {   
@@ -538,7 +527,7 @@ static byte StatePovezTCPec(byte state)
     } 
     else {  
       if ((cTemperatura[CRPALKA_0] >= max(cTemperatura[PEC_DV], cTemperatura[PEC_TC_DV])) && 
-            ((cTemperatura[CRPALKA_0] <= TempIzklopaCrpTC() || MaxCrpTCRunTime()) || IsNTempCas())) {
+            ((cTemperatura[CRPALKA_0] <= TempIzklopaCrpTC()) || MaxCrpTCRunTime() || IsNTempCas())) {
         return(0);
       }
       if (preklopCrpTCVzr > 0) {
@@ -567,7 +556,13 @@ static byte StatePovezTCPec(byte state)
   return(state);  
 }  
 
-
+//--------------------------------------------------------------------------------  
+int ZakasnitevVklopa(float temp, float mejnaTemp, int faktor) {
+  if (temp > mejnaTemp) {
+    return(faktor * zaksnitevCrpVent_Sec);
+  }
+  return (zaksnitevCrpVent_Sec);  
+}  
 
 
 //--------------------------------------------------------------------------------  
@@ -576,32 +571,28 @@ static void PovezTCPec(byte newState) {
   int zakasnitevVklopa;
   
   if (manuCrpTCState > 0) {
-    if (manuCrpTCState == 3) {
+    if (manuCrpTCState == B11) {
       if (prevCrpTCState == 0) {
         if (prevVentTCState == 1) {
-          if (cTemperatura[PEC_TC_DV] > tempVklopaCrpTC) {
-            zakasnitevVklopa = 6 * zaksnitevCrpVent_Sec;
-          }
-          else {
-            zakasnitevVklopa = zaksnitevCrpVent_Sec;
-          }  
+          zakasnitevVklopa = ZakasnitevVklopa(cTemperatura[PEC_TC_DV], tempVklopaCrpTC, 6);
+  
           if (RelaksTimeLimitSec(now(), lastVentTCChg[1], zakasnitevVklopa)) { 
             PreklopiCrpalkoTC(1);      // 1 - vklopi crpalko
           }
         }
         else {  //prevVentTCState == 0
-          PreklopiVentil(1);
+          PreklopiVentilTCPec(1);
         }
       }
     }
-    else if (manuCrpTCState == 1) {
+    else if (manuCrpTCState == B01) {
       if (prevCrpTCState == 1) {
         PreklopiCrpalkoTC(0);
         manuCrpTCState = 0;
       }
       if (prevVentTCState == 1) {
         if (RelaksTimeLimitSec(now(), lastCrpTCStateChg, zaksnitevCrpVent_Sec/2)) {
-          PreklopiVentil(0);  
+          PreklopiVentilTCPec(0);  
         }  
       }
     } 
@@ -610,20 +601,15 @@ static void PovezTCPec(byte newState) {
   
   if (prevCrpTCState == 0) {
     if (newState == 1) {
-      if (RelaksTimeLimitSec(now(), lastCrpTCStateChg, minCrpTCRunTimeMin*60) && RelaksTimeLimitSec(now(), lastCrpRadStateChg, 1*60)) {
+      if (RelaksTimeLimitSec(now(), lastCrpTCStateChg, minCrpTCRunTimeMin*60) && RelaksTimeLimitSec(now(), lastCrpRadStateChg, 3*60)) {
         if (prevVentTCState == 1) {
-          if (cTemperatura[PEC_TC_DV] > tempVklopaCrpTC) {
-            zakasnitevVklopa = 6 * zaksnitevCrpVent_Sec;
-          }
-          else {
-            zakasnitevVklopa = zaksnitevCrpVent_Sec;
-          }   
+          zakasnitevVklopa = ZakasnitevVklopa(cTemperatura[PEC_TC_DV], tempVklopaCrpTC, 6);  
           if (RelaksTimeLimitSec(now(), lastVentTCChg[1], zakasnitevVklopa)) { 
             PreklopiCrpalkoTC(1);      // 1 - vklopi crpalko
           }
         }
         else if(RelaksTimeLimitSec(now(), lastVentTCChg[0], minCrpTCRunTimeMin*60)  || preklopCrpTCVzr == 2) {  //prevVentTCState == 0
-          PreklopiVentil(1);
+          PreklopiVentilTCPec(1);
         }  
       }
     } // newState == 0
@@ -631,22 +617,22 @@ static void PovezTCPec(byte newState) {
       if (RelaksTimeLimitSec(now(), lastCrpTCStateChg, zaksnitevCrpVent_Sec/2)) {
         if (IsCasTransfTopl()) {
           if (cTemperatura[CRPALKA_0] >= cTemperatura[PEC_DV]) {
-            PreklopiVentil(0);
+            PreklopiVentilTCPec(0);
           }
         } else {              // !IsCasTransfTopl()
           if (preklopCrpTCVzr == 0) {
             if (cTemperatura[CRPALKA_0] < tempIzklopaVentCrpTC) {
-              PreklopiVentil(0);
+              PreklopiVentilTCPec(0);
             }
           }
           else if (preklopCrpTCVzr == 1) {
             if (RefTemp() > TempIzklopaCrpTC_NTemp()) {
-              PreklopiVentil(0);
+              PreklopiVentilTCPec(0);
             }
           }
           else if (preklopCrpTCVzr == 2) {
             if ((stateCevStPecTC == CEV_TERM_OFF) || (cTemperatura[CRPALKA_0] > cTemperatura[PEC_DV])) {
-              PreklopiVentil(0);
+              PreklopiVentilTCPec(0);
             }
           }  
         }
@@ -657,7 +643,7 @@ static void PovezTCPec(byte newState) {
         if (cTemperatura[CRPALKA_0] > tempIzklopaVentCrpTC) {
           if (max(cTemperatura[PEC_DV], cTemperatura[PEC_TC_DV]) > minTempPecPonovnoOdpVent) {
             if (RelaksTimeLimitSec(now(), lastCrpTCStateChg, zaksnitevCrpVent_Sec/2)) {
-              PreklopiVentil(1);  
+              PreklopiVentilTCPec(1);  
             }
           }  
         }  
@@ -679,80 +665,31 @@ static void PovezTCPec(byte newState) {
   
   if (prevVentTCState == 255) {
     if (cTemperatura[CRPALKA_0] + minDiffTCPec > tempIzklopaVentCrpTC || prevCrpTCState == 1) {
-       PreklopiVentil(1);         //1 - odpre ventil
+       PreklopiVentilTCPec(1);         //1 - odpre ventil
     } else {
-       PreklopiVentil(0);         //1 - odpre ventil
+       PreklopiVentilTCPec(0);         //1 - odpre ventil
     }   
   }
-//  PreklopiVentil(100);  
+//  PreklopiVentilTCPec(100);  
   
 }
 
 
 
-//--------------------------------------------------------------------------------
-void PreklopiCrpalkoTC(byte newState)
-{
-  char cas[13];
-  
-//  if (newState < 255) {
-    
-    if (newState == 1) {
-      if (preklopCrpTCVzr == 0) {
-        if (cTemperatura[PEC_TC_DV] >= tempVklopaCrpTC || cTemperatura[PEC_DV] >= tempVklopaCrpTC) {
-          if ((cTemperatura[PEC_PV] < tempVklopaCrpTC - 3.0*dTemp) && (cTemperatura[RAD_PV] < tempVklopaCrpTC - 3.0*dTemp)) {
-            return;
-          }  
-        }
-      }  
-    }
-    
-    if (newState == 1) {
-      digitalWrite(RELE_CTC, R_CTC_ON);
-      
-      ZapisiOnOffSD(1, 2);
-      
-      Serial.println(F(" "));
-      NarediTimeStr(cas, now());
-      Serial.print(cas);
-      Serial.print(F(" Vklop crpalke "));
-  //    PreveriNapetosti(true, true, false);
-      
-    }
-    else {
-      digitalWrite(RELE_CTC, R_CTC_OFF);
-      
-      ZapisiOnOffSD(0, 2);
-      
-      Serial.println(F(" "));
-      NarediTimeStr(cas, now());
-      Serial.print(cas);
-//      PreveriNapetosti(true, true, false);
-      Serial.print(F(" Izklop crpalke"));
-      
-      ResetCrpTCVzr();
-    }
-    prevCrpTCState = newState;
-    lastCrpTCStateChg = now();
-//  }
-}
 
-//--------------------------------------------------------------------------------
-static void ResetCrpTCVzr()
-{
-  preklopCrpTCVzr = 0; 
-}
+
+
 
 
 
 //--------------------------------------------------------------------------------
-static float TempIzklopaCrpTC() 
+float TempIzklopaCrpTC() 
 {
   return(tempVklopaCrpTC - histCrpTC);
 }  
 
 //--------------------------------------------------------------------------------
-static void StateCrpalkeRad()
+void StateCrpalkeRad()
 {
 
   if (prevCrpRadState == 0) {
@@ -789,7 +726,7 @@ static void StateCrpalkeRad()
 
 //--------------------------------------------------------------------------------
 //
-static void  PreklopiTC(int relePin, int newState)
+void  PreklopiTC(int relePin, int newState)
 {
  
 /*  
@@ -836,7 +773,11 @@ void check_mem() {
 
 
 
-
+//--------------------------------------------------------------------------------
+void ResetCrpTCVzr(void)
+{
+  preklopCrpTCVzr = 0; 
+}
 
 
 

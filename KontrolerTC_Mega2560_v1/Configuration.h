@@ -295,8 +295,10 @@ float We;
 
 float Vrms = 230.0;
 
-byte manuCrpTCState = 0;
-
+byte manuCrpTCState = 0;  //B00 - ročni mode izklopljen - teče avtomatsko
+                          //B01 - ročno izklopi
+                          //B11 - ročno vklopi 
+              
 int coRawVal;
 int osvetlitevLCD = 0;
 
