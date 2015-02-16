@@ -48,7 +48,8 @@ float PovpreciVred(float a, float povVred, float lastVred);
 void ZapisiInIzpisiPodatke(void);
 void PrintData(void);
 float MejnaTempPreklCrpRad(byte newState);
-
+int ZakasnitevVklopa(float temp, float mejnaTemp, int faktor);
+float TempIzklopaCrpTC(void);
 //unsigned int addrTmp;
 //--------------------------------------------------------------------------------
 // Pretvorba sekunde v ure, decimalno
@@ -262,7 +263,7 @@ boolean VodaVre(boolean izpis) {
   return(false);  
 }  
 
-unsigned long lastCrpTCStateChg;
+
 //--------------------------------------------------------------------------------
 boolean MaxCrpTCRunTime()
 {
@@ -695,7 +696,7 @@ float sumPing = 0;
 unsigned long numPing = 0;
 
 int stateCevStPecTC;
-int preklopCrpTCVzr = 0;
+
 
 float tok230V = -100.0;
 
@@ -1005,6 +1006,20 @@ float MejnaTempPreklCrpRad(byte newState)
   }
 }
 
+
+//--------------------------------------------------------------------------------
+float TempIzklopaCrpTC(void) 
+{
+  return(tempVklopaCrpTC - histCrpTC);
+}  
+
+//--------------------------------------------------------------------------------  
+int ZakasnitevVklopa(float temp, float mejnaTemp, int faktor) {
+  if (temp > mejnaTemp) {
+    return(faktor * zaksnitevCrpVent_Sec);
+  }
+  return (zaksnitevCrpVent_Sec);  
+}  
 
 /*
 #ifndef ARDPRINTF

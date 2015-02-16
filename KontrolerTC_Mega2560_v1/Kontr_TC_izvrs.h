@@ -6,14 +6,16 @@ extern void ZapisiOnOffSD(int state, byte tipSpremembe);
 
 void PreveriNapetosti(boolean internal, boolean external, boolean battery);
 void PreklopiCrpalkoRad(byte newState);
-void PreklopiVentil(byte newState);
-
+void PreklopiVentilTCPec(byte newState);
+void PreklopiCrpalkoTC(byte newState);
+void ResetCrpTCVzr(void);
 
 byte prevCrpTCState = 0;
 byte prevVentTCState = 255;
 
 unsigned long lastVentTCChg[2];
-
+int preklopCrpTCVzr = 0;
+unsigned long lastCrpTCStateChg;
 //--------------------------------------------------------------------------------
 void PreklopiCrpalkoRad(byte newState)
 {
@@ -43,7 +45,7 @@ void PreklopiCrpalkoRad(byte newState)
 
 
 //--------------------------------------------------------------------------------
-void PreklopiVentil(byte newState)
+void PreklopiVentilTCPec(byte newState)
 {
   char cas[13];
   static byte lastCommand;
@@ -100,5 +102,54 @@ void PreklopiVentil(byte newState)
     }
   }
 }
+
+
+//--------------------------------------------------------------------------------
+void PreklopiCrpalkoTC(byte newState)
+{
+  char cas[13];
+  
+//  if (newState < 255) {
+    
+    if (newState == 1) {
+      if (preklopCrpTCVzr == 0) {
+        if (cTemperatura[PEC_TC_DV] >= tempVklopaCrpTC || cTemperatura[PEC_DV] >= tempVklopaCrpTC) {
+          if ((cTemperatura[PEC_PV] < tempVklopaCrpTC - 5.0*dTemp) && (cTemperatura[RAD_PV] < tempVklopaCrpTC - 5.0*dTemp)) {
+            return;
+          }  
+        }
+      }  
+    }
+    Serial.println("");
+    NarediTimeStr(cas, now());
+    Serial.print(cas);
+    
+    if (newState == 1) {
+      digitalWrite(RELE_CTC, R_CTC_ON);
+      
+      ZapisiOnOffSD(1, 2);
+      
+      Serial.print(F(" Vklop crpalke "));    
+    }
+    else {
+      digitalWrite(RELE_CTC, R_CTC_OFF);
+      
+      ZapisiOnOffSD(0, 2);
+
+      Serial.print(F(" Izklop crpalke"));
+      
+      ResetCrpTCVzr();
+    }
+    prevCrpTCState = newState;
+    lastCrpTCStateChg = now();
+//  }
+}
+
+//--------------------------------------------------------------------------------
+void ResetCrpTCVzr(void)
+{
+  preklopCrpTCVzr = 0; 
+}
+
 
 #endif
