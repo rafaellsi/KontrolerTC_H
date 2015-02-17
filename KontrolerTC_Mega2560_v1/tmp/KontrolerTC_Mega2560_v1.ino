@@ -140,7 +140,7 @@ void setup(void)
   Serial.println(F("Kontroler TC"));
   Serial.println(VERSION);
   
-  PreveriNapetosti(true, true, true, false);
+  PreveriNapetosti(true, true, false);
   Serial.println(F(""));
   Serial.print(F("Tok: "));
   Serial.println(Tok_12V());
@@ -414,7 +414,6 @@ void loop(void)
     IzpisiNaLCD();
   }
   Tok_12V();
-  PreveriNapetosti(false, true, true, false);
   PreveriCO_Senzor();
 //  hitEnd = true;
 /*

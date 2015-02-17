@@ -4,7 +4,7 @@
 extern void ZapisiOnOffSD(int state, byte tipSpremembe);
 
 
-
+void PreveriNapetosti(boolean internal, boolean external, boolean battery);
 void PreklopiCrpalkoRad(byte newState);
 void PreklopiVentilTCPec(byte newState);
 void PreklopiCrpalkoTC(byte newState);

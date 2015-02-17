@@ -219,9 +219,8 @@ float VoltageDivider(int analRead, float r1, float r2, float korFact = 1.0) {
   return (napetost * korFact);
 }  
 
-//static float v5_3_r1 = 2200;
-//static float v5_3_r2 = 2200;
-/*
+static float v5_3_r1 = 2200;
+static float v5_3_r2 = 2200;
 //--------------------------------------------------------------------------------------------
 void PreveriNapetosti(boolean internal = false, boolean external = false, boolean battery = false)
 {
@@ -272,131 +271,8 @@ void PreveriNapetosti(boolean internal = false, boolean external = false, boolea
     Serial.print(analogRead(SENS_RTC_BATT) * vccInternal/ 1024.0);
   }
 }
-*/
-
-float napetost_int[5][3];
-//--------------------------------------------------------------------------------------------
-void napetostiMinMax(int n, boolean isFirstTime) {
-    if (isFirstTime) {
-      napetost_int[n][1] = napetost_int[n][0];
-      napetost_int[n][2] = napetost_int[n][0];
-    }
-    else {
-      if (napetost_int[n][0] < napetost_int[n][1])
-        napetost_int[n][1] = napetost_int[n][0];
-      else if (napetost_int[n][0] > napetost_int[n][2])
-        napetost_int[n][2] = napetost_int[n][0];  
-    }
-}  
-
-//--------------------------------------------------------------------------------------------
-void PreveriNapetosti(boolean izpis = true, boolean internal = false, boolean external = false, boolean battery = false)
-{
-  
-  static boolean isFirstTime = true;
-/*  
-  static float v12_r1 = 6800;
-  static float v12_r2 = 3300;
-  static float v5_r1 =  1000;
-  static float v5_r2 =  3900;
-*/  
-  static float upr_delilnika[3][2] = {6800, 3300, 1000, 3900, 2200, 2200};
-  
-  float vTemp;
-  
-  if (internal) {
-    napetost_int[0][0] = (float) readVcc()/1000.0;
-
-    if (napetost_int[0][0] < 5.0 * 0.5 || napetost_int[0][0] > 1.5 *5.0) {
-      Serial.print(F(" 5In:"));
-      Serial.print(napetost_int[0][0]);
-      Serial.print(F("(Err) "));
-    }
-    else {  
-      vccInternal = napetost_int[0][0];
-    }
-    
-    napetostiMinMax(0, isFirstTime);
-    
-    if (izpis) {
-      Serial.print(F(" 5In:"));
-      Serial.print(napetost_int[0][0]);
-      Serial.print("(");
-      Serial.print(napetost_int[0][1]);
-      Serial.print(F("/"));
-      Serial.print(napetost_int[0][2]);
-      Serial.print(F(")"));
-    }
-    //delay(2);
-  }
-    
-  if (external) {
-    if (vccInternal == 0) {
-      vccInternal = 5.0;
-      napetost_int[0][0] = vccInternal;
-      napetost_int[0][1] = vccInternal;
-      napetost_int[0][2] = vccInternal;
-    }   
-    
-    
-    napetost_int[1][0] = VoltageDivider(SENS_V12, upr_delilnika[0][0], upr_delilnika[0][1], 1.01759);
-    napetostiMinMax(1, isFirstTime);
-    if (izpis) {
-      Serial.print(F(" 12V:"));
-      Serial.print(napetost_int[1][0]);
-      Serial.print(F("("));
-      Serial.print(napetost_int[1][1]);
-      Serial.print(F("/"));
-      Serial.print(napetost_int[1][2]);
-      Serial.print(F(")"));
-    }
-//    delay(5);
-    napetost_int[2][0] = VoltageDivider(SENS_V5_2, upr_delilnika[1][0], upr_delilnika[1][1], 1.0041);
-    napetostiMinMax(2, isFirstTime);
-    if (izpis) {
-      Serial.print(F(" 5V2:"));
-      Serial.print(napetost_int[2][0]);
-      Serial.print(F("("));
-      Serial.print(napetost_int[2][1]);
-      Serial.print(F("/"));
-      Serial.print(napetost_int[2][2]);
-      Serial.print(F(")"));
-    }  
-//    delay(5);
-    napetost_int[3][0] = VoltageDivider(SENS_V5_3, upr_delilnika[2][0], upr_delilnika[2][1]);
-    napetostiMinMax(3, isFirstTime);
-    if (izpis) {
-      Serial.print(F(" 5V3:"));
-      Serial.print(napetost_int[3][0]);
-      Serial.print(F("("));
-      Serial.print(napetost_int[3][1]);
-      Serial.print(F("/"));
-      Serial.print(napetost_int[3][2]);
-      Serial.print(F(")"));
-    }
-//    delay(5);
 
 
-  }
-  if (battery) {
-    if (vccInternal == 0) {
-      vccInternal = 5.0;
-    }   
-    napetost_int[4][0] = analogRead(SENS_RTC_BATT) * vccInternal/ 1024.0;
-    napetostiMinMax(4, isFirstTime);
-    if (izpis) {
-      Serial.print(F(" Batt+:"));
-      Serial.print(napetost_int[4][0]);
-      Serial.print(F("("));
-      Serial.print(napetost_int[4][1]);
-      Serial.print(F("/"));
-      Serial.print(napetost_int[4][2]);
-      Serial.print(F(")"));
-    }
-//    delay(5);
-  }
-  isFirstTime = false;
-}
 
 
 //--------------------------------------------------------------------------------------------

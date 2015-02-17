@@ -19,7 +19,6 @@ extern float AC_mimax(boolean izpis, boolean forceCalc);
 extern  float Tok_12V(void);
 extern void PreveriStikala(boolean izpisState);
 extern void PrintTemperatureAll(void);
-extern void PreveriNapetosti(boolean izpis, boolean internal, boolean external, boolean battery);
 
 
 inline float Sec2Hour(unsigned long sec);
@@ -909,14 +908,13 @@ void ZapisiInIzpisiPodatke(void) {
      Serial.print(maxTok_12V);
      Serial.print(F(")A "));  
      
-     PreveriNapetosti(true, true, true, false);
- /*    
+     PreveriNapetosti(true, true, false);
      Serial.print(F(" ("));
      Serial.print(minVoltGas);
      Serial.print(F("/"));
      Serial.print(maxVoltGas);
      Serial.print(F(")V ")); 
- */    
+     
      PreveriStikala(true);
      
       Serial.print(F(" dcnt:"));
