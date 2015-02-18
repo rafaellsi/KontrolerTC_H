@@ -796,8 +796,9 @@ void ZapisiInIzpisiPodatke(void) {
         Serial.print(AvgValFF_F(sumTemp[j], histLen*1.0),2);
 
       }
-      Serial.println(F(""));
+      
       for (int j = numSens; j < numSens + numSensDHT22; j++) {
+        Serial.println(F(""));
         addrTmp = ObsegZgodovine(j);
         i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
         Serial.print(F(" RHa"));
@@ -825,7 +826,7 @@ void ZapisiInIzpisiPodatke(void) {
       Serial.println(F(""));
 
           
-      Serial.print(F("  Avg.cycleTime(n="));
+      Serial.print(F(" Avg.cycleTime(n="));
       Serial.print(ncyc);
       Serial.print(F("): "));
       Serial.print(AvgValULUL_F(sumCycle, ncyc));
@@ -849,8 +850,8 @@ void ZapisiInIzpisiPodatke(void) {
     }
     PrintTempAllSDbin();  
     
-    Serial.println("");
-    Serial.print(F("       "));
+//    Serial.println("");
+//    Serial.print(F("       "));
     
     Serial.print(F(" Tok: "));
     tok230V = AC_mimax(showCRC, true);
@@ -864,7 +865,8 @@ void ZapisiInIzpisiPodatke(void) {
     
     Serial.flush();
     Serial.print(F("On time: "));
-     
+    
+    Serial.println(""); 
 
     if (prevTCState == 0) {
       if (onTimeTC > 0) 

@@ -151,12 +151,8 @@ void setup(void)
   //-------------------
   LCDInitializacija();
 //  EthernetInit(false);
-  
-  
   TempSensorsInit(); 
-  
   Initilizacija_CO();
-  
   
   // Start up the RTC
   tmElements_t tm;
@@ -202,12 +198,9 @@ void setup(void)
   Serial.println(infoSet);
   
 
-  delay(2000);
-   
+  delay(20);
   SDInit();  
-
-  delay(2000);
-  
+  delay(20);
   EthernetInit(false);
   
   lcdA.clear();

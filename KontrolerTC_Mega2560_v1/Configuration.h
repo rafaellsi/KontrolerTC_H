@@ -34,22 +34,25 @@ extern void Beep(unsigned char);
 //----------
 // pin and address definition
 
+#define SENS_TOK_12V  A2    //pin za merjenje toka 12V - swithcher
+
 #define T_KTYP_01_PIN A3   //pin k-type sensorja 1 
-#define SENS_TOK     A11   //senzor toka - 230v komplet
-#define SENS_V12     A8    //pin za merjenje zun. napetosti napajanja 12V - switcher napajalnik
-#define SENS_V5_2    A9    //pin za merjenje zun. napajanja 5V - DC-DC
+#define CO_SENS_APIN  A6    //vrednost CO senzorja
+#define SENS_V5_3     A7    //pin za merjenje zun. napajanja 5V-2 za CO sensor- DC-DC
+#define SENS_V12      A8    //pin za merjenje zun. napetosti napajanja 12V - switcher napajalnik
+#define SENS_V5_2     A9    //pin za merjenje zun. napajanja 5V - DC-DC
 #define SENS_RTC_BATT A10  //pin za merjenje napetsti RTC baterije - ni priklopljeno - ne dela RTC preko baterijae ...
+#define SENS_TOK      A11   //senzor toka - 230v komplet
+#define SENS_3V3_SD   A12   //napestost 3,3v na SD
 
-#define SENS_TOK_12V A2
 
-#define SENS_V5_3  A7
 
-#define CO_SENS_APIN A6
-#define CO_PWR_PIN   12
+
 #define CO_DOUT_PIN  11
+#define CO_PWR_PIN   12    
 
-#define ENC_CLK_PIN   3     // Encoder CLK pin - interuppt 0
 #define ENC_DT_PIN    2     // Encoder DT signal - interuppt 1
+#define ENC_CLK_PIN   3     // Encoder CLK pin - interuppt 0
 #define ENC_SW_PIN    4
 // Encoder push button switch
 
@@ -59,7 +62,8 @@ extern void Beep(unsigned char);
 #define NRF24_CE   8
 #define NRF24_CSN  9
 
-#define ETHER_CS_PIN  10    //Ethrnet (ENC28J60) CS pin 
+#define ETHER_CS_PIN  10    //Ethrnet (ENC28J60) CS pin
+#define ETHER_RESET_PIN 23
 
 #define LCD_OSW_SW    7     //pin za vklop osvetlitve LCD-ja
 #define LCD_RS    22        //LCD RS
@@ -313,7 +317,8 @@ typedef uint8_t DeviceAddress[8];
 //definicija naslovov senzorjev
 
 
-LiquidCrystal lcdA(LCD_RS, LCD_RW, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
+//LiquidCrystal lcdA(LCD_RS, LCD_RW, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
+LiquidCrystal lcdA(LCD_RS, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
 //DHT22 myDHT22(DHT22_PIN);
 DHT dht(DHTPIN, DHTTYPE);
 // 1-Wire spremneljivke

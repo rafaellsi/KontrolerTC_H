@@ -30,6 +30,9 @@ void NastavitevPinov(void) {
   if (ETHER_CS_PIN != 53)
     pinMode(ETHER_CS_PIN, OUTPUT);
   
+  pinMode(ETHER_RESET_PIN, INPUT);  
+
+  
   pinMode(BEEP_PIN, OUTPUT);
   
   pinMode(RELE_TC, OUTPUT);

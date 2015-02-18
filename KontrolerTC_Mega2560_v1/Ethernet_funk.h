@@ -116,7 +116,7 @@ void EthernetInit(boolean izpisShort) {
  
     
   if (!izpisShort) {
-//    Serial.print(F(" EthRein "));
+    delay(100);
     EthernetIzpisInfo();
    
   }
@@ -309,6 +309,7 @@ void CheckEthernet() {
       if (ether.clientWaitingGw() == false) {
         Serial.print(F("Gateway IP not found "));
         ether.printIp("GW: ", ether.gwip);
+//        ether.parseIp(ether.hisip, (char*)"192.168.1.1"); 
         if (!ether.staticSetup(myip, gwip, dnsip, ipmask)) {
           Serial.println(F("ReSt unsuc!"));
         } 

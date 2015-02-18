@@ -375,7 +375,17 @@ void PreveriNapetosti(boolean izpis = true, boolean internal = false, boolean ex
       Serial.print(F(")"));
     }
 //    delay(5);
-
+    napetost_int[4][0] = analogRead(SENS_3V3_SD) * vccInternal/ 1023.0;
+    napetostiMinMax(4, isFirstTime);
+    if (izpis) {
+      Serial.print(F(" 3V3:"));
+      Serial.print(napetost_int[4][0]);
+      Serial.print(F("("));
+      Serial.print(napetost_int[4][1]);
+      Serial.print(F("/"));
+      Serial.print(napetost_int[4][2]);
+      Serial.print(F(")"));
+    }
 
   }
   if (battery) {
