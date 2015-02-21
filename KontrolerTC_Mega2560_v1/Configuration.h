@@ -44,7 +44,7 @@ extern void Beep(unsigned char);
 #define SENS_RTC_BATT A10  //pin za merjenje napetsti RTC baterije - ni priklopljeno - ne dela RTC preko baterijae ...
 #define SENS_TOK      A11   //senzor toka - 230v komplet
 #define SENS_3V3_SD   A12   //napestost 3,3v na SD
-
+//#define SENS_V_CO     A13   //napetost na CO sensorju
 
 
 

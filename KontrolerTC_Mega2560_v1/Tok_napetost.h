@@ -386,7 +386,7 @@ void PreveriNapetosti(boolean izpis = true, boolean internal = false, boolean ex
       Serial.print(napetost_int[4][2]);
       Serial.print(F(")"));
     }
-
+    
   }
   if (battery) {
     if (vccInternal == 0) {

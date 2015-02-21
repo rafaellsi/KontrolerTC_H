@@ -28,10 +28,15 @@ static byte ipmask[] = { 255,255,252,0 }; // ip mask
 // ethernet mac address - must be unique on your network
 static byte mymac[] = { 0x74,0x69,0x69,0x2D,0x30,0x31 };
 
-byte Ethernet::buffer[500]; // tcp/ip send and receive buffer
+char website[] PROGMEM = "www.devicehub.net";
+
+//byte Ethernet::buffer[500]; // tcp/ip send and receive buffer
+byte Ethernet::buffer[700]; // tcp/ip send and receive buffer
 BufferFiller bfill;
 
-
+static byte ping_1[4];
+static byte proc_ip[4];
+static byte deviceHub_ip[4];
 
 
 //-----------------------------------------------------------------
@@ -46,17 +51,29 @@ void EthernetInit(boolean izpisShort) {
   
   uint8_t sucess;
   
+//  ether.parseIp(ping_1, (char*)"192.168.1.1");
+  ether.parseIp(proc_ip, (char*)"192.168.2.3");
+  
   for (int i= 0; i<5; i++) {
     
-    
-  if (izpisShort) {
+/*  
+  if (izpisShort) {  
     pinMode(ETHER_CS_PIN, OUTPUT);
     digitalWrite(ETHER_CS_PIN, LOW);
     delay(250);
     digitalWrite(ETHER_CS_PIN, HIGH);
     delay(250);
   }
-   
+*/  
+  if (izpisShort) {  
+    pinMode(ETHER_RESET_PIN, OUTPUT); 
+    digitalWrite(ETHER_RESET_PIN, LOW);
+    delay(250);
+    pinMode(ETHER_RESET_PIN, INPUT); 
+    delay(20);
+//    digitalWrite(ETHER_RESET_PIN, HIGH);
+//    delay(250);
+  } 
   sucess = ether.begin(sizeof Ethernet::buffer, mymac, ETHER_CS_PIN);  
   if (sucess == 0) {
     Serial.println( "Failed to access Ethernet controller");
@@ -76,33 +93,41 @@ void EthernetInit(boolean izpisShort) {
     
   }  	
   */
-  sucess = ether.parseIp(ether.hisip, (char*)"192.168.1.1"); 
+//  sucess = ether.parseIp(ether.hisip, (char*)"192.168.1.1"); 
+  sucess = ether.parseIp(ping_1, (char*)"192.168.1.1");  
   delay(5);
   if (sucess != 0) {
     Serial.print(F(" sucess: "));
     Serial.print(sucess);
-    ether.printIp(" Hisip: ", ether.hisip);
+//    ether.printIp(" Hisip: ", ether.hisip);
+    ether.printIp(" ping_1: ", ping_1);
     
-    sucess = ether.parseIp(ether.hisip, (char*)"192.168.2.2");
+    //sucess = ether.parseIp(ether.hisip, (char*)"192.168.2.2");
+    sucess = ether.parseIp(ping_1, (char*)"192.168.2.2");
     delay(5);
     if (sucess != 0) {
       Serial.print(F(" sucess: "));
       Serial.print(sucess);
-      ether.printIp(" Hisip: ", ether.hisip);
+//      ether.printIp(" Hisip: ", ether.hisip);
+      ether.printIp(" ping_1: ", ping_1);
     
-      sucess = ether.parseIp(ether.hisip, (char*)"192.168.2.3");
+//      sucess = ether.parseIp(ether.hisip, (char*)"192.168.2.3");
+      sucess = ether.parseIp(ping_1, (char*)"192.168.2.3");
       delay(5);
       if (sucess != 0) {
         Serial.print(F(" sucess: "));
         Serial.print(sucess);
-        ether.printIp(" Hisip: ", ether.hisip);
+//        ether.printIp(" Hisip: ", ether.hisip);
+        ether.printIp(" ping_1: ", ping_1);
     
-        sucess = ether.parseIp(ether.hisip, (char*)"192.168.2.20");
+//        sucess = ether.parseIp(ether.hisip, (char*)"192.168.2.20");
+        sucess = ether.parseIp(ping_1, (char*)"192.168.2.20");
         delay(5);
         if (sucess != 0) {
           Serial.print(F(" sucess: "));
           Serial.print(sucess);
-          ether.printIp(" Hisip: ", ether.hisip);
+//          ether.printIp(" Hisip: ", ether.hisip);
+          ether.printIp(" ping_1: ", ping_1);
     
           ether.doBIST(ETHER_CS_PIN);
           delay(5);
@@ -114,6 +139,13 @@ void EthernetInit(boolean izpisShort) {
     }    
   }
  
+ if (!ether.dnsLookup(website))
+    Serial.println("DNS failed");
+  else 
+    ether.copyIp(deviceHub_ip, ether.hisip);
+    
+  ether.printIp("SRV: ", ether.hisip);
+  ether.printIp("DeviceHub: ", deviceHub_ip);
     
   if (!izpisShort) {
     delay(100);
@@ -273,12 +305,15 @@ void CheckEthernet() {
    // ether.printIp("Pinging: ", ether.hisip);
 //    ether.parseIp(ether.hisip, "192.168.1.1");
     timerPing = millis();
-    ether.clientIcmpRequest(ether.hisip);
+//    ether.clientIcmpRequest(ether.hisip);
+    ether.clientIcmpRequest(ping_1);
+    
     statusPing = false;
     do {
       len = ether.packetReceive();
       pos = ether.packetLoop(len);
-      if (len > 0 && ether.packetLoopIcmpCheckReply(ether.hisip) == true) {  
+//      if (len > 0 && ether.packetLoopIcmpCheckReply(ether.hisip) == true) {
+      if (len > 0 && ether.packetLoopIcmpCheckReply(ping_1) == true) { 
         Serial.print(F(" Ep("));
         Serial.print(len, DEC);
         Serial.print(F(";"));
@@ -299,7 +334,8 @@ void CheckEthernet() {
       } 
     }  while (statusPing == false && millis() - timerPing < 1500);
     if (statusPing == false) {
-      ether.printIp("No ping: ", ether.hisip);   
+//      ether.printIp("No ping: ", ether.hisip);
+      ether.printIp("No ping: ", ping_1);   
 //      EthernetInit(true);
       timerPing = millis();
       statusPing = true;
@@ -325,6 +361,10 @@ void CheckEthernet() {
     Serial.print(pos, DEC);
     Serial.print(F(") "));
   }
+  
+  
+ 
+
 //  digitalWrite(ETHER_CS_PIN, LOW);
 }  
   
@@ -342,6 +382,7 @@ void EthernetIzpisInfo(void) {
 //    Serial.print(F(" sucess: "));
 //    Serial.print(sucess);
     ether.printIp("Hisip: ", ether.hisip);
+    ether.printIp("ping_1 IP: ", ping_1);
     Serial.print(F("Hisport: "));
     Serial.println(ether.hisport);
     Serial.print(F("Use DHCP: "));
@@ -362,5 +403,96 @@ void EthernetIzpisInfo(void) {
     else
       Serial.println(F("f"));  
 }
+
+void SendToProc(void) {
+  uint8_t sucess;
+  
+  char payload[] = "My UDP message";
+  uint16_t nSourcePort = 80;
+  uint16_t nDestinationPort = 5678;
+  uint8_t ipDestinationAddress[4];
+  sucess = ether.parseIp(ipDestinationAddress, "192.168.2.3");
+  if (sucess != 0) 
+      ether.printIp("Dest:", ipDestinationAddress);
+  else
+    ether.sendUdp(payload, sizeof(payload), nSourcePort, ipDestinationAddress, nDestinationPort);
+}
+
+boolean debugDeviceHub=false; 
+// called when the client request is complete
+static void my_callback (byte status, word off, word len) {
+  if (debugDeviceHub) {
+    Serial.print(F(">>>"));
+    Ethernet::buffer[off+300] = 0;
+    Serial.print((const char*) Ethernet::buffer + off);
+    Serial.print(F("..."));
+//  digitalWrite(9, HIGH);
+//  delay(200);
+//  digitalWrite(9, LOW);
+  }
+}
+
+
+
+
+// ime snazorja: Okolica_1 ; Id:1288 
+// ime snazorja: Vlaznost_0 ; Id:1289 
+void DeviceHub(void) {
+  char t0[5];
+  char t1[5];
+  char t2[6];
+  char t3[6];
+  char t4[6];
+  dtostrf(cTemperatura[OKOLICA_0], 2, 1, t0);
+  dtostrf(cVlaznost[0], 2, 1, t1);
+  dtostrf(cTemperatura[CRPALKA_0], 2, 2, t2);
+  dtostrf(cTemperatura[PEC_DV], 2, 2, t3);
+  dtostrf(cTemperatura[8], 2, 2, t4);
+//  char apiKey[] = "7b4f8725-20a1-4cdb-8937-fa3edd73cc37";
+//  char apiserver[] = "www.devicehub.net";
+//  ether.packetLoop(ether.packetReceive());
+//  if (millis() > timer) {
+ //   int chk = DHT11.read(DHT11PIN);
+    char queryString[256] = {0};
+//    sprintf(queryString, "?apiKey=7b4f8725-20a1-4cdb-8937-fa3edd73cc37&Okolica_1=%d&Vlaznost_0=%d", (int)cTemperatura[OKOLICA_0],(int)cVlaznost[0]);
+    sprintf(queryString, "?apiKey=7b4f8725-20a1-4cdb-8937-fa3edd73cc37&Ok_0=%s&Vl_0=%s&Tc_1=%s&Pe_dv=%s&Dim_1=%s", t0, t1, t2, t3, t4);
+//    timer = millis() + 5000;
+//    Serial.println();
+    Serial.print(F("<<< REQ"));
+    
+    ether.browseUrl(PSTR("/io/775/"), queryString, website, my_callback);
+
+//  }
+}  
+
+
+void ProcessingHub(void) {
+  char t0[5];
+  char t1[5];
+  char t2[6];
+  char t3[6];
+  char t4[6];
+  dtostrf(cTemperatura[OKOLICA_0], 2, 1, t0);
+  dtostrf(cVlaznost[0], 2, 1, t1);
+  dtostrf(cTemperatura[CRPALKA_0], 2, 2, t2);
+  dtostrf(cTemperatura[PEC_DV], 2, 2, t3);
+  dtostrf(cTemperatura[8], 2, 2, t4);
+//  char apiKey[] = "7b4f8725-20a1-4cdb-8937-fa3edd73cc37";
+//  char apiserver[] = "www.devicehub.net";
+//  ether.packetLoop(ether.packetReceive());
+//  if (millis() > timer) {
+ //   int chk = DHT11.read(DHT11PIN);
+    char queryString[256] = {0};
+//    sprintf(queryString, "?apiKey=7b4f8725-20a1-4cdb-8937-fa3edd73cc37&Okolica_1=%d&Vlaznost_0=%d", (int)cTemperatura[OKOLICA_0],(int)cVlaznost[0]);
+    sprintf(queryString, "?apiKey=7b4f8725-20a1-4cdb-8937-fa3edd73cc37&Ok_0=%s&Vl_0=%s&Tc_1=%s&Pe_dv=%s&Dim_1=%s", t0, t1, t2, t3, t4);
+//    timer = millis() + 5000;
+//    Serial.println();
+    Serial.print(F("<<< REQ"));
+    
+    ether.browseUrl(PSTR("/io/775/"), queryString, website, my_callback);
+
+//  }
+}  
+
 
 #endif

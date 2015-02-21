@@ -141,38 +141,12 @@ void IzpisInfoMenu(int infoLCD)
 {
   char cas[5];
   unsigned int addrTmp;
+  const char separ[ ] = ": ";
   
 //  lcdA.setCursor(0, 0);
   lcdA.clear();
       
   switch (infoLCD) {
-/*
-    case 0:
-       PrintDigitsLCDA(day());
-       lcdA.print(F("."));
-       PrintDigitsLCDA(month());
-       lcdA.print(F("."));
-       PrintDigitsLCDA(year()); 
-       lcdA.setCursor(11, 0);
-       NarediTimeStr(cas, now(), true);
-       lcdA.print(cas);
-       
-       lcdA.setCursor(0, 1);
-       lcdA.print(F("T:"));
-//       lcdA.setCursor(2, 1);
-       lcdA.print(cTemperatura[OKOLICA_0], 1);
-       
-       lcdA.print(F("C RH:"));
-//       lcdA.setCursor(11, 1);
-       lcdA.print(cVlaznost[0], 0);
-       
-       lcdA.print(F("% "));
-//       lcdA.setCursor(18, 1); 
-       lcdA.print(cHumidex[0], 1);
-       lcdA.print(F("C"));
-//       infoModeLCD=10;
-    break;
-*/    
     case 0:
     case 1:
        PrintDigitsLCDA(day());
@@ -185,26 +159,18 @@ void IzpisInfoMenu(int infoLCD)
        lcdA.print(cas);
        
        lcdA.setCursor(1, 1);
-//       lcdA.print(F("T:"));
-//       lcdA.setCursor(2, 1);
        lcdA.print(cTemperatura[OKOLICA_0], 1);
-       
        lcdA.print(F("C RH:"));
-//       lcdA.setCursor(11, 1);
        lcdA.print(cVlaznost[0], 0);
        
        lcdA.print(F("% "));
-//       lcdA.setCursor(18, 1); 
        lcdA.print(cTemperatura[CRPALKA_0], 1);
-       lcdA.print(F("C"));
-//       infoModeLCD=10;
- 
+       lcdA.print(F("C")); 
     break;
     
     case 2:
-//      lcdA.setCursor(0, 1);
       lcdA.print(sensorIme[CRPALKA_0]);
-      lcdA.print(F(" "));
+      lcdA.print(F(": "));
       lcdA.print(cTemperatura[CRPALKA_0], 2);
       
       lcdA.print(F(" "));
@@ -217,9 +183,6 @@ void IzpisInfoMenu(int infoLCD)
        addrTmp += addrLastHourTemp;
        
        i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
-//       delay(2);
-//       lcdA.setCursor(14, 1); 
-//       lcdA.print(cTemperatura[CRPALKA_0] - (((u2.uival)/100.0) - 50.0), 2);
        lcdA.print(cTemperatura[CRPALKA_0] - PretvotiEETemp2Float(u2.uival), 2);
       
       lcdA.setCursor(0, 1);
@@ -245,72 +208,42 @@ void IzpisInfoMenu(int infoLCD)
     break;  
     
     case 3:
-       PrintDigitsLCDA(day());
-       lcdA.print(F("."));
-       PrintDigitsLCDA(month());
-       lcdA.print(F("."));
-       PrintDigitsLCDA(year()); 
-       lcdA.setCursor(11, 0);
-       NarediTimeStr(cas, now(), true);
-       lcdA.print(cas);
-       
+       lcdA.print(sensorIme[PEC_PV]);
+       lcdA.print(separ); 
+       lcdA.print(cTemperatura[PEC_PV], 2);
+       lcdA.print("C");
        lcdA.setCursor(0, 1);
-       lcdA.print(sensorIme[CRPALKA_0]);
-//       lcdA.print(F("T TC:"));
-       lcdA.setCursor(7, 1);
-       lcdA.print(cTemperatura[CRPALKA_0], 2);
-       
-       if (minute() < 59) {
-         addrTmp = (unsigned int) (minute()+1) * sizeof(u2);
-       }
-       else {
-         addrTmp = (unsigned int) 0;
-       }
-       addrTmp += addrLastHourTemp;
-       
-       i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
-//       delay(2);
-       lcdA.setCursor(14, 1); 
-//       lcdA.print(cTemperatura[CRPALKA_0] - (((u2.uival)/100.0)-50.0), 2);
-       lcdA.print(cTemperatura[CRPALKA_0] - PretvotiEETemp2Float(u2.uival), 2); 
-       
-//       infoModeLCD=10;
+       lcdA.print(sensorIme[PEC_DV]);
+       lcdA.print(separ);
+       lcdA.print(cTemperatura[PEC_DV], 2);
+       lcdA.print("C");
     break;
     
     case 4:
-      lcdA.print(F("T"));
-//      lcdA.print(infoModeLCD-10+1);
-      lcdA.print(F(":"));
-      lcdA.setCursor(2, 0);
-      lcdA.print(cTemperatura[0], 1);
-      lcdA.setCursor(8, 0);
-      lcdA.print(cTemperatura[1], 1);
-      lcdA.setCursor(13, 0);
-      lcdA.print(cTemperatura[2], 1);
-      lcdA.setCursor(0, 1);
-      lcdA.print(cTemperatura[3], 1);
-      lcdA.setCursor(6, 1);
-      lcdA.print(cTemperatura[4], 1);
-      lcdA.setCursor(11, 1);
-      lcdA.print(cTemperatura[5], 1);
-      lcdA.setCursor(16, 1);
-      lcdA.print(cTemperatura[6], 1);
-/*
-      if(strlen(infoErr) > 0) {
-        lcdA.setCursor(0, 1);
-        lcdA.print(infoErr);
-      }
-*/
-//      else if (infoModeLCD-10 == crpalka_0){ 
-//        lcdA.setCursor(2, 1);
-//        lcdA.print(AvgVal(sumTemp[infoModeLCD-10], histLen*100.0));
-//      }
-        
-//        infoModeLCD = 20; 
+       lcdA.print(sensorIme[RAD_PV]);
+       lcdA.print(separ); 
+       lcdA.print(cTemperatura[RAD_PV], 2);
+       lcdA.print("C");
+       lcdA.setCursor(0, 1);
+       lcdA.print(sensorIme[RAD_DV]);
+       lcdA.print(separ);
+       lcdA.print(cTemperatura[RAD_DV], 2);
+       lcdA.print("C");
     break;
-
     
-     case 5:
+    case 5:
+       lcdA.print(sensorIme[PEC_TC_DV]);
+       lcdA.print(separ); 
+       lcdA.print(cTemperatura[PEC_TC_DV], 2);
+       lcdA.print("C");
+       lcdA.setCursor(0, 1);
+       lcdA.print(sensorIme[8]);
+       lcdA.print(separ);
+       lcdA.print(cTemperatura[8], 2);
+       lcdA.print("C");
+    break;
+    
+     case 6:
       lcdA.print(F("Tok:"));
       lcdA.setCursor(4, 0);
       lcdA.print(AC_mimax(false, true), 3);

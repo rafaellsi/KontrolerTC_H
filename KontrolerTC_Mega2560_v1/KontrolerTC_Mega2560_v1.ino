@@ -149,6 +149,7 @@ void setup(void)
   Wire.begin();
   
   //-------------------
+  delay(2000);
   LCDInitializacija();
 //  EthernetInit(false);
   TempSensorsInit(); 
@@ -200,7 +201,7 @@ void setup(void)
 
   delay(20);
   SDInit();  
-  delay(20);
+  delay(200);
   EthernetInit(false);
   
   lcdA.clear();
@@ -326,6 +327,9 @@ void loop(void)
     }
     ZapisiInIzpisiPodatke();
     prevCasMeritve = now();
+//    SendToProc();
+    CheckEthernet();
+    DeviceHub();
   }
   delay(2);
   

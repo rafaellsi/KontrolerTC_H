@@ -163,12 +163,12 @@ void PrintTempAllSDbin(void)
     myFile.print(F("/"));
     myFile.print(maxTok_12V);
     myFile.print(F(")A"));
-    
+/*    
     if (digitalRead(CO_DOUT_PIN) == HIGH) 
       myFile.println(F(" CO alarm"));
     else
       myFile.println(F(""));
-      
+*/      
     myFile.close();
     
 

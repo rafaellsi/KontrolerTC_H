@@ -31,7 +31,7 @@ void NastavitevPinov(void) {
     pinMode(ETHER_CS_PIN, OUTPUT);
   
   pinMode(ETHER_RESET_PIN, INPUT);  
-
+ // digitalWrite(ETHER_RESET_PIN, HIGH);
   
   pinMode(BEEP_PIN, OUTPUT);
   

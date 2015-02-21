@@ -140,7 +140,7 @@ void setup(void)
   Serial.println(F("Kontroler TC"));
   Serial.println(VERSION);
   
-  PreveriNapetosti(true, true, false);
+  PreveriNapetosti(true, true, true, false);
   Serial.println(F(""));
   Serial.print(F("Tok: "));
   Serial.println(Tok_12V());
@@ -151,12 +151,8 @@ void setup(void)
   //-------------------
   LCDInitializacija();
 //  EthernetInit(false);
-  
-  
   TempSensorsInit(); 
-  
   Initilizacija_CO();
-  
   
   // Start up the RTC
   tmElements_t tm;
@@ -202,12 +198,9 @@ void setup(void)
   Serial.println(infoSet);
   
 
-  delay(2000);
-   
+  delay(20);
   SDInit();  
-
-  delay(2000);
-  
+  delay(20);
   EthernetInit(false);
   
   lcdA.clear();
@@ -333,6 +326,9 @@ void loop(void)
     }
     ZapisiInIzpisiPodatke();
     prevCasMeritve = now();
+//    SendToProc();
+    CheckEthernet();
+    DeviceHub();
   }
   delay(2);
   
@@ -414,6 +410,7 @@ void loop(void)
     IzpisiNaLCD();
   }
   Tok_12V();
+  PreveriNapetosti(false, true, true, false);
   PreveriCO_Senzor();
 //  hitEnd = true;
 /*

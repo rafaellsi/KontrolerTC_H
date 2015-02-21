@@ -25,6 +25,7 @@ void Initilizacija_CO(void) {
   unsigned long coRawValSum = 0;
   unsigned long numMerCO=0;
   int coRawValMax;
+  int coRawValRef = 0;
 //  float maxVoltGas = -999.9;
 //  float minVoltGas = 999.9;
 //------------------
@@ -33,7 +34,7 @@ void PreveriCO_Senzor() {
   static unsigned long t_CO_nextHChange = 0;
   static byte co_sens_heat_level = CO_HEATING_STATE_OFF;
   static unsigned long lastGasVoltAlert;
-    
+  static unsigned long lastGasAlert;
   // biriši ko rešiš napajanje
 /*  float voltGas;
   voltGas = VoltageDivider(SENS_V5_3, v5_3_r1, v5_3_r2);
@@ -75,6 +76,7 @@ void PreveriCO_Senzor() {
     else if (co_sens_heat_level == CO_HEATING_STATE_HIGH) {
 //      noInterrupts();
       coRawVal = analogRead(CO_SENS_APIN);
+      coRawValRef = coRawVal;
 //      interrupts();
 //      coRawValSum += ((unsigned long) coRawVal);
 //      numMerCO+=1;
@@ -98,10 +100,17 @@ void PreveriCO_Senzor() {
     coRawValMax = coRawVal;
   } 
   
-  if (co_sens_heat_level != CO_HEATING_STATE_OFF) {
-    if (digitalRead(CO_DOUT_PIN) == HIGH) {
-      Serial.print(F("CO alarm"));
-//      Beep(50);
+  if (coRawValRef > 50) {
+    if (co_sens_heat_level != CO_HEATING_STATE_OFF) {
+      if (digitalRead(CO_DOUT_PIN) == HIGH) {
+        unsigned long gasAlertInterval = map((unsigned long) coRawValRef, 50UL, 1023UL, 150000UL, 0UL); 
+        if (millis() - lastGasAlert > gasAlertInterval) {
+          Serial.print(F("CO! "));
+          lastGasAlert = millis();
+          Beep(50);
+        }
+      //      
+      }
     }
   }  
 }  

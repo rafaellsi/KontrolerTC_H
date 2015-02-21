@@ -447,7 +447,7 @@ boolean UpostevajElTarife(void)
 }
 
 
-
+extern boolean debugDeviceHub;
 //---------------------
 void CheckSerial(void) {
 //  char casun[5];
@@ -531,6 +531,16 @@ void CheckSerial(void) {
          if (c == 'i') {
            EthernetIzpisInfo();
          }  
+       }
+       else if (c == 'd') {
+         c = Serial.read();
+         Serial.print(c);
+         if (c == '0') {
+           debugDeviceHub = false;  
+         }
+         else {
+           debugDeviceHub = true;  
+         }    
        }
          
      }  // if e**
@@ -704,6 +714,7 @@ float tok230V = -100.0;
 extern unsigned long coRawValSum;
 extern unsigned long numMerCO;
 extern int coRawValMax;
+extern int coRawValRef;
 
 extern float minVoltGas;
 extern float maxVoltGas;
@@ -892,7 +903,7 @@ void ZapisiInIzpisiPodatke(void) {
 //     Serial.print(F(") "));
      
      Serial.print(F(") CO:"));
-     Serial.print(coRawVal);
+     Serial.print(coRawValRef);
      Serial.print(F("("));
      Serial.print(AvgValULUL_F(coRawValSum, numMerCO), 3);
      Serial.print(F("/"));

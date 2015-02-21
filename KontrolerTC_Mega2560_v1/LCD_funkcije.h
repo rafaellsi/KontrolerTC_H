@@ -74,7 +74,7 @@ void IzpisiNaLCD(void) {
   static unsigned long t_lastNonDefaultLCDScreen;
   static int prevMenuZaslonNum;
   
-  int menuZaslonNumMax[] = {5, 1};
+  int menuZaslonNumMax[] = {7, 1};
 
   static int menuType = 0;
   int maxMenuType = 1;
@@ -220,7 +220,7 @@ void IzpisInfoMenu(int infoLCD)
     break;
     
     case 4:
-      lcdA.print(sensorIme[RAD_PV]);
+       lcdA.print(sensorIme[RAD_PV]);
        lcdA.print(separ); 
        lcdA.print(cTemperatura[RAD_PV], 2);
        lcdA.print("C");
@@ -230,9 +230,21 @@ void IzpisInfoMenu(int infoLCD)
        lcdA.print(cTemperatura[RAD_DV], 2);
        lcdA.print("C");
     break;
-
     
-     case 5:
+    case 5:
+       lcdA.print(sensorIme[PEC_TC_DV]);
+       lcdA.print(separ); 
+       lcdA.print(cTemperatura[PEC_TC_DV], 2);
+       lcdA.print("C");
+       lcdA.setCursor(0, 1);
+       lcdA.print(sensorIme[8]);
+       lcdA.print(separ);
+       lcdA.print(cTemperatura[8], 2);
+       lcdA.print("C");
+    break;
+    
+     case 6:
+     case 7:
       lcdA.print(F("Tok:"));
       lcdA.setCursor(4, 0);
       lcdA.print(AC_mimax(false, true), 3);

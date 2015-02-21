@@ -25,8 +25,8 @@ void Initilizacija_CO(void) {
   unsigned long coRawValSum = 0;
   unsigned long numMerCO=0;
   int coRawValMax;
-  float maxVoltGas = -999.9;
-  float minVoltGas = 999.9;
+//  float maxVoltGas = -999.9;
+//  float minVoltGas = 999.9;
 //------------------
 void PreveriCO_Senzor() {
 
@@ -35,13 +35,15 @@ void PreveriCO_Senzor() {
   static unsigned long lastGasVoltAlert;
     
   // biriši ko rešiš napajanje
-  float voltGas;
+/*  float voltGas;
   voltGas = VoltageDivider(SENS_V5_3, v5_3_r1, v5_3_r2);
   if (voltGas > maxVoltGas)
     maxVoltGas = voltGas;
   else if (voltGas < minVoltGas)
     minVoltGas = voltGas;  
-    
+*/    
+  float voltGas;
+  voltGas = napetost_int[3][0];
   if (voltGas > 5.80) {
     digitalWrite(CO_PWR_PIN, HIGH);
     if (now() - lastGasVoltAlert > 10) {
