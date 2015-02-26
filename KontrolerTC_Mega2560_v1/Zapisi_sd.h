@@ -151,8 +151,13 @@ void PrintTempAllSDbin(void)
     myFile.print(AC_mimax(), 3); 
     
     myFile.print(F("A CO:"));
-    myFile.print(coRawVal);
-    
+    myFile.print(coRawValRef);
+    myFile.print(F(" ("));
+    myFile.print(AvgValULUL_F(coRawValSum, numMerCO), 3);
+    myFile.print(F("/"));
+    myFile.print(coRawValMax);
+    myFile.print(F(")"));
+
     
     
     myFile.print(F(" I(12V):"));
@@ -165,10 +170,10 @@ void PrintTempAllSDbin(void)
     myFile.print(F(")A"));
 /*    
     if (digitalRead(CO_DOUT_PIN) == HIGH) 
-      myFile.println(F(" CO alarm"));
-    else
-      myFile.println(F(""));
+      myFile.print(F(" CO alarm"));
+    myFile.println(F(""));
 */      
+    myFile.println(F(""));
     myFile.close();
     
 

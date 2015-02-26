@@ -104,7 +104,7 @@ void PreveriCO_Senzor() {
     if (co_sens_heat_level != CO_HEATING_STATE_OFF) {
       if (digitalRead(CO_DOUT_PIN) == HIGH) {
         unsigned long gasAlertInterval = map((unsigned long) coRawValRef, 50UL, 1023UL, 150000UL, 0UL); 
-        if (millis() - lastGasAlert > gasAlertInterval) {
+        if (millis() - lastGasAlert > gasAlertInterval || millis() < lastGasAlert) {
           Serial.print(F("CO! "));
           lastGasAlert = millis();
           Beep(50);

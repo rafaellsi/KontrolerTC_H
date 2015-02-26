@@ -67,7 +67,7 @@ extern void Beep(unsigned char);
 
 #define LCD_OSW_SW    7     //pin za vklop osvetlitve LCD-ja
 #define LCD_RS    22        //LCD RS
-#define LCD_RW    23        //LCD RW
+//#define LCD_RW    23        //LCD RW
 #define LCD_EN    24        //LCD EN
 #define LCD_D4    25        //LCD D4
 #define LCD_D5    26        //LCD D5

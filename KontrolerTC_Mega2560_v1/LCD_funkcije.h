@@ -204,7 +204,7 @@ void IzpisInfoMenu(int infoLCD)
       
       
       lcdA.print(F(" CO:"));
-      lcdA.print(coRawVal);
+      lcdA.print(coRawValRef);
     break;  
     
     case 3:

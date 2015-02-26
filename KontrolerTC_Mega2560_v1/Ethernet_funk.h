@@ -66,11 +66,12 @@ void EthernetInit(boolean izpisShort) {
   }
 */  
   if (izpisShort) {  
-    pinMode(ETHER_RESET_PIN, OUTPUT); 
+//    pinMode(ETHER_RESET_PIN, OUTPUT); 
     digitalWrite(ETHER_RESET_PIN, LOW);
     delay(250);
-    pinMode(ETHER_RESET_PIN, INPUT); 
-    delay(20);
+    digitalWrite(ETHER_RESET_PIN, HIGH);
+//    pinMode(ETHER_RESET_PIN, INPUT); 
+    delay(25);
 //    digitalWrite(ETHER_RESET_PIN, HIGH);
 //    delay(250);
   } 
@@ -242,15 +243,17 @@ static word homePage() {
     "<h3> T1: $SC <br> T2: $SC <br> T3: $SC <br> T4: $SC <br> T5: $SC <br> T6: $SC <br> T7: $SC <br> T8: $SC <br> T9: $SC <br>"
     "RH: $S% <br>"
     "Humidex: $SC<br>"
-    "CO: $D</h3> <br>"),
+//    "CO: $D</h3> <br>"),
+    "CO: $D<br>"
+    "State: $D$D$D$D </h3> <br>"),
       itime, 
       t0, t1, t2, t3, t4, t5, t6, t7, t8,
       rh,
       hum,
-      coRawVal);
+      coRawValRef,
+      prevCrpTCState, prevVentTCState, prevCrpRadState, stateCevStPecTC);
   return bfill.position();
 }
-
 
 //--------------------------------------------------------------------------------
 
@@ -455,11 +458,11 @@ void DeviceHub(void) {
  //   int chk = DHT11.read(DHT11PIN);
     char queryString[256] = {0};
 //    sprintf(queryString, "?apiKey=7b4f8725-20a1-4cdb-8937-fa3edd73cc37&Okolica_1=%d&Vlaznost_0=%d", (int)cTemperatura[OKOLICA_0],(int)cVlaznost[0]);
-    sprintf(queryString, "?apiKey=7b4f8725-20a1-4cdb-8937-fa3edd73cc37&Ok_0=%s&Vl_0=%s&Tc_1=%s&Pe_dv=%s&Dim_1=%s", t0, t1, t2, t3, t4);
+    sprintf(queryString, "?apiKey=7b4f8725-20a1-4cdb-8937-fa3edd73cc37&Ok_0=%s&Vl_0=%s&Tc_1=%s&Pe_dv=%s&Dim_1=%s&CO_Raw=%d", t0, t1, t2, t3, t4, coRawValRef);
 //    timer = millis() + 5000;
 //    Serial.println();
     Serial.print(F("<<< REQ"));
-    
+
     ether.browseUrl(PSTR("/io/775/"), queryString, website, my_callback);
 
 //  }
@@ -484,7 +487,7 @@ void ProcessingHub(void) {
  //   int chk = DHT11.read(DHT11PIN);
     char queryString[256] = {0};
 //    sprintf(queryString, "?apiKey=7b4f8725-20a1-4cdb-8937-fa3edd73cc37&Okolica_1=%d&Vlaznost_0=%d", (int)cTemperatura[OKOLICA_0],(int)cVlaznost[0]);
-    sprintf(queryString, "?apiKey=7b4f8725-20a1-4cdb-8937-fa3edd73cc37&Ok_0=%s&Vl_0=%s&Tc_1=%s&Pe_dv=%s&Dim_1=%s", t0, t1, t2, t3, t4);
+    sprintf(queryString, "?apiKey=7b4f8725-20a1-4cdb-8937-fa3edd73cc37&Ok_0=%s&Vl_0=%s&Tc_1=%s&Pe_dv=%s&Dim_1=%s&CO_Raw=%d", t0, t1, t2, t3, t4, coRawValRef);
 //    timer = millis() + 5000;
 //    Serial.println();
     Serial.print(F("<<< REQ"));
