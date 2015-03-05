@@ -877,7 +877,7 @@ void ZapisiInIzpisiPodatke(void) {
     Serial.flush();
     Serial.print(F("On time: "));
     
-    Serial.println(""); 
+     
 
     if (prevTCState == 0) {
       if (onTimeTC > 0) 
@@ -885,7 +885,26 @@ void ZapisiInIzpisiPodatke(void) {
     }
     else if (prevTCState == 1)
        Serial.print(Sec2Hour(onTimeTC + now() - lastTCStateChg));
-
+    
+    Serial.print("/");
+    if (prevCrpTCState == 0) {
+      Serial.print(Sec2Hour(onTimeCrpTC)); 
+    }
+    else {
+      Serial.print(Sec2Hour(onTimeCrpTC + now() - lastCrpTCStateChg));  
+    }  
+    
+    Serial.print("/");
+    
+    if (prevCrpRadState == 0) {
+      Serial.print(Sec2Hour(onTimeCrpRad)); 
+    }
+    else {
+      Serial.print(Sec2Hour(onTimeCrpRad + now() - lastCrpRadStateChg));  
+    }  
+    
+    
+    Serial.println("");
 
      
      Serial.print(F(" Tv:"));

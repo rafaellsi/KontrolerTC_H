@@ -36,7 +36,7 @@ float RefTemp(void);
 
 //definicija spremenljivk
 DeviceAddress devAddress[MAXSENSORS_DS];  //
-unsigned long convWaitTime = 850;  //1000
+unsigned long convWaitTime = 800;  //1000
 boolean temeratureIzmerjene=true;
 
 

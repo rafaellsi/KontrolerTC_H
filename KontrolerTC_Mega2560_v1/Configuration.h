@@ -231,7 +231,7 @@ int minCrpRadRunTimeMin = 7;
 //------------------------------------------
 byte prevCrpRadState = 0;
 float minDiffDvOkolCrpRad = 10.0;
-unsigned long lastCrpRadStateChg;
+
 
 //------------------------------------------
 //float limTempCrpRad[]
@@ -278,6 +278,12 @@ unsigned long onTimeTC = 0;
 byte prevTCState;
 unsigned long lastTCStateChg = 0;  //cas zadnjega preklopa TC ali kompresorja TC
 boolean releState_TC = R_TC_OFF;  // stanje releja vklopa TC
+
+unsigned long lastCrpTCStateChg;
+unsigned long onTimeCrpTC=0;
+
+unsigned long lastCrpRadStateChg;
+unsigned long onTimeCrpRad=0;
 
 unsigned long casMeritve;        //cas meritve parametrov
 unsigned long prevCasMeritve;    //cas prejšnje meritve parametrov

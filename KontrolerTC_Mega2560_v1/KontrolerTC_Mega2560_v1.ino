@@ -299,7 +299,9 @@ void loop(void)
   }
   // po preteku convWaitTime preberi temperature DS18X20
   // convWaitTime - v ms
-  if ((millis() >= (casMeritve + convWaitTime)) && (temeratureIzmerjene == false)) {
+  if (temeratureIzmerjene == false) {
+  if ((millis() >= (casMeritve + convWaitTime))) {
+
     Serial.print(F("/"));
     Serial.print(millis() - casMeritve);
     Serial.print(F("'"));
@@ -331,6 +333,7 @@ void loop(void)
     CheckEthernet();
     DeviceHub();
   }
+}
   delay(2);
   
   if (tok230V < 0)
@@ -394,6 +397,10 @@ void loop(void)
       coRawValSum = 0.0;
       numMerCO = 0;
       coRawValMax = 0;
+      
+      onTimeCrpTC = 0;
+      onTimeCrpRad = 0;
+      
       prevDay = day();
     }
   }  
@@ -612,7 +619,7 @@ void PovezTCPec(byte newState) {
             }
           }
           else if (preklopCrpTCVzr == 2) {
-            if ((stateCevStPecTC == CEV_TERM_OFF) || (cTemperatura[CRPALKA_0] > cTemperatura[PEC_DV])) {
+            if ((stateCevStPecTC == CEV_TERM_OFF) || ((cTemperatura[CRPALKA_0] > cTemperatura[PEC_DV]) && (cTemperatura[CRPALKA_0] < tempIzklopaVentCrpTC))) {
               PreklopiVentilTCPec(0);
             }
           }  

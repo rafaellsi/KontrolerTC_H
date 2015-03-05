@@ -15,13 +15,12 @@ byte prevVentTCState = 255;
 
 unsigned long lastVentTCChg[2];
 int preklopCrpTCVzr = 0;
-unsigned long lastCrpTCStateChg;
+
 //--------------------------------------------------------------------------------
 void PreklopiCrpalkoRad(byte newState)
 {
   char cas[13];
-  prevCrpRadState = newState;
-  lastCrpRadStateChg = now();
+  
   
   if (newState == 1) {
     digitalWrite(RELE_CRAD, R_CRAD_ON);
@@ -35,12 +34,16 @@ void PreklopiCrpalkoRad(byte newState)
   else {
     digitalWrite(RELE_CRAD, R_CRAD_OFF);
     
+    onTimeCrpRad += (now() - lastCrpRadStateChg);
+    
     ZapisiOnOffSD(0, 10);
     Serial.println(F(" "));
     NarediTimeStr(cas, now());
     Serial.print(cas);
     Serial.print(F(" Izkolp crp. radiator"));
   }
+  prevCrpRadState = newState;
+  lastCrpRadStateChg = now();
 }
 
 
@@ -127,13 +130,13 @@ void PreklopiCrpalkoTC(byte newState)
     if (newState == 1) {
       digitalWrite(RELE_CTC, R_CTC_ON);
       
-      ZapisiOnOffSD(1, 2);
       
+      ZapisiOnOffSD(1, 2);
       Serial.print(F(" Vklop crpalke "));    
     }
     else {
       digitalWrite(RELE_CTC, R_CTC_OFF);
-      
+      onTimeCrpTC += (now() - lastCrpTCStateChg);
       ZapisiOnOffSD(0, 2);
 
       Serial.print(F(" Izklop crpalke"));

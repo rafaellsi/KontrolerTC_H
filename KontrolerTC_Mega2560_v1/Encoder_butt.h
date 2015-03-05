@@ -92,7 +92,7 @@ void Encoder_init(void) {
 
 } // setup
 
-#define MAX_LCD_OSV 160
+
 // -----------------------------------------------------------------------------
 
 static void Encoder_check(void) {
@@ -101,6 +101,7 @@ static void Encoder_check(void) {
   byte lastSwState;
   static int lastCount = 0;
   static unsigned long osvetLCD_start;
+  static unsigned long buttonStart;
   
   rotating = true;
   
@@ -111,15 +112,20 @@ static void Encoder_check(void) {
       virtualPosition = 0;            // if YES, then reset counter to ZERO
       osvetlitevLCD = MAX_LCD_OSV;
       osvetLCD_start = now();
-//     analogWrite(LCD_OSW_SW, osvetlitevLCD);
-//    while (!digitalRead(ENC_SW_PIN)) {  // wait til switch is released
-//    }
       Beep(25);
       Serial.print(F("Button pressed"));
       buttonPressed = true;
-//      }  
+      buttonStart = now();
     }
-    
+    else {
+      if (now() - buttonStart > 5000) {
+        LCDInitializacija();
+ //       buttonStart = now();
+        Beep(45);
+        
+      }    
+        
+    }  
 //    delay(2);                      // debounce       
   }
   prevSwState = lastSwState;
