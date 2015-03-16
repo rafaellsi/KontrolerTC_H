@@ -28,7 +28,7 @@ static byte ipmask[] = { 255,255,252,0 }; // ip mask
 // ethernet mac address - must be unique on your network
 static byte mymac[] = { 0x74,0x69,0x69,0x2D,0x30,0x31 };
 
-char website[] PROGMEM = "www.devicehub.net";
+const char website[] PROGMEM = "www.devicehub.net";
 
 //byte Ethernet::buffer[500]; // tcp/ip send and receive buffer
 byte Ethernet::buffer[700]; // tcp/ip send and receive buffer
