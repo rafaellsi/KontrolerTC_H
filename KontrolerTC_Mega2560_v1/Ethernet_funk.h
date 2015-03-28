@@ -304,7 +304,7 @@ void CheckEthernet() {
   }
   
 */  
- if (millis() - timerPing > 128750) {
+ if (millis() - timerPing > 987654) {
    // ether.printIp("Pinging: ", ether.hisip);
 //    ether.parseIp(ether.hisip, "192.168.1.1");
     timerPing = millis();

@@ -313,9 +313,9 @@ void loop(void)
     }  
 
     if ((now() - lastTCStateChg > (1 + prevTCState*4.0)*(unsigned)minRunTimeMin * 60) && (now() - lastReleChg > (unsigned)minRunTimeMin * 60)) {   
-      if (releState_TC == R_TC_OFF) {
-        if (RefTemp() < TempVklopa()) {
-          PreklopiTC(RELE_TC, R_TC_ON);
+      if (stateTC == TC_OFF) {
+        if (RefTemp(0) < TempVklopa()) {
+          PreklopiTC(-1, TC_ON);
           if (seRracunaHitrGret) {
             izracHitrGret=true;
           }
@@ -324,8 +324,8 @@ void loop(void)
           }
         }
       }  
-      else if (RefTemp() > TempIzklopa())
-        PreklopiTC(RELE_TC, R_TC_OFF);
+      else if (RefTemp(B01) > TempIzklopa())
+        PreklopiTC(-1, TC_OFF);
     }
     ZapisiInIzpisiPodatke();
     prevCasMeritve = now();
@@ -343,13 +343,13 @@ void loop(void)
   // če je rele vklopljen
   // kontrola toka, če je kompresor vklopljen in start meritve porabe ...
   // stanje TC v -> prevTCState =  1
-  if (releState_TC == R_TC_ON || measureOnly) {
+  if (stateTC == TC_ON /*|| measureOnly*/) {
     if (tok230V >= mejaToka) {
       if (AC_mimax() >= mejaToka) {
         if (prevTCState == 0) {
           prevTCState =  1;
           lastTCStateChg = now();
-          startTemp = RefTemp();
+          startTemp = RefTemp(0);
           zacPorabaWH = porabaWH;
           tempOkolicaSt = cTemperatura[OKOLICA_0];
           u4.ulval = lastTCStateChg;
@@ -368,7 +368,7 @@ void loop(void)
         prevTCState = 0;
         lastRunTime = (now() - lastTCStateChg);
         onTimeTC += (now() - lastTCStateChg); 
-        hitrGret = 3600.0 * (RefTemp() - startTemp)/((float) lastRunTime);
+        hitrGret = 3600.0 * (RefTemp(0) - startTemp)/((float) lastRunTime);
         u4.ulval = onTimeTC;
         i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrOnTime, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4)); // write to EEPROM 
         ZapisiOnOffSD(0);
@@ -480,7 +480,7 @@ static byte StatePovezTCPec(byte state)
         return(1);
       }
       if (!IsNTempCas()) {
-        if (RefTemp() < TempVklopaCrpTC_NTemp()) {
+        if (RefTemp(0) < TempVklopaCrpTC_NTemp()) {
           preklopCrpTCVzr = 1;
           return(1);
         }
@@ -527,7 +527,7 @@ static byte StatePovezTCPec(byte state)
       }
       if (preklopCrpTCVzr > 0) {
         if (preklopCrpTCVzr == 1) {
-          if (RefTemp() > TempIzklopaCrpTC_NTemp()) {
+          if (RefTemp(0) > TempIzklopaCrpTC_NTemp()) {
             return(0);  
           }
         }
@@ -614,7 +614,7 @@ void PovezTCPec(byte newState) {
             }
           }
           else if (preklopCrpTCVzr == 1) {
-            if (RefTemp() > TempIzklopaCrpTC_NTemp()) {
+            if (RefTemp(0) > TempIzklopaCrpTC_NTemp()) {
               PreklopiVentilTCPec(0);
             }
           }
@@ -713,19 +713,78 @@ void StateCrpalkeRad()
 static void  PreklopiTC(int relePin, int newState)
 {
  
+float min_TempOK_TCKomp = 5.0;
+float max_TempOK_TCKomp = 35.0;
+
+unsigned long minZakasnitevVentilatorja = 5;
+static unsigned long lastVentilReleChg;
+
 /*  
   #ifdef TC_EL_GRELEC
    
   #endif
   if (releTC = )
 */  
+/* 
   if (measureOnly)
     digitalWrite(relePin, R_TC_ON);
   else  
     digitalWrite(relePin, newState);
+*/
   
-  releState_TC = newState;
-  lastReleChg = now();  
+
+  
+  if (stikaloState[STIKALO_TC] = STIKALO_STATE_OFF) {
+    return;
+  }
+  
+  if (newState = TC_ON) {
+    if (cTemperatura[OKOLICA_0] > min_TempOK_TCKomp && cTemperatura[OKOLICA_0] < max_TempOK_TCKomp) {
+      if (releState_ventKompTC == R_TC_VENT_ON) {
+        if (releState_kompTC == R_TC_KOMP_OFF) {
+          if (now() - lastVentilReleChg > minZakasnitevVentilatorja) { 
+            digitalWrite(RELE_TC_KOMP, R_TC_KOMP_ON);
+            lastReleChg = now();
+            releState_kompTC = R_TC_KOMP_ON;
+            stateTC = TC_ON; 
+          }
+        }
+      }
+      else if (releState_ventKompTC == R_TC_VENT_OFF) {
+        digitalWrite(RELE_TC_VENT, R_TC_VENT_ON);
+        lastVentilReleChg = now();   
+        releState_ventKompTC = R_TC_VENT_ON;
+      }    
+    }
+    else if (USEEGRELEC == true) {
+    }
+  }
+  
+  else {  // if (newState = TC_OFF)
+    if (releState_kompTC == R_TC_KOMP_OFF) {
+      if (releState_ventKompTC == R_TC_VENT_ON) {
+        if (now() - lastReleChg > minZakasnitevVentilatorja) {
+          digitalWrite(RELE_TC_VENT, R_TC_VENT_OFF);
+          lastVentilReleChg = now();   
+          releState_ventKompTC = R_TC_VENT_OFF;
+        }
+      }
+    }
+    else if (releState_kompTC == R_TC_KOMP_ON) {
+      digitalWrite(RELE_TC_KOMP, R_TC_KOMP_OFF); 
+      lastReleChg = now();
+      releState_kompTC = R_TC_KOMP_OFF;
+      stateTC = TC_OFF; 
+    }
+  }  
+           
+          
+  
+  digitalWrite(relePin, newState);
+  
+//  releState_TC = newState;
+//  lastReleChg = now();  
+
 }
 
 //--------------------------------------------------------------------------------

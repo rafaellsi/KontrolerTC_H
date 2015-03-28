@@ -137,7 +137,8 @@ void PrintTempAllSDbin(void)
       myFile.print(F("%"));
     }  
     myFile.print(F(" "));
-    if (releState_TC == R_TC_ON) {
+    /*
+    if (stateTC == TC_ON) {
       if (prevTCState == 1) 
         myFile.print(F("ON"));
        else
@@ -145,7 +146,19 @@ void PrintTempAllSDbin(void)
      }
      else
        myFile.print(F("OFF"));
-    
+    */
+    if (releState_ventKompTC == R_TC_VENT_ON)
+      myFile.print(F("V"));
+  
+    if (stateTC == TC_ON) {
+      if (releState_kompTC == R_TC_KOMP_ON)
+        myFile.print(F("K"));  
+      if (releState_egrelecTC == R_TC_EGREL_ON)
+        myFile.print(F("EG"));
+    }
+    else {
+      myFile.print(F("OFF"));
+    }
     
     myFile.print(F(" "));
     myFile.print(AC_mimax(), 3); 
@@ -233,7 +246,7 @@ void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
         myFile.print(ime);
         myFile.print(F("  "));
         
-        myFile.print(RefTemp());
+        myFile.print(RefTemp(0));
         myFile.print(F("  On:"));
         myFile.print((now() - lastTCStateChg)/60.0); 
         myFile.print(F("min  Hitr.g: "));

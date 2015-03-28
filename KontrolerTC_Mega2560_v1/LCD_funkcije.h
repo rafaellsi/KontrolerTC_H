@@ -24,9 +24,10 @@ void IzpisInfoMenu(int infoLCD);
 void LCDInitializacija(void) {
   
   lcdA.begin(20, 2);
+  delay(250);
   lcdA.print(F(" LCD OK"));
   analogWrite(LCD_OSW_SW, MAX_LCD_OSV);
-  delay(250);
+  
 }
 
 //--------------------------------------------------------------------------------------------
@@ -186,7 +187,8 @@ void IzpisInfoMenu(int infoLCD)
        lcdA.print(cTemperatura[CRPALKA_0] - PretvotiEETemp2Float(u2.uival), 2);
       
       lcdA.setCursor(0, 1);
-      if (releState_TC == R_TC_ON) {
+      /*
+      if (stateTC == TC_ON) {
         if (prevTCState == 1) 
           lcdA.print(F("ON"));
         else
@@ -194,7 +196,20 @@ void IzpisInfoMenu(int infoLCD)
       }
       else
         lcdA.print(F("OFF"));
-    
+      */
+      if (releState_ventKompTC == R_TC_VENT_ON)
+        lcdA.print("V");
+  
+      if (stateTC == TC_ON) {
+        if (releState_kompTC == R_TC_KOMP_ON)
+          lcdA.print(F("K"));  
+        if (releState_egrelecTC == R_TC_EGREL_ON)
+          lcdA.print(F("EG"));
+      }
+      else {
+        lcdA.print(F("OFF"));
+      }
+      
       lcdA.setCursor(5,1);
       if (prevTCState == 0)
          lcdA.print(AutoTimeUnitConv(onTimeTC, cas),2);
@@ -251,7 +266,7 @@ void IzpisInfoMenu(int infoLCD)
       lcdA.print(F("A"));
       
       lcdA.setCursor(11, 0);
-      if (releState_TC == R_TC_ON) {
+      if (stateTC == TC_ON) {
         if (prevTCState == 1) 
           lcdA.print(F("ON"));
         else

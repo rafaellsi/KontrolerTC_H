@@ -14,7 +14,11 @@ byte prevCrpTCState = 0;
 byte prevVentTCState = 255;
 
 unsigned long lastVentTCChg[2];
-int preklopCrpTCVzr = 0;
+int preklopCrpTCVzr = 0;        //0 - normal
+                                //1 - 
+                                //2 - 
+                                //3 - 
+                                //4 - 
 
 //--------------------------------------------------------------------------------
 void PreklopiCrpalkoRad(byte newState)

@@ -30,7 +30,7 @@ boolean IsCasTransfTopl();
 
 void last24H_Info(void);
 unsigned int ObsegZgodovine(int sensor, unsigned int pred);
-float RefTemp(void);
+float RefTemp(byte refTempType);
 
 
 
@@ -39,7 +39,7 @@ DeviceAddress devAddress[MAXSENSORS_DS];  //
 unsigned long convWaitTime = 800;  //1000
 boolean temeratureIzmerjene=true;
 
-
+float avgTempVodeTC;
 //--------------------------------------------------------------------------------
 // Inicializacija temp. senzorjev
 void TempSensorsInit(void) {
@@ -173,7 +173,8 @@ void TempSensorsInit(void) {
     lcdA.setCursor(7, 0);
     lcdA.print(cTemperatura[i],1);
     delay(2000);    
-  }    
+  }
+  avgTempVodeTC = cTemperatura[CRPALKA_0]; 
 }  
 
 
@@ -515,7 +516,11 @@ void PrintTemperatureAll(void)
         Serial.print(F("/"));
         Serial.print(u2test.uival);
       }  
- */     
+ */   
+      Serial.print("/");
+      float avgWeight = 1.0/(float) zamikMerTemp;
+      avgTempVodeTC = ((1.0-avgWeight)*avgTempVodeTC) + (avgWeight * cTemperatura[i]); 
+      Serial.print(avgTempVodeTC);
       Serial.print(F(")"));
         
     }    
@@ -899,9 +904,11 @@ void last24H_Info(void)
 
 //--------------------------------------------------------------------------------
 //
-float RefTemp(void)
+float RefTemp(byte refTempType)
 {
  // return(AvgAllTimeTemp(CRPALKA_0));
+  if (refTempType == B01) 
+    return(avgTempVodeTC);
   return(cTemperatura[CRPALKA_0]);
 }
 

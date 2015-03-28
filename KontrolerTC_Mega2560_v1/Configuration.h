@@ -15,21 +15,34 @@ extern void Beep(unsigned char);
 #define SOB  7    //sobota, .....
 
 //----------
+
+#define USEEGRELEC false    //ali se uporablja električni grelec
+
+//#define R_TC_ON   LOW      // z RELE_TC - električni grelec ali Priključek TC
+//#define R_TC_OFF  HIGH
+#define TC_ON   true      // z RELE_TC - električni grelec ali Priključek TC
+#define TC_OFF  false
+
 //in/out state definition realys
-#define R_TC_ON   LOW      // z RELE_TC
-#define R_TC_OFF  HIGH
+
 
 #define R_CRAD_ON   LOW      // z RELE_CRAD
-#define R_CRAD_OFF  HIGH
+#define R_CRAD_OFF  HIGH     // rele crpalke radijatorjev
 
 #define R_CTC_ON   LOW      //z RELE_CTC 
-#define R_CTC_OFF  HIGH
+#define R_CTC_OFF  HIGH     //rele za crpalko na povezavi TC-pec
 
 #define CEV_TERM_ON   LOW    //cevni termostat - internal pullup
 #define CEV_TERM_OFF  HIGH
 
+#define R_TC_EGREL_ON   LOW      // z RELE_TC_EGREL
+#define R_TC_EGREL_OFF  HIGH     // električni grelec ali Priključek TC 
 
+#define R_TC_VENT_ON  LOW  // z RELE_TC_VENT 
+#define R_TC_VENT_OFF  HIGH  // ventilator kompresorja TC
 
+#define R_TC_KOMP_ON  LOW  // z RELE_TC_KOMP 
+#define R_TC_KOMP_OFF  HIGH  // kompresor TC
 
 //----------
 // pin and address definition
@@ -96,11 +109,12 @@ extern void Beep(unsigned char);
 //#define stikalo  37            //stikalo 4
 //#define stikalo  38
 
-//#define Rele 4/4  39
-//#define Rele 3/4  40
-#define RELE_CTC    41    // rele 2/4 za crpalko na TC
+#define RELE_TC_KOMP  39    // rele 4/4 kompresor TC  
+#define RELE_TC_VENT  40    // rele 3/4 ventilator TC
+#define RELE_CTC    41    // rele 2/4 za crpalko na povezavi TC-pec
 #define RELE_CRAD   42    // rele 1/4 crpalke radijatorjev
-#define RELE_TC     43    //rele 1 proklopljen na pin D7 -> D40 - vklop  TC
+//#define RELE_EL_GREL_TC     43    //rele 1 proklopljen na pin D7 -> D40 - vklop  TC
+#define RELE_TC_EGREL     43    // RELE_TC - električni grelec ali Priključek TC
 
 //#define L298 En2  44    //ENB  - enable input 3,4
 //#define L298 1/2  45    //l298 4/4  - input 3
@@ -178,7 +192,7 @@ ui2byte2 u2;
 
 
 //------------------------------------------
-boolean measureOnly = false;
+//boolean measureOnly = false;
 boolean showCRC = true;  // izpis kontrolnih parametrov na serial
 
 //------------------------------------------
@@ -195,7 +209,8 @@ float dTemp = 5.0;  // default 5.0
 
 //------------------------------------------
 float minTempNightOn = 32.5;
-float ciljnaTemp = 50;
+float ciljnaTemp = 52;
+float ciljnaTempWeekend = 48;
 //float deltaTh = 5.55;   // do 16.Oct.2012
 //float deltaTh = 4.35;   //
 float deltaTh;
@@ -204,6 +219,9 @@ float deltaThSt;
 const float tKompOK = 20.0;
 //const float tKompSt = 20.0;
 const float tKompSt = 50.0;
+
+int zamikMerTemp = 15;  // hitrost gretja se računa "zamikMerTemp" po izklopu TC
+                        // povprečenje temperature vode v TC za izračun izklopa TC
 
 //------------------------------------------
 int uraVTemp[] = {6, 21};  //obdobje vklopa pri temp minTempVTOn - 0-start, 1-end
@@ -277,7 +295,15 @@ float cTempRosicsa[MAX_DHT22_SENS];
 unsigned long onTimeTC = 0;
 byte prevTCState;
 unsigned long lastTCStateChg = 0;  //cas zadnjega preklopa TC ali kompresorja TC
-boolean releState_TC = R_TC_OFF;  // stanje releja vklopa TC
+
+boolean releState_ventKompTC = R_TC_VENT_OFF;
+boolean releState_kompTC = R_TC_KOMP_OFF;
+boolean releState_egrelecTC = R_TC_EGREL_OFF;
+boolean  stateTC = TC_OFF; 
+    // stateTC = B00000001 - ventilator ON
+    //         = B00000010 - kompresro ON
+    //         = B00000100 - el. grelec ON
+//boolean releState_TC = R_TC_OFF;  // stanje releja vklopa TC
 
 unsigned long lastCrpTCStateChg;
 unsigned long onTimeCrpTC=0;

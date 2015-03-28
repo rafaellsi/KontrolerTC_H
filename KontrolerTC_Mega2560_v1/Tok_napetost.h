@@ -2,7 +2,7 @@
 #ifndef Tok_napetost_h
 #define Tok_napetost_h
 
-extern boolean releState_TC;
+//extern boolean releState_TC;
 //extern float vccInternal;
 //extern int midR;
 
@@ -37,7 +37,7 @@ float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
   float tok01;
   float vccFactor = 1.0;
   
-  if (releState_TC == R_TC_OFF && forceCalc == false)
+  if (stateTC == TC_ON && forceCalc == false)
     return(0.0);
   
   

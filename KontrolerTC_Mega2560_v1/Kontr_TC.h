@@ -35,8 +35,14 @@ void NastavitevPinov(void) {
   
   pinMode(BEEP_PIN, OUTPUT);
   
-  pinMode(RELE_TC, OUTPUT);
-  digitalWrite(RELE_TC, releState_TC);
+
+  pinMode(RELE_TC_KOMP, OUTPUT);
+  digitalWrite(RELE_TC_KOMP, R_TC_VENT_OFF);
+  pinMode(RELE_TC_VENT, OUTPUT);
+  digitalWrite(RELE_TC_VENT, R_TC_KOMP_OFF);
+  
+  pinMode(RELE_TC_EGREL, OUTPUT);
+  digitalWrite(RELE_TC_EGREL, releState_egrelecTC);
   
   pinMode(RELE_CTC, OUTPUT);
   PreklopiCrpalkoTC(0);

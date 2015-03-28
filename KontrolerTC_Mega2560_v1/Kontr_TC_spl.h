@@ -321,7 +321,7 @@ float TempVklopa(void)
       return(minTempNightOn);    
     }
     else {
-      return(105.0);
+      return(ciljnaTempWeekend - dTemp);
     }
   }
   else {
@@ -355,7 +355,7 @@ float TempIzklopa(void)
       }  
       return(minTempNightOn + dTemp);
     }
-    return(105.0); 
+    return(ciljnaTempWeekend); 
   }
 }
 
@@ -596,7 +596,7 @@ void IzracunHitrostiGretjaTC(void) {
   float alpha;
   
       if (prevTCState == 0) {
-        if (now() - lastTCStateChg > 15*60L) {  
+        if (now() - lastTCStateChg > (unsigned long) zamikMerTemp*60UL) {  
           alpha = 0.99;
           if (izracHitrGret) {  
             alpha = 0.9;
@@ -733,10 +733,15 @@ void ZapisiInIzpisiPodatke(void) {
     
     
     Serial.print(F(" "));
+    Serial.print(!releState_ventKompTC);
+    Serial.print(!releState_kompTC);
     Serial.print(prevCrpTCState);
     Serial.print(prevVentTCState);
     Serial.print(prevCrpRadState);
-    Serial.print(stateCevStPecTC);
+    Serial.print(!stateCevStPecTC);
+    
+    
+    
     Serial.print(F(" "));
     Serial.print(manuCrpTCState, BIN);
     Serial.print(F(" "));
@@ -980,15 +985,18 @@ void PrintData(void)
   Serial.print(F(" -> "));
   PrintTemperatureAll();
   
-  if (releState_TC == R_TC_ON) {
-    if (prevTCState == 1) 
-       Serial.print(F("ON"));
-     else
-       Serial.print(F("SB"));
+  if (releState_ventKompTC == R_TC_VENT_ON)
+      Serial.print(F("V"));
+  
+  if (stateTC == TC_ON) {
+    if (releState_kompTC == R_TC_KOMP_ON)
+      Serial.print(F("K"));  
+    if (releState_egrelecTC == R_TC_EGREL_ON)
+      Serial.print(F("EG"));
    }
-   else
+   else {
      Serial.print(F("OFF"));
-
+   }
 }
 
 //--------------------------------------------------------------------------------
