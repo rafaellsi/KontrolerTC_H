@@ -20,8 +20,8 @@ extern void Beep(unsigned char);
 
 //#define R_TC_ON   LOW      // z RELE_TC - električni grelec ali Priključek TC
 //#define R_TC_OFF  HIGH
-#define TC_ON   true      // z RELE_TC - električni grelec ali Priključek TC
-#define TC_OFF  false
+#define STATE_TC_ON   1      // z RELE_TC - električni grelec ali Priključek TC
+#define STATE_TC_OFF  0
 
 //in/out state definition realys
 
@@ -210,7 +210,7 @@ float dTemp = 5.0;  // default 5.0
 //------------------------------------------
 float minTempNightOn = 32.5;
 float ciljnaTemp = 52;
-float ciljnaTempWeekend = 48;
+float ciljnaTempWeekend = 50;
 //float deltaTh = 5.55;   // do 16.Oct.2012
 //float deltaTh = 4.35;   //
 float deltaTh;
@@ -296,10 +296,10 @@ unsigned long onTimeTC = 0;
 byte prevTCState;
 unsigned long lastTCStateChg = 0;  //cas zadnjega preklopa TC ali kompresorja TC
 
-boolean releState_ventKompTC = R_TC_VENT_OFF;
-boolean releState_kompTC = R_TC_KOMP_OFF;
-boolean releState_egrelecTC = R_TC_EGREL_OFF;
-boolean  stateTC = TC_OFF; 
+byte releState_ventKompTC = R_TC_VENT_OFF;
+byte releState_kompTC = R_TC_KOMP_OFF;
+byte releState_egrelecTC = R_TC_EGREL_OFF;
+byte  stateTC = STATE_TC_OFF; 
     // stateTC = B00000001 - ventilator ON
     //         = B00000010 - kompresro ON
     //         = B00000100 - el. grelec ON
@@ -321,6 +321,8 @@ float lastDeltaTh;
 float lastDeltaThOk;
 float lastDeltaThSt;
 
+float lastHourTempChange;
+
 unsigned long lastRunTime;
 float tempOkolicaSt;
 
@@ -339,6 +341,9 @@ int osvetlitevLCD = 0;
 float sumTok_12V = 0.0;
 float maxTok_12V;
 unsigned long nMerTok_12V = 0;
+
+
+
 
 char infoErr[8];
 

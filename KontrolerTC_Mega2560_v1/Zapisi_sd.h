@@ -150,7 +150,7 @@ void PrintTempAllSDbin(void)
     if (releState_ventKompTC == R_TC_VENT_ON)
       myFile.print(F("V"));
   
-    if (stateTC == TC_ON) {
+    if (stateTC == STATE_TC_ON) {
       if (releState_kompTC == R_TC_KOMP_ON)
         myFile.print(F("K"));  
       if (releState_egrelecTC == R_TC_EGREL_ON)
@@ -202,6 +202,8 @@ void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
   // * 1 - vklop/izklop ventila TC
   // * 2 - vklop/izklop crpalke TC
   // * 10 - vklop/izklop crpalke rediatorjev
+  // * 20 - vklop/izklop ventilatorja kompresorja TC
+  // * 25 - vklop/izklop kompresorja TC
   // * 100 - hitrost gretja
   
   // state:
@@ -321,6 +323,10 @@ void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
           myFile.print(F("Vkl. crpalke TC: "));
         else if(tipSpremembe == 10) 
           myFile.print(F("Vkl. crpalke rad.: "));
+        else if(tipSpremembe == 20) 
+          myFile.print(F("Vkl. vent.TC: ")); 
+        else if(tipSpremembe == 20) 
+          myFile.print(F("Vkl. kompr.TC: "));  
           
         NarediTimeStr(ime, now());
         myFile.print(ime);
@@ -340,6 +346,10 @@ void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
           myFile.print(F("Izkl.crpalke TC: "));
         else if(tipSpremembe == 10) 
           myFile.print(F("Izkl. crpalke rad.: "));
+        else if(tipSpremembe == 20) 
+          myFile.print(F("Izkl. vent.TC: "));
+        else if(tipSpremembe == 25) 
+          myFile.print(F("Izkl. kompr.TC: "));      
           
         NarediTimeStr(ime, now());
         myFile.print(ime);

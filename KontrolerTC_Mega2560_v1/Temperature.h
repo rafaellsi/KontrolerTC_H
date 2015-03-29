@@ -40,6 +40,7 @@ unsigned long convWaitTime = 800;  //1000
 boolean temeratureIzmerjene=true;
 
 float avgTempVodeTC;
+
 //--------------------------------------------------------------------------------
 // Inicializacija temp. senzorjev
 void TempSensorsInit(void) {
@@ -490,7 +491,11 @@ void PrintTemperatureAll(void)
       delay(2);
 
 //      Serial.print(cTemperatura[i] - ((u2.uival/100.0)-50.0), 2);
-      Serial.print(cTemperatura[i] - PretvotiEETemp2Float(u2.uival), 2);
+
+//      Serial.print(cTemperatura[i] - PretvotiEETemp2Float(u2.uival), 2);      
+      lastHourTempChange = cTemperatura[i] - PretvotiEETemp2Float(u2.uival);
+      Serial.print(lastHourTempChange, 2); 
+      
 
 
      
@@ -518,7 +523,7 @@ void PrintTemperatureAll(void)
       }  
  */   
       Serial.print("/");
-      float avgWeight = 1.0/(float) zamikMerTemp;
+      float avgWeight = 0.5/(float) zamikMerTemp;
       avgTempVodeTC = ((1.0-avgWeight)*avgTempVodeTC) + (avgWeight * cTemperatura[i]); 
       Serial.print(avgTempVodeTC);
       Serial.print(F(")"));
@@ -907,8 +912,11 @@ void last24H_Info(void)
 float RefTemp(byte refTempType)
 {
  // return(AvgAllTimeTemp(CRPALKA_0));
-  if (refTempType == B01) 
-    return(avgTempVodeTC);
+  if (refTempType == B01) {
+    if (prevCrpTCState == 1) {  
+      return(avgTempVodeTC);
+    }
+  }  
   return(cTemperatura[CRPALKA_0]);
 }
 

@@ -311,7 +311,7 @@ void loop(void)
     if (izracHitrGret || izracHitrGretInfo) {
       IzracunHitrostiGretjaTC(); 
     }  
-
+/*
     if ((now() - lastTCStateChg > (1 + prevTCState*4.0)*(unsigned)minRunTimeMin * 60) && (now() - lastReleChg > (unsigned)minRunTimeMin * 60)) {   
       if (stateTC == TC_OFF) {
         if (RefTemp(0) < TempVklopa()) {
@@ -327,6 +327,7 @@ void loop(void)
       else if (RefTemp(B01) > TempIzklopa())
         PreklopiTC(-1, TC_OFF);
     }
+ */   
     ZapisiInIzpisiPodatke();
     prevCasMeritve = now();
 //    SendToProc();
@@ -336,6 +337,30 @@ void loop(void)
 }
   delay(2);
   
+  if ((now() - lastTCStateChg > (1 + prevTCState*4.0)*(unsigned)minRunTimeMin * 60) && (now() - lastReleChg > (unsigned)minRunTimeMin * 60)) {   
+    if (stateTC == STATE_TC_OFF) {
+      if (RefTemp(0) < TempVklopa()) {
+        PreklopiTC(STATE_TC_ON);
+        if (seRracunaHitrGret) {
+          izracHitrGret=true;
+        }
+        else {
+          izracHitrGretInfo=true;  
+        }
+      }
+      else if (releState_ventKompTC == R_TC_VENT_ON) {  //if (RefTemp(0) < TempVklopa()) {
+        if (releState_kompTC == R_TC_KOMP_OFF) {
+          PreklopiTC(STATE_TC_OFF);
+        }
+      }  
+    }  
+    else if (RefTemp(B01) > TempIzklopa())
+      PreklopiTC(STATE_TC_OFF);
+  }
+  
+  
+  
+  
   if (tok230V < 0)
     tok230V = AC_mimax();
   
@@ -343,11 +368,11 @@ void loop(void)
   // če je rele vklopljen
   // kontrola toka, če je kompresor vklopljen in start meritve porabe ...
   // stanje TC v -> prevTCState =  1
-  if (stateTC == TC_ON /*|| measureOnly*/) {
-    if (tok230V >= mejaToka) {
-      if (AC_mimax() >= mejaToka) {
-        if (prevTCState == 0) {
-          prevTCState =  1;
+  if (stateTC == STATE_TC_ON /*|| measureOnly*/) {
+//    if (tok230V >= mejaToka) {
+//      if (AC_mimax() >= mejaToka) {
+        if (prevTCState == STATE_TC_OFF) {
+          prevTCState =  STATE_TC_ON;
           lastTCStateChg = now();
           startTemp = RefTemp(0);
           zacPorabaWH = porabaWH;
@@ -359,26 +384,29 @@ void loop(void)
           izracHitrGretInfo = true;
           ZapisiOnOffSD(1);
         }
-      }
-    }
+//      }
+//    }
   }
-  if (prevTCState == 1) {
-    if (tok230V < mejaToka) {
-      if (AC_mimax() < mejaToka) {
-        prevTCState = 0;
-        lastRunTime = (now() - lastTCStateChg);
-        onTimeTC += (now() - lastTCStateChg); 
-        hitrGret = 3600.0 * (RefTemp(0) - startTemp)/((float) lastRunTime);
-        u4.ulval = onTimeTC;
-        i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrOnTime, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4)); // write to EEPROM 
-        ZapisiOnOffSD(0);
-        lastTCStateChg = now();
-        u4.ulval = lastTCStateChg;
-        i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrLastChg, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
-        delay(5);
-        i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrPrevTCState, AT24C32_ADDR_LENGH, prevTCState);
-      }
-    }
+
+  else {
+    if (prevTCState == STATE_TC_ON) {
+//      if (tok230V < mejaToka) {
+//        if (AC_mimax() < mejaToka) {
+          prevTCState = STATE_TC_OFF;
+          lastRunTime = (now() - lastTCStateChg);
+          onTimeTC += (now() - lastTCStateChg); 
+          hitrGret = 3600.0 * (RefTemp(0) - startTemp)/((float) lastRunTime);
+          u4.ulval = onTimeTC;
+          i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrOnTime, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4)); // write to EEPROM 
+          ZapisiOnOffSD(0);
+          lastTCStateChg = now();
+          u4.ulval = lastTCStateChg;
+          i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrLastChg, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
+          delay(5);
+          i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrPrevTCState, AT24C32_ADDR_LENGH, prevTCState);
+        }
+//      }
+//    }
   }
   //--------------------
   // resetiranje in zapis podtkov konec dneva
@@ -710,14 +738,16 @@ void StateCrpalkeRad()
 
 //--------------------------------------------------------------------------------
 //
-static void  PreklopiTC(int relePin, int newState)
+static void  PreklopiTC(byte newState)
 {
- 
-float min_TempOK_TCKomp = 5.0;
-float max_TempOK_TCKomp = 35.0;
+  
+  char cas[13];
+  
+  float min_TempOK_TCKomp = 5.0;
+  float max_TempOK_TCKomp = 35.0;
 
-unsigned long minZakasnitevVentilatorja = 5;
-static unsigned long lastVentilReleChg;
+  unsigned long minZakasnitevVentilatorja = 20;
+  static unsigned long lastVentilReleChg;
 
 /*  
   #ifdef TC_EL_GRELEC
@@ -734,19 +764,27 @@ static unsigned long lastVentilReleChg;
   
 
   
-  if (stikaloState[STIKALO_TC] = STIKALO_STATE_OFF) {
+  if (stikaloState[STIKALO_TC] == STIKALO_STATE_OFF) {
     return;
   }
   
-  if (newState = TC_ON) {
+  if (newState == STATE_TC_ON) {
     if (cTemperatura[OKOLICA_0] > min_TempOK_TCKomp && cTemperatura[OKOLICA_0] < max_TempOK_TCKomp) {
       if (releState_ventKompTC == R_TC_VENT_ON) {
         if (releState_kompTC == R_TC_KOMP_OFF) {
-          if (now() - lastVentilReleChg > minZakasnitevVentilatorja) { 
+          if (RelaksTimeLimitSec(now(), lastVentilReleChg, minZakasnitevVentilatorja)) {
+ //         if (now() - lastVentilReleChg > minZakasnitevVentilatorja) { 
             digitalWrite(RELE_TC_KOMP, R_TC_KOMP_ON);
             lastReleChg = now();
             releState_kompTC = R_TC_KOMP_ON;
-            stateTC = TC_ON; 
+            stateTC = STATE_TC_ON;
+            
+            Serial.println("");
+            NarediTimeStr(cas, now());
+            Serial.print(cas);
+            Serial.print(F(" Vklop kompresorja TC")); 
+            
+            ZapisiOnOffSD(1, 25); 
           }
         }
       }
@@ -754,19 +792,34 @@ static unsigned long lastVentilReleChg;
         digitalWrite(RELE_TC_VENT, R_TC_VENT_ON);
         lastVentilReleChg = now();   
         releState_ventKompTC = R_TC_VENT_ON;
+        
+        Serial.println("");
+        NarediTimeStr(cas, now());
+        Serial.print(cas);
+        Serial.print(F(" Vklop vent. kompresorja TC")); 
+            
+        ZapisiOnOffSD(1, 20);
       }    
     }
-    else if (USEEGRELEC == true) {
-    }
+//    else if (USEEGRELEC == true) {
+//    }
   }
   
   else {  // if (newState = TC_OFF)
     if (releState_kompTC == R_TC_KOMP_OFF) {
       if (releState_ventKompTC == R_TC_VENT_ON) {
-        if (now() - lastReleChg > minZakasnitevVentilatorja) {
+        if (RelaksTimeLimitSec(now(), lastReleChg, minZakasnitevVentilatorja)) {
+ //       if (now() - lastReleChg > minZakasnitevVentilatorja) {
           digitalWrite(RELE_TC_VENT, R_TC_VENT_OFF);
           lastVentilReleChg = now();   
           releState_ventKompTC = R_TC_VENT_OFF;
+          
+          Serial.println("");
+          NarediTimeStr(cas, now());
+          Serial.print(cas);
+          Serial.print(F(" Izklop vent. kompresorja TC")); 
+          
+          ZapisiOnOffSD(0, 20);
         }
       }
     }
@@ -774,13 +827,23 @@ static unsigned long lastVentilReleChg;
       digitalWrite(RELE_TC_KOMP, R_TC_KOMP_OFF); 
       lastReleChg = now();
       releState_kompTC = R_TC_KOMP_OFF;
-      stateTC = TC_OFF; 
+      stateTC = STATE_TC_OFF;
+      
+      Serial.println("");
+      NarediTimeStr(cas, now());
+      Serial.print(cas);
+      Serial.print(F(" Izklop kompresorja TC")); 
+            
+      ZapisiOnOffSD(0, 25); 
     }
   }  
            
+
+ 
+ 
           
   
-  digitalWrite(relePin, newState);
+//  digitalWrite(relePin, newState);
   
 //  releState_TC = newState;
 //  lastReleChg = now();  

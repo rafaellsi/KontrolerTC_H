@@ -279,7 +279,7 @@ float TempVklopaCrpTC_NTemp() {
     tmpTemp = max(TempVklopa() + minDiffTCPec, (TempVklopa() +  ciljnaTemp)/2.0);
     return(tmpTemp);
   }
-  return(ciljnaTemp - minDiffTCPec);
+  return(ciljnaTempWeekend - minDiffTCPec);
 }
 
 //--------------------------------------------------------------------------------
@@ -290,7 +290,7 @@ float TempIzklopaCrpTC_NTemp() {
     tmpTemp = max(TempIzklopa() + minDiffTCPec, histCrpTC + (TempVklopa() +  ciljnaTemp)/2.0);  
     return(tmpTemp);
   }
-  return(ciljnaTemp + minDiffTCPec);
+  return(ciljnaTempWeekend + minDiffTCPec);
 }
 
 //-------------------------------------------------------------------------------- 
@@ -321,7 +321,10 @@ float TempVklopa(void)
       return(minTempNightOn);    
     }
     else {
-      return(ciljnaTempWeekend - dTemp);
+      if ((-1.0)*lastHourTempChange > dTemp/2.0) {
+        return(ciljnaTempWeekend - (0.5 * dTemp));
+      }  
+      return(ciljnaTempWeekend - dTemp - lastHourTempChange);
     }
   }
   else {
@@ -733,6 +736,7 @@ void ZapisiInIzpisiPodatke(void) {
     
     
     Serial.print(F(" "));
+    Serial.print(prevTCState);
     Serial.print(!releState_ventKompTC);
     Serial.print(!releState_kompTC);
     Serial.print(prevCrpTCState);
@@ -885,8 +889,8 @@ void ZapisiInIzpisiPodatke(void) {
      
 
     if (prevTCState == 0) {
-      if (onTimeTC > 0) 
-      Serial.print(Sec2Hour(onTimeTC));  
+ //     if (onTimeTC > 0) 
+       Serial.print(Sec2Hour(onTimeTC));  
     }
     else if (prevTCState == 1)
        Serial.print(Sec2Hour(onTimeTC + now() - lastTCStateChg));
@@ -988,7 +992,7 @@ void PrintData(void)
   if (releState_ventKompTC == R_TC_VENT_ON)
       Serial.print(F("V"));
   
-  if (stateTC == TC_ON) {
+  if (stateTC == STATE_TC_ON) {
     if (releState_kompTC == R_TC_KOMP_ON)
       Serial.print(F("K"));  
     if (releState_egrelecTC == R_TC_EGREL_ON)

@@ -37,7 +37,7 @@ float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
   float tok01;
   float vccFactor = 1.0;
   
-  if (stateTC == TC_ON && forceCalc == false)
+  if (stateTC == STATE_TC_OFF && forceCalc == false)
     return(0.0);
   
   

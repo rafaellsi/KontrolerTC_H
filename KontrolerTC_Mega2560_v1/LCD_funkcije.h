@@ -200,7 +200,7 @@ void IzpisInfoMenu(int infoLCD)
       if (releState_ventKompTC == R_TC_VENT_ON)
         lcdA.print("V");
   
-      if (stateTC == TC_ON) {
+      if (stateTC == STATE_TC_ON) {
         if (releState_kompTC == R_TC_KOMP_ON)
           lcdA.print(F("K"));  
         if (releState_egrelecTC == R_TC_EGREL_ON)
@@ -266,6 +266,7 @@ void IzpisInfoMenu(int infoLCD)
       lcdA.print(F("A"));
       
       lcdA.setCursor(11, 0);
+/*
       if (stateTC == TC_ON) {
         if (prevTCState == 1) 
           lcdA.print(F("ON"));
@@ -274,7 +275,20 @@ void IzpisInfoMenu(int infoLCD)
       }
       else
         lcdA.print(F("OFF"));
-    
+ */     
+      if (releState_ventKompTC == R_TC_VENT_ON)
+        lcdA.print("V");
+  
+      if (stateTC == STATE_TC_ON) {
+        if (releState_kompTC == R_TC_KOMP_ON)
+          lcdA.print(F("K"));  
+        if (releState_egrelecTC == R_TC_EGREL_ON)
+          lcdA.print(F("EG"));
+      }
+      else {
+        lcdA.print(F("OFF"));
+      }
+      
       lcdA.setCursor(15,0);
       if (prevTCState == 0)
          lcdA.print(AutoTimeUnitConv(onTimeTC, cas),2);
