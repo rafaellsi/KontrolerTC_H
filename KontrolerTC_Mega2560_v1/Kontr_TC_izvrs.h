@@ -136,14 +136,14 @@ void PreklopiCrpalkoTC(byte newState)
       
       
       ZapisiOnOffSD(1, 2);
-      Serial.print(F(" Vklop crpalke "));    
+      Serial.print(F(" Vklop crpalke TC"));    
     }
     else {
       digitalWrite(RELE_CTC, R_CTC_OFF);
       onTimeCrpTC += (now() - lastCrpTCStateChg);
       ZapisiOnOffSD(0, 2);
 
-      Serial.print(F(" Izklop crpalke"));
+      Serial.print(F(" Izklop crpalke TC"));
       
       ResetCrpTCVzr();
     }

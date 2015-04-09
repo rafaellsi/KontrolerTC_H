@@ -526,8 +526,12 @@ void PrintTemperatureAll(void)
       float avgWeight = 0.5/(float) zamikMerTemp;
       avgTempVodeTC = ((1.0-avgWeight)*avgTempVodeTC) + (avgWeight * cTemperatura[i]); 
       Serial.print(avgTempVodeTC);
-      Serial.print(F(")"));
-        
+//      Serial.print(F(")"));
+      
+      Serial.print("/");
+      avgLHTCVodeTC = ((1.0-avgWeightLHTC)*avgLHTCVodeTC) + (avgWeightLHTC * lastHourTempChange);
+      Serial.print(avgLHTCVodeTC);
+      Serial.print(F(")"));  
     }    
     
     

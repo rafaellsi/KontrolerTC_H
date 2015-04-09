@@ -115,7 +115,7 @@ static void Encoder_check(void) {
       Beep(25);
       Serial.print(F("Button pressed"));
       buttonPressed = true;
-      buttonStart = now();
+      buttonStart = millis();
     }
     else {
       if (now() - buttonStart > 5000) {

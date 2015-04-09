@@ -231,7 +231,7 @@ void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
   else {
     if (tipSpremembe == 0) {
       if (state == 1) {
-        myFile.print(F("Vklop: "));
+        myFile.print(F("Vklop TC: "));
         NarediTimeStr(ime, lastTCStateChg);
         myFile.print(ime);
 
@@ -243,7 +243,7 @@ void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
         myFile.println(F(")"));
       } //state == 1
       else if (state == 0) {
-        myFile.print(F("Izklop: "));
+        myFile.print(F("Izklop TC: "));
         NarediTimeStr(ime, now());
         myFile.print(ime);
         myFile.print(F("  "));
@@ -325,7 +325,7 @@ void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
           myFile.print(F("Vkl. crpalke rad.: "));
         else if(tipSpremembe == 20) 
           myFile.print(F("Vkl. vent.TC: ")); 
-        else if(tipSpremembe == 20) 
+        else if(tipSpremembe == 25) 
           myFile.print(F("Vkl. kompr.TC: "));  
           
         NarediTimeStr(ime, now());

@@ -337,27 +337,28 @@ void loop(void)
 }
   delay(2);
   
-  if ((now() - lastTCStateChg > (1 + prevTCState*4.0)*(unsigned)minRunTimeMin * 60) && (now() - lastReleChg > (unsigned)minRunTimeMin * 60)) {   
-    if (stateTC == STATE_TC_OFF) {
+  if (stateTC == STATE_TC_OFF) {
+    if ((now() - lastTCStateChg > (1 + prevTCState*4.0)*(unsigned)minRunTimeMin * 60) && (now() - lastReleChg > (unsigned)minRunTimeMin * 60)) {   
       if (RefTemp(0) < TempVklopa()) {
         PreklopiTC(STATE_TC_ON);
-        if (seRracunaHitrGret) {
-          izracHitrGret=true;
-        }
-        else {
-          izracHitrGretInfo=true;  
-        }
-      }
-      else if (releState_ventKompTC == R_TC_VENT_ON) {  //if (RefTemp(0) < TempVklopa()) {
-        if (releState_kompTC == R_TC_KOMP_OFF) {
-          PreklopiTC(STATE_TC_OFF);
-        }
       }  
+   }
+   else if (releState_ventKompTC == R_TC_VENT_ON) {  //if (RefTemp(0) < TempVklopa()) {
+     if (releState_kompTC == R_TC_KOMP_OFF) {
+       PreklopiTC(STATE_TC_OFF);
+      }  
+    }
+  }    
+  else {  //if (stateTC == STATE_TC_OFF)
+    if ((now() - lastTCStateChg > (1 + prevTCState*4.0)*(unsigned)minRunTimeMin * 60) && (now() - lastReleChg > (unsigned)minRunTimeMin * 60)) {  
+      if ((RefTemp(B01) > TempIzklopa()) || ((RefTemp(B00) > TempIzklopa()) && prevCrpTCState == R_CTC_ON)) {//if (stateTC == STATE_TC_OFF)
+        PreklopiTC(STATE_TC_OFF);
+      }
+    }
+    else if ((cTemperatura[OKOLICA_0] < min_TempOK_TCKomp) || (cTemperatura[OKOLICA_0] > max_TempOK_TCKomp) || (cTemperatura[CRPALKA_0] > maxDovTempVodeTC_Komp)) {
+      PreklopiTC(STATE_TC_OFF);  
     }  
-    else if (RefTemp(B01) > TempIzklopa())
-      PreklopiTC(STATE_TC_OFF);
   }
-  
   
   
   
@@ -381,7 +382,13 @@ void loop(void)
           i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrLastChg, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
           delay(5);
           i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrPrevTCState, AT24C32_ADDR_LENGH, prevTCState);
-          izracHitrGretInfo = true;
+//          izracHitrGretInfo = true;
+          if (seRracunaHitrGret) {
+            izracHitrGret=true;
+          }
+          else {
+            izracHitrGretInfo=true;  
+          }
           ZapisiOnOffSD(1);
         }
 //      }
@@ -743,8 +750,7 @@ static void  PreklopiTC(byte newState)
   
   char cas[13];
   
-  float min_TempOK_TCKomp = 5.0;
-  float max_TempOK_TCKomp = 35.0;
+
 
   unsigned long minZakasnitevVentilatorja = 20;
   static unsigned long lastVentilReleChg;

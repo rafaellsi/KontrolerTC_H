@@ -307,9 +307,15 @@ boolean izracHitrGret = false;
 boolean izracHitrGretInfo=false;
 boolean seRracunaHitrGret;
 
+float avgWeightLHTC = (0.5/(float) zamikMerTemp);
+float avgLHTCVodeTC = -0.5;
 //--------------------------------------------------------------------------------
 float TempVklopa(void)
 {
+  float lhcc;
+  
+  
+  
   seRracunaHitrGret = false;
   
   if (IsWeekend()) {
@@ -321,15 +327,36 @@ float TempVklopa(void)
       return(minTempNightOn);    
     }
     else {
-      if ((-1.0)*lastHourTempChange > dTemp/2.0) {
+      
+     /*
+      lhcc = (-1.0)* lastHourTempChange - dTemp/((float) zamikMerTemp);
+      if (lhcc > dTemp/2.0) {
         return(ciljnaTempWeekend - (0.5 * dTemp));
-      }  
-      return(ciljnaTempWeekend - dTemp - lastHourTempChange);
+      }
+      return(ciljnaTempWeekend - dTemp + lhcc);
+*/
+    
+    
+    
+//    lhcc = (-1.0)* lastHourTempChange + avgLHTCVodeTC;
+      lhcc = avgLHTCVodeTC - lastHourTempChange;
+      if (lhcc > dTemp/2.0) {
+        return(ciljnaTempWeekend - (0.5 * dTemp));
+      }
+
+      return(ciljnaTempWeekend - dTemp + lhcc);  
     }
   }
   else {
     if (!IsNTempCas()) {
-      return(minTempVTOn);
+//      avgLHTCVodeTC = ((1.0-avgWeightLHTC)*avgLHTCVodeTC) + (avgWeightLHTC * lastHourTempChange);
+//      lhcc = (-1.0)* lastHourTempChange + avgLHTCVodeTC;
+      lhcc = avgLHTCVodeTC - lastHourTempChange;
+      //if ((-1.0)*lastHourTempChange > dTemp/2.0) {
+      if (lhcc > dTemp/2.0) {
+        return(minTempVTOn + (0.5 * dTemp));
+      }   
+      return(minTempVTOn + lhcc);
     }
     if (!UpostevajElTarife()) {
         return(IzracunLimitTemp(0, minTempVTOn));  
@@ -338,6 +365,9 @@ float TempVklopa(void)
     return(IzracunLimitTemp(0, ciljnaTemp));
   }
 }
+
+ 
+
 
 //--------------------------------------------------------------------------------
 float TempIzklopa(void)
@@ -598,7 +628,7 @@ void IzracunHitrostiGretjaTC(void) {
   
   float alpha;
   
-      if (prevTCState == 0) {
+      if (prevTCState == STATE_TC_OFF) {
         if (now() - lastTCStateChg > (unsigned long) zamikMerTemp*60UL) {  
           alpha = 0.99;
           if (izracHitrGret) {  

@@ -210,9 +210,16 @@ float dTemp = 5.0;  // default 5.0
 //------------------------------------------
 float minTempNightOn = 32.5;
 float ciljnaTemp = 52;
-float ciljnaTempWeekend = 50;
+float ciljnaTempWeekend = 48;
 //float deltaTh = 5.55;   // do 16.Oct.2012
 //float deltaTh = 4.35;   //
+//float tempPregrvanja = 60.0;
+
+float min_TempOK_TCKomp = 5.0;
+float max_TempOK_TCKomp = 35.0;
+
+float maxDovTempVodeTC_Komp = 64.0;
+
 float deltaTh;
 float deltaThOk;
 float deltaThSt;
