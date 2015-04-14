@@ -1,0 +1,141 @@
+.TH "//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" 3 "Sat Apr 11 2015" "Kontroler TC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <inttypes\&.h>\fP
+.br
+\fC#include <Arduino\&.h>\fP
+.br
+\fC#include <Wire\&.h>\fP
+.br
+
+.SS "Makro deklaracije"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSTIKALO_ON\fP   LOW"
+.br
+.ti -1c
+.RI "#define \fBSTIKALO_OFF\fP   HIGH"
+.br
+.ti -1c
+.RI "#define \fBSTIKALO_STATE_AUT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSTIKALO_STATE_ON\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSTIKALO_STATE_OFF\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSTIKALO_CRP_RAD\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSTIKALO_CRP_TC\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSTIKALO_TC\fP   2"
+.br
+.in -1c
+.SS "Funkcije"
+
+.in +1c
+.ti -1c
+.RI "void \fBPreklopiCrpalkoTC\fP (byte newState)"
+.br
+.ti -1c
+.RI "void \fBBeep\fP (unsigned char delayms)"
+.br
+.ti -1c
+.RI "void \fBNastavitevPinov\fP (void)"
+.br
+.ti -1c
+.RI "void \fBInitParametri\fP (void)"
+.br
+.ti -1c
+.RI "void \fBPreveriStikala\fP (boolean izpisState)"
+.br
+.in -1c
+.SS "Spremenljivke"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBstikaloState\fP [3]"
+.br
+.ti -1c
+.RI "char \fBstikaloStateTxt\fP [3][4] = {'AUT', 'ON', 'OFF'}"
+.br
+.in -1c
+.SH "Opis makro definicije"
+.PP 
+.SS "#define STIKALO_CRP_RAD   0"
+
+.PP
+Definirano v 267 vrstici datoteke Kontr_TC\&.h\&.
+.SS "#define STIKALO_CRP_TC   1"
+
+.PP
+Definirano v 268 vrstici datoteke Kontr_TC\&.h\&.
+.SS "#define STIKALO_OFF   HIGH"
+
+.PP
+Definirano v 261 vrstici datoteke Kontr_TC\&.h\&.
+.SS "#define STIKALO_ON   LOW"
+
+.PP
+Definirano v 260 vrstici datoteke Kontr_TC\&.h\&.
+.SS "#define STIKALO_STATE_AUT   0"
+
+.PP
+Definirano v 263 vrstici datoteke Kontr_TC\&.h\&.
+.SS "#define STIKALO_STATE_OFF   2"
+
+.PP
+Definirano v 265 vrstici datoteke Kontr_TC\&.h\&.
+.SS "#define STIKALO_STATE_ON   1"
+
+.PP
+Definirano v 264 vrstici datoteke Kontr_TC\&.h\&.
+.SS "#define STIKALO_TC   2"
+
+.PP
+Definirano v 269 vrstici datoteke Kontr_TC\&.h\&.
+.SH "Opis funkcije"
+.PP 
+.SS "void Beep (unsigned char delayms)"
+
+.PP
+Definirano v 34 vrstici datoteke LCD_funkcije\&.h\&.
+.SS "void InitParametri (void)"
+
+.PP
+Definirano v 83 vrstici datoteke Kontr_TC\&.h\&.
+.SS "void NastavitevPinov (void)"
+
+.PP
+Definirano v 23 vrstici datoteke Kontr_TC\&.h\&.
+.SS "void PreklopiCrpalkoTC (byte newState)"
+
+.PP
+Definirano v 115 vrstici datoteke Kontr_TC_izvrs\&.h\&.
+.SS "void PreveriStikala (boolean izpisState)"
+
+.PP
+Definirano v 278 vrstici datoteke Kontr_TC\&.h\&.
+.SH "Opis spremenljivke"
+.PP 
+.SS "uint8_t stikaloState[3]"
+
+.PP
+Definirano v 271 vrstici datoteke Kontr_TC\&.h\&.
+.SS "char stikaloStateTxt[3][4] = {'AUT', 'ON', 'OFF'}"
+
+.PP
+Definirano v 275 vrstici datoteke Kontr_TC\&.h\&.
+.SH "Avtor"
+.PP 
+zgenerirano z Doxygen-om za Kontroler TC iz izvorne kode\&.

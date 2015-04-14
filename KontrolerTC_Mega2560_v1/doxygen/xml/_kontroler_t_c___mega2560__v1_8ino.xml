@@ -1,0 +1,916 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="_kontroler_t_c___mega2560__v1_8ino" kind="file" language="C++">
+    <compoundname>KontrolerTC_Mega2560_v1.ino</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Kontroler_TC_Vx_xx.ino</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.02<sp/>-<sp/>dodan<sp/>zapis<sp/>senzorjev<sp/>v<sp/>tabelo</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.03<sp/>-<sp/>dodan<sp/>RTC<sp/>-<sp/>DS1307</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/>*<sp/>Scl<sp/>-&gt;<sp/>A5</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/>*<sp/>Sda<sp/>-&gt;<sp/>A4</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.04<sp/>-<sp/>spremenjen<sp/>izpis<sp/>na<sp/>&quot;Serial&quot;</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.05<sp/>-<sp/>dodan<sp/>time<sp/>Interval<sp/>povprecje</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.06<sp/>-<sp/>dodan<sp/>rele</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>dodan<sp/>tok<sp/>sens<sp/>(ASC712)<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.09a<sp/>-<sp/>osnovna<sp/>Dallas<sp/>knjiznica</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.10a<sp/>-<sp/>ciscenje<sp/>programa</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>test<sp/>interna<sp/>temp.<sp/>in<sp/>voltaza<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>dodana<sp/>nastavitev<sp/>casa</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.11a<sp/>-<sp/>dodan<sp/>LCD</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/>pin<sp/>&quot;chipSelectSD&quot;<sp/>prestavljen<sp/>iz<sp/>8<sp/>na<sp/>10</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.13a<sp/>-<sp/>logika<sp/>za<sp/>tc</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.14a<sp/>-<sp/>ciscenje<sp/>viska</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.20<sp/>-<sp/>prvo<sp/>testiranje<sp/>na<sp/>napravi</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.23<sp/>-<sp/>sprememba<sp/>&quot;deltaTh&quot;<sp/>iz<sp/>8.0<sp/>na<sp/>6.45</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.27<sp/>-<sp/>spremenjena<sp/>&quot;setup&quot;<sp/>procedura</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>dodan<sp/>podatek<sp/>o<sp/>FreeRAM</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>odstranitev<sp/>nekaterih<sp/>nastavitev<sp/>preko<sp/>serial</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>redefinicija<sp/>pavze<sp/>v<sp/>&quot;loop&quot;....<sp/></highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.28<sp/>-<sp/>skrajsanje<sp/>skice<sp/>-<sp/>dodan<sp/>&quot;__SER_DEBUG__&quot;</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.29</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.30<sp/>-<sp/>shranjevanje<sp/>temp<sp/>v<sp/>Eprom<sp/>(AT24C32),<sp/>izracun<sp/>povprecja<sp/>zanjh<sp/>24<sp/>ur</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//Kontroler_TC_Mega2560_Vx_xx.ino</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.31<sp/>-<sp/>prestavitev<sp/>v<sp/>Mego<sp/>iz<sp/>&quot;Kontroler_TC_v0_31.ino&quot;</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.32<sp/>-<sp/>dodani<sp/>senzorji<sp/>na<sp/>peci</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>zamenjava<sp/>tok<sp/>senzorja<sp/>(staro<sp/>5A,<sp/>nov<sp/>20A)</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>dodano<sp/>RF<sp/>oddajnik<sp/>FS1000A<sp/>-<sp/>virtual<sp/>wire</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.33<sp/>-<sp/>iskanje<sp/>tezave<sp/>z<sp/>prekinitvami</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.36<sp/>-<sp/>dodano<sp/>krmiljenje<sp/>crplke<sp/>ogrevanja<sp/>vode<sp/>iz<sp/>peci</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>dodano<sp/>krmiljenje<sp/>vetila<sp/>povezave<sp/>pec-TC</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.37<sp/>-<sp/>dodano<sp/>&quot;nocno&quot;<sp/>prenos<sp/>toplote<sp/>iz<sp/>peci<sp/>v<sp/>TC</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.38<sp/>-<sp/>zniana<sp/>temp.<sp/>vklopa<sp/>crpalke<sp/>TC<sp/><sp/><sp/><sp/><sp/>iz<sp/>80<sp/>-&gt;<sp/>75<sp/>(izlop<sp/>75<sp/>-&gt;<sp/>70)</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/><sp/>povisana<sp/>temp<sp/>stalno<sp/>odprtega<sp/>ventila<sp/>55<sp/>-&gt;<sp/>60</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>podaljsan<sp/>cas<sp/>min.<sp/>delovanja<sp/><sp/>5-&gt;7<sp/>min<sp/></highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>dodan<sp/>zamik<sp/>zapiranja<sp/>ventila<sp/>za<sp/>izklopom<sp/>crpalke</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.39<sp/>-<sp/>dodan<sp/>pogoj<sp/>za<sp/>vklop(izklop)<sp/>pri<sp/>nizki<sp/>temp.<sp/>cez<sp/>dan<sp/>na<sp/>delavnik</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.40<sp/>-<sp/>dodan<sp/>temp.<sp/>senzor<sp/>na<sp/>izhod<sp/>na<sp/>peci<sp/>proti<sp/>TC<sp/>(&quot;pec_TC_dv&quot;)</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>dodano<sp/>branje<sp/>cevnega<sp/>termostata</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.41<sp/>-<sp/>nova<sp/>funkcija<sp/>za<sp/>preverjanje<sp/>statusa<sp/>in<sp/>preklope<sp/>crpalke<sp/>in<sp/>ventila<sp/>TC</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>uporaba<sp/>cevnega<sp/>stikala</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.42<sp/>-<sp/>odpravljanje<sp/>tezav<sp/>pri<sp/>pogojih<sp/>vklopa<sp/>crpalke<sp/>TC</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.43<sp/>-<sp/>dodano<sp/>obratovanja<sp/>TC,<sp/>kot<sp/>pogoj<sp/>za<sp/>vklop<sp/>crpalke<sp/>&quot;prevTCState<sp/>==<sp/>1&quot;</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.44<sp/>-<sp/>spremenjene<sp/>temperature<sp/>vlopa<sp/>crpalke<sp/>TC<sp/>(TempVklopaCrpTC_NTemp()),<sp/>pri<sp/>dnevnem<sp/>delovanju<sp/>(!IsNTempCas())</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.45<sp/>-<sp/>dodano<sp/>stikalo<sp/>za<sp/>upostevanje<sp/>el.<sp/>tarife<sp/>pri<sp/>vklopu<sp/>TC<sp/>&quot;upostevajElTarife<sp/>=<sp/>true/false)</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>spremenjeno<sp/>iz<sp/>3<sp/>-&gt;<sp/>2<sp/>minute<sp/>&quot;minCrpTCRunTimeMin&quot;</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.46<sp/>-<sp/>spremenejen<sp/>zapis<sp/>temeratur<sp/>v<sp/>EPROM<sp/>(zgodovina<sp/>za<sp/>vse<sp/>temp.<sp/>za<sp/>en<sp/>dan<sp/>...<sp/>prej<sp/>ena<sp/>temp.<sp/>za<sp/>sedem<sp/>dni)</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>addresa<sp/>prvega<sp/>zapisa<sp/>iz<sp/>64<sp/>v<sp/>1024<sp/>(&quot;addrTempBack&quot;)</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>temperature<sp/>v<sp/>epromu<sp/>zapisane<sp/>kot<sp/>int<sp/>((int)<sp/>temp<sp/>(eprom)<sp/>=<sp/>100<sp/>*<sp/>(float)<sp/>temp.<sp/>sensorja)</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.47<sp/>-<sp/>preureditev<sp/>relejev,<sp/>dodan<sp/>SSR</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.48<sp/>-<sp/><sp/>dodano<sp/>odpiranje<sp/>ventila<sp/>po<sp/>preteku<sp/>&quot;transfToplote&quot;in<sp/>ni<sp/>cas<sp/>&quot;IsNTempCas()&quot;,<sp/>ce<sp/>je<sp/>temp.<sp/>TC<sp/>visja<sp/>od<sp/>meje<sp/>zapiranja<sp/>ventila</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>dodan<sp/>pogoj<sp/>minimalne<sp/>temp.<sp/>peci,<sp/>pri<sp/>ponovnem<sp/>odpiranju<sp/>ventila<sp/>TC<sp/>-<sp/>&quot;minTempPecPonovnoOdpVent&quot;</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>&quot;minCrpRadRunTimeMin&quot;<sp/>3<sp/>-&gt;<sp/>7<sp/>min</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.49<sp/>-<sp/>kontrola<sp/>proti<sp/>vrenju<sp/>-<sp/>crpalkaTC<sp/></highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.50<sp/>-<sp/>dodana<sp/>&quot;maxTempDVPec<sp/>=<sp/>80.01&quot;<sp/>//<sp/>max.<sp/>temperatura<sp/>dviznega<sp/>voda<sp/>peci&quot;,<sp/></highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>&quot;isCrpRadAsAbsTemp<sp/>=<sp/>true;<sp/>//upobi<sp/>absol.<sp/>temp<sp/>za<sp/>zagon<sp/>crpalke&quot;,</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>&quot;float<sp/>crpRadAsAbsTemp[24]&quot;</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.51<sp/>-<sp/>poskus<sp/>dodajanja<sp/>zun<sp/>temp<sp/>....<sp/>za<sp/>izraun<sp/>pogoja<sp/>za<sp/>vjlop<sp/>crpalke</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.52<sp/>-<sp/>dodano<sp/>znizanje<sp/>temp.<sp/>TC,<sp/>ob<sp/>dolocenih<sp/>pogojih<sp/>-&quot;preklopCrpTCVzr<sp/>=<sp/>4&quot;</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.54<sp/>-<sp/>dzamenjava<sp/>spremenljivke<sp/>&quot;upostevajElTarife&quot;<sp/>s<sp/>funkcijo<sp/>&quot;UpostevajElTarife&quot;</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.55<sp/>-<sp/>dodan<sp/>pogoj<sp/>zagona<sp/>rpalke<sp/>radiatorjev<sp/>v<sp/>primeru<sp/>napacnega<sp/>krozenja<sp/>vode</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>imitacija<sp/>kontrole<sp/>CRC-ja<sp/>DS<sp/>senzorjev</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.56<sp/>-<sp/>tedenska<sp/>zgodovina<sp/>temperatur<sp/>(na<sp/>vsako<sp/>uro)</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/>!!!!-zacasno<sp/>izklopljene<sp/>elektricne<sp/>tarife<sp/>....</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.59<sp/>-<sp/>nadgrajena<sp/>izbira<sp/>glede<sp/>na<sp/>tarife<sp/>(pec<sp/>-<sp/>elektrika)</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.94<sp/>-<sp/>sprememba<sp/>izracuna<sp/>hitrosti<sp/>gretja</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>v0.95<sp/>-<sp/>dodana<sp/>info<sp/>hitrost<sp/>gretja</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;avr/pgmspace.h&gt;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;Arduino.h&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">/*</highlight></codeline>
+<codeline><highlight class="normal">#ifdef<sp/>PROGMEM</highlight></codeline>
+<codeline><highlight class="normal">#undef<sp/>PROGMEM</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>PROGMEM<sp/>__attribute__((section(&quot;.progmem.data&quot;)))</highlight></codeline>
+<codeline><highlight class="normal">#endif</highlight></codeline>
+<codeline><highlight class="normal">*/</highlight></codeline>
+<codeline><highlight class="normal">//#include<sp/>&lt;math.h&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;OneWire.h&gt;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;Time.h&gt;<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;Wire.h&gt;<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;DS1307RTC.h&gt;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;SD.h&gt;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;LiquidCrystal.h&gt;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;EtherCard.h&gt;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;DHT.h&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//#include<sp/>&lt;RHReliableDatagram.h&gt;</highlight></codeline>
+<codeline><highlight class="normal">//#include<sp/>&lt;RH_NRF24.h&gt;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&lt;SPI.h&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;Configuration.h&quot;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;Eprom_external.h&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;Cas_funkcije.h&quot;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;Kontr_TC_izvrs.h&quot;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;Kontr_TC_spl.h&quot;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;Kontr_TC.h&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;Tok_napetost.h&quot;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;Temperature.h&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;LCD_funkcije.h&quot;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;Encoder_butt.h&quot;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;Zapisi_sd.h&quot;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;Ethernet_funk.h&quot;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;Gas_Sensor.h&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">int<sp/>prevMinute<sp/>=<sp/>-1;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">unsigned<sp/>long<sp/>lastReleChg;<sp/><sp/><sp/><sp/>//<sp/>cas<sp/>zadnje<sp/>spremembe<sp/>stanja<sp/>releja<sp/>TC</highlight></codeline>
+<codeline><highlight class="normal">unsigned<sp/>long<sp/>prevLCDizp;<sp/><sp/><sp/><sp/><sp/>//<sp/>cas<sp/>zadnjega<sp/>izpisa<sp/>na<sp/>LCD</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//--------------------------------------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">void<sp/>setup(void)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>char<sp/>infoSet[9];</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>NastavitevPinov();</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/>SPI.setClockDivider(SPI_CLOCK_DIV16);<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.begin(115200);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.flush();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.println(F(&quot;&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.println(F(&quot;Kontroler<sp/>TC&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.println(VERSION);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>PreveriNapetosti(true,<sp/>true,<sp/>true,<sp/>false);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.println(F(&quot;&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.print(F(&quot;Tok:<sp/>&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.println(Tok_12V());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//-------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Wire.begin();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//-------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>delay(2000);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>LCDInitializacija();</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/>EthernetInit(false);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>TempSensorsInit();<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Initilizacija_CO();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>Start<sp/>up<sp/>the<sp/>RTC</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>tmElements_t<sp/>tm;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(RTC.read(tm))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>else<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(RTC.chipPresent())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(F(&quot;The<sp/>DS1307<sp/>je<sp/>ustavljen.<sp/>Prosim<sp/>nastavi<sp/>cas.&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>else<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(F(&quot;DS1307<sp/>read<sp/>error!<sp/><sp/>Preveri<sp/>povezave.&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>setSyncProvider(RTC.get);<sp/><sp/><sp/>//<sp/>the<sp/>function<sp/>to<sp/>get<sp/>the<sp/>time<sp/>from<sp/>the<sp/>RTC</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>setSyncInterval(60);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>lcdA.clear();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>lcdA.print(F(&quot;Time:&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>lcdA.setCursor(0,<sp/>1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if(timeStatus()!=<sp/>timeSet)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sprintf(infoErr,&quot;<sp/>Er<sp/>T90<sp/>&quot;);<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(infoErr);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>lcdA.print(infoErr);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>else</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;<sp/>RTC<sp/>OK&quot;));<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>delay(2000);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>NarediTimeStr(infoSet,<sp/>now());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>lcdA.setCursor(0,<sp/>0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>lcdA.print(infoSet);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.print(weekday());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.print(F(&quot;<sp/><sp/>&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.print(day());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.print(F(&quot;.&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.print(month());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.print(F(&quot;.&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.print(year());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.print(F(&quot;<sp/><sp/>&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.println(infoSet);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>delay(20);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>SDInit();<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>delay(200);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>EthernetInit(false);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>lcdA.clear();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>lcdA.print(F(&quot;Free<sp/>RAM&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>lcdA.setCursor(1,<sp/>1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>lcdA.print(FreeRam());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.print(F(&quot;Free<sp/>RAM:<sp/>&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.println(FreeRam());<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>InitParametri();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/>NastaviTempCrpRad(limTempCrpRad,<sp/>limTempFactCrpRad,<sp/>crpRadAsAbsTemp);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>temeratureIzmerjene<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>prevCasMeritve<sp/>=<sp/>now()-30UL;</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/>casMeritve<sp/>=<sp/>now();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.print(F(&quot;Stikala:<sp/>&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>PreveriStikala(true);</highlight></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/>/*<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(!manager.init())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(&quot;init<sp/>failed&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>Defaults<sp/>after<sp/>init<sp/>are<sp/>434.0MHz,<sp/>modulation<sp/>GFSK_Rb5Fd10,<sp/>power<sp/>0x10</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">*/</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.println(F(&quot;&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Encoder_init();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.println(F(&quot;Init.<sp/>OK&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Beep(200);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>analogWrite(LCD_OSW_SW,<sp/>0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//--------------------------------------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">void<sp/>loop(void)</highlight></codeline>
+<codeline><highlight class="normal">{<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>static<sp/>int<sp/>prevDay<sp/>=<sp/>day();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>byte<sp/>newCrpTCState;</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/>static<sp/>boolean<sp/>hitEnd<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//-----<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(cycStart<sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/>millis()<sp/>&gt;<sp/>cycStart)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/>if<sp/>(hitEnd)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/>hitEnd<sp/>=<sp/>false;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>unsigned<sp/>long<sp/>lastCycle<sp/>=<sp/>(millis()<sp/>-<sp/>cycStart);</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/>sumCycle<sp/>+=<sp/>(millis()<sp/>-<sp/>cycStart);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sumCycle<sp/>+=<sp/>lastCycle;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ncyc<sp/>++;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(maxCycle<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxCycle<sp/>=<sp/>lastCycle;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minCycle<sp/>=<sp/>lastCycle;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(maxCycle<sp/>&lt;<sp/>lastCycle)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxCycle<sp/>=<sp/>lastCycle;<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(minCycle<sp/>&gt;<sp/>lastCycle)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minCycle<sp/>=<sp/>lastCycle;<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>else<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sumCycle<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ncyc<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>cycStart<sp/>=<sp/>millis();<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//-----<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CheckSerial();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CheckEthernet();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Encoder_check();</highlight></codeline>
+<codeline><highlight class="normal">//-----<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>stateCevStPecTC<sp/>=<sp/>digitalRead(CEVTERM_PEC_TC);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//-----</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>če<sp/>je<sp/>od<sp/>zadnje<sp/>meritve<sp/>preteklo<sp/>več<sp/>kot<sp/>&quot;merXMin*60&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>preberi<sp/>temperature</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>merXMin<sp/>-<sp/>število<sp/>meritev<sp/>na<sp/>minuto</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>pošlju<sp/>ukaz<sp/>vsem<sp/>senzorjem<sp/>DS18x20<sp/>in<sp/>preberi<sp/>ostale<sp/>senzorje</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(temeratureIzmerjene)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(now()/((unsigned<sp/>long)<sp/>merXMin*60)<sp/>&gt;<sp/>prevCasMeritve/((unsigned<sp/>long)merXMin*60))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>PreberiTemperature(!temeratureIzmerjene,<sp/>true);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>temeratureIzmerjene<sp/>=<sp/>false;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>casMeritve<sp/>=<sp/>millis();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(&quot;&apos;&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(now()<sp/>-<sp/>prevCasMeritve);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>po<sp/>preteku<sp/>convWaitTime<sp/>preberi<sp/>temperature<sp/>DS18X20</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>convWaitTime<sp/>-<sp/>v<sp/>ms</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(temeratureIzmerjene<sp/>==<sp/>false)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>((millis()<sp/>&gt;=<sp/>(casMeritve<sp/>+<sp/>convWaitTime)))<sp/>{</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(&quot;/&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(millis()<sp/>-<sp/>casMeritve);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(&quot;&apos;&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>PreberiTemperature(!temeratureIzmerjene,<sp/>false);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>temeratureIzmerjene<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(izracHitrGret<sp/>||<sp/>izracHitrGretInfo)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>IzracunHitrostiGretjaTC();<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">/*</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>((now()<sp/>-<sp/>lastTCStateChg<sp/>&gt;<sp/>(1<sp/>+<sp/>prevTCState*4.0)*(unsigned)minRunTimeMin<sp/>*<sp/>60)<sp/>&amp;&amp;<sp/>(now()<sp/>-<sp/>lastReleChg<sp/>&gt;<sp/>(unsigned)minRunTimeMin<sp/>*<sp/>60))<sp/>{<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(stateTC<sp/>==<sp/>TC_OFF)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(RefTemp(0)<sp/>&lt;<sp/>TempVklopa())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiTC(-1,<sp/>TC_ON);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(seRracunaHitrGret)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>izracHitrGret=true;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>izracHitrGretInfo=true;<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(RefTemp(B01)<sp/>&gt;<sp/>TempIzklopa())</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiTC(-1,<sp/>TC_OFF);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*/<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ZapisiInIzpisiPodatke();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>prevCasMeritve<sp/>=<sp/>now();</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/>SendToProc();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CheckEthernet();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>DeviceHub();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>delay(2);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(stateTC<sp/>==<sp/>STATE_TC_OFF)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>((now()<sp/>-<sp/>lastTCStateChg<sp/>&gt;<sp/>(1<sp/>+<sp/>prevTCState*4.0)*(unsigned)minRunTimeMin<sp/>*<sp/>60)<sp/>&amp;&amp;<sp/>(now()<sp/>-<sp/>lastReleChg<sp/>&gt;<sp/>(unsigned)minRunTimeMin<sp/>*<sp/>60))<sp/>{<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(RefTemp(0)<sp/>&lt;<sp/>TempVklopa())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiTC(STATE_TC_ON);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>else<sp/>if<sp/>(releState_ventKompTC<sp/>==<sp/>R_TC_VENT_ON)<sp/>{<sp/><sp/>//if<sp/>(RefTemp(0)<sp/>&lt;<sp/>TempVklopa())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>if<sp/>(releState_kompTC<sp/>==<sp/>R_TC_KOMP_OFF)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiTC(STATE_TC_OFF);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>else<sp/>{<sp/><sp/>//if<sp/>(stateTC<sp/>==<sp/>STATE_TC_OFF)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>((now()<sp/>-<sp/>lastTCStateChg<sp/>&gt;<sp/>(1<sp/>+<sp/>prevTCState*4.0)*(unsigned)minRunTimeMin<sp/>*<sp/>60)<sp/>&amp;&amp;<sp/>(now()<sp/>-<sp/>lastReleChg<sp/>&gt;<sp/>(unsigned)minRunTimeMin<sp/>*<sp/>60))<sp/>{<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>((RefTemp(B01)<sp/>&gt;<sp/>TempIzklopa())<sp/>||<sp/>((RefTemp(B00)<sp/>&gt;<sp/>TempIzklopa())<sp/>&amp;&amp;<sp/>prevCrpTCState<sp/>==<sp/>STATE_CRP_TC_ON))<sp/>{//if<sp/>(stateTC<sp/>==<sp/>STATE_TC_OFF)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiTC(STATE_TC_OFF);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>else<sp/>if<sp/>((cTemperatura[OKOLICA_0]<sp/>&lt;<sp/>min_TempOK_TCKomp)<sp/>||<sp/>(cTemperatura[OKOLICA_0]<sp/>&gt;<sp/>max_TempOK_TCKomp)<sp/>||<sp/>(cTemperatura[CRPALKA_0]<sp/>&gt;<sp/>maxDovTempVodeTC_Komp))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiTC(STATE_TC_OFF);<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(tok230V<sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>tok230V<sp/>=<sp/>AC_mimax();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//----------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>če<sp/>je<sp/>rele<sp/>vklopljen</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>kontrola<sp/>toka,<sp/>če<sp/>je<sp/>kompresor<sp/>vklopljen<sp/>in<sp/>start<sp/>meritve<sp/>porabe<sp/>...</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>stanje<sp/>TC<sp/>v<sp/>-&gt;<sp/>prevTCState<sp/>=<sp/><sp/>1</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(stateTC<sp/>==<sp/>STATE_TC_ON<sp/>/*||<sp/>measureOnly*/)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/>if<sp/>(tok230V<sp/>&gt;=<sp/>mejaToka)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(AC_mimax()<sp/>&gt;=<sp/>mejaToka)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(prevTCState<sp/>==<sp/>STATE_TC_OFF)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prevTCState<sp/>=<sp/><sp/>STATE_TC_ON;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lastTCStateChg<sp/>=<sp/>now();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>startTemp<sp/>=<sp/>RefTemp(0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>zacPorabaWH<sp/>=<sp/>porabaWH;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tempOkolicaSt<sp/>=<sp/>cTemperatura[OKOLICA_0];</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u4.ulval<sp/>=<sp/>lastTCStateChg;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i2c_eeprom_write_page(AT24C32_I2C_ADDR,<sp/>addrLastChg,<sp/>AT24C32_ADDR_LENGH,<sp/>(byte<sp/>*)&amp;u4,<sp/>sizeof(u4));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delay(5);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i2c_eeprom_write_byte(AT24C32_I2C_ADDR,<sp/>addrPrevTCState,<sp/>AT24C32_ADDR_LENGH,<sp/>prevTCState);</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>izracHitrGretInfo<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(seRracunaHitrGret)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>izracHitrGret=true;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>izracHitrGretInfo=true;<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ZapisiOnOffSD(1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>else<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(prevTCState<sp/>==<sp/>STATE_TC_ON)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(tok230V<sp/>&lt;<sp/>mejaToka)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(AC_mimax()<sp/>&lt;<sp/>mejaToka)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prevTCState<sp/>=<sp/>STATE_TC_OFF;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lastRunTime<sp/>=<sp/>(now()<sp/>-<sp/>lastTCStateChg);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>onTimeTC<sp/>+=<sp/>(now()<sp/>-<sp/>lastTCStateChg);<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hitrGret<sp/>=<sp/>3600.0<sp/>*<sp/>(RefTemp(0)<sp/>-<sp/>startTemp)/((float)<sp/>lastRunTime);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u4.ulval<sp/>=<sp/>onTimeTC;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i2c_eeprom_write_page(AT24C32_I2C_ADDR,<sp/>addrOnTime,<sp/>AT24C32_ADDR_LENGH,<sp/>(byte<sp/>*)&amp;u4,<sp/>sizeof(u4));<sp/>//<sp/>write<sp/>to<sp/>EEPROM<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ZapisiOnOffSD(0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lastTCStateChg<sp/>=<sp/>now();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u4.ulval<sp/>=<sp/>lastTCStateChg;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i2c_eeprom_write_page(AT24C32_I2C_ADDR,<sp/>addrLastChg,<sp/>AT24C32_ADDR_LENGH,<sp/>(byte<sp/>*)&amp;u4,<sp/>sizeof(u4));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delay(5);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i2c_eeprom_write_byte(AT24C32_I2C_ADDR,<sp/>addrPrevTCState,<sp/>AT24C32_ADDR_LENGH,<sp/>prevTCState);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//--------------------</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>resetiranje<sp/>in<sp/>zapis<sp/>podtkov<sp/>konec<sp/>dneva</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(prevTCState<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(prevDay<sp/>!=<sp/>day())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>onTimeTC<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>u4.ulval<sp/>=<sp/>onTimeTC;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>i2c_eeprom_write_page(AT24C32_I2C_ADDR,<sp/>addrOnTime,<sp/>AT24C32_ADDR_LENGH,<sp/>(byte<sp/>*)&amp;u4,<sp/>sizeof(u4));<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sprintf(infoErr,&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>porabaWH<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sumTok_12V<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>nMerTok_12V<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>maxTok_12V<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>coRawValSum<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>numMerCO<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>coRawValMax<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>onTimeCrpTC<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>onTimeCrpRad<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>prevDay<sp/>=<sp/>day();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>StateCrpalkeRad();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//!!!<sp/><sp/>lastCrpRadStateChg</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>newCrpTCState<sp/>=<sp/>StatePovezTCPec(prevCrpTCState);<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>PovezTCPec(newCrpTCState);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>PreklopiVentilTCPec(100);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(now()<sp/>&gt;<sp/>prevLCDizp)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>prevLCDizp<sp/>=<sp/>now();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>IzpisiNaLCD();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Tok_12V();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>PreveriNapetosti(false,<sp/>true,<sp/>true,<sp/>false);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>PreveriCO_Senzor();</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/>hitEnd<sp/>=<sp/>true;</highlight></codeline>
+<codeline><highlight class="normal">/*</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>uint8_t<sp/>buf[RH_NRF24_MAX_MESSAGE_LEN];</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(manager.available())</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Wait<sp/>for<sp/>a<sp/>message<sp/>addressed<sp/>to<sp/>us<sp/>from<sp/>the<sp/>client</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>len<sp/>=<sp/>sizeof(buf);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>from;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(manager.recvfromAck(buf,<sp/>&amp;len,<sp/>&amp;from))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(&quot;got<sp/>request<sp/>from<sp/>:<sp/>0x&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(from,<sp/>HEX);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(&quot;:<sp/>&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println((char*)buf);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Send<sp/>a<sp/>reply<sp/>back<sp/>to<sp/>the<sp/>originator<sp/>client</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!manager.sendtoWait(data,<sp/>sizeof(data),<sp/>from))</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(&quot;sendtoWait<sp/>failed&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">*/<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//--------------------------------------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">static<sp/>byte<sp/>StatePovezTCPec(byte<sp/>state)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(preklopCrpTCVzr<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(IsNTempCas())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>preklopCrpTCVzr<sp/>=<sp/>0;<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(preklopCrpTCVzr<sp/>==<sp/>2)<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(prevCrpTCState<sp/>==<sp/>STATE_CRP_TC_OFF<sp/>&amp;&amp;<sp/><sp/>prevVentTCState<sp/>==<sp/>STATE_VENT_TC_OFF)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(stateCevStPecTC<sp/>==<sp/>CEV_TERM_OFF)<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>preklopCrpTCVzr<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(preklopCrpTCVzr<sp/>==<sp/>3)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(prevTCState<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>preklopCrpTCVzr<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(manuCrpTCState<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(preklopCrpTCVzr<sp/>!=<sp/>0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>preklopCrpTCVzr<sp/>=<sp/>0;<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>return(state);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(prevCrpTCState<sp/>==<sp/>STATE_CRP_TC_OFF)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(max(cTemperatura[PEC_DV],<sp/>cTemperatura[PEC_TC_DV])<sp/>&gt;<sp/>cTemperatura[CRPALKA_0]<sp/>+<sp/>minDiffTCPec)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(max(cTemperatura[PEC_DV],<sp/>cTemperatura[PEC_TC_DV])<sp/>&gt;<sp/>tempVklopaCrpTC)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return(1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(IsCasTransfTopl())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return(1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!IsNTempCas())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(RefTemp(0)<sp/>&lt;<sp/>TempVklopaCrpTC_NTemp())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>preklopCrpTCVzr<sp/>=<sp/>1;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return(1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(prevTCState<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>preklopCrpTCVzr<sp/>=<sp/>3;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return(1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>((stateCevStPecTC<sp/>==<sp/>CEV_TERM_ON)<sp/>&amp;&amp;<sp/>(cTemperatura[CRPALKA_0]<sp/>&lt;<sp/>cTemperatura[PEC_DV]))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>preklopCrpTCVzr<sp/>=<sp/>2;<sp/><sp/>//<sp/>cevni<sp/>termostat<sp/>vklople</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return(1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>if<sp/>(!IsCasTransfTopl())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(cTemperatura[PEC_DV]<sp/>&lt;<sp/>(tempIzklopaVentCrpTC<sp/>-<sp/>5.0))<sp/>{<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(cTemperatura[PEC_DV]<sp/>&gt;<sp/>(tempIzklopaVentCrpTC<sp/>-<sp/>12.5))<sp/>{<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(cTemperatura[CRPALKA_0]<sp/>&gt;<sp/>tempIzklopaVentCrpTC)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(pTempCrp[1]<sp/>&gt;<sp/>tempIzklopaVentCrpTC<sp/>&amp;&amp;<sp/>pTempCrp[2]<sp/>&gt;<sp/>tempIzklopaVentCrpTC)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>preklopCrpTCVzr<sp/>=<sp/>4;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return(1);<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>else<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>prevCrpTCState<sp/>==<sp/>1</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(preklopCrpTCVzr<sp/>==<sp/>2)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(stateCevStPecTC<sp/>==<sp/>CEV_TERM_OFF<sp/>||<sp/>(cTemperatura[CRPALKA_0]<sp/>&gt;<sp/>cTemperatura[PEC_DV]))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return(0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(preklopCrpTCVzr<sp/>==<sp/>4)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>((cTemperatura[CRPALKA_0]<sp/>&lt;=<sp/>tempIzklopaVentCrpTC)<sp/>||<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(min(cTemperatura[PEC_DV],<sp/>cTemperatura[PEC_TC_DV])<sp/>&gt;<sp/>cTemperatura[CRPALKA_0])<sp/>||<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(max(cTemperatura[PEC_DV],<sp/>cTemperatura[PEC_TC_DV])<sp/>&lt;<sp/>tempIzklopaVentCrpTC<sp/>-<sp/>12.5))<sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return(0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>else<sp/>{<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>((cTemperatura[CRPALKA_0]<sp/>&gt;=<sp/>max(cTemperatura[PEC_DV],<sp/>cTemperatura[PEC_TC_DV]))<sp/>&amp;&amp;<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((cTemperatura[CRPALKA_0]<sp/>&lt;=<sp/>TempIzklopaCrpTC()<sp/>||<sp/>MaxCrpTCRunTime())<sp/>||<sp/>IsNTempCas()))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return(0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(preklopCrpTCVzr<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(preklopCrpTCVzr<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(RefTemp(0)<sp/>&gt;<sp/>TempIzklopaCrpTC_NTemp())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return(0);<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(preklopCrpTCVzr<sp/>==<sp/>3)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(prevTCState<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return(0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>else<sp/>if<sp/>(!IsCasTransfTopl())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>((max(cTemperatura[PEC_DV],<sp/>cTemperatura[PEC_TC_DV])<sp/>&lt;=<sp/>TempIzklopaCrpTC())<sp/><sp/>&amp;&amp;<sp/>cTemperatura[CRPALKA_0]<sp/>&lt;=<sp/>TempIzklopaCrpTC())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return(0);<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//Kontrola<sp/>vrenja<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(VodaVre(false))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>return(0);<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//Kontrola<sp/>vrenja<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>return(state);<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">}<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//--------------------------------------------------------------------------------<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">void<sp/>PovezTCPec(byte<sp/>newState)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>int<sp/>zakasnitevVklopaSec;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(manuCrpTCState<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(manuCrpTCState<sp/>==<sp/>3)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(prevCrpTCState<sp/>==<sp/>STATE_CRP_TC_OFF)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(prevVentTCState<sp/>==<sp/>STATE_VENT_TC_ON)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>zakasnitevVklopaSec<sp/>=<sp/>ZakasnitevVklopa(cTemperatura[PEC_TC_DV],<sp/>tempVklopaCrpTC,<sp/>6);<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(RelaksTimeLimitSec(now(),<sp/>lastVentTCChg[1],<sp/>zakasnitevVklopaSec))<sp/>{<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiCrpalkoTC(1);<sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>1<sp/>-<sp/>vklopi<sp/>crpalko</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>{<sp/><sp/>//prevVentTCState<sp/>==<sp/>0</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiVentilTCPec(1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(manuCrpTCState<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(prevCrpTCState<sp/>==<sp/>STATE_CRP_TC_ON)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiCrpalkoTC(0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>manuCrpTCState<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(prevVentTCState<sp/>==<sp/>STATE_VENT_TC_ON)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(RelaksTimeLimitSec(now(),<sp/>lastCrpTCStateChg,<sp/>zaksnitevCrpVent_Sec/2))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiVentilTCPec(0);<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>return;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(prevCrpTCState<sp/>==<sp/>STATE_CRP_TC_OFF)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(newState<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(RelaksTimeLimitSec(now(),<sp/>lastCrpTCStateChg,<sp/>minCrpTCRunTimeMin*60)<sp/>&amp;&amp;<sp/>RelaksTimeLimitSec(now(),<sp/>lastCrpRadStateChg,<sp/>1*60))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(prevVentTCState<sp/>==<sp/>STATE_VENT_TC_ON)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>zakasnitevVklopaSec<sp/>=<sp/>ZakasnitevVklopa(cTemperatura[PEC_TC_DV],<sp/>tempVklopaCrpTC,<sp/>6);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(RelaksTimeLimitSec(now(),<sp/>lastVentTCChg[1],<sp/>zakasnitevVklopaSec))<sp/>{<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiCrpalkoTC(1);<sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>1<sp/>-<sp/>vklopi<sp/>crpalko</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if(RelaksTimeLimitSec(now(),<sp/>lastVentTCChg[0],<sp/>minCrpTCRunTimeMin*60)<sp/><sp/>||<sp/>preklopCrpTCVzr<sp/>==<sp/>2)<sp/>{<sp/><sp/>//prevVentTCState<sp/>==<sp/>0</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiVentilTCPec(1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>//<sp/>newState<sp/>==<sp/>0</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(prevVentTCState<sp/>==<sp/>STATE_VENT_TC_ON)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(RelaksTimeLimitSec(now(),<sp/>lastCrpTCStateChg,<sp/>zaksnitevCrpVent_Sec/2))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(IsCasTransfTopl())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(cTemperatura[CRPALKA_0]<sp/>&gt;=<sp/>cTemperatura[PEC_DV])<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiVentilTCPec(0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>else<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>!IsCasTransfTopl()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(preklopCrpTCVzr<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(cTemperatura[CRPALKA_0]<sp/>&lt;<sp/>tempIzklopaVentCrpTC)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiVentilTCPec(0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(preklopCrpTCVzr<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(RefTemp(0)<sp/>&gt;<sp/>TempIzklopaCrpTC_NTemp())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiVentilTCPec(0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(preklopCrpTCVzr<sp/>==<sp/>2)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>((stateCevStPecTC<sp/>==<sp/>CEV_TERM_OFF)<sp/>||<sp/>((cTemperatura[CRPALKA_0]<sp/>&gt;<sp/>cTemperatura[PEC_DV])<sp/>&amp;&amp;<sp/>(cTemperatura[CRPALKA_0]<sp/>&lt;<sp/>tempIzklopaVentCrpTC)))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiVentilTCPec(0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(prevVentTCState<sp/>==<sp/>STATE_VENT_TC_OFF)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!IsCasTransfTopl()<sp/>&amp;&amp;<sp/>!IsNTempCas())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(cTemperatura[CRPALKA_0]<sp/>&gt;<sp/>tempIzklopaVentCrpTC)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(max(cTemperatura[PEC_DV],<sp/>cTemperatura[PEC_TC_DV])<sp/>&gt;<sp/>minTempPecPonovnoOdpVent)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(RelaksTimeLimitSec(now(),<sp/>lastCrpTCStateChg,<sp/>zaksnitevCrpVent_Sec/2))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiVentilTCPec(1);<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/><sp/><sp/><sp/>//<sp/>prevCrpTCState<sp/>==<sp/>1</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>else<sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(newState<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(RelaksTimeLimitSec(now(),<sp/>lastCrpTCStateChg,<sp/>minCrpTCRunTimeMin*60)<sp/><sp/>||<sp/>preklopCrpTCVzr<sp/>==<sp/>2)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiCrpalkoTC(0);<sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>0<sp/>-<sp/>izklopi<sp/>crpalko</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(preklopCrpTCVzr<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>preklopCrpTCVzr<sp/>=<sp/>0;<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(prevVentTCState<sp/>==<sp/>STATE_VENT_TC_NDEF)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(cTemperatura[CRPALKA_0]<sp/>+<sp/>minDiffTCPec<sp/>&gt;<sp/>tempIzklopaVentCrpTC<sp/>||<sp/>prevCrpTCState<sp/>==<sp/>STATE_CRP_TC_ON)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiVentilTCPec(1);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//1<sp/>-<sp/>odpre<sp/>ventil</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>else<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiVentilTCPec(0);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//1<sp/>-<sp/>odpre<sp/>ventil</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/>PreklopiVentilTCPec(100);<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//--------------------------------------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">void<sp/>StateCrpalkeRad()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(prevCrpRadState<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(cTemperatura[PEC_DV]<sp/>-<sp/>cTemperatura[OKOLICA_0]<sp/>&gt;<sp/>minDiffDvOkolCrpRad)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(cTemperatura[RAD_PV]<sp/>&lt;<sp/>MejnaTempPreklCrpRad(1))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(RelaksTimeLimitSec(now(),<sp/>lastCrpRadStateChg,<sp/>minCrpRadRunTimeMin*60))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiCrpalkoRad(1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(cTemperatura[RAD_PV]<sp/>&gt;<sp/>(cTemperatura[RAD_DV]<sp/>+<sp/>2.0*dTemp))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(RelaksTimeLimitSec(now(),<sp/>lastCrpRadStateChg,<sp/>minCrpRadRunTimeMin*60))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiCrpalkoRad(1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>else<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(RelaksTimeLimitSec(now(),<sp/>lastCrpRadStateChg,<sp/>minCrpRadRunTimeMin*60))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(cTemperatura[RAD_PV]<sp/>&gt;=<sp/>MejnaTempPreklCrpRad(0))<sp/>{<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiCrpalkoRad(0);<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(cTemperatura[PEC_DV]<sp/>-<sp/>cTemperatura[OKOLICA_0]<sp/>&lt;<sp/>minDiffDvOkolCrpRad)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PreklopiCrpalkoRad(0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//--------------------------------------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">//</highlight></codeline>
+<codeline><highlight class="normal">static<sp/>void<sp/><sp/>PreklopiTC(byte<sp/>newState)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>char<sp/>cas[13];</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>unsigned<sp/>long<sp/>minZakasnitevVentilatorja<sp/>=<sp/>20;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>static<sp/>unsigned<sp/>long<sp/>lastVentilReleChg;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">/*<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>#ifdef<sp/>TC_EL_GRELEC</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>#endif</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(releTC<sp/>=<sp/>)</highlight></codeline>
+<codeline><highlight class="normal">*/<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">/*<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(measureOnly)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(relePin,<sp/>R_TC_ON);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>else<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(relePin,<sp/>newState);</highlight></codeline>
+<codeline><highlight class="normal">*/</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(stikaloState[STIKALO_TC]<sp/>==<sp/>STIKALO_STATE_OFF)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>return;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(newState<sp/>==<sp/>STATE_TC_ON)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(cTemperatura[OKOLICA_0]<sp/>&gt;<sp/>min_TempOK_TCKomp<sp/>&amp;&amp;<sp/>cTemperatura[OKOLICA_0]<sp/>&lt;<sp/>max_TempOK_TCKomp)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(releState_ventKompTC<sp/>==<sp/>R_TC_VENT_ON)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(releState_kompTC<sp/>==<sp/>R_TC_KOMP_OFF)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(RelaksTimeLimitSec(now(),<sp/>lastVentilReleChg,<sp/>minZakasnitevVentilatorja))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/>//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(now()<sp/>-<sp/>lastVentilReleChg<sp/>&gt;<sp/>minZakasnitevVentilatorja)<sp/>{<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(RELE_TC_KOMP,<sp/>R_TC_KOMP_ON);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lastReleChg<sp/>=<sp/>now();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>releState_kompTC<sp/>=<sp/>R_TC_KOMP_ON;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stateTC<sp/>=<sp/>STATE_TC_ON;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(&quot;&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NarediTimeStr(cas,<sp/>now());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(cas);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(&quot;<sp/>Vklop<sp/>kompresorja<sp/>TC&quot;));<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ZapisiOnOffSD(1,<sp/>25);<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(releState_ventKompTC<sp/>==<sp/>R_TC_VENT_OFF)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(RELE_TC_VENT,<sp/>R_TC_VENT_ON);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lastVentilReleChg<sp/>=<sp/>now();<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>releState_ventKompTC<sp/>=<sp/>R_TC_VENT_ON;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(&quot;&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NarediTimeStr(cas,<sp/>now());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(cas);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(&quot;<sp/>Vklop<sp/>vent.<sp/>kompresorja<sp/>TC&quot;));<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ZapisiOnOffSD(1,<sp/>20);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/>else<sp/>if<sp/>(USEEGRELEC<sp/>==<sp/>true)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>else<sp/>{<sp/><sp/>//<sp/>if<sp/>(newState<sp/>=<sp/>TC_OFF)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(releState_kompTC<sp/>==<sp/>R_TC_KOMP_OFF)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(releState_ventKompTC<sp/>==<sp/>R_TC_VENT_ON)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(RelaksTimeLimitSec(now(),<sp/>lastReleChg,<sp/>minZakasnitevVentilatorja))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/>//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(now()<sp/>-<sp/>lastReleChg<sp/>&gt;<sp/>minZakasnitevVentilatorja)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(RELE_TC_VENT,<sp/>R_TC_VENT_OFF);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lastVentilReleChg<sp/>=<sp/>now();<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>releState_ventKompTC<sp/>=<sp/>R_TC_VENT_OFF;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(&quot;&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NarediTimeStr(cas,<sp/>now());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(cas);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(&quot;<sp/>Izklop<sp/>vent.<sp/>kompresorja<sp/>TC&quot;));<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ZapisiOnOffSD(0,<sp/>20);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(releState_kompTC<sp/>==<sp/>R_TC_KOMP_ON)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(RELE_TC_KOMP,<sp/>R_TC_KOMP_OFF);<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>lastReleChg<sp/>=<sp/>now();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>releState_kompTC<sp/>=<sp/>R_TC_KOMP_OFF;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>stateTC<sp/>=<sp/>STATE_TC_OFF;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(&quot;&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>NarediTimeStr(cas,<sp/>now());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(cas);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(&quot;<sp/>Izklop<sp/>kompresorja<sp/>TC&quot;));<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ZapisiOnOffSD(0,<sp/>25);<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/>digitalWrite(relePin,<sp/>newState);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/>releState_TC<sp/>=<sp/>newState;</highlight></codeline>
+<codeline><highlight class="normal">//<sp/><sp/>lastReleChg<sp/>=<sp/>now();<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//--------------------------------------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">//</highlight></codeline>
+<codeline><highlight class="normal">/*</highlight></codeline>
+<codeline><highlight class="normal">uint8_t<sp/>*<sp/>heapptr,<sp/>*<sp/>stackptr;</highlight></codeline>
+<codeline><highlight class="normal">void<sp/>check_mem()<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>stackptr<sp/>=<sp/>(uint8_t<sp/>*)malloc(4);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>use<sp/>stackptr<sp/>temporarily</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>heapptr<sp/>=<sp/>stackptr;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>save<sp/>value<sp/>of<sp/>heap<sp/>pointer</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>free(stackptr);<sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>free<sp/>up<sp/>the<sp/>memory<sp/>again<sp/>(sets<sp/>stackptr<sp/>to<sp/>0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>stackptr<sp/>=<sp/><sp/>(uint8_t<sp/>*)(SP);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>save<sp/>value<sp/>of<sp/>stack<sp/>pointer</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">*/</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//--------------------------------------------------------------------------------</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//--------------------------------------------------------------------------------</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//--------------------------------------------------------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">/*</highlight></codeline>
+<codeline><highlight class="normal">float<sp/>Sec2Hour(float<sp/>sec)<sp/>{</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>return(sec<sp/>/<sp/>3600.0);</highlight></codeline>
+<codeline><highlight class="normal">}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">*/</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+    </programlisting>
+    <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/KontrolerTC_Mega2560_v1.ino"/>
+  </compounddef>
+</doxygen>

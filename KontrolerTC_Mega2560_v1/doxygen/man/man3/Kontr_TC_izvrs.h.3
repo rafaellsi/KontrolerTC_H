@@ -1,0 +1,86 @@
+.TH "//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" 3 "Sat Apr 11 2015" "Kontroler TC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Funkcije"
+
+.in +1c
+.ti -1c
+.RI "void \fBZapisiOnOffSD\fP (int state, byte tipSpremembe)"
+.br
+.ti -1c
+.RI "void \fBPreklopiCrpalkoRad\fP (byte newState)"
+.br
+.ti -1c
+.RI "void \fBPreklopiVentilTCPec\fP (byte newState)"
+.br
+.ti -1c
+.RI "void \fBPreklopiCrpalkoTC\fP (byte newState)"
+.br
+.ti -1c
+.RI "void \fBResetCrpTCVzr\fP (void)"
+.br
+.in -1c
+.SS "Spremenljivke"
+
+.in +1c
+.ti -1c
+.RI "byte \fBprevCrpTCState\fP = \fBSTATE_CRP_TC_OFF\fP"
+.br
+.ti -1c
+.RI "byte \fBprevVentTCState\fP = \fBSTATE_VENT_TC_NDEF\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBlastVentTCChg\fP [2]"
+.br
+.ti -1c
+.RI "int \fBpreklopCrpTCVzr\fP = 0"
+.br
+.in -1c
+.SH "Opis funkcije"
+.PP 
+.SS "void PreklopiCrpalkoRad (byte newState)"
+
+.PP
+Definirano v 24 vrstici datoteke Kontr_TC_izvrs\&.h\&.
+.SS "void PreklopiCrpalkoTC (byte newState)"
+
+.PP
+Definirano v 115 vrstici datoteke Kontr_TC_izvrs\&.h\&.
+.SS "void PreklopiVentilTCPec (byte newState)"
+
+.PP
+Definirano v 55 vrstici datoteke Kontr_TC_izvrs\&.h\&.
+.SS "void ResetCrpTCVzr (void)"
+
+.PP
+Definirano v 156 vrstici datoteke Kontr_TC_izvrs\&.h\&.
+.SS "void ZapisiOnOffSD (int state, byte tipSpremembe = \fC0\fP)"
+
+.PP
+Definirano v 198 vrstici datoteke Zapisi_sd\&.h\&.
+.SH "Opis spremenljivke"
+.PP 
+.SS "unsigned long lastVentTCChg[2]"
+
+.PP
+Definirano v 16 vrstici datoteke Kontr_TC_izvrs\&.h\&.
+.SS "int preklopCrpTCVzr = 0"
+
+.PP
+Definirano v 17 vrstici datoteke Kontr_TC_izvrs\&.h\&.
+.SS "byte prevCrpTCState = \fBSTATE_CRP_TC_OFF\fP"
+
+.PP
+Definirano v 13 vrstici datoteke Kontr_TC_izvrs\&.h\&.
+.SS "byte prevVentTCState = \fBSTATE_VENT_TC_NDEF\fP"
+
+.PP
+Definirano v 14 vrstici datoteke Kontr_TC_izvrs\&.h\&.
+.SH "Avtor"
+.PP 
+zgenerirano z Doxygen-om za Kontroler TC iz izvorne kode\&.

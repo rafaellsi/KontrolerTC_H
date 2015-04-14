@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="unionui2byte2" kind="union" language="C++" prot="public">
+    <compoundname>ui2byte2</compoundname>
+    <includes refid="_configuration_8h" local="no">Configuration.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="unionui2byte2_1a291b49741a238245f6a13d953f87b936" prot="public" static="no" mutable="no">
+        <type>byte</type>
+        <definition>byte by[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>by</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" line="190" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionui2byte2_1abbeaf8a032705918682563dd182860b5" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int uival</definition>
+        <argsstring></argsstring>
+        <name>uival</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" line="191" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" line="189" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" bodystart="189" bodyend="192"/>
+    <listofallmembers>
+      <member refid="unionui2byte2_1a291b49741a238245f6a13d953f87b936" prot="public" virt="non-virtual"><scope>ui2byte2</scope><name>by</name></member>
+      <member refid="unionui2byte2_1abbeaf8a032705918682563dd182860b5" prot="public" virt="non-virtual"><scope>ui2byte2</scope><name>uival</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

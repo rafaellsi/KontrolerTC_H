@@ -1,0 +1,825 @@
+\hypertarget{_kontr___t_c__spl_8h}{}\section{Datoteka //\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Kontr\+\_\+\+T\+C\+\_\+spl.h}
+\label{_kontr___t_c__spl_8h}\index{//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+boolean \hyperlink{_kontr___t_c__spl_8h_a51cd6951b89bef83867df0142b35e612}{Is\+N\+Temp\+Cas} ()
+\item 
+time\+\_\+t \hyperlink{_kontr___t_c__spl_8h_acaab414b0b6bc977dfe89b5201c9d002}{process\+Sync\+Message} ()
+\item 
+void \hyperlink{_kontr___t_c__spl_8h_a14b0f366ddca9910f942f904f00bce94}{Ethernet\+Init} (boolean izpis\+Short)
+\item 
+void \hyperlink{_kontr___t_c__spl_8h_a8ded86cae89bccb21d891d533bf505b0}{Ethernet\+Izpis\+Info} (void)
+\item 
+void \hyperlink{_kontr___t_c__spl_8h_acbd9d14f98cabb46c24d6ff8ac140543}{S\+D\+Init} (void)
+\item 
+void \hyperlink{_kontr___t_c__spl_8h_ada8c75979de444d679120bec967d518a}{Print\+Temp\+All\+S\+Dbin} (void)
+\item 
+void \hyperlink{_kontr___t_c__spl_8h_ab670eb91d8438a8b91a6a14ef7677b26}{Ime\+Datoteke\+On\+Off} (char $\ast$ime)
+\item 
+void \hyperlink{_kontr___t_c__spl_8h_ab02d02d205f26bec5ac887514a354f8a}{Izpis\+Data\+On\+Off\+Serial} (void)
+\item 
+void \hyperlink{_kontr___t_c__spl_8h_a811f40320e641dfa30a406fbee9d2ae6}{Izpis\+Datna\+Serial} (void)
+\item 
+unsigned int \hyperlink{_kontr___t_c__spl_8h_af492b70e5403d4c7343cb5c756bd0da9}{Obseg\+Zgodovine} (int sensor, unsigned int pred=0)
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_a8532bd8557100d921d688e19a95b19b1}{A\+C\+\_\+mimax} (boolean izpis, boolean force\+Calc)
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_a12f3449127e4b252f86f287b8115278f}{Tok\+\_\+12\+V} (void)
+\item 
+void \hyperlink{_kontr___t_c__spl_8h_a99da48505109bd092c7f9eaf6aea6695}{Preveri\+Stikala} (boolean izpis\+State)
+\item 
+void \hyperlink{_kontr___t_c__spl_8h_a160a61c71a76bc4841b6d7ead3985cc5}{Print\+Temperature\+All} (void)
+\item 
+void \hyperlink{_kontr___t_c__spl_8h_ad2ba69beb3ef5989f1ff9e81520172cb}{Preveri\+Napetosti} (boolean izpis, boolean internal, boolean external, boolean battery)
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_acc4a61b4c642ac2a5580765aa502c4b4}{Sec2\+Hour} (unsigned long sec)
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_af2717bc253ba98d4e5fdc01f2e8f97aa}{Avg\+Val\+F\+F\+\_\+\+F} (float suma, float num)
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_a5326fd830d99d23960fd6e54cddfd6d5}{Avg\+Val\+U\+L\+U\+L\+\_\+\+F} (unsigned long sum, unsigned long num)
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_a64fc03fbe7167741778170a12d53d21c}{Kompenzacija\+Temp\+Okolice} (float t\+Okolice)
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_aa8a099bc6ad696ff6e64a441411bd8a3}{Kompenz\+Zac\+Temp} (float t\+Start)
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_a1c6c104b93d3d87c642168d4123c12a4}{Izrac\+Delta\+Th} ()
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_a81c96bc059cc4e8d6003b63abfccbace}{Izrac\+Delta\+Th\+Ok} ()
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_a441c8d1d391b5de74b1d468534f6ac28}{Izrac\+Delta\+Th\+St} ()
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_acda209a6266069ca938ac8d5221a4757}{Cop} (void)
+\item 
+boolean \hyperlink{_kontr___t_c__spl_8h_a3ad78739d780d6bec7a4f291a2b591cd}{Voda\+Vre} (boolean izpis)
+\item 
+boolean \hyperlink{_kontr___t_c__spl_8h_a8b4b194bb96f1fd7c979a485de94cf18}{Max\+Crp\+T\+C\+Run\+Time} ()
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_a9d0931eca86a7cf1c8b6324f1e6944be}{Temp\+Vklopa\+Crp\+T\+C\+\_\+\+N\+Temp} ()
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_a39b23bf87f4109cd04177065ac9b061b}{Temp\+Izklopa\+Crp\+T\+C\+\_\+\+N\+Temp} ()
+\item 
+boolean \hyperlink{_kontr___t_c__spl_8h_af06bbdc11a167dd6b6ea820dc78f57b2}{Relaks\+Time\+Limit\+Sec} (unsigned long c\+Time, unsigned long p\+Time, int r\+Time)
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_af13e3927bb60dda5e8508252d7421978}{Temp\+Vklopa} (void)
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_adb525fcd9c54a91e6578b904ef4ce803}{Temp\+Izklopa} (void)
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_aaa5b1a54e4ff90697347844f62fba2c3}{Izracun\+Limit\+Temp} (int state, float ci\+Temp)
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_ae44421c952b3d2170b4ca7be5a943dad}{Izracun\+Temp\+V\+T\+Off} (void)
+\item 
+boolean \hyperlink{_kontr___t_c__spl_8h_a5443b1b044ddb2124ff531b29398faff}{Upostevaj\+El\+Tarife} (void)
+\item 
+void \hyperlink{_kontr___t_c__spl_8h_ab56226db878b2cf3950545801ce20a33}{Check\+Serial} (void)
+\item 
+void \hyperlink{_kontr___t_c__spl_8h_ac240fa7411e0ab903db0d696f8734e36}{Izpis\+Poraba\+W\+H} (float \hyperlink{_configuration_8h_a7fc7a0a5b2323a98b086e6b00b1062f3}{poraba\+W\+H})
+\item 
+void \hyperlink{_kontr___t_c__spl_8h_a3de9059f163f4166f8776459f4c5a195}{Izracun\+Hitrosti\+Gretja\+T\+C} (void)
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_a820d4e870fd302896cf5ba2f50d57fac}{Povpreci\+Vred} (float a, float pov\+Vred, float last\+Vred)
+\item 
+void \hyperlink{_kontr___t_c__spl_8h_ae160958703203b13e8ebe4af9ed5077b}{Zapisi\+In\+Izpisi\+Podatke} (void)
+\item 
+void \hyperlink{_kontr___t_c__spl_8h_abb3252d2890f9b7ba161f409648875c8}{Print\+Data} (void)
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_ae1cb0b622dfb4aae9910b28b3e19820d}{Mejna\+Temp\+Prekl\+Crp\+Rad} (byte new\+State)
+\item 
+int \hyperlink{_kontr___t_c__spl_8h_a824cf3ef4b5d341d8a446b69d779c60e}{Zakasnitev\+Vklopa} (float temp, float mejna\+Temp, int faktor)
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_a0bf7bc9c2307714e133f3354587e4cfc}{Temp\+Izklopa\+Crp\+T\+C} (void)
+\item 
+static float \hyperlink{_kontr___t_c__spl_8h_a4f2e8f9e139bd4130bd18504db532b42}{Pretvoti\+E\+E\+Temp2\+Float} (unsigned int u2uival)
+\item 
+static unsigned int \hyperlink{_kontr___t_c__spl_8h_ad2f4972d75cbe66c41a3f9e323868281}{Pretvori\+Float2\+E\+E\+Temp} (float temp)
+\item 
+static word \hyperlink{_kontr___t_c__spl_8h_ae69f61a08ff3c6001ced05e642f96025}{home\+Page} (void)
+\end{DoxyCompactItemize}
+\subsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+unsigned long \hyperlink{_kontr___t_c__spl_8h_a37324e91499f47a4db47e040e94b2860}{cyc\+Start}
+\item 
+unsigned long \hyperlink{_kontr___t_c__spl_8h_ac09a8bb580734e947b40fa1d286379eb}{sum\+Cycle}
+\item 
+unsigned long \hyperlink{_kontr___t_c__spl_8h_a478ce27840e9e3991503845f729a114b}{ncyc}
+\item 
+unsigned long \hyperlink{_kontr___t_c__spl_8h_a80dafad07244fd70d5554f536388a065}{min\+Cycle} = 0
+\item 
+unsigned long \hyperlink{_kontr___t_c__spl_8h_a5de80d6ef15201184612fb7b6d24a99e}{max\+Cycle} = 0
+\item 
+boolean \hyperlink{_kontr___t_c__spl_8h_a8b3896437507c2d328ab2fb7fbf7424e}{use\+Delta\+Th\+Ok} = false
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_a48e9904aad344b907a999395e1202dca}{p\+Temp\+Crp} \mbox{[}3\mbox{]}
+\item 
+boolean \hyperlink{_kontr___t_c__spl_8h_af030731b6fad824b5711356e814cbd5c}{izrac\+Hitr\+Gret} = false
+\item 
+boolean \hyperlink{_kontr___t_c__spl_8h_a23d5abeb28cfbc4257b1130bd888b155}{izrac\+Hitr\+Gret\+Info} =false
+\item 
+boolean \hyperlink{_kontr___t_c__spl_8h_aa90f66a65f161a9b06d8678e227acb51}{se\+Rracuna\+Hitr\+Gret}
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_a9021804edb77acfc37a5509f1666679e}{avg\+Weight\+L\+H\+T\+C} = (0.\+5/(float) \hyperlink{_configuration_8h_a8dfaf063148ba551561f3a7c6bf2da49}{zamik\+Mer\+Temp})
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_a16d7b022c7c3fb18d569ef495bbfe921}{avg\+L\+H\+T\+C\+Vode\+T\+C} = -\/0.\+5
+\item 
+boolean \hyperlink{_kontr___t_c__spl_8h_a327d3b5b3cc642ac37a3f264699d8959}{debug\+Device\+Hub}
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_a5a6a3764f3b7b458de98bd6a6cafca6e}{sum\+Ping} = 0
+\item 
+unsigned long \hyperlink{_kontr___t_c__spl_8h_a28ab28014998bb3afccbee401f739d1d}{num\+Ping} = 0
+\item 
+int \hyperlink{_kontr___t_c__spl_8h_ab7636b71978f690eb4c37c8b465a5c02}{state\+Cev\+St\+Pec\+T\+C}
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_a1024de4d6f7b38d800b996d9abaefeb9}{tok230\+V} = -\/100.\+0
+\item 
+unsigned long \hyperlink{_kontr___t_c__spl_8h_ac4b00b12f377cfe03da41e1232241f3c}{co\+Raw\+Val\+Sum}
+\item 
+unsigned long \hyperlink{_kontr___t_c__spl_8h_a826de08a6094b912832e739c7ceb7312}{num\+Mer\+C\+O}
+\item 
+int \hyperlink{_kontr___t_c__spl_8h_a34f3e6494f80560e4e94aa77ee4ced66}{co\+Raw\+Val\+Max}
+\item 
+int \hyperlink{_kontr___t_c__spl_8h_a537b59c17084787f2acf099109829196}{co\+Raw\+Val\+Ref}
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_ad0fed95ce13a62be1aba66e70aa1cbf6}{min\+Volt\+Gas}
+\item 
+float \hyperlink{_kontr___t_c__spl_8h_a0952421a74472f72606ee8bc643542e2}{max\+Volt\+Gas}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis funkcije}
+\hypertarget{_kontr___t_c__spl_8h_a8532bd8557100d921d688e19a95b19b1}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!A\+C\+\_\+mimax@{A\+C\+\_\+mimax}}
+\index{A\+C\+\_\+mimax@{A\+C\+\_\+mimax}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{A\+C\+\_\+mimax}]{\setlength{\rightskip}{0pt plus 5cm}float A\+C\+\_\+mimax (
+\begin{DoxyParamCaption}
+\item[{boolean}]{izpis = {\ttfamily false}, }
+\item[{boolean}]{force\+Calc = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a8532bd8557100d921d688e19a95b19b1}
+
+
+Definirano v 24 vrstici datoteke Tok\+\_\+napetost.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_af2717bc253ba98d4e5fdc01f2e8f97aa}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Avg\+Val\+F\+F\+\_\+\+F@{Avg\+Val\+F\+F\+\_\+\+F}}
+\index{Avg\+Val\+F\+F\+\_\+\+F@{Avg\+Val\+F\+F\+\_\+\+F}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Avg\+Val\+F\+F\+\_\+\+F}]{\setlength{\rightskip}{0pt plus 5cm}float Avg\+Val\+F\+F\+\_\+\+F (
+\begin{DoxyParamCaption}
+\item[{float}]{suma, }
+\item[{float}]{num}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{_kontr___t_c__spl_8h_af2717bc253ba98d4e5fdc01f2e8f97aa}
+
+
+Definirano v 67 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a5326fd830d99d23960fd6e54cddfd6d5}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Avg\+Val\+U\+L\+U\+L\+\_\+\+F@{Avg\+Val\+U\+L\+U\+L\+\_\+\+F}}
+\index{Avg\+Val\+U\+L\+U\+L\+\_\+\+F@{Avg\+Val\+U\+L\+U\+L\+\_\+\+F}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Avg\+Val\+U\+L\+U\+L\+\_\+\+F}]{\setlength{\rightskip}{0pt plus 5cm}float Avg\+Val\+U\+L\+U\+L\+\_\+\+F (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{sum, }
+\item[{unsigned long}]{num}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{_kontr___t_c__spl_8h_a5326fd830d99d23960fd6e54cddfd6d5}
+
+
+Definirano v 83 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_ab56226db878b2cf3950545801ce20a33}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Check\+Serial@{Check\+Serial}}
+\index{Check\+Serial@{Check\+Serial}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Check\+Serial}]{\setlength{\rightskip}{0pt plus 5cm}void Check\+Serial (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_ab56226db878b2cf3950545801ce20a33}
+
+
+Definirano v 485 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_acda209a6266069ca938ac8d5221a4757}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Cop@{Cop}}
+\index{Cop@{Cop}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Cop}]{\setlength{\rightskip}{0pt plus 5cm}float Cop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_acda209a6266069ca938ac8d5221a4757}
+
+
+Definirano v 214 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a14b0f366ddca9910f942f904f00bce94}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Ethernet\+Init@{Ethernet\+Init}}
+\index{Ethernet\+Init@{Ethernet\+Init}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Ethernet\+Init}]{\setlength{\rightskip}{0pt plus 5cm}void Ethernet\+Init (
+\begin{DoxyParamCaption}
+\item[{boolean}]{izpis\+Short}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a14b0f366ddca9910f942f904f00bce94}
+
+
+Definirano v 50 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a8ded86cae89bccb21d891d533bf505b0}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Ethernet\+Izpis\+Info@{Ethernet\+Izpis\+Info}}
+\index{Ethernet\+Izpis\+Info@{Ethernet\+Izpis\+Info}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Ethernet\+Izpis\+Info}]{\setlength{\rightskip}{0pt plus 5cm}void Ethernet\+Izpis\+Info (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a8ded86cae89bccb21d891d533bf505b0}
+
+
+Definirano v 377 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_ae69f61a08ff3c6001ced05e642f96025}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!home\+Page@{home\+Page}}
+\index{home\+Page@{home\+Page}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{home\+Page}]{\setlength{\rightskip}{0pt plus 5cm}static word home\+Page (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{_kontr___t_c__spl_8h_ae69f61a08ff3c6001ced05e642f96025}
+
+
+Definirano v 198 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_ab670eb91d8438a8b91a6a14ef7677b26}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Ime\+Datoteke\+On\+Off@{Ime\+Datoteke\+On\+Off}}
+\index{Ime\+Datoteke\+On\+Off@{Ime\+Datoteke\+On\+Off}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Ime\+Datoteke\+On\+Off}]{\setlength{\rightskip}{0pt plus 5cm}void Ime\+Datoteke\+On\+Off (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{ime}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_ab670eb91d8438a8b91a6a14ef7677b26}
+
+
+Definirano v 55 vrstici datoteke Zapisi\+\_\+sd.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a51cd6951b89bef83867df0142b35e612}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Is\+N\+Temp\+Cas@{Is\+N\+Temp\+Cas}}
+\index{Is\+N\+Temp\+Cas@{Is\+N\+Temp\+Cas}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Is\+N\+Temp\+Cas}]{\setlength{\rightskip}{0pt plus 5cm}boolean Is\+N\+Temp\+Cas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a51cd6951b89bef83867df0142b35e612}
+
+
+Definirano v 672 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_ab02d02d205f26bec5ac887514a354f8a}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Izpis\+Data\+On\+Off\+Serial@{Izpis\+Data\+On\+Off\+Serial}}
+\index{Izpis\+Data\+On\+Off\+Serial@{Izpis\+Data\+On\+Off\+Serial}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Izpis\+Data\+On\+Off\+Serial}]{\setlength{\rightskip}{0pt plus 5cm}void Izpis\+Data\+On\+Off\+Serial (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_ab02d02d205f26bec5ac887514a354f8a}
+
+
+Definirano v 372 vrstici datoteke Zapisi\+\_\+sd.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a811f40320e641dfa30a406fbee9d2ae6}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Izpis\+Datna\+Serial@{Izpis\+Datna\+Serial}}
+\index{Izpis\+Datna\+Serial@{Izpis\+Datna\+Serial}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Izpis\+Datna\+Serial}]{\setlength{\rightskip}{0pt plus 5cm}void Izpis\+Datna\+Serial (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a811f40320e641dfa30a406fbee9d2ae6}
+
+
+Definirano v 401 vrstici datoteke Zapisi\+\_\+sd.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_ac240fa7411e0ab903db0d696f8734e36}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Izpis\+Poraba\+W\+H@{Izpis\+Poraba\+W\+H}}
+\index{Izpis\+Poraba\+W\+H@{Izpis\+Poraba\+W\+H}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Izpis\+Poraba\+W\+H}]{\setlength{\rightskip}{0pt plus 5cm}void Izpis\+Poraba\+W\+H (
+\begin{DoxyParamCaption}
+\item[{float}]{poraba\+W\+H}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_ac240fa7411e0ab903db0d696f8734e36}
+
+
+Definirano v 604 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a1c6c104b93d3d87c642168d4123c12a4}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Izrac\+Delta\+Th@{Izrac\+Delta\+Th}}
+\index{Izrac\+Delta\+Th@{Izrac\+Delta\+Th}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Izrac\+Delta\+Th}]{\setlength{\rightskip}{0pt plus 5cm}float Izrac\+Delta\+Th (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a1c6c104b93d3d87c642168d4123c12a4}
+
+
+Definirano v 143 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a81c96bc059cc4e8d6003b63abfccbace}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Izrac\+Delta\+Th\+Ok@{Izrac\+Delta\+Th\+Ok}}
+\index{Izrac\+Delta\+Th\+Ok@{Izrac\+Delta\+Th\+Ok}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Izrac\+Delta\+Th\+Ok}]{\setlength{\rightskip}{0pt plus 5cm}float Izrac\+Delta\+Th\+Ok (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a81c96bc059cc4e8d6003b63abfccbace}
+
+
+Definirano v 158 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a441c8d1d391b5de74b1d468534f6ac28}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Izrac\+Delta\+Th\+St@{Izrac\+Delta\+Th\+St}}
+\index{Izrac\+Delta\+Th\+St@{Izrac\+Delta\+Th\+St}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Izrac\+Delta\+Th\+St}]{\setlength{\rightskip}{0pt plus 5cm}float Izrac\+Delta\+Th\+St (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a441c8d1d391b5de74b1d468534f6ac28}
+
+
+Definirano v 189 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a3de9059f163f4166f8776459f4c5a195}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Izracun\+Hitrosti\+Gretja\+T\+C@{Izracun\+Hitrosti\+Gretja\+T\+C}}
+\index{Izracun\+Hitrosti\+Gretja\+T\+C@{Izracun\+Hitrosti\+Gretja\+T\+C}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Izracun\+Hitrosti\+Gretja\+T\+C}]{\setlength{\rightskip}{0pt plus 5cm}void Izracun\+Hitrosti\+Gretja\+T\+C (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a3de9059f163f4166f8776459f4c5a195}
+
+
+Definirano v 627 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_aaa5b1a54e4ff90697347844f62fba2c3}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Izracun\+Limit\+Temp@{Izracun\+Limit\+Temp}}
+\index{Izracun\+Limit\+Temp@{Izracun\+Limit\+Temp}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Izracun\+Limit\+Temp}]{\setlength{\rightskip}{0pt plus 5cm}float Izracun\+Limit\+Temp (
+\begin{DoxyParamCaption}
+\item[{int}]{state, }
+\item[{float}]{ci\+Temp}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_aaa5b1a54e4ff90697347844f62fba2c3}
+
+
+Definirano v 398 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_ae44421c952b3d2170b4ca7be5a943dad}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Izracun\+Temp\+V\+T\+Off@{Izracun\+Temp\+V\+T\+Off}}
+\index{Izracun\+Temp\+V\+T\+Off@{Izracun\+Temp\+V\+T\+Off}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Izracun\+Temp\+V\+T\+Off}]{\setlength{\rightskip}{0pt plus 5cm}float Izracun\+Temp\+V\+T\+Off (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_ae44421c952b3d2170b4ca7be5a943dad}
+
+
+Definirano v 439 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a64fc03fbe7167741778170a12d53d21c}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Kompenzacija\+Temp\+Okolice@{Kompenzacija\+Temp\+Okolice}}
+\index{Kompenzacija\+Temp\+Okolice@{Kompenzacija\+Temp\+Okolice}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Kompenzacija\+Temp\+Okolice}]{\setlength{\rightskip}{0pt plus 5cm}float Kompenzacija\+Temp\+Okolice (
+\begin{DoxyParamCaption}
+\item[{float}]{t\+Okolice}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a64fc03fbe7167741778170a12d53d21c}
+
+
+Definirano v 91 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_aa8a099bc6ad696ff6e64a441411bd8a3}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Kompenz\+Zac\+Temp@{Kompenz\+Zac\+Temp}}
+\index{Kompenz\+Zac\+Temp@{Kompenz\+Zac\+Temp}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Kompenz\+Zac\+Temp}]{\setlength{\rightskip}{0pt plus 5cm}float Kompenz\+Zac\+Temp (
+\begin{DoxyParamCaption}
+\item[{float}]{t\+Start}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_aa8a099bc6ad696ff6e64a441411bd8a3}
+
+
+Definirano v 109 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a8b4b194bb96f1fd7c979a485de94cf18}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Max\+Crp\+T\+C\+Run\+Time@{Max\+Crp\+T\+C\+Run\+Time}}
+\index{Max\+Crp\+T\+C\+Run\+Time@{Max\+Crp\+T\+C\+Run\+Time}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Max\+Crp\+T\+C\+Run\+Time}]{\setlength{\rightskip}{0pt plus 5cm}boolean Max\+Crp\+T\+C\+Run\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a8b4b194bb96f1fd7c979a485de94cf18}
+
+
+Definirano v 269 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_ae1cb0b622dfb4aae9910b28b3e19820d}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Mejna\+Temp\+Prekl\+Crp\+Rad@{Mejna\+Temp\+Prekl\+Crp\+Rad}}
+\index{Mejna\+Temp\+Prekl\+Crp\+Rad@{Mejna\+Temp\+Prekl\+Crp\+Rad}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Mejna\+Temp\+Prekl\+Crp\+Rad}]{\setlength{\rightskip}{0pt plus 5cm}float Mejna\+Temp\+Prekl\+Crp\+Rad (
+\begin{DoxyParamCaption}
+\item[{byte}]{new\+State}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_ae1cb0b622dfb4aae9910b28b3e19820d}
+
+
+Definirano v 1037 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_af492b70e5403d4c7343cb5c756bd0da9}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Obseg\+Zgodovine@{Obseg\+Zgodovine}}
+\index{Obseg\+Zgodovine@{Obseg\+Zgodovine}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Obseg\+Zgodovine}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Obseg\+Zgodovine (
+\begin{DoxyParamCaption}
+\item[{int}]{sensor, }
+\item[{unsigned int}]{pred = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_af492b70e5403d4c7343cb5c756bd0da9}
+
+
+Definirano v 764 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a820d4e870fd302896cf5ba2f50d57fac}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Povpreci\+Vred@{Povpreci\+Vred}}
+\index{Povpreci\+Vred@{Povpreci\+Vred}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Povpreci\+Vred}]{\setlength{\rightskip}{0pt plus 5cm}float Povpreci\+Vred (
+\begin{DoxyParamCaption}
+\item[{float}]{a, }
+\item[{float}]{pov\+Vred, }
+\item[{float}]{last\+Vred}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a820d4e870fd302896cf5ba2f50d57fac}
+
+
+Definirano v 720 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_ad2f4972d75cbe66c41a3f9e323868281}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Pretvori\+Float2\+E\+E\+Temp@{Pretvori\+Float2\+E\+E\+Temp}}
+\index{Pretvori\+Float2\+E\+E\+Temp@{Pretvori\+Float2\+E\+E\+Temp}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Pretvori\+Float2\+E\+E\+Temp}]{\setlength{\rightskip}{0pt plus 5cm}static unsigned int Pretvori\+Float2\+E\+E\+Temp (
+\begin{DoxyParamCaption}
+\item[{float}]{temp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{_kontr___t_c__spl_8h_ad2f4972d75cbe66c41a3f9e323868281}
+
+
+Definirano v 732 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a4f2e8f9e139bd4130bd18504db532b42}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Pretvoti\+E\+E\+Temp2\+Float@{Pretvoti\+E\+E\+Temp2\+Float}}
+\index{Pretvoti\+E\+E\+Temp2\+Float@{Pretvoti\+E\+E\+Temp2\+Float}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Pretvoti\+E\+E\+Temp2\+Float}]{\setlength{\rightskip}{0pt plus 5cm}static float Pretvoti\+E\+E\+Temp2\+Float (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{u2uival}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{_kontr___t_c__spl_8h_a4f2e8f9e139bd4130bd18504db532b42}
+
+
+Definirano v 725 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_ad2ba69beb3ef5989f1ff9e81520172cb}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Preveri\+Napetosti@{Preveri\+Napetosti}}
+\index{Preveri\+Napetosti@{Preveri\+Napetosti}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Preveri\+Napetosti}]{\setlength{\rightskip}{0pt plus 5cm}void Preveri\+Napetosti (
+\begin{DoxyParamCaption}
+\item[{boolean}]{izpis, }
+\item[{boolean}]{internal, }
+\item[{boolean}]{external, }
+\item[{boolean}]{battery}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_ad2ba69beb3ef5989f1ff9e81520172cb}
+
+
+Definirano v 293 vrstici datoteke Tok\+\_\+napetost.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a99da48505109bd092c7f9eaf6aea6695}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Preveri\+Stikala@{Preveri\+Stikala}}
+\index{Preveri\+Stikala@{Preveri\+Stikala}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Preveri\+Stikala}]{\setlength{\rightskip}{0pt plus 5cm}void Preveri\+Stikala (
+\begin{DoxyParamCaption}
+\item[{boolean}]{izpis\+State}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a99da48505109bd092c7f9eaf6aea6695}
+
+
+Definirano v 278 vrstici datoteke Kontr\+\_\+\+T\+C.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_abb3252d2890f9b7ba161f409648875c8}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Print\+Data@{Print\+Data}}
+\index{Print\+Data@{Print\+Data}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Print\+Data}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+Data (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_abb3252d2890f9b7ba161f409648875c8}
+
+
+Definirano v 1012 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_ada8c75979de444d679120bec967d518a}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Print\+Temp\+All\+S\+Dbin@{Print\+Temp\+All\+S\+Dbin}}
+\index{Print\+Temp\+All\+S\+Dbin@{Print\+Temp\+All\+S\+Dbin}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Print\+Temp\+All\+S\+Dbin}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+Temp\+All\+S\+Dbin (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_ada8c75979de444d679120bec967d518a}
+
+
+Definirano v 94 vrstici datoteke Zapisi\+\_\+sd.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a160a61c71a76bc4841b6d7ead3985cc5}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Print\+Temperature\+All@{Print\+Temperature\+All}}
+\index{Print\+Temperature\+All@{Print\+Temperature\+All}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Print\+Temperature\+All}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+Temperature\+All (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a160a61c71a76bc4841b6d7ead3985cc5}
+
+
+Definirano v 461 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_acaab414b0b6bc977dfe89b5201c9d002}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!process\+Sync\+Message@{process\+Sync\+Message}}
+\index{process\+Sync\+Message@{process\+Sync\+Message}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{process\+Sync\+Message}]{\setlength{\rightskip}{0pt plus 5cm}time\+\_\+t process\+Sync\+Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_acaab414b0b6bc977dfe89b5201c9d002}
+
+
+Definirano v 629 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_af06bbdc11a167dd6b6ea820dc78f57b2}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Relaks\+Time\+Limit\+Sec@{Relaks\+Time\+Limit\+Sec}}
+\index{Relaks\+Time\+Limit\+Sec@{Relaks\+Time\+Limit\+Sec}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Relaks\+Time\+Limit\+Sec}]{\setlength{\rightskip}{0pt plus 5cm}boolean Relaks\+Time\+Limit\+Sec (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{c\+Time, }
+\item[{unsigned long}]{p\+Time, }
+\item[{int}]{r\+Time}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_af06bbdc11a167dd6b6ea820dc78f57b2}
+
+
+Definirano v 297 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_acbd9d14f98cabb46c24d6ff8ac140543}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!S\+D\+Init@{S\+D\+Init}}
+\index{S\+D\+Init@{S\+D\+Init}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{S\+D\+Init}]{\setlength{\rightskip}{0pt plus 5cm}void S\+D\+Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_acbd9d14f98cabb46c24d6ff8ac140543}
+
+
+Definirano v 22 vrstici datoteke Zapisi\+\_\+sd.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_acc4a61b4c642ac2a5580765aa502c4b4}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Sec2\+Hour@{Sec2\+Hour}}
+\index{Sec2\+Hour@{Sec2\+Hour}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Sec2\+Hour}]{\setlength{\rightskip}{0pt plus 5cm}float Sec2\+Hour (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{sec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{_kontr___t_c__spl_8h_acc4a61b4c642ac2a5580765aa502c4b4}
+
+
+Definirano v 57 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_adb525fcd9c54a91e6578b904ef4ce803}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Temp\+Izklopa@{Temp\+Izklopa}}
+\index{Temp\+Izklopa@{Temp\+Izklopa}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Temp\+Izklopa}]{\setlength{\rightskip}{0pt plus 5cm}float Temp\+Izklopa (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_adb525fcd9c54a91e6578b904ef4ce803}
+
+
+Definirano v 373 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a0bf7bc9c2307714e133f3354587e4cfc}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Temp\+Izklopa\+Crp\+T\+C@{Temp\+Izklopa\+Crp\+T\+C}}
+\index{Temp\+Izklopa\+Crp\+T\+C@{Temp\+Izklopa\+Crp\+T\+C}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Temp\+Izklopa\+Crp\+T\+C}]{\setlength{\rightskip}{0pt plus 5cm}float Temp\+Izklopa\+Crp\+T\+C (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a0bf7bc9c2307714e133f3354587e4cfc}
+
+
+Definirano v 1087 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a39b23bf87f4109cd04177065ac9b061b}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Temp\+Izklopa\+Crp\+T\+C\+\_\+\+N\+Temp@{Temp\+Izklopa\+Crp\+T\+C\+\_\+\+N\+Temp}}
+\index{Temp\+Izklopa\+Crp\+T\+C\+\_\+\+N\+Temp@{Temp\+Izklopa\+Crp\+T\+C\+\_\+\+N\+Temp}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Temp\+Izklopa\+Crp\+T\+C\+\_\+\+N\+Temp}]{\setlength{\rightskip}{0pt plus 5cm}float Temp\+Izklopa\+Crp\+T\+C\+\_\+\+N\+Temp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a39b23bf87f4109cd04177065ac9b061b}
+
+
+Definirano v 286 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_af13e3927bb60dda5e8508252d7421978}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Temp\+Vklopa@{Temp\+Vklopa}}
+\index{Temp\+Vklopa@{Temp\+Vklopa}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Temp\+Vklopa}]{\setlength{\rightskip}{0pt plus 5cm}float Temp\+Vklopa (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_af13e3927bb60dda5e8508252d7421978}
+
+
+Definirano v 313 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a9d0931eca86a7cf1c8b6324f1e6944be}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Temp\+Vklopa\+Crp\+T\+C\+\_\+\+N\+Temp@{Temp\+Vklopa\+Crp\+T\+C\+\_\+\+N\+Temp}}
+\index{Temp\+Vklopa\+Crp\+T\+C\+\_\+\+N\+Temp@{Temp\+Vklopa\+Crp\+T\+C\+\_\+\+N\+Temp}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Temp\+Vklopa\+Crp\+T\+C\+\_\+\+N\+Temp}]{\setlength{\rightskip}{0pt plus 5cm}float Temp\+Vklopa\+Crp\+T\+C\+\_\+\+N\+Temp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a9d0931eca86a7cf1c8b6324f1e6944be}
+
+
+Definirano v 275 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a12f3449127e4b252f86f287b8115278f}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Tok\+\_\+12\+V@{Tok\+\_\+12\+V}}
+\index{Tok\+\_\+12\+V@{Tok\+\_\+12\+V}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Tok\+\_\+12\+V}]{\setlength{\rightskip}{0pt plus 5cm}float Tok\+\_\+12\+V (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a12f3449127e4b252f86f287b8115278f}
+
+
+Definirano v 139 vrstici datoteke Tok\+\_\+napetost.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a5443b1b044ddb2124ff531b29398faff}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Upostevaj\+El\+Tarife@{Upostevaj\+El\+Tarife}}
+\index{Upostevaj\+El\+Tarife@{Upostevaj\+El\+Tarife}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Upostevaj\+El\+Tarife}]{\setlength{\rightskip}{0pt plus 5cm}boolean Upostevaj\+El\+Tarife (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a5443b1b044ddb2124ff531b29398faff}
+
+
+Definirano v 465 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a3ad78739d780d6bec7a4f291a2b591cd}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Voda\+Vre@{Voda\+Vre}}
+\index{Voda\+Vre@{Voda\+Vre}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Voda\+Vre}]{\setlength{\rightskip}{0pt plus 5cm}boolean Voda\+Vre (
+\begin{DoxyParamCaption}
+\item[{boolean}]{izpis}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a3ad78739d780d6bec7a4f291a2b591cd}
+
+
+Definirano v 240 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a824cf3ef4b5d341d8a446b69d779c60e}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Zakasnitev\+Vklopa@{Zakasnitev\+Vklopa}}
+\index{Zakasnitev\+Vklopa@{Zakasnitev\+Vklopa}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Zakasnitev\+Vklopa}]{\setlength{\rightskip}{0pt plus 5cm}int Zakasnitev\+Vklopa (
+\begin{DoxyParamCaption}
+\item[{float}]{temp, }
+\item[{float}]{mejna\+Temp, }
+\item[{int}]{faktor}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_a824cf3ef4b5d341d8a446b69d779c60e}
+
+
+Definirano v 1093 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_ae160958703203b13e8ebe4af9ed5077b}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!Zapisi\+In\+Izpisi\+Podatke@{Zapisi\+In\+Izpisi\+Podatke}}
+\index{Zapisi\+In\+Izpisi\+Podatke@{Zapisi\+In\+Izpisi\+Podatke}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{Zapisi\+In\+Izpisi\+Podatke}]{\setlength{\rightskip}{0pt plus 5cm}void Zapisi\+In\+Izpisi\+Podatke (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_kontr___t_c__spl_8h_ae160958703203b13e8ebe4af9ed5077b}
+
+
+Definirano v 759 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+
+
+\subsection{Opis spremenljivke}
+\hypertarget{_kontr___t_c__spl_8h_a16d7b022c7c3fb18d569ef495bbfe921}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!avg\+L\+H\+T\+C\+Vode\+T\+C@{avg\+L\+H\+T\+C\+Vode\+T\+C}}
+\index{avg\+L\+H\+T\+C\+Vode\+T\+C@{avg\+L\+H\+T\+C\+Vode\+T\+C}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{avg\+L\+H\+T\+C\+Vode\+T\+C}]{\setlength{\rightskip}{0pt plus 5cm}float avg\+L\+H\+T\+C\+Vode\+T\+C = -\/0.\+5}\label{_kontr___t_c__spl_8h_a16d7b022c7c3fb18d569ef495bbfe921}
+
+
+Definirano v 311 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a9021804edb77acfc37a5509f1666679e}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!avg\+Weight\+L\+H\+T\+C@{avg\+Weight\+L\+H\+T\+C}}
+\index{avg\+Weight\+L\+H\+T\+C@{avg\+Weight\+L\+H\+T\+C}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{avg\+Weight\+L\+H\+T\+C}]{\setlength{\rightskip}{0pt plus 5cm}float avg\+Weight\+L\+H\+T\+C = (0.\+5/(float) {\bf zamik\+Mer\+Temp})}\label{_kontr___t_c__spl_8h_a9021804edb77acfc37a5509f1666679e}
+
+
+Definirano v 310 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a34f3e6494f80560e4e94aa77ee4ced66}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!co\+Raw\+Val\+Max@{co\+Raw\+Val\+Max}}
+\index{co\+Raw\+Val\+Max@{co\+Raw\+Val\+Max}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{co\+Raw\+Val\+Max}]{\setlength{\rightskip}{0pt plus 5cm}int co\+Raw\+Val\+Max}\label{_kontr___t_c__spl_8h_a34f3e6494f80560e4e94aa77ee4ced66}
+
+
+Definirano v 27 vrstici datoteke Gas\+\_\+\+Sensor.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a537b59c17084787f2acf099109829196}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!co\+Raw\+Val\+Ref@{co\+Raw\+Val\+Ref}}
+\index{co\+Raw\+Val\+Ref@{co\+Raw\+Val\+Ref}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{co\+Raw\+Val\+Ref}]{\setlength{\rightskip}{0pt plus 5cm}int co\+Raw\+Val\+Ref}\label{_kontr___t_c__spl_8h_a537b59c17084787f2acf099109829196}
+
+
+Definirano v 28 vrstici datoteke Gas\+\_\+\+Sensor.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_ac4b00b12f377cfe03da41e1232241f3c}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!co\+Raw\+Val\+Sum@{co\+Raw\+Val\+Sum}}
+\index{co\+Raw\+Val\+Sum@{co\+Raw\+Val\+Sum}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{co\+Raw\+Val\+Sum}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long co\+Raw\+Val\+Sum}\label{_kontr___t_c__spl_8h_ac4b00b12f377cfe03da41e1232241f3c}
+
+
+Definirano v 25 vrstici datoteke Gas\+\_\+\+Sensor.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a37324e91499f47a4db47e040e94b2860}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!cyc\+Start@{cyc\+Start}}
+\index{cyc\+Start@{cyc\+Start}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{cyc\+Start}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long cyc\+Start}\label{_kontr___t_c__spl_8h_a37324e91499f47a4db47e040e94b2860}
+
+
+Definirano v 76 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a327d3b5b3cc642ac37a3f264699d8959}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!debug\+Device\+Hub@{debug\+Device\+Hub}}
+\index{debug\+Device\+Hub@{debug\+Device\+Hub}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{debug\+Device\+Hub}]{\setlength{\rightskip}{0pt plus 5cm}boolean debug\+Device\+Hub}\label{_kontr___t_c__spl_8h_a327d3b5b3cc642ac37a3f264699d8959}
+
+
+Definirano v 426 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_af030731b6fad824b5711356e814cbd5c}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!izrac\+Hitr\+Gret@{izrac\+Hitr\+Gret}}
+\index{izrac\+Hitr\+Gret@{izrac\+Hitr\+Gret}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{izrac\+Hitr\+Gret}]{\setlength{\rightskip}{0pt plus 5cm}boolean izrac\+Hitr\+Gret = false}\label{_kontr___t_c__spl_8h_af030731b6fad824b5711356e814cbd5c}
+
+
+Definirano v 306 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a23d5abeb28cfbc4257b1130bd888b155}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!izrac\+Hitr\+Gret\+Info@{izrac\+Hitr\+Gret\+Info}}
+\index{izrac\+Hitr\+Gret\+Info@{izrac\+Hitr\+Gret\+Info}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{izrac\+Hitr\+Gret\+Info}]{\setlength{\rightskip}{0pt plus 5cm}boolean izrac\+Hitr\+Gret\+Info =false}\label{_kontr___t_c__spl_8h_a23d5abeb28cfbc4257b1130bd888b155}
+
+
+Definirano v 307 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a5de80d6ef15201184612fb7b6d24a99e}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!max\+Cycle@{max\+Cycle}}
+\index{max\+Cycle@{max\+Cycle}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{max\+Cycle}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long max\+Cycle = 0}\label{_kontr___t_c__spl_8h_a5de80d6ef15201184612fb7b6d24a99e}
+
+
+Definirano v 80 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a0952421a74472f72606ee8bc643542e2}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!max\+Volt\+Gas@{max\+Volt\+Gas}}
+\index{max\+Volt\+Gas@{max\+Volt\+Gas}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{max\+Volt\+Gas}]{\setlength{\rightskip}{0pt plus 5cm}float max\+Volt\+Gas}\label{_kontr___t_c__spl_8h_a0952421a74472f72606ee8bc643542e2}
+\hypertarget{_kontr___t_c__spl_8h_a80dafad07244fd70d5554f536388a065}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!min\+Cycle@{min\+Cycle}}
+\index{min\+Cycle@{min\+Cycle}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{min\+Cycle}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long min\+Cycle = 0}\label{_kontr___t_c__spl_8h_a80dafad07244fd70d5554f536388a065}
+
+
+Definirano v 79 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_ad0fed95ce13a62be1aba66e70aa1cbf6}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!min\+Volt\+Gas@{min\+Volt\+Gas}}
+\index{min\+Volt\+Gas@{min\+Volt\+Gas}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{min\+Volt\+Gas}]{\setlength{\rightskip}{0pt plus 5cm}float min\+Volt\+Gas}\label{_kontr___t_c__spl_8h_ad0fed95ce13a62be1aba66e70aa1cbf6}
+\hypertarget{_kontr___t_c__spl_8h_a478ce27840e9e3991503845f729a114b}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!ncyc@{ncyc}}
+\index{ncyc@{ncyc}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{ncyc}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long ncyc}\label{_kontr___t_c__spl_8h_a478ce27840e9e3991503845f729a114b}
+
+
+Definirano v 78 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a826de08a6094b912832e739c7ceb7312}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!num\+Mer\+C\+O@{num\+Mer\+C\+O}}
+\index{num\+Mer\+C\+O@{num\+Mer\+C\+O}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{num\+Mer\+C\+O}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long num\+Mer\+C\+O}\label{_kontr___t_c__spl_8h_a826de08a6094b912832e739c7ceb7312}
+
+
+Definirano v 26 vrstici datoteke Gas\+\_\+\+Sensor.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a28ab28014998bb3afccbee401f739d1d}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!num\+Ping@{num\+Ping}}
+\index{num\+Ping@{num\+Ping}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{num\+Ping}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long num\+Ping = 0}\label{_kontr___t_c__spl_8h_a28ab28014998bb3afccbee401f739d1d}
+
+
+Definirano v 740 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a48e9904aad344b907a999395e1202dca}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!p\+Temp\+Crp@{p\+Temp\+Crp}}
+\index{p\+Temp\+Crp@{p\+Temp\+Crp}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{p\+Temp\+Crp}]{\setlength{\rightskip}{0pt plus 5cm}float p\+Temp\+Crp\mbox{[}3\mbox{]}}\label{_kontr___t_c__spl_8h_a48e9904aad344b907a999395e1202dca}
+
+
+Definirano v 238 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_aa90f66a65f161a9b06d8678e227acb51}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!se\+Rracuna\+Hitr\+Gret@{se\+Rracuna\+Hitr\+Gret}}
+\index{se\+Rracuna\+Hitr\+Gret@{se\+Rracuna\+Hitr\+Gret}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{se\+Rracuna\+Hitr\+Gret}]{\setlength{\rightskip}{0pt plus 5cm}boolean se\+Rracuna\+Hitr\+Gret}\label{_kontr___t_c__spl_8h_aa90f66a65f161a9b06d8678e227acb51}
+
+
+Definirano v 308 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_ab7636b71978f690eb4c37c8b465a5c02}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!state\+Cev\+St\+Pec\+T\+C@{state\+Cev\+St\+Pec\+T\+C}}
+\index{state\+Cev\+St\+Pec\+T\+C@{state\+Cev\+St\+Pec\+T\+C}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{state\+Cev\+St\+Pec\+T\+C}]{\setlength{\rightskip}{0pt plus 5cm}int state\+Cev\+St\+Pec\+T\+C}\label{_kontr___t_c__spl_8h_ab7636b71978f690eb4c37c8b465a5c02}
+
+
+Definirano v 742 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_ac09a8bb580734e947b40fa1d286379eb}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!sum\+Cycle@{sum\+Cycle}}
+\index{sum\+Cycle@{sum\+Cycle}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{sum\+Cycle}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long sum\+Cycle}\label{_kontr___t_c__spl_8h_ac09a8bb580734e947b40fa1d286379eb}
+
+
+Definirano v 77 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a5a6a3764f3b7b458de98bd6a6cafca6e}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!sum\+Ping@{sum\+Ping}}
+\index{sum\+Ping@{sum\+Ping}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{sum\+Ping}]{\setlength{\rightskip}{0pt plus 5cm}float sum\+Ping = 0}\label{_kontr___t_c__spl_8h_a5a6a3764f3b7b458de98bd6a6cafca6e}
+
+
+Definirano v 739 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a1024de4d6f7b38d800b996d9abaefeb9}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!tok230\+V@{tok230\+V}}
+\index{tok230\+V@{tok230\+V}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{tok230\+V}]{\setlength{\rightskip}{0pt plus 5cm}float tok230\+V = -\/100.\+0}\label{_kontr___t_c__spl_8h_a1024de4d6f7b38d800b996d9abaefeb9}
+
+
+Definirano v 745 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+
+\hypertarget{_kontr___t_c__spl_8h_a8b3896437507c2d328ab2fb7fbf7424e}{}\index{Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}!use\+Delta\+Th\+Ok@{use\+Delta\+Th\+Ok}}
+\index{use\+Delta\+Th\+Ok@{use\+Delta\+Th\+Ok}!Kontr\+\_\+\+T\+C\+\_\+spl.\+h@{Kontr\+\_\+\+T\+C\+\_\+spl.\+h}}
+\subsubsection[{use\+Delta\+Th\+Ok}]{\setlength{\rightskip}{0pt plus 5cm}boolean use\+Delta\+Th\+Ok = false}\label{_kontr___t_c__spl_8h_a8b3896437507c2d328ab2fb7fbf7424e}
+
+
+Definirano v 156 vrstici datoteke Kontr\+\_\+\+T\+C\+\_\+spl.\+h.
+

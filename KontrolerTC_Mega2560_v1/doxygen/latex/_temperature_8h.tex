@@ -1,0 +1,387 @@
+\hypertarget{_temperature_8h}{}\section{Datoteka //\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Temperature.h}
+\label{_temperature_8h}\index{//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Temperature.\+h@{//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Temperature.\+h}}
+{\ttfamily \#include $<$D\+H\+T.\+h$>$}\\*
+\subsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_temperature_8h_ad7d0b0308882eca9936a25065463e8f4}{Temperatue\+\_\+h}
+\end{DoxyCompactItemize}
+\subsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_temperature_8h_ad98736b48d836f8d6fec890143887fdb}{Izpis\+Hex2} (int num)
+\item 
+void \hyperlink{_temperature_8h_a4de9eb29c16979c6b172e1748174ef7e}{Beep} (unsigned char delayms)
+\item 
+void \hyperlink{_temperature_8h_a7bce5a7bfc9716b106c7872c2e276c8d}{Temp\+Sensors\+Init} (void)
+\item 
+static float \hyperlink{_temperature_8h_a5b5b0a9bcb95953a4f5cc9794823f0ff}{Preberi\+Temperaturo\+D\+S} (int c\+Sens, boolean zahtevaj\+Branje)
+\item 
+static boolean \hyperlink{_temperature_8h_a53b07500c361cf7811a4c4bc80e08161}{Preberi\+Temperature} (boolean zahtevaj\+Branje, boolean all\+Sens)
+\item 
+float \hyperlink{_temperature_8h_af15e831deb5e37139865a49a75bf7cc8}{Preberi\+Temperaturo\+D\+H\+T22} (int n)
+\item 
+float \hyperlink{_temperature_8h_a475e0ee674ed7cd76258aeec2f4d52e9}{Preberi\+Vlaznost\+D\+H\+T22} (int n)
+\item 
+float \hyperlink{_temperature_8h_a7a255068f50f3b1ba9e8828b9011e391}{Izracun\+T\+Rosicsa} (float temp, float vlaz)
+\item 
+float \hyperlink{_temperature_8h_a5ace0910754371e6bb7fbfc77a8ca25a}{Izracun\+Humidex} (float temp, float temp\+Ros)
+\item 
+float \hyperlink{_temperature_8h_aae9127c14bfb7cacae4f0117b4de1415}{Preberi\+Temperaturo\+K} (int n)
+\item 
+void \hyperlink{_temperature_8h_ac0ff88e56c74637a4686f8124ba68f1a}{Print\+Address} (\hyperlink{_configuration_8h_a7a5445edfac5eacc4404ae5ed58d7880}{Device\+Address} device\+Address)
+\item 
+void \hyperlink{_temperature_8h_a160a61c71a76bc4841b6d7ead3985cc5}{Print\+Temperature\+All} (void)
+\item 
+time\+\_\+t \hyperlink{_temperature_8h_acaab414b0b6bc977dfe89b5201c9d002}{process\+Sync\+Message} ()
+\item 
+float \hyperlink{_temperature_8h_a40b0dda43941a61b89819faa1d72f24d}{Auto\+Time\+Unit\+Conv} (unsigned long cas, char $\ast$cunits)
+\item 
+boolean \hyperlink{_temperature_8h_a51cd6951b89bef83867df0142b35e612}{Is\+N\+Temp\+Cas} ()
+\item 
+boolean \hyperlink{_temperature_8h_a4837c478b0165f12f209922b78427732}{Is\+Cas\+Transf\+Topl} ()
+\item 
+void \hyperlink{_temperature_8h_a968cf641ca86223b20811866f989ecd7}{last24\+H\+\_\+\+Info} (void)
+\item 
+unsigned int \hyperlink{_temperature_8h_a6b4c8eecd1863ce6529b507a042e78c3}{Obseg\+Zgodovine} (int sensor, unsigned int pred)
+\item 
+float \hyperlink{_temperature_8h_af46d98cc9215cef895874e54a6e6e34e}{Ref\+Temp} (byte ref\+Temp\+Type)
+\end{DoxyCompactItemize}
+\subsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_configuration_8h_a7a5445edfac5eacc4404ae5ed58d7880}{Device\+Address} \hyperlink{_temperature_8h_ad9ab329716dd814c12e5aaa64d610dd9}{dev\+Address} \mbox{[}\hyperlink{_configuration_8h_a4b994cd609d0eb579c81d91606dc8a78}{M\+A\+X\+S\+E\+N\+S\+O\+R\+S\+\_\+\+D\+S}\mbox{]}
+\item 
+unsigned long \hyperlink{_temperature_8h_ab5bb38e51bc1a06ca683b13d56ea5475}{conv\+Wait\+Time} = 800
+\item 
+boolean \hyperlink{_temperature_8h_afb047b1c04b12b61e04eb0d69374d954}{temerature\+Izmerjene} =true
+\item 
+float \hyperlink{_temperature_8h_adc9578d1c72bad613087fb3d265934de}{avg\+Temp\+Vode\+T\+C}
+\item 
+float \hyperlink{_temperature_8h_a8a786cdf9999e97c6e121d11072ca4d6}{sum\+C\+Temp} =0.\+0
+\item 
+float \hyperlink{_temperature_8h_a5bc3d4b0268cf2ee276f15b04a939d3a}{sum\+C\+Temp\+E\+M\+A} =0.\+0
+\item 
+float \hyperlink{_temperature_8h_a38ed03cd0d55a0f53472e7d213888546}{vcc\+Internal}
+\item 
+float \hyperlink{_temperature_8h_a7dc154232c3e0c515c87c36399a29ecd}{sum24} \mbox{[}\hyperlink{_configuration_8h_a9f0d160fdb24b001d3eb9f57634c261e}{M\+A\+X\+S\+E\+N\+S\+O\+R\+S}\mbox{]}
+\item 
+float \hyperlink{_temperature_8h_a99490ebcf0a13b3546d17210032cf82c}{max\+Temp24} \mbox{[}\hyperlink{_configuration_8h_a9f0d160fdb24b001d3eb9f57634c261e}{M\+A\+X\+S\+E\+N\+S\+O\+R\+S}\mbox{]}
+\item 
+float \hyperlink{_temperature_8h_adf0c27db7f63607615a23e17382c308f}{min\+Temp24} \mbox{[}\hyperlink{_configuration_8h_a9f0d160fdb24b001d3eb9f57634c261e}{M\+A\+X\+S\+E\+N\+S\+O\+R\+S}\mbox{]}
+\item 
+unsigned long \hyperlink{_temperature_8h_a0b1da9715e4415f489743f9b9e98c188}{max\+Temp24\+Time} \mbox{[}\hyperlink{_configuration_8h_a9f0d160fdb24b001d3eb9f57634c261e}{M\+A\+X\+S\+E\+N\+S\+O\+R\+S}\mbox{]}
+\item 
+unsigned long \hyperlink{_temperature_8h_a22c0424ddccb2e1373d99062fa210a02}{min\+Temp24\+Time} \mbox{[}\hyperlink{_configuration_8h_a9f0d160fdb24b001d3eb9f57634c261e}{M\+A\+X\+S\+E\+N\+S\+O\+R\+S}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis makro definicije}
+\hypertarget{_temperature_8h_ad7d0b0308882eca9936a25065463e8f4}{}\index{Temperature.\+h@{Temperature.\+h}!Temperatue\+\_\+h@{Temperatue\+\_\+h}}
+\index{Temperatue\+\_\+h@{Temperatue\+\_\+h}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Temperatue\+\_\+h}]{\setlength{\rightskip}{0pt plus 5cm}\#define Temperatue\+\_\+h}\label{_temperature_8h_ad7d0b0308882eca9936a25065463e8f4}
+
+
+Definirano v 2 vrstici datoteke Temperature.\+h.
+
+
+
+\subsection{Opis funkcije}
+\hypertarget{_temperature_8h_a40b0dda43941a61b89819faa1d72f24d}{}\index{Temperature.\+h@{Temperature.\+h}!Auto\+Time\+Unit\+Conv@{Auto\+Time\+Unit\+Conv}}
+\index{Auto\+Time\+Unit\+Conv@{Auto\+Time\+Unit\+Conv}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Auto\+Time\+Unit\+Conv}]{\setlength{\rightskip}{0pt plus 5cm}float Auto\+Time\+Unit\+Conv (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{cas, }
+\item[{char $\ast$}]{cunits}
+\end{DoxyParamCaption}
+)}\label{_temperature_8h_a40b0dda43941a61b89819faa1d72f24d}
+
+
+Definirano v 650 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_a4de9eb29c16979c6b172e1748174ef7e}{}\index{Temperature.\+h@{Temperature.\+h}!Beep@{Beep}}
+\index{Beep@{Beep}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Beep}]{\setlength{\rightskip}{0pt plus 5cm}void Beep (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{delayms}
+\end{DoxyParamCaption}
+)}\label{_temperature_8h_a4de9eb29c16979c6b172e1748174ef7e}
+
+
+Definirano v 34 vrstici datoteke L\+C\+D\+\_\+funkcije.\+h.
+
+\hypertarget{_temperature_8h_a4837c478b0165f12f209922b78427732}{}\index{Temperature.\+h@{Temperature.\+h}!Is\+Cas\+Transf\+Topl@{Is\+Cas\+Transf\+Topl}}
+\index{Is\+Cas\+Transf\+Topl@{Is\+Cas\+Transf\+Topl}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Is\+Cas\+Transf\+Topl}]{\setlength{\rightskip}{0pt plus 5cm}boolean Is\+Cas\+Transf\+Topl (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_temperature_8h_a4837c478b0165f12f209922b78427732}
+
+
+Definirano v 687 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_a51cd6951b89bef83867df0142b35e612}{}\index{Temperature.\+h@{Temperature.\+h}!Is\+N\+Temp\+Cas@{Is\+N\+Temp\+Cas}}
+\index{Is\+N\+Temp\+Cas@{Is\+N\+Temp\+Cas}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Is\+N\+Temp\+Cas}]{\setlength{\rightskip}{0pt plus 5cm}boolean Is\+N\+Temp\+Cas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_temperature_8h_a51cd6951b89bef83867df0142b35e612}
+
+
+Definirano v 672 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_ad98736b48d836f8d6fec890143887fdb}{}\index{Temperature.\+h@{Temperature.\+h}!Izpis\+Hex2@{Izpis\+Hex2}}
+\index{Izpis\+Hex2@{Izpis\+Hex2}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Izpis\+Hex2}]{\setlength{\rightskip}{0pt plus 5cm}void Izpis\+Hex2 (
+\begin{DoxyParamCaption}
+\item[{int}]{num}
+\end{DoxyParamCaption}
+)}\label{_temperature_8h_ad98736b48d836f8d6fec890143887fdb}
+
+
+Definirano v 41 vrstici datoteke L\+C\+D\+\_\+funkcije.\+h.
+
+\hypertarget{_temperature_8h_a5ace0910754371e6bb7fbfc77a8ca25a}{}\index{Temperature.\+h@{Temperature.\+h}!Izracun\+Humidex@{Izracun\+Humidex}}
+\index{Izracun\+Humidex@{Izracun\+Humidex}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Izracun\+Humidex}]{\setlength{\rightskip}{0pt plus 5cm}float Izracun\+Humidex (
+\begin{DoxyParamCaption}
+\item[{float}]{temp, }
+\item[{float}]{temp\+Ros}
+\end{DoxyParamCaption}
+)}\label{_temperature_8h_a5ace0910754371e6bb7fbfc77a8ca25a}
+
+
+Definirano v 355 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_a7a255068f50f3b1ba9e8828b9011e391}{}\index{Temperature.\+h@{Temperature.\+h}!Izracun\+T\+Rosicsa@{Izracun\+T\+Rosicsa}}
+\index{Izracun\+T\+Rosicsa@{Izracun\+T\+Rosicsa}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Izracun\+T\+Rosicsa}]{\setlength{\rightskip}{0pt plus 5cm}float Izracun\+T\+Rosicsa (
+\begin{DoxyParamCaption}
+\item[{float}]{temp, }
+\item[{float}]{vlaz}
+\end{DoxyParamCaption}
+)}\label{_temperature_8h_a7a255068f50f3b1ba9e8828b9011e391}
+
+
+Definirano v 349 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_a968cf641ca86223b20811866f989ecd7}{}\index{Temperature.\+h@{Temperature.\+h}!last24\+H\+\_\+\+Info@{last24\+H\+\_\+\+Info}}
+\index{last24\+H\+\_\+\+Info@{last24\+H\+\_\+\+Info}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{last24\+H\+\_\+\+Info}]{\setlength{\rightskip}{0pt plus 5cm}void last24\+H\+\_\+\+Info (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_temperature_8h_a968cf641ca86223b20811866f989ecd7}
+
+
+Definirano v 800 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_a6b4c8eecd1863ce6529b507a042e78c3}{}\index{Temperature.\+h@{Temperature.\+h}!Obseg\+Zgodovine@{Obseg\+Zgodovine}}
+\index{Obseg\+Zgodovine@{Obseg\+Zgodovine}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Obseg\+Zgodovine}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Obseg\+Zgodovine (
+\begin{DoxyParamCaption}
+\item[{int}]{sensor, }
+\item[{unsigned int}]{pred}
+\end{DoxyParamCaption}
+)}\label{_temperature_8h_a6b4c8eecd1863ce6529b507a042e78c3}
+
+
+Definirano v 764 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_a53b07500c361cf7811a4c4bc80e08161}{}\index{Temperature.\+h@{Temperature.\+h}!Preberi\+Temperature@{Preberi\+Temperature}}
+\index{Preberi\+Temperature@{Preberi\+Temperature}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Preberi\+Temperature}]{\setlength{\rightskip}{0pt plus 5cm}static boolean Preberi\+Temperature (
+\begin{DoxyParamCaption}
+\item[{boolean}]{zahtevaj\+Branje, }
+\item[{boolean}]{all\+Sens = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{_temperature_8h_a53b07500c361cf7811a4c4bc80e08161}
+
+
+Definirano v 285 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_af15e831deb5e37139865a49a75bf7cc8}{}\index{Temperature.\+h@{Temperature.\+h}!Preberi\+Temperaturo\+D\+H\+T22@{Preberi\+Temperaturo\+D\+H\+T22}}
+\index{Preberi\+Temperaturo\+D\+H\+T22@{Preberi\+Temperaturo\+D\+H\+T22}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Preberi\+Temperaturo\+D\+H\+T22}]{\setlength{\rightskip}{0pt plus 5cm}float Preberi\+Temperaturo\+D\+H\+T22 (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{_temperature_8h_af15e831deb5e37139865a49a75bf7cc8}
+
+
+Definirano v 325 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_a5b5b0a9bcb95953a4f5cc9794823f0ff}{}\index{Temperature.\+h@{Temperature.\+h}!Preberi\+Temperaturo\+D\+S@{Preberi\+Temperaturo\+D\+S}}
+\index{Preberi\+Temperaturo\+D\+S@{Preberi\+Temperaturo\+D\+S}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Preberi\+Temperaturo\+D\+S}]{\setlength{\rightskip}{0pt plus 5cm}static float Preberi\+Temperaturo\+D\+S (
+\begin{DoxyParamCaption}
+\item[{int}]{c\+Sens, }
+\item[{boolean}]{zahtevaj\+Branje}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{_temperature_8h_a5b5b0a9bcb95953a4f5cc9794823f0ff}
+
+
+Definirano v 187 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_aae9127c14bfb7cacae4f0117b4de1415}{}\index{Temperature.\+h@{Temperature.\+h}!Preberi\+Temperaturo\+K@{Preberi\+Temperaturo\+K}}
+\index{Preberi\+Temperaturo\+K@{Preberi\+Temperaturo\+K}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Preberi\+Temperaturo\+K}]{\setlength{\rightskip}{0pt plus 5cm}float Preberi\+Temperaturo\+K (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{_temperature_8h_aae9127c14bfb7cacae4f0117b4de1415}
+
+
+Definirano v 363 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_a475e0ee674ed7cd76258aeec2f4d52e9}{}\index{Temperature.\+h@{Temperature.\+h}!Preberi\+Vlaznost\+D\+H\+T22@{Preberi\+Vlaznost\+D\+H\+T22}}
+\index{Preberi\+Vlaznost\+D\+H\+T22@{Preberi\+Vlaznost\+D\+H\+T22}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Preberi\+Vlaznost\+D\+H\+T22}]{\setlength{\rightskip}{0pt plus 5cm}float Preberi\+Vlaznost\+D\+H\+T22 (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{_temperature_8h_a475e0ee674ed7cd76258aeec2f4d52e9}
+
+
+Definirano v 337 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_ac0ff88e56c74637a4686f8124ba68f1a}{}\index{Temperature.\+h@{Temperature.\+h}!Print\+Address@{Print\+Address}}
+\index{Print\+Address@{Print\+Address}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Print\+Address}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+Address (
+\begin{DoxyParamCaption}
+\item[{{\bf Device\+Address}}]{device\+Address}
+\end{DoxyParamCaption}
+)}\label{_temperature_8h_ac0ff88e56c74637a4686f8124ba68f1a}
+
+
+Definirano v 441 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_a160a61c71a76bc4841b6d7ead3985cc5}{}\index{Temperature.\+h@{Temperature.\+h}!Print\+Temperature\+All@{Print\+Temperature\+All}}
+\index{Print\+Temperature\+All@{Print\+Temperature\+All}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Print\+Temperature\+All}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+Temperature\+All (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_temperature_8h_a160a61c71a76bc4841b6d7ead3985cc5}
+
+
+Definirano v 461 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_acaab414b0b6bc977dfe89b5201c9d002}{}\index{Temperature.\+h@{Temperature.\+h}!process\+Sync\+Message@{process\+Sync\+Message}}
+\index{process\+Sync\+Message@{process\+Sync\+Message}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{process\+Sync\+Message}]{\setlength{\rightskip}{0pt plus 5cm}time\+\_\+t process\+Sync\+Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_temperature_8h_acaab414b0b6bc977dfe89b5201c9d002}
+
+
+Definirano v 629 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_af46d98cc9215cef895874e54a6e6e34e}{}\index{Temperature.\+h@{Temperature.\+h}!Ref\+Temp@{Ref\+Temp}}
+\index{Ref\+Temp@{Ref\+Temp}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Ref\+Temp}]{\setlength{\rightskip}{0pt plus 5cm}float Ref\+Temp (
+\begin{DoxyParamCaption}
+\item[{byte}]{ref\+Temp\+Type}
+\end{DoxyParamCaption}
+)}\label{_temperature_8h_af46d98cc9215cef895874e54a6e6e34e}
+
+
+Definirano v 916 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_a7bce5a7bfc9716b106c7872c2e276c8d}{}\index{Temperature.\+h@{Temperature.\+h}!Temp\+Sensors\+Init@{Temp\+Sensors\+Init}}
+\index{Temp\+Sensors\+Init@{Temp\+Sensors\+Init}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{Temp\+Sensors\+Init}]{\setlength{\rightskip}{0pt plus 5cm}void Temp\+Sensors\+Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_temperature_8h_a7bce5a7bfc9716b106c7872c2e276c8d}
+
+
+Definirano v 46 vrstici datoteke Temperature.\+h.
+
+
+
+\subsection{Opis spremenljivke}
+\hypertarget{_temperature_8h_adc9578d1c72bad613087fb3d265934de}{}\index{Temperature.\+h@{Temperature.\+h}!avg\+Temp\+Vode\+T\+C@{avg\+Temp\+Vode\+T\+C}}
+\index{avg\+Temp\+Vode\+T\+C@{avg\+Temp\+Vode\+T\+C}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{avg\+Temp\+Vode\+T\+C}]{\setlength{\rightskip}{0pt plus 5cm}float avg\+Temp\+Vode\+T\+C}\label{_temperature_8h_adc9578d1c72bad613087fb3d265934de}
+
+
+Definirano v 42 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_ab5bb38e51bc1a06ca683b13d56ea5475}{}\index{Temperature.\+h@{Temperature.\+h}!conv\+Wait\+Time@{conv\+Wait\+Time}}
+\index{conv\+Wait\+Time@{conv\+Wait\+Time}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{conv\+Wait\+Time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long conv\+Wait\+Time = 800}\label{_temperature_8h_ab5bb38e51bc1a06ca683b13d56ea5475}
+
+
+Definirano v 39 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_ad9ab329716dd814c12e5aaa64d610dd9}{}\index{Temperature.\+h@{Temperature.\+h}!dev\+Address@{dev\+Address}}
+\index{dev\+Address@{dev\+Address}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{dev\+Address}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Device\+Address} dev\+Address\mbox{[}{\bf M\+A\+X\+S\+E\+N\+S\+O\+R\+S\+\_\+\+D\+S}\mbox{]}}\label{_temperature_8h_ad9ab329716dd814c12e5aaa64d610dd9}
+
+
+Definirano v 38 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_a99490ebcf0a13b3546d17210032cf82c}{}\index{Temperature.\+h@{Temperature.\+h}!max\+Temp24@{max\+Temp24}}
+\index{max\+Temp24@{max\+Temp24}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{max\+Temp24}]{\setlength{\rightskip}{0pt plus 5cm}float max\+Temp24\mbox{[}{\bf M\+A\+X\+S\+E\+N\+S\+O\+R\+S}\mbox{]}}\label{_temperature_8h_a99490ebcf0a13b3546d17210032cf82c}
+
+
+Definirano v 794 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_a0b1da9715e4415f489743f9b9e98c188}{}\index{Temperature.\+h@{Temperature.\+h}!max\+Temp24\+Time@{max\+Temp24\+Time}}
+\index{max\+Temp24\+Time@{max\+Temp24\+Time}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{max\+Temp24\+Time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long max\+Temp24\+Time\mbox{[}{\bf M\+A\+X\+S\+E\+N\+S\+O\+R\+S}\mbox{]}}\label{_temperature_8h_a0b1da9715e4415f489743f9b9e98c188}
+
+
+Definirano v 796 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_adf0c27db7f63607615a23e17382c308f}{}\index{Temperature.\+h@{Temperature.\+h}!min\+Temp24@{min\+Temp24}}
+\index{min\+Temp24@{min\+Temp24}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{min\+Temp24}]{\setlength{\rightskip}{0pt plus 5cm}float min\+Temp24\mbox{[}{\bf M\+A\+X\+S\+E\+N\+S\+O\+R\+S}\mbox{]}}\label{_temperature_8h_adf0c27db7f63607615a23e17382c308f}
+
+
+Definirano v 795 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_a22c0424ddccb2e1373d99062fa210a02}{}\index{Temperature.\+h@{Temperature.\+h}!min\+Temp24\+Time@{min\+Temp24\+Time}}
+\index{min\+Temp24\+Time@{min\+Temp24\+Time}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{min\+Temp24\+Time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long min\+Temp24\+Time\mbox{[}{\bf M\+A\+X\+S\+E\+N\+S\+O\+R\+S}\mbox{]}}\label{_temperature_8h_a22c0424ddccb2e1373d99062fa210a02}
+
+
+Definirano v 797 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_a7dc154232c3e0c515c87c36399a29ecd}{}\index{Temperature.\+h@{Temperature.\+h}!sum24@{sum24}}
+\index{sum24@{sum24}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{sum24}]{\setlength{\rightskip}{0pt plus 5cm}float sum24\mbox{[}{\bf M\+A\+X\+S\+E\+N\+S\+O\+R\+S}\mbox{]}}\label{_temperature_8h_a7dc154232c3e0c515c87c36399a29ecd}
+
+
+Definirano v 791 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_a8a786cdf9999e97c6e121d11072ca4d6}{}\index{Temperature.\+h@{Temperature.\+h}!sum\+C\+Temp@{sum\+C\+Temp}}
+\index{sum\+C\+Temp@{sum\+C\+Temp}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{sum\+C\+Temp}]{\setlength{\rightskip}{0pt plus 5cm}float sum\+C\+Temp =0.\+0}\label{_temperature_8h_a8a786cdf9999e97c6e121d11072ca4d6}
+
+
+Definirano v 456 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_a5bc3d4b0268cf2ee276f15b04a939d3a}{}\index{Temperature.\+h@{Temperature.\+h}!sum\+C\+Temp\+E\+M\+A@{sum\+C\+Temp\+E\+M\+A}}
+\index{sum\+C\+Temp\+E\+M\+A@{sum\+C\+Temp\+E\+M\+A}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{sum\+C\+Temp\+E\+M\+A}]{\setlength{\rightskip}{0pt plus 5cm}float sum\+C\+Temp\+E\+M\+A =0.\+0}\label{_temperature_8h_a5bc3d4b0268cf2ee276f15b04a939d3a}
+
+
+Definirano v 457 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_afb047b1c04b12b61e04eb0d69374d954}{}\index{Temperature.\+h@{Temperature.\+h}!temerature\+Izmerjene@{temerature\+Izmerjene}}
+\index{temerature\+Izmerjene@{temerature\+Izmerjene}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{temerature\+Izmerjene}]{\setlength{\rightskip}{0pt plus 5cm}boolean temerature\+Izmerjene =true}\label{_temperature_8h_afb047b1c04b12b61e04eb0d69374d954}
+
+
+Definirano v 40 vrstici datoteke Temperature.\+h.
+
+\hypertarget{_temperature_8h_a38ed03cd0d55a0f53472e7d213888546}{}\index{Temperature.\+h@{Temperature.\+h}!vcc\+Internal@{vcc\+Internal}}
+\index{vcc\+Internal@{vcc\+Internal}!Temperature.\+h@{Temperature.\+h}}
+\subsubsection[{vcc\+Internal}]{\setlength{\rightskip}{0pt plus 5cm}float vcc\+Internal}\label{_temperature_8h_a38ed03cd0d55a0f53472e7d213888546}

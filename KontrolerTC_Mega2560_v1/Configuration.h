@@ -5,7 +5,7 @@
 extern void Beep(unsigned char);
 
 //#define INTFACT
-#define VERSION "v1"
+#define VERSION __DATE__ " " __TIME__ //"v1"
 #define MAXSENSORS 9     //maksimalno stevilo temp sensorjev DS18x20
 #define MAXSENSORS_DS 7
 #define MAX_DHT22_SENS 1
@@ -44,6 +44,13 @@ extern void Beep(unsigned char);
 #define R_TC_KOMP_ON  LOW  // z RELE_TC_KOMP 
 #define R_TC_KOMP_OFF  HIGH  // kompresor TC
 
+
+#define STATE_CRP_TC_ON   1
+#define STATE_CRP_TC_OFF  0
+
+#define STATE_VENT_TC_ON    1
+#define STATE_VENT_TC_OFF   0
+#define STATE_VENT_TC_NDEF 255
 //----------
 // pin and address definition
 

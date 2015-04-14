@@ -1,0 +1,1386 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_configuration_8h">
+    <title>Configuration.h File Reference</title>
+        <section>
+            <title> Podatkovne strukture </title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>struct <link linkend="unionul2byte4b">ul2byte4b</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>struct <link linkend="unionfl2byte4b">fl2byte4b</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>struct <link linkend="unionui2byte2">ui2byte2</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Makro deklaracije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a1c6d5de492ac61ad29aec7aa9a436bbf">VERSION</link> &quot;v1&quot;</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a9f0d160fdb24b001d3eb9f57634c261e">MAXSENSORS</link> 9</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a4b994cd609d0eb579c81d91606dc8a78">MAXSENSORS_DS</link> 7</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a210e4c1fee39d3724fa6d72adb35a179">MAX_DHT22_SENS</link> 1</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a48ffbe9396ac9a07c43d7f1bcf36fbc6">NED</link> 1</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1accf29fa1fe6c5704bb53c11af7d692ab">SOB</link> 7</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1aeabc0ae370d9b37412a19f27be2c7aad">USEEGRELEC</link> false</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1af6d60aa85ac3c9c80d91186b12a69b9c">STATE_TC_ON</link> 1</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a9f41466bdb668f854aefcaec36c25c50">STATE_TC_OFF</link> 0</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a1cb2f83141f2778946a0f3e39eb70423">R_CRAD_ON</link> LOW</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1ac15a0f41200eab832889dc4cfe55fab9">R_CRAD_OFF</link> HIGH</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a63ac218cf83adc8ec28d7244c1da8496">R_CTC_ON</link> LOW</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a8875c2835e80dff18609efe0efe0649e">R_CTC_OFF</link> HIGH</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a31f0eca031985cc8f0fe7a820ccb198e">CEV_TERM_ON</link> LOW</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a7016376318cd8f9aed1b56c8eb3e72de">CEV_TERM_OFF</link> HIGH</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1ae7c6a7850b7a2ea467b9cc29a8cf078d">R_TC_EGREL_ON</link> LOW</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1abf50d6f3e09019e85f7a3b5190355efe">R_TC_EGREL_OFF</link> HIGH</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a41db07f563d3ed97a993150f9cd2e48a">R_TC_VENT_ON</link> LOW</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1ac70e405280abb449f6724aef935c8c1a">R_TC_VENT_OFF</link> HIGH</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1ac76b06cf6dff534779bf6c46db0e65d2">R_TC_KOMP_ON</link> LOW</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a629214d1dc1596b2ca569452a198bf3d">R_TC_KOMP_OFF</link> HIGH</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1af09714ad330ab49a1857bd77170e95e2">STATE_CRP_TC_ON</link> 1</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1aa0d4e024c9b3f7fa875196ad53db902a">STATE_CRP_TC_OFF</link> 0</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a5b7c9d4b9eb2f4a1a93c9a0bc1edcc93">STATE_VENT_TC_ON</link> 1</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a70cdbfa0cf75dfe8e833c8931f760873">STATE_VENT_TC_OFF</link> 0</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a1bcd4582b1d59164279ee5128718b7c2">STATE_VENT_TC_NDEF</link> 255</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a01a23ab3441ec4788f29394731207546">SENS_TOK_12V</link> A2</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1aff2a284440721c7d6411977a6c0328fb">T_KTYP_01_PIN</link> A3</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1ae6a129b981d5ef3ccf91ec4113a579c5">CO_SENS_APIN</link> A6</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a0e62c1038115785c066f16571055c995">SENS_V5_3</link> A7</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a9fc6aaa7d59412d3e662bccfef13b200">SENS_V12</link> A8</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a6cc64e8f1f4b8a871a9e11eb11b5237e">SENS_V5_2</link> A9</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a03ff6c3864851de1a34342dc7e1f385b">SENS_RTC_BATT</link> A10</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a85fc9ebf5a44eda6146af5d15d7307cd">SENS_TOK</link> A11</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a9111880e1aceaf8dc0c76ff1664d8f17">SENS_3V3_SD</link> A12</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1aaa5102b3d83a0d766ec362d0cd76499f">CO_DOUT_PIN</link> 11</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1aa25fb978959e63155e3d8d7b774483ec">CO_PWR_PIN</link> 12</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a825026e0f239c3d21fb0d385da890f5a">ENC_DT_PIN</link> 2</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1acb653753b9800367e789d901ff2425ea">ENC_CLK_PIN</link> 3</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a1d0d3c099399f11227865f5c0cc2345e">ENC_SW_PIN</link> 4</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1adad781230238cce08f775d6bf4327e5a">ENC_PIN_A</link> <link linkend="_configuration_8h_1a825026e0f239c3d21fb0d385da890f5a">ENC_DT_PIN</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a2c64724ab26c18fbdcf1131f0b246532">ENC_PIN_B</link> <link linkend="_configuration_8h_1acb653753b9800367e789d901ff2425ea">ENC_CLK_PIN</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1ab41c2c65bf984347f17ad57ae1665ac7">NRF24_CE</link> 8</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a86b0101488f40c906a01351119623eb3">NRF24_CSN</link> 9</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a0978b59778f71e5091233afeafd50909">ETHER_CS_PIN</link> 10</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a1f0366ddfcdfb18d49b010bcb1c714cf">ETHER_RESET_PIN</link> 23</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a0e6ebba4660d88c10776f0b76c825224">LCD_OSW_SW</link> 7</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a4781e073871c6f27f89b9463ad3a4ed1">LCD_RS</link> 22</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a1640ffbc0d8ec0f7edb04a2b93918072">LCD_EN</link> 24</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1ade7e247311032a474711416da480ed8b">LCD_D4</link> 25</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a5b91fe480c768d4f246f3890207bfbfc">LCD_D5</link> 26</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a72e105fcda5fd1c07b5f391379a439d4">LCD_D6</link> 27</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1abd65075e01c7413419581aedee5bcc24">LCD_D7</link> 28</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a59f26dde03d80c6a07868f582ebbed7f">BEEP_PIN</link> 29</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a4260ed8874da804fb9ef9abba200b487">ONE_WIRE_BUS</link> 30</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a757bb4e2bff6148de6ef3989b32a0126">DHTPIN</link> 31</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a2c509dba12bba99883a5be9341b7a0c5">DHTTYPE</link> DHT22</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1ac7b1a17ba250557d0e5802ebd9b1ca3c">CEVTERM_PEC_TC</link> 32</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a2887f47f59787b20484e2c12d3027937">STIKALO_CRP_RAD_ON</link> 33</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1aad800acb5d57c1853b52cfc595add839">STIKALO_CRP_RAD_OFF</link> 34</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a8e71afe809962735f446a9ef8c68c8fe">STIKALO_CRP_TC_ON</link> 35</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a124cb75960b54eb1cc9b8d09adfd924f">STIKALO_CRP_TC_OFF</link> 36</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1ac08036b5fa6d5f8fffae5b626f0ced75">STIKALO_TC_ON</link> 37</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a0b6af0417968442b6d7672882bb1e066">STIKALO_TC_OFF</link> 38</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1aed23f151f53022c84bb4fd896de30c10">RELE_TC_KOMP</link> 39</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a5f056d6437125b7a5932a5006fa31d52">RELE_TC_VENT</link> 40</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a352863d548be58b577dc7ba204ffb936">RELE_CTC</link> 41</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a1e45d46189b827cbce59566820490389">RELE_CRAD</link> 42</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a122a1211745ce959036377302d47b0c2">RELE_TC_EGREL</link> 43</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1aadb4dea3ebf4db37add1eb4cb7fd3a51">VENTTC_1</link> 47</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1adf1c551d5c423c730e776ca1052acbfe">VENTTC_2</link> 48</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a8c835bf467fb4b26734e857c72a8c331">VENTTC_EN</link> 49</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a04d57a6c18b2d5e81f31093e58ed0c62">SD_CS_PIN</link> 53</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a1fb9766b11f8c7755309d6546afc9232">DS1307_CTRL_ID</link> 0x68</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1ad9dde722c1bcb99f3d4f5e8c3a37dd15">TIME_MSG_LEN</link> 11</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1aa9f2cbf2a35ec653aff12241a63ca864">TIME_HEADER</link> &apos;T&apos;</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a89a97b9b2ba756d03c9adbef6470803b">AT24C32_I2C_ADDR</link> 0x50</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1ada83bafa6b99de4992f5aa4fa61de156">AT24C32_MAX_ADDR</link> 4096</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1afafa17ffc01ba1f5f254d6238a2d530b">AT24C32_ADDR_LENGH</link> 2</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a108ae563a98c889c7593e3c9084c2643">OKOLICA_0</link> 7</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a8c119e9182e69cc14edb6c885122ef80">CRPALKA_0</link> 1</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1aee597cbe9379e814e1929de01b6d872f">PEC_PV</link> 2</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a7f2d23a9784ad0009fb9a7ede9ebbad1">PEC_DV</link> 3</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1abcf847c7f2ac45acc8b916bab3f215c8">RAD_PV</link> 4</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a641839d7e15f4d6424411ccce2e159f7">RAD_DV</link> 5</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_configuration_8h_1a9d329698236b2494e771b25735b07d7e">PEC_TC_DV</link> 6</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Uporabniško definirani tipi</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>typedef uint8_t  <link linkend="_configuration_8h_1a7a5445edfac5eacc4404ae5ed58d7880">DeviceAddress</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Spremenljivke</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1ad49ac149165f75284ac81d1fdc536e21">numSensDS</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1a4322c867961c6e10f3188d17d33c9a36">numSensDHT22</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1a173ece5a25e312bb39be0684fbf8a924">numSensK</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1afc98de630cedd50c68db295cf66fddfe">numSens</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1ae2d352f5d7f68f756171dbfbb6ddc750">kTypeOffset</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>char <link linkend="_configuration_8h_1a8be9eeaf6bbeb6e2f92b6c0fb2695596">sensorIme</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para><link linkend="unionui2byte2">ui2byte2</link> <link linkend="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f">u2</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_configuration_8h_1abaa7fc79b15b7b4b080e3e86ee591282">showCRC</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned int <link linkend="_configuration_8h_1a941bc6f038bd5293499a546460120b5d">merXMin</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a21fd69f826c2e05a96933e4826748888">minTempVTOn</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1a5cffc567f1af3e469cb13516a55df60e">minRunTimeMin</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a31f0030aa0f4ee96365cea266022c25a">dTemp</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a2e1b31d0e4081456b613ecade94e13c9">minTempNightOn</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a08fb827935a9af9e2d7e1f45b820dfa9">ciljnaTemp</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1aaebeb16c98b06906289c618dcd34e559">ciljnaTempWeekend</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a3340621cd5cc4b6619232301b9111a85">min_TempOK_TCKomp</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a16f7c96922e24ff09d25be9090f55e6d">max_TempOK_TCKomp</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a3852f25a298b299d28035bd394c08568">maxDovTempVodeTC_Komp</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a67ce5d811dacd2b49f3904e3fb7d96dd">deltaTh</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1ab40909ebf364ff8fa06067568109f753">deltaThOk</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1aff8c9c051ae246d3ae6dbed8ece45521">deltaThSt</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>const float <link linkend="_configuration_8h_1a8eb889559b0e52cae369500d62e79830">tKompOK</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>const float <link linkend="_configuration_8h_1a85aeab80fe0d8640f774af42833b7b62">tKompSt</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1a8dfaf063148ba551561f3a7c6bf2da49">zamikMerTemp</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1a30b4a298b0e87b552a63fc7c693efe0f">uraVTemp</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1a1e83a11ef486b548c162b056ce4e80ee">dolPrehObd</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1a9679b45e0b75ffc857907000bafebe2a">startUraVT</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1a41abb499fe47a94f39dee8e8cb60a543">startUraNT</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1ad9d7eef2f16118bb0e48eb89cea9e239">mejaToka</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a139f5d5c215e6406075e02d73c7c7a07">tempVklopaCrpTC</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a307030006334874a0dcb2eea6f12d806">histCrpTC</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a67ad33b281186550b018c77c8987c046">minDiffTCPec</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a5bd97b1d25697151d15d61585da07566">tempIzklopaVentCrpTC</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a5b28fdffaa104aab727faa91eea46a2a">minTempPecPonovnoOdpVent</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1adcc522e3cbe2003ac6f13582622d187a">minCrpTCRunTimeMin</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1af2adc7958a53cd941ed79ee193b7efe8">zaksnitevCrpVent_Sec</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1ae3c0fb120da4d9fade066ba0847c281e">minCrpRadRunTimeMin</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>byte <link linkend="_configuration_8h_1aa8847a0dd3c42957040e91a2013c5262">prevCrpRadState</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a876bb41665d35cdebb5f44809430c9dc">minDiffDvOkolCrpRad</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1adc3a8c3f44d240c395337a7866291aaf">minMejnaTempRel</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1ab5f646886332f4a24e276f599cc7bb1e">maxTempPVRad</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1ab69f47111e3a095a852b9b8f8eb129bd">maxTempDVPec</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1aa9aa227fd74d6192483a057fdf5b94ab">maxDeltaDev</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_configuration_8h_1a598129c299682df5fe939e2f3fcdbc7f">isCrpRadAsAbsTemp</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static float <link linkend="_configuration_8h_1a38ed03cd0d55a0f53472e7d213888546">vccInternal</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned int <link linkend="_configuration_8h_1af14987dd3adb2804cefb1fd1ef725ae5">addrLastChg</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned int <link linkend="_configuration_8h_1a3d078a6c91500ce4fed4ee7700da502d">addrPrevTCState</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned int <link linkend="_configuration_8h_1a04968c940a7d59436760f8970a1f1361">addrOnTime</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned int <link linkend="_configuration_8h_1accd72285a220aacb882409f26f9779e8">addrDeltaTh</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned int <link linkend="_configuration_8h_1a96fab0393d7ed32a365b1e4d768c1887">addrDeltaThOk</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned int <link linkend="_configuration_8h_1a4c4089e0ff727252f61d36f9b7432874">addrDeltaThSt</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned int <link linkend="_configuration_8h_1afa8950683ea624c70566788be369a83e">addrLastHourTemp</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned int <link linkend="_configuration_8h_1a7da024777008c7dc2a193ece16a7a9bb">addrTempBack</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned int <link linkend="_configuration_8h_1a0be71c02aa061750f3b12bfe5acd1d07">histLen</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1a14e924a952efcd5cb1c58385e4bf860b">zapisXMin</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23">cTemperatura</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>byte <link linkend="_configuration_8h_1a4d7a7934e35164dbcfa3502f38fea668">type_s</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a9c77616d1450b94518f6642011dc4345">sumTemp</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1adb6bcf11c8f136ddc5e1be86e4c26c7d">cVlaznost</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1aa14542239cba21ff55951e3b359ad8e2">cHumidex</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a02c4f95b30e5b631ba2e80fd5251fc21">cTempRosicsa</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_configuration_8h_1a9e759744247766fd4dc988a9e7ee8557">onTimeTC</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>byte <link linkend="_configuration_8h_1a5a8388d6c8d7dd17d39ed21d5f16806c">prevTCState</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_configuration_8h_1ac88bc54db30830eaf8f9eda306633f44">lastTCStateChg</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>byte <link linkend="_configuration_8h_1a54383820083d46d9cc067f9819d5ec59">releState_ventKompTC</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>byte <link linkend="_configuration_8h_1accd6f17a1a15f5c722a2841f98869904">releState_kompTC</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>byte <link linkend="_configuration_8h_1ad3f164d73b040f4fa7fda35bc882b4f0">releState_egrelecTC</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>byte <link linkend="_configuration_8h_1a302977b9a0803246dd4879e04a8e4e16">stateTC</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_configuration_8h_1a9abc7ea8df5d566b8fcf7bb5400db891">lastCrpTCStateChg</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_configuration_8h_1a9decaae4517afd31f20f6397a5393b23">onTimeCrpTC</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_configuration_8h_1a788d869c5986e6a43553b2fae4a9db71">lastCrpRadStateChg</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_configuration_8h_1ac5fa4a12c3447fba6fe3bc2999c562f3">onTimeCrpRad</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_configuration_8h_1a2e007e263bbb2c8d643e20134cbb95a6">casMeritve</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_configuration_8h_1a4ce16c8ad1e706682c3c871f44251c90">prevCasMeritve</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1ac5c3ee78e3515cf606da51bd6f9b9028">hitrGret</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a63da3fa17b3ff63b68212bdebc465bfb">startTemp</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a76b9b063c7dc83bd0b3f0f87ea5b8ddc">lastDeltaTh</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a64c232aa1b7da0ea1673aaf8cf8cd48f">lastDeltaThOk</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a70f516331c5e990960c6d79c5dfeeaf1">lastDeltaThSt</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1ac2105af9f9449fbdef343e35d114955c">lastHourTempChange</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_configuration_8h_1a858f96f460a87656b2ba9f83629f9efe">lastRunTime</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1aa63399c6f5fdee6a7b71df26959663c7">tempOkolicaSt</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a7fc7a0a5b2323a98b086e6b00b1062f3">porabaWH</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a4a08e8f9549665f763132d0244f97b03">zacPorabaWH</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1ac381d38bf728dddab21a3a66eaf5210f">Qv</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1abff5cf4e95270f13ea15a363a8852d3e">We</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a7cd4b28149c771d679a463ed54f23120">Vrms</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>byte <link linkend="_configuration_8h_1acfe3787a73e2c1913e5603350001bfe2">manuCrpTCState</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1a0cdc44c047411d10590fe3719a29e6c3">coRawVal</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1a5f62d53d17b315eeb0e4569b5d422bff">osvetlitevLCD</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a6423501f1aa82d39c61cd52d96ae2d71">sumTok_12V</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a246248703162c48d7b60c93edbbd88fb">maxTok_12V</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_configuration_8h_1ac462f070035b41904c5cce2b0e0090dd">nMerTok_12V</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>char <link linkend="_configuration_8h_1ab11f85d31273f5762eded60433da68dc">infoErr</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para><link linkend="unionul2byte4b">ul2byte4b</link> <link linkend="_configuration_8h_1abbd99bb38039caeccaf341f51aa1d3db">u4</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para><link linkend="unionfl2byte4b">fl2byte4b</link> <link linkend="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f">uf</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1a95f7a376eca047e480a83e56fd6bafb4">limTempCrpRad</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_configuration_8h_1a1f3afdc37a1a892a8d3268151b10348e">limTempFactCrpRad</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_configuration_8h_1a503d78eca5f713d3120f8f2081e7b03e">crpRadAsAbsTemp</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Funkcije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_configuration_8h_1a7776f799a4a163021b43ca485e664952">Beep</link> (
+unsigned char)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>LiquidCrystal <link linkend="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d">lcdA</link> (
+<link linkend="_configuration_8h_1a4781e073871c6f27f89b9463ad3a4ed1">LCD_RS</link> , <link linkend="_configuration_8h_1a1640ffbc0d8ec0f7edb04a2b93918072">LCD_EN</link> , <link linkend="_configuration_8h_1ade7e247311032a474711416da480ed8b">LCD_D4</link> , <link linkend="_configuration_8h_1a5b91fe480c768d4f246f3890207bfbfc">LCD_D5</link> , <link linkend="_configuration_8h_1a72e105fcda5fd1c07b5f391379a439d4">LCD_D6</link> , <link linkend="_configuration_8h_1abd65075e01c7413419581aedee5bcc24">LCD_D7</link> )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>DHT <link linkend="_configuration_8h_1ad7a1df263f6f823242a112ec11297434">dht</link> (
+<link linkend="_configuration_8h_1a757bb4e2bff6148de6ef3989b32a0126">DHTPIN</link> , <link linkend="_configuration_8h_1a2c509dba12bba99883a5be9341b7a0c5">DHTTYPE</link> )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>OneWire <link linkend="_configuration_8h_1a2777b702f5849cfef18eae74e4f24d61">ds</link> (
+<link linkend="_configuration_8h_1a4260ed8874da804fb9ef9abba200b487">ONE_WIRE_BUS</link> )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_configuration_8h_1a8a277bdfd24fd42d99e415bc6520fd6e">FiksAdrrSens</link> (
+<link linkend="_configuration_8h_1a7a5445edfac5eacc4404ae5ed58d7880">DeviceAddress</link> devAddress, byte * type_s)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Podroben opis</title>
+    <para>Definition in file //Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h</para>
+    </simplesect>
+</section>

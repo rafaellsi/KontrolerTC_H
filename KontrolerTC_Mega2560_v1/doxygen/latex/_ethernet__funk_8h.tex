@@ -1,0 +1,219 @@
+\hypertarget{_ethernet__funk_8h}{}\section{Datoteka //\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Ethernet\+\_\+funk.h}
+\label{_ethernet__funk_8h}\index{//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Ethernet\+\_\+funk.\+h@{//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Ethernet\+\_\+funk.\+h}}
+\subsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_ethernet__funk_8h_aa54fa62717c9acbd4c015e1c22208880}{got\+Pinged} (byte $\ast$ptr)
+\item 
+void \hyperlink{_ethernet__funk_8h_a14b0f366ddca9910f942f904f00bce94}{Ethernet\+Init} (boolean izpis\+Short)
+\item 
+void \hyperlink{_ethernet__funk_8h_a154f53048fa8b5b5e21dd52ef5cab93b}{Check\+Ethernet} (void)
+\item 
+void \hyperlink{_ethernet__funk_8h_a8ded86cae89bccb21d891d533bf505b0}{Ethernet\+Izpis\+Info} (void)
+\item 
+word \hyperlink{_ethernet__funk_8h_ae69f61a08ff3c6001ced05e642f96025}{home\+Page} (void)
+\item 
+void \hyperlink{_ethernet__funk_8h_a1665c8649341fc3b0a9ab71904e3e347}{Send\+To\+Proc} (void)
+\item 
+static void \hyperlink{_ethernet__funk_8h_ab7ba5697d630c96e375241433398b4c4}{my\+\_\+callback} (byte status, word off, word len)
+\item 
+void \hyperlink{_ethernet__funk_8h_aa79c40c7c98fc7397685190b4bf5f528}{Device\+Hub} (void)
+\end{DoxyCompactItemize}
+\subsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+static byte \hyperlink{_ethernet__funk_8h_a2b0fd17b9809e04ff3e3359f899d7b4c}{myip} \mbox{[}$\,$\mbox{]} = \{192,168,1,50\}
+\item 
+static byte \hyperlink{_ethernet__funk_8h_abc9ccca172ecea2a580b807db21a699c}{gwip} \mbox{[}$\,$\mbox{]} = \{192,168,1,1\}
+\item 
+static byte \hyperlink{_ethernet__funk_8h_a891babe951c329ce4cd0e7b52c7ffe4c}{dnsip} \mbox{[}$\,$\mbox{]} = \{193,189,160,13\}
+\item 
+static byte \hyperlink{_ethernet__funk_8h_ace11678bf0f121ee7c754e17ee1861f1}{ipmask} \mbox{[}$\,$\mbox{]} = \{ 255,255,252,0 \}
+\item 
+static byte \hyperlink{_ethernet__funk_8h_afac8df769c9c6defc0e5db82a9cf05dd}{mymac} \mbox{[}$\,$\mbox{]} = \{ 0x74,0x69,0x69,0x2\+D,0x30,0x31 \}
+\item 
+const char website\mbox{[}$\,$\mbox{]} \hyperlink{_ethernet__funk_8h_aec3bc3f16a5373b400693501d61014a9}{P\+R\+O\+G\+M\+E\+M} = \char`\"{}www.\+devicehub.\+net\char`\"{}
+\item 
+Buffer\+Filler \hyperlink{_ethernet__funk_8h_a76f7082f91cf9ec56bc681a2cce6b7c7}{bfill}
+\item 
+static byte \hyperlink{_ethernet__funk_8h_a3580e4dee591a6ac1d9cb72c2569fca9}{ping\+\_\+1} \mbox{[}4\mbox{]}
+\item 
+static byte \hyperlink{_ethernet__funk_8h_aca17c39754267f970f5d459668636571}{proc\+\_\+ip} \mbox{[}4\mbox{]}
+\item 
+static byte \hyperlink{_ethernet__funk_8h_aa080e0969d25faf26f9682591fd3b215}{device\+Hub\+\_\+ip} \mbox{[}4\mbox{]}
+\item 
+boolean \hyperlink{_ethernet__funk_8h_a327d3b5b3cc642ac37a3f264699d8959}{debug\+Device\+Hub} =false
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis funkcije}
+\hypertarget{_ethernet__funk_8h_a154f53048fa8b5b5e21dd52ef5cab93b}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!Check\+Ethernet@{Check\+Ethernet}}
+\index{Check\+Ethernet@{Check\+Ethernet}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{Check\+Ethernet}]{\setlength{\rightskip}{0pt plus 5cm}void Check\+Ethernet (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_ethernet__funk_8h_a154f53048fa8b5b5e21dd52ef5cab93b}
+
+
+Definirano v 266 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_ethernet__funk_8h_aa79c40c7c98fc7397685190b4bf5f528}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!Device\+Hub@{Device\+Hub}}
+\index{Device\+Hub@{Device\+Hub}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{Device\+Hub}]{\setlength{\rightskip}{0pt plus 5cm}void Device\+Hub (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_ethernet__funk_8h_aa79c40c7c98fc7397685190b4bf5f528}
+
+
+Definirano v 445 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_ethernet__funk_8h_a14b0f366ddca9910f942f904f00bce94}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!Ethernet\+Init@{Ethernet\+Init}}
+\index{Ethernet\+Init@{Ethernet\+Init}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{Ethernet\+Init}]{\setlength{\rightskip}{0pt plus 5cm}void Ethernet\+Init (
+\begin{DoxyParamCaption}
+\item[{boolean}]{izpis\+Short}
+\end{DoxyParamCaption}
+)}\label{_ethernet__funk_8h_a14b0f366ddca9910f942f904f00bce94}
+
+
+Definirano v 50 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_ethernet__funk_8h_a8ded86cae89bccb21d891d533bf505b0}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!Ethernet\+Izpis\+Info@{Ethernet\+Izpis\+Info}}
+\index{Ethernet\+Izpis\+Info@{Ethernet\+Izpis\+Info}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{Ethernet\+Izpis\+Info}]{\setlength{\rightskip}{0pt plus 5cm}void Ethernet\+Izpis\+Info (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_ethernet__funk_8h_a8ded86cae89bccb21d891d533bf505b0}
+
+
+Definirano v 377 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_ethernet__funk_8h_aa54fa62717c9acbd4c015e1c22208880}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!got\+Pinged@{got\+Pinged}}
+\index{got\+Pinged@{got\+Pinged}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{got\+Pinged}]{\setlength{\rightskip}{0pt plus 5cm}void got\+Pinged (
+\begin{DoxyParamCaption}
+\item[{byte $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}\label{_ethernet__funk_8h_aa54fa62717c9acbd4c015e1c22208880}
+
+
+Definirano v 44 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_ethernet__funk_8h_ae69f61a08ff3c6001ced05e642f96025}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!home\+Page@{home\+Page}}
+\index{home\+Page@{home\+Page}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{home\+Page}]{\setlength{\rightskip}{0pt plus 5cm}static word home\+Page (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_ethernet__funk_8h_ae69f61a08ff3c6001ced05e642f96025}
+
+
+Definirano v 198 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_ethernet__funk_8h_ab7ba5697d630c96e375241433398b4c4}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!my\+\_\+callback@{my\+\_\+callback}}
+\index{my\+\_\+callback@{my\+\_\+callback}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{my\+\_\+callback}]{\setlength{\rightskip}{0pt plus 5cm}static void my\+\_\+callback (
+\begin{DoxyParamCaption}
+\item[{byte}]{status, }
+\item[{word}]{off, }
+\item[{word}]{len}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{_ethernet__funk_8h_ab7ba5697d630c96e375241433398b4c4}
+
+
+Definirano v 428 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_ethernet__funk_8h_a1665c8649341fc3b0a9ab71904e3e347}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!Send\+To\+Proc@{Send\+To\+Proc}}
+\index{Send\+To\+Proc@{Send\+To\+Proc}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{Send\+To\+Proc}]{\setlength{\rightskip}{0pt plus 5cm}void Send\+To\+Proc (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_ethernet__funk_8h_a1665c8649341fc3b0a9ab71904e3e347}
+
+
+Definirano v 412 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+
+
+\subsection{Opis spremenljivke}
+\hypertarget{_ethernet__funk_8h_a76f7082f91cf9ec56bc681a2cce6b7c7}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!bfill@{bfill}}
+\index{bfill@{bfill}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{bfill}]{\setlength{\rightskip}{0pt plus 5cm}Buffer\+Filler bfill}\label{_ethernet__funk_8h_a76f7082f91cf9ec56bc681a2cce6b7c7}
+
+
+Definirano v 35 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_ethernet__funk_8h_a327d3b5b3cc642ac37a3f264699d8959}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!debug\+Device\+Hub@{debug\+Device\+Hub}}
+\index{debug\+Device\+Hub@{debug\+Device\+Hub}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{debug\+Device\+Hub}]{\setlength{\rightskip}{0pt plus 5cm}boolean debug\+Device\+Hub =false}\label{_ethernet__funk_8h_a327d3b5b3cc642ac37a3f264699d8959}
+
+
+Definirano v 426 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_ethernet__funk_8h_aa080e0969d25faf26f9682591fd3b215}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!device\+Hub\+\_\+ip@{device\+Hub\+\_\+ip}}
+\index{device\+Hub\+\_\+ip@{device\+Hub\+\_\+ip}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{device\+Hub\+\_\+ip}]{\setlength{\rightskip}{0pt plus 5cm}byte device\+Hub\+\_\+ip\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}\label{_ethernet__funk_8h_aa080e0969d25faf26f9682591fd3b215}
+
+
+Definirano v 39 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_ethernet__funk_8h_a891babe951c329ce4cd0e7b52c7ffe4c}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!dnsip@{dnsip}}
+\index{dnsip@{dnsip}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{dnsip}]{\setlength{\rightskip}{0pt plus 5cm}byte dnsip\mbox{[}$\,$\mbox{]} = \{193,189,160,13\}\hspace{0.3cm}{\ttfamily [static]}}\label{_ethernet__funk_8h_a891babe951c329ce4cd0e7b52c7ffe4c}
+
+
+Definirano v 23 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_ethernet__funk_8h_abc9ccca172ecea2a580b807db21a699c}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!gwip@{gwip}}
+\index{gwip@{gwip}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{gwip}]{\setlength{\rightskip}{0pt plus 5cm}byte gwip\mbox{[}$\,$\mbox{]} = \{192,168,1,1\}\hspace{0.3cm}{\ttfamily [static]}}\label{_ethernet__funk_8h_abc9ccca172ecea2a580b807db21a699c}
+
+
+Definirano v 22 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_ethernet__funk_8h_ace11678bf0f121ee7c754e17ee1861f1}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!ipmask@{ipmask}}
+\index{ipmask@{ipmask}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{ipmask}]{\setlength{\rightskip}{0pt plus 5cm}byte ipmask\mbox{[}$\,$\mbox{]} = \{ 255,255,252,0 \}\hspace{0.3cm}{\ttfamily [static]}}\label{_ethernet__funk_8h_ace11678bf0f121ee7c754e17ee1861f1}
+
+
+Definirano v 24 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_ethernet__funk_8h_a2b0fd17b9809e04ff3e3359f899d7b4c}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!myip@{myip}}
+\index{myip@{myip}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{myip}]{\setlength{\rightskip}{0pt plus 5cm}byte myip\mbox{[}$\,$\mbox{]} = \{192,168,1,50\}\hspace{0.3cm}{\ttfamily [static]}}\label{_ethernet__funk_8h_a2b0fd17b9809e04ff3e3359f899d7b4c}
+
+
+Definirano v 21 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_ethernet__funk_8h_afac8df769c9c6defc0e5db82a9cf05dd}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!mymac@{mymac}}
+\index{mymac@{mymac}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{mymac}]{\setlength{\rightskip}{0pt plus 5cm}byte mymac\mbox{[}$\,$\mbox{]} = \{ 0x74,0x69,0x69,0x2\+D,0x30,0x31 \}\hspace{0.3cm}{\ttfamily [static]}}\label{_ethernet__funk_8h_afac8df769c9c6defc0e5db82a9cf05dd}
+
+
+Definirano v 29 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_ethernet__funk_8h_a3580e4dee591a6ac1d9cb72c2569fca9}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!ping\+\_\+1@{ping\+\_\+1}}
+\index{ping\+\_\+1@{ping\+\_\+1}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{ping\+\_\+1}]{\setlength{\rightskip}{0pt plus 5cm}byte ping\+\_\+1\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}\label{_ethernet__funk_8h_a3580e4dee591a6ac1d9cb72c2569fca9}
+
+
+Definirano v 37 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_ethernet__funk_8h_aca17c39754267f970f5d459668636571}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!proc\+\_\+ip@{proc\+\_\+ip}}
+\index{proc\+\_\+ip@{proc\+\_\+ip}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{proc\+\_\+ip}]{\setlength{\rightskip}{0pt plus 5cm}byte proc\+\_\+ip\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}\label{_ethernet__funk_8h_aca17c39754267f970f5d459668636571}
+
+
+Definirano v 38 vrstici datoteke Ethernet\+\_\+funk.\+h.
+
+\hypertarget{_ethernet__funk_8h_aec3bc3f16a5373b400693501d61014a9}{}\index{Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}!P\+R\+O\+G\+M\+E\+M@{P\+R\+O\+G\+M\+E\+M}}
+\index{P\+R\+O\+G\+M\+E\+M@{P\+R\+O\+G\+M\+E\+M}!Ethernet\+\_\+funk.\+h@{Ethernet\+\_\+funk.\+h}}
+\subsubsection[{P\+R\+O\+G\+M\+E\+M}]{\setlength{\rightskip}{0pt plus 5cm}const char website \mbox{[}$\,$\mbox{]} P\+R\+O\+G\+M\+E\+M = \char`\"{}www.\+devicehub.\+net\char`\"{}}\label{_ethernet__funk_8h_aec3bc3f16a5373b400693501d61014a9}
+
+
+Definirano v 31 vrstici datoteke Ethernet\+\_\+funk.\+h.
+

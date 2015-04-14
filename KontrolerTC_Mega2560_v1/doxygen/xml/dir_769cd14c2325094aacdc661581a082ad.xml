@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="dir_769cd14c2325094aacdc661581a082ad" kind="dir">
+    <compoundname>//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1</compoundname>
+    <innerfile refid="_cas__funkcije_8h">Cas_funkcije.h</innerfile>
+    <innerfile refid="_configuration_8h">Configuration.h</innerfile>
+    <innerfile refid="_encoder__butt_8h">Encoder_butt.h</innerfile>
+    <innerfile refid="_eprom__external_8h">Eprom_external.h</innerfile>
+    <innerfile refid="_ethernet__funk_8h">Ethernet_funk.h</innerfile>
+    <innerfile refid="_gas___sensor_8h">Gas_Sensor.h</innerfile>
+    <innerfile refid="_kontr___t_c_8h">Kontr_TC.h</innerfile>
+    <innerfile refid="_kontr___t_c__izvrs_8h">Kontr_TC_izvrs.h</innerfile>
+    <innerfile refid="_kontr___t_c__spl_8h">Kontr_TC_spl.h</innerfile>
+    <innerfile refid="_kontroler_t_c___mega2560__v1_8ino">KontrolerTC_Mega2560_v1.ino</innerfile>
+    <innerfile refid="_l_c_d__funkcije_8h">LCD_funkcije.h</innerfile>
+    <innerfile refid="_temperature_8h">Temperature.h</innerfile>
+    <innerfile refid="_tok__napetost_8h">Tok_napetost.h</innerfile>
+    <innerfile refid="_zapisi__sd_8h">Zapisi_sd.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/"/>
+  </compounddef>
+</doxygen>

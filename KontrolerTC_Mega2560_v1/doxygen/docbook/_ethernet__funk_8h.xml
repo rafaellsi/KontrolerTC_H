@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_ethernet__funk_8h">
+    <title>Ethernet_funk.h File Reference</title>
+        <section>
+            <title>Spremenljivke</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static byte <link linkend="_ethernet__funk_8h_1a2b0fd17b9809e04ff3e3359f899d7b4c">myip</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static byte <link linkend="_ethernet__funk_8h_1abc9ccca172ecea2a580b807db21a699c">gwip</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static byte <link linkend="_ethernet__funk_8h_1a891babe951c329ce4cd0e7b52c7ffe4c">dnsip</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static byte <link linkend="_ethernet__funk_8h_1ace11678bf0f121ee7c754e17ee1861f1">ipmask</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static byte <link linkend="_ethernet__funk_8h_1afac8df769c9c6defc0e5db82a9cf05dd">mymac</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>const char website[] <link linkend="_ethernet__funk_8h_1aec3bc3f16a5373b400693501d61014a9">PROGMEM</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>BufferFiller <link linkend="_ethernet__funk_8h_1a76f7082f91cf9ec56bc681a2cce6b7c7">bfill</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static byte <link linkend="_ethernet__funk_8h_1a3580e4dee591a6ac1d9cb72c2569fca9">ping_1</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static byte <link linkend="_ethernet__funk_8h_1aca17c39754267f970f5d459668636571">proc_ip</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static byte <link linkend="_ethernet__funk_8h_1aa080e0969d25faf26f9682591fd3b215">deviceHub_ip</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_ethernet__funk_8h_1a327d3b5b3cc642ac37a3f264699d8959">debugDeviceHub</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Funkcije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_ethernet__funk_8h_1aa54fa62717c9acbd4c015e1c22208880">gotPinged</link> (
+byte * ptr)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_ethernet__funk_8h_1a14b0f366ddca9910f942f904f00bce94">EthernetInit</link> (
+boolean izpisShort)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_ethernet__funk_8h_1a154f53048fa8b5b5e21dd52ef5cab93b">CheckEthernet</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_ethernet__funk_8h_1a8ded86cae89bccb21d891d533bf505b0">EthernetIzpisInfo</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>word <link linkend="_ethernet__funk_8h_1ae69f61a08ff3c6001ced05e642f96025">homePage</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_ethernet__funk_8h_1a1665c8649341fc3b0a9ab71904e3e347">SendToProc</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static void <link linkend="_ethernet__funk_8h_1ab7ba5697d630c96e375241433398b4c4">my_callback</link> (
+byte status, word off, word len)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_ethernet__funk_8h_1aa79c40c7c98fc7397685190b4bf5f528">DeviceHub</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Podroben opis</title>
+    <para>Definition in file //Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Ethernet_funk.h</para>
+    </simplesect>
+</section>

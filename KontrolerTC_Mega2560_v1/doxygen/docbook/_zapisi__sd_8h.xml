@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_zapisi__sd_8h">
+    <title>Zapisi_sd.h File Reference</title>
+        <section>
+            <title>Spremenljivke</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Sd2Card <link linkend="_zapisi__sd_8h_1a96cadc049beab72b125817885fb04b3d">cardSD</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Funkcije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_zapisi__sd_8h_1acbd9d14f98cabb46c24d6ff8ac140543">SDInit</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_zapisi__sd_8h_1ad785c1956563b3ff9e6fb08ada7aeead">ImeDatoteke</link> (
+char * ime)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_zapisi__sd_8h_1ab670eb91d8438a8b91a6a14ef7677b26">ImeDatotekeOnOff</link> (
+char * ime)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>File <link linkend="_zapisi__sd_8h_1adecce52978e2545a7ddd4aef0eab1c06">OdpriDatoteko</link> (
+char * imeDat, byte typeDat)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_zapisi__sd_8h_1ada8c75979de444d679120bec967d518a">PrintTempAllSDbin</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_zapisi__sd_8h_1aeb1bbd6094ced5b27dcbbfb5807136a2">ZapisiOnOffSD</link> (
+int state, byte tipSpremembe)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_zapisi__sd_8h_1ab02d02d205f26bec5ac887514a354f8a">IzpisDataOnOffSerial</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_zapisi__sd_8h_1a811f40320e641dfa30a406fbee9d2ae6">IzpisDatnaSerial</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Podroben opis</title>
+    <para>Definition in file //Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Zapisi_sd.h</para>
+    </simplesect>
+</section>

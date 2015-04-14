@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="unionul2byte4b">
+<title>ul2byte4b union Reference</title>
+<para>
+    <programlisting>#include <link linkend="_configuration_8h">&lt;Configuration.h&gt;</link></programlisting>
+</para>
+        <section>
+            <title>Javni atributi</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>byte by[4]</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long ulval</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Opis atributov</title>
+        </section>
+</section>

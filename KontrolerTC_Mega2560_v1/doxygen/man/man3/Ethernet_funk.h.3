@@ -1,0 +1,156 @@
+.TH "//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Ethernet_funk.h" 3 "Sat Apr 11 2015" "Kontroler TC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Ethernet_funk.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Funkcije"
+
+.in +1c
+.ti -1c
+.RI "void \fBgotPinged\fP (byte *ptr)"
+.br
+.ti -1c
+.RI "void \fBEthernetInit\fP (boolean izpisShort)"
+.br
+.ti -1c
+.RI "void \fBCheckEthernet\fP (void)"
+.br
+.ti -1c
+.RI "void \fBEthernetIzpisInfo\fP (void)"
+.br
+.ti -1c
+.RI "word \fBhomePage\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSendToProc\fP (void)"
+.br
+.ti -1c
+.RI "static void \fBmy_callback\fP (byte status, word off, word len)"
+.br
+.ti -1c
+.RI "void \fBDeviceHub\fP (void)"
+.br
+.in -1c
+.SS "Spremenljivke"
+
+.in +1c
+.ti -1c
+.RI "static byte \fBmyip\fP [] = {192,168,1,50}"
+.br
+.ti -1c
+.RI "static byte \fBgwip\fP [] = {192,168,1,1}"
+.br
+.ti -1c
+.RI "static byte \fBdnsip\fP [] = {193,189,160,13}"
+.br
+.ti -1c
+.RI "static byte \fBipmask\fP [] = { 255,255,252,0 }"
+.br
+.ti -1c
+.RI "static byte \fBmymac\fP [] = { 0x74,0x69,0x69,0x2D,0x30,0x31 }"
+.br
+.ti -1c
+.RI "const char website[] \fBPROGMEM\fP = 'www\&.devicehub\&.net'"
+.br
+.ti -1c
+.RI "BufferFiller \fBbfill\fP"
+.br
+.ti -1c
+.RI "static byte \fBping_1\fP [4]"
+.br
+.ti -1c
+.RI "static byte \fBproc_ip\fP [4]"
+.br
+.ti -1c
+.RI "static byte \fBdeviceHub_ip\fP [4]"
+.br
+.ti -1c
+.RI "boolean \fBdebugDeviceHub\fP =false"
+.br
+.in -1c
+.SH "Opis funkcije"
+.PP 
+.SS "void CheckEthernet (void)"
+
+.PP
+Definirano v 266 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "void DeviceHub (void)"
+
+.PP
+Definirano v 445 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "void EthernetInit (boolean izpisShort)"
+
+.PP
+Definirano v 50 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "void EthernetIzpisInfo (void)"
+
+.PP
+Definirano v 377 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "void gotPinged (byte * ptr)"
+
+.PP
+Definirano v 44 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "static word homePage (void)"
+
+.PP
+Definirano v 198 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "static void my_callback (byte status, word off, word len)\fC [static]\fP"
+
+.PP
+Definirano v 428 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "void SendToProc (void)"
+
+.PP
+Definirano v 412 vrstici datoteke Ethernet_funk\&.h\&.
+.SH "Opis spremenljivke"
+.PP 
+.SS "BufferFiller bfill"
+
+.PP
+Definirano v 35 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "boolean debugDeviceHub =false"
+
+.PP
+Definirano v 426 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "byte deviceHub_ip[4]\fC [static]\fP"
+
+.PP
+Definirano v 39 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "byte dnsip[] = {193,189,160,13}\fC [static]\fP"
+
+.PP
+Definirano v 23 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "byte gwip[] = {192,168,1,1}\fC [static]\fP"
+
+.PP
+Definirano v 22 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "byte ipmask[] = { 255,255,252,0 }\fC [static]\fP"
+
+.PP
+Definirano v 24 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "byte myip[] = {192,168,1,50}\fC [static]\fP"
+
+.PP
+Definirano v 21 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "byte mymac[] = { 0x74,0x69,0x69,0x2D,0x30,0x31 }\fC [static]\fP"
+
+.PP
+Definirano v 29 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "byte ping_1[4]\fC [static]\fP"
+
+.PP
+Definirano v 37 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "byte proc_ip[4]\fC [static]\fP"
+
+.PP
+Definirano v 38 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "const char website [] PROGMEM = 'www\&.devicehub\&.net'"
+
+.PP
+Definirano v 31 vrstici datoteke Ethernet_funk\&.h\&.
+.SH "Avtor"
+.PP 
+zgenerirano z Doxygen-om za Kontroler TC iz izvorne kode\&.

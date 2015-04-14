@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="_cas__funkcije_8h" kind="file" language="C++">
+    <compoundname>Cas_funkcije.h</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_cas__funkcije_8h_1adfb3f10d2c40a8f3a1015a735402132a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NarediTimeStr</definition>
+        <argsstring>(char *cas, unsigned long tcas, boolean izpSec)</argsstring>
+        <name>NarediTimeStr</name>
+        <param>
+          <type>char *</type>
+          <declname>cas</declname>
+        </param>
+        <param>
+          <type>unsigned long</type>
+          <declname>tcas</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>izpSec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Cas_funkcije.h" line="5" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Cas_funkcije.h" bodystart="12" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="_cas__funkcije_8h_1aa6849eef7b24c5db5eba9cfd307f21c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean IsWeekend</definition>
+        <argsstring>(void)</argsstring>
+        <name>IsWeekend</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Cas_funkcije.h" line="6" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Cas_funkcije.h" bodystart="22" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>Cas_funkcije_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>Cas_funkcije_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_cas__funkcije_8h_1adfb3f10d2c40a8f3a1015a735402132a" kindref="member">NarediTimeStr</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>cas,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>tcas,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>izpSec);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="_cas__funkcije_8h_1aa6849eef7b24c5db5eba9cfd307f21c0" kindref="member">IsWeekend</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Naredi<sp/>string<sp/>v<sp/>obliki<sp/>HH:MM:SS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>-<sp/>izpSec:<sp/><sp/><sp/><sp/>-<sp/>true,<sp/>izpiše<sp/>tudi<sp/>secunde</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>false,<sp/>brez<sp/>sekund<sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="_cas__funkcije_8h_1adfb3f10d2c40a8f3a1015a735402132a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_cas__funkcije_8h_1adfb3f10d2c40a8f3a1015a735402132a" kindref="member">NarediTimeStr</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>cas,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>tcas,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>izpSec<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(izpSec)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>sprintf(cas,<sp/></highlight><highlight class="stringliteral">&quot;%02d:%02d:%02d&quot;</highlight><highlight class="normal">,<sp/>hour(tcas),<sp/>minute(tcas),<sp/>second(tcas));</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>sprintf(cas,<sp/></highlight><highlight class="stringliteral">&quot;%02d:%02d&quot;</highlight><highlight class="normal">,<sp/>hour(tcas),<sp/>minute(tcas));</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="_cas__funkcije_8h_1aa6849eef7b24c5db5eba9cfd307f21c0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="_cas__funkcije_8h_1aa6849eef7b24c5db5eba9cfd307f21c0" kindref="member">IsWeekend</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(weekday()<sp/>==<sp/><ref refid="_configuration_8h_1a48ffbe9396ac9a07c43d7f1bcf36fbc6" kindref="member">NED</ref><sp/>||<sp/>weekday()<sp/>==<sp/><ref refid="_configuration_8h_1accf29fa1fe6c5704bb53c11af7d692ab" kindref="member">SOB</ref>)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);<sp/><sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Cas_funkcije.h"/>
+  </compounddef>
+</doxygen>

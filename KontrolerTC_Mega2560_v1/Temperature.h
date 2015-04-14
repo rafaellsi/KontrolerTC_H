@@ -1,5 +1,5 @@
 #ifndef Temperature_h
-#define Temperatue_h
+#define Temperature_h
 
 
 #include <DHT.h>
@@ -523,7 +523,8 @@ void PrintTemperatureAll(void)
       }  
  */   
       Serial.print("/");
-      float avgWeight = 0.5/(float) zamikMerTemp;
+//      float avgWeight = 0.5/(float) zamikMerTemp;
+      float avgWeight = 0.25/(float) zamikMerTemp;   //spremenjeno 13.4.2015
       avgTempVodeTC = ((1.0-avgWeight)*avgTempVodeTC) + (avgWeight * cTemperatura[i]); 
       Serial.print(avgTempVodeTC);
 //      Serial.print(F(")"));

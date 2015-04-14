@@ -1,0 +1,301 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="_gas___sensor_8h" kind="file" language="C++">
+    <compoundname>Gas_Sensor.h</compoundname>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_gas___sensor_8h_1adb97e97675b2e13e19f7caa166e81ae1" prot="public" static="no">
+        <name>Kontroler_TC_h</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" line="2" column="9" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" bodystart="2" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_gas___sensor_8h_1acf888d3c44dadec7605c59ad7a1aee4f" prot="public" static="no">
+        <name>CO_HEATING_STATE_OFF</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" line="12" column="11"/>
+      </memberdef>
+      <memberdef kind="define" id="_gas___sensor_8h_1a81b5221481e08df28fb164961a30f986" prot="public" static="no">
+        <name>CO_HEATING_STATE_HIGH</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" line="13" column="11"/>
+      </memberdef>
+      <memberdef kind="define" id="_gas___sensor_8h_1abb4101bce1af20b65ef9516623a4e17d" prot="public" static="no">
+        <name>CO_HEATING_STATE_LOW</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" line="14" column="11"/>
+      </memberdef>
+      <memberdef kind="define" id="_gas___sensor_8h_1a869a912d6a04a9a9c0da8b055d8f2a00" prot="public" static="no">
+        <name>CO_HEATING_OFF</name>
+        <initializer>HIGH</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" line="15" column="11"/>
+      </memberdef>
+      <memberdef kind="define" id="_gas___sensor_8h_1a23ddf881326291c10ff176ceffa77141" prot="public" static="no">
+        <name>CO_HEATING_ON</name>
+        <initializer>LOW</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" line="16" column="11"/>
+      </memberdef>
+      <memberdef kind="define" id="_gas___sensor_8h_1a7b52bf2b5eb7dd82fdbb8c628f4fc309" prot="public" static="no">
+        <name>CO_HEATING_PWM_LOW</name>
+        <initializer>184</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" line="17" column="11"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_gas___sensor_8h_1ac4b00b12f377cfe03da41e1232241f3c" prot="public" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long coRawValSum</definition>
+        <argsstring></argsstring>
+        <name>coRawValSum</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" line="25" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_gas___sensor_8h_1a826de08a6094b912832e739c7ceb7312" prot="public" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long numMerCO</definition>
+        <argsstring></argsstring>
+        <name>numMerCO</name>
+        <initializer>=0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" line="26" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_gas___sensor_8h_1a34f3e6494f80560e4e94aa77ee4ced66" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int coRawValMax</definition>
+        <argsstring></argsstring>
+        <name>coRawValMax</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" line="27" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_gas___sensor_8h_1a537b59c17084787f2acf099109829196" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int coRawValRef</definition>
+        <argsstring></argsstring>
+        <name>coRawValRef</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" line="28" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_gas___sensor_8h_1ae8a881d0f89a3979cdf3fe2976c43ff8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Initilizacija_CO</definition>
+        <argsstring>(void)</argsstring>
+        <name>Initilizacija_CO</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" line="5" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" bodystart="9" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="_gas___sensor_8h_1a94bed2d923712a15d8fa724210bf6c25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PreveriCO_Senzor</definition>
+        <argsstring>()</argsstring>
+        <name>PreveriCO_Senzor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" line="6" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" bodystart="32" bodyend="118"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>Gas_Sensor_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2" refid="_gas___sensor_8h_1adb97e97675b2e13e19f7caa166e81ae1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>Kontroler_TC_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_gas___sensor_8h_1ae8a881d0f89a3979cdf3fe2976c43ff8" kindref="member">Initilizacija_CO</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_gas___sensor_8h_1a94bed2d923712a15d8fa724210bf6c25" kindref="member">PreveriCO_Senzor</ref>();</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="_gas___sensor_8h_1ae8a881d0f89a3979cdf3fe2976c43ff8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_gas___sensor_8h_1ae8a881d0f89a3979cdf3fe2976c43ff8" kindref="member">Initilizacija_CO</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//#define<sp/>CO_INIT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>CO_HEATING_STATE_OFF<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>CO_HEATING_STATE_HIGH<sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>CO_HEATING_STATE_LOW<sp/><sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>CO_HEATING_OFF<sp/><sp/>HIGH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>CO_HEATING_ON<sp/><sp/>LOW</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#define<sp/>CO_HEATING_PWM_LOW<sp/>184<sp/><sp/><sp/>//<sp/>cca.<sp/>1.4V</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1aa25fb978959e63155e3d8d7b774483ec" kindref="member">CO_PWR_PIN</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1aaa5102b3d83a0d766ec362d0cd76499f" kindref="member">CO_DOUT_PIN</ref>,<sp/>INPUT);<sp/><sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}<sp/><sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="_kontr___t_c__spl_8h_1ac4b00b12f377cfe03da41e1232241f3c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_gas___sensor_8h_1ac4b00b12f377cfe03da41e1232241f3c" kindref="member">coRawValSum</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="26" refid="_kontr___t_c__spl_8h_1a826de08a6094b912832e739c7ceb7312" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_gas___sensor_8h_1a826de08a6094b912832e739c7ceb7312" kindref="member">numMerCO</ref>=0;</highlight></codeline>
+<codeline lineno="27" refid="_kontr___t_c__spl_8h_1a34f3e6494f80560e4e94aa77ee4ced66" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_gas___sensor_8h_1a34f3e6494f80560e4e94aa77ee4ced66" kindref="member">coRawValMax</ref>;</highlight></codeline>
+<codeline lineno="28" refid="_kontr___t_c__spl_8h_1a537b59c17084787f2acf099109829196" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_gas___sensor_8h_1a537b59c17084787f2acf099109829196" kindref="member">coRawValRef</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>float<sp/>maxVoltGas<sp/>=<sp/>-999.9;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>float<sp/>minVoltGas<sp/>=<sp/>999.9;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="_gas___sensor_8h_1a94bed2d923712a15d8fa724210bf6c25" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_gas___sensor_8h_1a94bed2d923712a15d8fa724210bf6c25" kindref="member">PreveriCO_Senzor</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>t_CO_nextHChange<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>byte<sp/>co_sens_heat_level<sp/>=<sp/><ref refid="_gas___sensor_8h_1acf888d3c44dadec7605c59ad7a1aee4f" kindref="member">CO_HEATING_STATE_OFF</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>lastGasVoltAlert;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>lastGasAlert;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>biriši<sp/>ko<sp/>rešiš<sp/>napajanje</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>float<sp/>voltGas;</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/><sp/>voltGas<sp/>=<sp/>VoltageDivider(SENS_V5_3,<sp/>v5_3_r1,<sp/>v5_3_r2);</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/><sp/>if<sp/>(voltGas<sp/>&gt;<sp/>maxVoltGas)</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/><sp/>maxVoltGas<sp/>=<sp/>voltGas;</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/>else<sp/>if<sp/>(voltGas<sp/>&lt;<sp/>minVoltGas)</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/><sp/><sp/>minVoltGas<sp/>=<sp/>voltGas;<sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="comment">*/</highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>voltGas;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>voltGas<sp/>=<sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[3][0];</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(voltGas<sp/>&gt;<sp/>5.80)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1aa25fb978959e63155e3d8d7b774483ec" kindref="member">CO_PWR_PIN</ref>,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(now()<sp/>-<sp/>lastGasVoltAlert<sp/>&gt;<sp/>10)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;5V3(Err):<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(voltGas);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>lastGasVoltAlert<sp/>=<sp/>now();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1a0cdc44c047411d10590fe3719a29e6c3" kindref="member">coRawVal</ref><sp/>=<sp/>1024;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(co_sens_heat_level<sp/>!=<sp/><ref refid="_gas___sensor_8h_1abb4101bce1af20b65ef9516623a4e17d" kindref="member">CO_HEATING_STATE_LOW</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>analogWrite(<ref refid="_configuration_8h_1aa25fb978959e63155e3d8d7b774483ec" kindref="member">CO_PWR_PIN</ref>,<sp/><ref refid="_gas___sensor_8h_1a7b52bf2b5eb7dd82fdbb8c628f4fc309" kindref="member">CO_HEATING_PWM_LOW</ref>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>t_CO_nextHChange<sp/>=<sp/>now()<sp/>+<sp/>90;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>co_sens_heat_level<sp/>=<sp/><ref refid="_gas___sensor_8h_1acf888d3c44dadec7605c59ad7a1aee4f" kindref="member">CO_HEATING_STATE_OFF</ref>;<sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(now()<sp/>&gt;<sp/>t_CO_nextHChange)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(co_sens_heat_level<sp/>==<sp/><ref refid="_gas___sensor_8h_1abb4101bce1af20b65ef9516623a4e17d" kindref="member">CO_HEATING_STATE_LOW</ref><sp/>||<sp/>co_sens_heat_level<sp/>==<sp/><ref refid="_gas___sensor_8h_1acf888d3c44dadec7605c59ad7a1aee4f" kindref="member">CO_HEATING_STATE_OFF</ref>)<sp/>{<sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>t_CO_nextHChange<sp/>=<sp/>now()<sp/>+<sp/>60;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>noInterrupts();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1a0cdc44c047411d10590fe3719a29e6c3" kindref="member">coRawVal</ref><sp/>=<sp/>analogRead(<ref refid="_configuration_8h_1ae6a129b981d5ef3ccf91ec4113a579c5" kindref="member">CO_SENS_APIN</ref>);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>interrupts();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>coRawValSum<sp/>+=<sp/>((unsigned<sp/>long)<sp/>coRawVal);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>numMerCO+=<sp/>1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1aa25fb978959e63155e3d8d7b774483ec" kindref="member">CO_PWR_PIN</ref>,<sp/>LOW);<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>co_sens_heat_level<sp/>=<sp/><ref refid="_gas___sensor_8h_1a81b5221481e08df28fb164961a30f986" kindref="member">CO_HEATING_STATE_HIGH</ref>;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;&gt;&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(co_sens_heat_level<sp/>==<sp/><ref refid="_gas___sensor_8h_1a81b5221481e08df28fb164961a30f986" kindref="member">CO_HEATING_STATE_HIGH</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>noInterrupts();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1a0cdc44c047411d10590fe3719a29e6c3" kindref="member">coRawVal</ref><sp/>=<sp/>analogRead(<ref refid="_configuration_8h_1ae6a129b981d5ef3ccf91ec4113a579c5" kindref="member">CO_SENS_APIN</ref>);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_gas___sensor_8h_1a537b59c17084787f2acf099109829196" kindref="member">coRawValRef</ref><sp/>=<sp/><ref refid="_configuration_8h_1a0cdc44c047411d10590fe3719a29e6c3" kindref="member">coRawVal</ref>;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>interrupts();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>coRawValSum<sp/>+=<sp/>((unsigned<sp/>long)<sp/>coRawVal);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>numMerCO+=1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>analogWrite(<ref refid="_configuration_8h_1aa25fb978959e63155e3d8d7b774483ec" kindref="member">CO_PWR_PIN</ref>,<sp/><ref refid="_gas___sensor_8h_1a7b52bf2b5eb7dd82fdbb8c628f4fc309" kindref="member">CO_HEATING_PWM_LOW</ref>);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>t_CO_nextHChange<sp/>=<sp/>now()<sp/>+<sp/>90;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>co_sens_heat_level<sp/>=<sp/><ref refid="_gas___sensor_8h_1abb4101bce1af20b65ef9516623a4e17d" kindref="member">CO_HEATING_STATE_LOW</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;&lt;&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>noInterrupts();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1a0cdc44c047411d10590fe3719a29e6c3" kindref="member">coRawVal</ref><sp/>=<sp/>analogRead(<ref refid="_configuration_8h_1ae6a129b981d5ef3ccf91ec4113a579c5" kindref="member">CO_SENS_APIN</ref>);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>interrupts();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><ref refid="_gas___sensor_8h_1ac4b00b12f377cfe03da41e1232241f3c" kindref="member">coRawValSum</ref><sp/>+=<sp/>((</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>long)<sp/><ref refid="_configuration_8h_1a0cdc44c047411d10590fe3719a29e6c3" kindref="member">coRawVal</ref>);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><ref refid="_gas___sensor_8h_1a826de08a6094b912832e739c7ceb7312" kindref="member">numMerCO</ref>++;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_configuration_8h_1a0cdc44c047411d10590fe3719a29e6c3" kindref="member">coRawVal</ref><sp/>&gt;<sp/><ref refid="_gas___sensor_8h_1a34f3e6494f80560e4e94aa77ee4ced66" kindref="member">coRawValMax</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_gas___sensor_8h_1a34f3e6494f80560e4e94aa77ee4ced66" kindref="member">coRawValMax</ref><sp/>=<sp/><ref refid="_configuration_8h_1a0cdc44c047411d10590fe3719a29e6c3" kindref="member">coRawVal</ref>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>coRawAlertVal<sp/>=<sp/>10;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_gas___sensor_8h_1a537b59c17084787f2acf099109829196" kindref="member">coRawValRef</ref><sp/>&gt;<sp/>coRawAlertVal)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(co_sens_heat_level<sp/>!=<sp/><ref refid="_gas___sensor_8h_1acf888d3c44dadec7605c59ad7a1aee4f" kindref="member">CO_HEATING_STATE_OFF</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(<ref refid="_configuration_8h_1aaa5102b3d83a0d766ec362d0cd76499f" kindref="member">CO_DOUT_PIN</ref>)<sp/>==<sp/>HIGH)<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>gasAlertInterval<sp/>=<sp/>map((</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">)<sp/><ref refid="_gas___sensor_8h_1a537b59c17084787f2acf099109829196" kindref="member">coRawValRef</ref>,<sp/>0UL,<sp/>1023UL,<sp/>150000UL,<sp/>0UL);<sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(millis()<sp/>-<sp/>lastGasAlert<sp/>&gt;<sp/>gasAlertInterval<sp/>||<sp/>millis()<sp/>&lt;<sp/>lastGasAlert)<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;CO!<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lastGasAlert<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1a7776f799a4a163021b43ca485e664952" kindref="member">Beep</ref>(map(coRawValRef,<sp/>coRawAlertVal,<sp/>1023,<sp/>10,<sp/>50));</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Beep(50);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}<sp/><sp/></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight></codeline>
+    </programlisting>
+    <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h"/>
+  </compounddef>
+</doxygen>

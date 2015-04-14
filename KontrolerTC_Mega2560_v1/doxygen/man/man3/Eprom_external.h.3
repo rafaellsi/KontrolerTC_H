@@ -1,0 +1,52 @@
+.TH "//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Eprom_external.h" 3 "Sat Apr 11 2015" "Kontroler TC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Eprom_external.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Funkcije"
+
+.in +1c
+.ti -1c
+.RI "void \fBwaitEEReady\fP (int deviceAddress)"
+.br
+.ti -1c
+.RI "void \fBi2c_eeprom_write_page\fP (int deviceaddress, unsigned int eeaddresspage, byte addrlen, byte *up, byte length)"
+.br
+.ti -1c
+.RI "void \fBi2c_eeprom_write_byte\fP (int deviceaddress, unsigned int eeaddress, byte addrlen, byte data)"
+.br
+.ti -1c
+.RI "void \fBi2c_eeprom_read_buffer\fP (int deviceaddress, unsigned int eeaddress, byte addrlen, byte *up, int length)"
+.br
+.ti -1c
+.RI "byte \fBi2c_eeprom_read_byte\fP (int deviceaddress, unsigned int eeaddress, byte addrlen)"
+.br
+.in -1c
+.SH "Opis funkcije"
+.PP 
+.SS "void i2c_eeprom_read_buffer (int deviceaddress, unsigned int eeaddress, byte addrlen, byte * up, int length)"
+
+.PP
+Definirano v 70 vrstici datoteke Eprom_external\&.h\&.
+.SS "byte i2c_eeprom_read_byte (int deviceaddress, unsigned int eeaddress, byte addrlen)"
+
+.PP
+Definirano v 115 vrstici datoteke Eprom_external\&.h\&.
+.SS "void i2c_eeprom_write_byte (int deviceaddress, unsigned int eeaddress, byte addrlen, byte data)"
+
+.PP
+Definirano v 38 vrstici datoteke Eprom_external\&.h\&.
+.SS "void i2c_eeprom_write_page (int deviceaddress, unsigned int eeaddresspage, byte addrlen, byte * up, byte length)"
+
+.PP
+Definirano v 9 vrstici datoteke Eprom_external\&.h\&.
+.SS "void waitEEReady (int deviceAddress)"
+
+.PP
+Definirano v 148 vrstici datoteke Eprom_external\&.h\&.
+.SH "Avtor"
+.PP 
+zgenerirano z Doxygen-om za Kontroler TC iz izvorne kode\&.

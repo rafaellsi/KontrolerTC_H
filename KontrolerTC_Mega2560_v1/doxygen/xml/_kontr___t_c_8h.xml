@@ -1,0 +1,582 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="_kontr___t_c_8h" kind="file" language="C++">
+    <compoundname>Kontr_TC.h</compoundname>
+    <includes local="no">inttypes.h</includes>
+    <includes local="no">Arduino.h</includes>
+    <includes local="no">Wire.h</includes>
+    <incdepgraph>
+      <node id="16">
+        <label>Wire.h</label>
+      </node>
+      <node id="15">
+        <label>Arduino.h</label>
+      </node>
+      <node id="13">
+        <label>//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h</label>
+        <link refid="Kontr_TC.h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>inttypes.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_kontr___t_c_8h_1a4da27a15aeca42eeea52667d937b0748" prot="public" static="no">
+        <name>STIKALO_ON</name>
+        <initializer>LOW</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" line="260" column="9" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_kontr___t_c_8h_1a0a274b83ced50fceebfebb0eff98733d" prot="public" static="no">
+        <name>STIKALO_OFF</name>
+        <initializer>HIGH</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" line="261" column="9" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_kontr___t_c_8h_1af0786acf72dad0a5ce578c14b1fa542c" prot="public" static="no">
+        <name>STIKALO_STATE_AUT</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" line="263" column="9" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_kontr___t_c_8h_1a9935446022fdbf6af5fbef5177bd5b8e" prot="public" static="no">
+        <name>STIKALO_STATE_ON</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" line="264" column="9" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" bodystart="264" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_kontr___t_c_8h_1ab8f7c831ac9b6de357127bb4f189eb01" prot="public" static="no">
+        <name>STIKALO_STATE_OFF</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" line="265" column="9" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" bodystart="265" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_kontr___t_c_8h_1a0da38d4d811e7d5c1221f2f48a9fc7a1" prot="public" static="no">
+        <name>STIKALO_CRP_RAD</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" line="267" column="9" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" bodystart="267" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_kontr___t_c_8h_1a42a8c3bf07b8267b466aba4905f89bbf" prot="public" static="no">
+        <name>STIKALO_CRP_TC</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" line="268" column="9" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" bodystart="268" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_kontr___t_c_8h_1a6e643d89cefeb3e5e122ddf03bcbcc4d" prot="public" static="no">
+        <name>STIKALO_TC</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" line="269" column="9" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" bodystart="269" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_kontr___t_c_8h_1ad9b7923d1fe44893c5fe38c332349802" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t stikaloState[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>stikaloState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" line="271" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" bodystart="271" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_kontr___t_c_8h_1a9d2f14f0cb8091e1f886cf48da196cf9" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char stikaloStateTxt[3][4]</definition>
+        <argsstring>[3][4]</argsstring>
+        <name>stikaloStateTxt</name>
+        <initializer>= {&quot;AUT&quot;, &quot;ON&quot;, &quot;OFF&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" line="275" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" bodystart="275" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_kontr___t_c_8h_1adbb1c5dce75dc2e557a0e526a2ac8722" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PreklopiCrpalkoTC</definition>
+        <argsstring>(byte newState)</argsstring>
+        <name>PreklopiCrpalkoTC</name>
+        <param>
+          <type>byte</type>
+          <declname>newState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" line="17" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" bodystart="115" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="_kontr___t_c_8h_1a4de9eb29c16979c6b172e1748174ef7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Beep</definition>
+        <argsstring>(unsigned char delayms)</argsstring>
+        <name>Beep</name>
+        <param>
+          <type>unsigned char</type>
+          <declname>delayms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" line="18" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" bodystart="34" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="_kontr___t_c_8h_1a0e4d40e129991c6b2ac87cbcac87cab6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NastavitevPinov</definition>
+        <argsstring>(void)</argsstring>
+        <name>NastavitevPinov</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" line="23" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" bodystart="23" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="_kontr___t_c_8h_1ae833b86efb85a4f51d5f9a3bb31ed01b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void InitParametri</definition>
+        <argsstring>(void)</argsstring>
+        <name>InitParametri</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" line="83" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" bodystart="83" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="_kontr___t_c_8h_1a99da48505109bd092c7f9eaf6aea6695" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PreveriStikala</definition>
+        <argsstring>(boolean izpisState)</argsstring>
+        <name>PreveriStikala</name>
+        <param>
+          <type>boolean</type>
+          <declname>izpisState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" line="278" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h" bodystart="278" bodyend="333"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>Kontr_TC_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>Kontr_TC_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//#include<sp/>&quot;Configuration.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">#include<sp/>&lt;inttypes.h&gt;</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"></highlight></codeline>
+<codeline lineno="10"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;inttypes.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Wire.h&gt;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_kontr___t_c_8h_1adbb1c5dce75dc2e557a0e526a2ac8722" kindref="member">PreklopiCrpalkoTC</ref>(byte<sp/>newState);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_kontr___t_c_8h_1a4de9eb29c16979c6b172e1748174ef7e" kindref="member">Beep</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>delayms);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="_kontr___t_c_8h_1a0e4d40e129991c6b2ac87cbcac87cab6" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_kontr___t_c_8h_1a0e4d40e129991c6b2ac87cbcac87cab6" kindref="member">NastavitevPinov</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>init<sp/>portov</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>pinMode(53,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_configuration_8h_1a04d57a6c18b2d5e81f31093e58ed0c62" kindref="member">SD_CS_PIN</ref><sp/>!=<sp/>53)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>pinMode(<ref refid="_configuration_8h_1a04d57a6c18b2d5e81f31093e58ed0c62" kindref="member">SD_CS_PIN</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_configuration_8h_1a0978b59778f71e5091233afeafd50909" kindref="member">ETHER_CS_PIN</ref><sp/>!=<sp/>53)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>pinMode(<ref refid="_configuration_8h_1a0978b59778f71e5091233afeafd50909" kindref="member">ETHER_CS_PIN</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1a1f0366ddfcdfb18d49b010bcb1c714cf" kindref="member">ETHER_RESET_PIN</ref>,<sp/>OUTPUT);<sp/><sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1a1f0366ddfcdfb18d49b010bcb1c714cf" kindref="member">ETHER_RESET_PIN</ref>,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1a59f26dde03d80c6a07868f582ebbed7f" kindref="member">BEEP_PIN</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1aed23f151f53022c84bb4fd896de30c10" kindref="member">RELE_TC_KOMP</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1aed23f151f53022c84bb4fd896de30c10" kindref="member">RELE_TC_KOMP</ref>,<sp/><ref refid="_configuration_8h_1ac70e405280abb449f6724aef935c8c1a" kindref="member">R_TC_VENT_OFF</ref>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1a5f056d6437125b7a5932a5006fa31d52" kindref="member">RELE_TC_VENT</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1a5f056d6437125b7a5932a5006fa31d52" kindref="member">RELE_TC_VENT</ref>,<sp/><ref refid="_configuration_8h_1a629214d1dc1596b2ca569452a198bf3d" kindref="member">R_TC_KOMP_OFF</ref>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1a122a1211745ce959036377302d47b0c2" kindref="member">RELE_TC_EGREL</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1a122a1211745ce959036377302d47b0c2" kindref="member">RELE_TC_EGREL</ref>,<sp/><ref refid="_configuration_8h_1ad3f164d73b040f4fa7fda35bc882b4f0" kindref="member">releState_egrelecTC</ref>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1a352863d548be58b577dc7ba204ffb936" kindref="member">RELE_CTC</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><ref refid="_kontr___t_c_8h_1adbb1c5dce75dc2e557a0e526a2ac8722" kindref="member">PreklopiCrpalkoTC</ref>(0);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1a1e45d46189b827cbce59566820490389" kindref="member">RELE_CRAD</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1a1e45d46189b827cbce59566820490389" kindref="member">RELE_CRAD</ref>,<sp/><ref refid="_configuration_8h_1ac15a0f41200eab832889dc4cfe55fab9" kindref="member">R_CRAD_OFF</ref>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1aadb4dea3ebf4db37add1eb4cb7fd3a51" kindref="member">VENTTC_1</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1adf1c551d5c423c730e776ca1052acbfe" kindref="member">VENTTC_2</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1a8c835bf467fb4b26734e857c72a8c331" kindref="member">VENTTC_EN</ref>,<sp/>OUTPUT);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1a8c835bf467fb4b26734e857c72a8c331" kindref="member">VENTTC_EN</ref>,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1ac7b1a17ba250557d0e5802ebd9b1ca3c" kindref="member">CEVTERM_PEC_TC</ref>,<sp/>INPUT_PULLUP);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1a2887f47f59787b20484e2c12d3027937" kindref="member">STIKALO_CRP_RAD_ON</ref>,<sp/>INPUT_PULLUP);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1aad800acb5d57c1853b52cfc595add839" kindref="member">STIKALO_CRP_RAD_OFF</ref>,<sp/>INPUT_PULLUP);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1a8e71afe809962735f446a9ef8c68c8fe" kindref="member">STIKALO_CRP_TC_ON</ref>,<sp/>INPUT_PULLUP);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1a124cb75960b54eb1cc9b8d09adfd924f" kindref="member">STIKALO_CRP_TC_OFF</ref>,<sp/>INPUT_PULLUP);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1ac08036b5fa6d5f8fffae5b626f0ced75" kindref="member">STIKALO_TC_ON</ref>,<sp/>INPUT_PULLUP);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>pinMode(<ref refid="_configuration_8h_1a0b6af0417968442b6d7672882bb1e066" kindref="member">STIKALO_TC_OFF</ref>,<sp/>INPUT_PULLUP);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>pinMode(CO_PWR_PIN,<sp/>OUTPUT);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>digitalWrite(CO_PWR_PIN,<sp/>HIGH);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>pinMode(CO_DOUT_PIN,<sp/>INPUT);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="_kontr___t_c_8h_1ae833b86efb85a4f51d5f9a3bb31ed01b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_kontr___t_c_8h_1ae833b86efb85a4f51d5f9a3bb31ed01b" kindref="member">InitParametri</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>addrTmp;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>infoTime[9];</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><ref refid="_eprom__external_8h_1ac488a4cc216ff09301622b3e8a3bf9f9" kindref="member">i2c_eeprom_read_buffer</ref>(<ref refid="_configuration_8h_1a89a97b9b2ba756d03c9adbef6470803b" kindref="member">AT24C32_I2C_ADDR</ref>,<sp/><ref refid="_configuration_8h_1a04968c940a7d59436760f8970a1f1361" kindref="member">addrOnTime</ref>,<sp/><ref refid="_configuration_8h_1afafa17ffc01ba1f5f254d6238a2d530b" kindref="member">AT24C32_ADDR_LENGH</ref>,<sp/>(byte<sp/>*)&amp;<ref refid="_configuration_8h_1abbd99bb38039caeccaf341f51aa1d3db" kindref="member">u4</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1abbd99bb38039caeccaf341f51aa1d3db" kindref="member">u4</ref>)<sp/>);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>delay(2);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1a9e759744247766fd4dc988a9e7ee8557" kindref="member">onTimeTC</ref><sp/>=<sp/><ref refid="_configuration_8h_1abbd99bb38039caeccaf341f51aa1d3db" kindref="member">u4</ref>.<ref refid="unionul2byte4b_1ad937a6850aeb34300671e2daeb4f1b06" kindref="member">ulval</ref>;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;OnTime:<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>Serial.print(<ref refid="_configuration_8h_1a9e759744247766fd4dc988a9e7ee8557" kindref="member">onTimeTC</ref>);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>Serial.println(F(</highlight><highlight class="stringliteral">&quot;s&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>delay(5);<sp/></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><ref refid="_eprom__external_8h_1ac488a4cc216ff09301622b3e8a3bf9f9" kindref="member">i2c_eeprom_read_buffer</ref>(<ref refid="_configuration_8h_1a89a97b9b2ba756d03c9adbef6470803b" kindref="member">AT24C32_I2C_ADDR</ref>,<sp/><ref refid="_configuration_8h_1af14987dd3adb2804cefb1fd1ef725ae5" kindref="member">addrLastChg</ref>,<sp/><ref refid="_configuration_8h_1afafa17ffc01ba1f5f254d6238a2d530b" kindref="member">AT24C32_ADDR_LENGH</ref>,<sp/>(byte<sp/>*)&amp;<ref refid="_configuration_8h_1abbd99bb38039caeccaf341f51aa1d3db" kindref="member">u4</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1abbd99bb38039caeccaf341f51aa1d3db" kindref="member">u4</ref>));</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>delay(2);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1ac88bc54db30830eaf8f9eda306633f44" kindref="member">lastTCStateChg</ref><sp/>=<sp/><ref refid="_configuration_8h_1abbd99bb38039caeccaf341f51aa1d3db" kindref="member">u4</ref>.<ref refid="unionul2byte4b_1ad937a6850aeb34300671e2daeb4f1b06" kindref="member">ulval</ref>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;Last<sp/>TC<sp/>chg:<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><ref refid="_cas__funkcije_8h_1adfb3f10d2c40a8f3a1015a735402132a" kindref="member">NarediTimeStr</ref>(infoTime,<sp/><ref refid="_configuration_8h_1ac88bc54db30830eaf8f9eda306633f44" kindref="member">lastTCStateChg</ref>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>Serial.print(day(<ref refid="_configuration_8h_1ac88bc54db30830eaf8f9eda306633f44" kindref="member">lastTCStateChg</ref>));</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>Serial.print(month(<ref refid="_configuration_8h_1ac88bc54db30830eaf8f9eda306633f44" kindref="member">lastTCStateChg</ref>));</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>Serial.print(year(<ref refid="_configuration_8h_1ac88bc54db30830eaf8f9eda306633f44" kindref="member">lastTCStateChg</ref>));<sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/><sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>Serial.print(infoTime);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>delay(5);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>i2c_eeprom_write_byte(AT24C32_I2C_ADDR,<sp/>addrLastChg+4,<sp/>AT24C32_ADDR_LENGH,<sp/>prevTCState);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>delay(2);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1a5a8388d6c8d7dd17d39ed21d5f16806c" kindref="member">prevTCState</ref><sp/>=<sp/><ref refid="_eprom__external_8h_1afab122a2c123df1cf1115475ace4b2f4" kindref="member">i2c_eeprom_read_byte</ref>(<ref refid="_configuration_8h_1a89a97b9b2ba756d03c9adbef6470803b" kindref="member">AT24C32_I2C_ADDR</ref>,<sp/><ref refid="_configuration_8h_1a3d078a6c91500ce4fed4ee7700da502d" kindref="member">addrPrevTCState</ref>,<sp/><ref refid="_configuration_8h_1afafa17ffc01ba1f5f254d6238a2d530b" kindref="member">AT24C32_ADDR_LENGH</ref>);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_configuration_8h_1a5a8388d6c8d7dd17d39ed21d5f16806c" kindref="member">prevTCState</ref><sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1a5a8388d6c8d7dd17d39ed21d5f16806c" kindref="member">prevTCState</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac88bc54db30830eaf8f9eda306633f44" kindref="member">lastTCStateChg</ref><sp/>=<sp/>now();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1abbd99bb38039caeccaf341f51aa1d3db" kindref="member">u4</ref>.<ref refid="unionul2byte4b_1ad937a6850aeb34300671e2daeb4f1b06" kindref="member">ulval</ref><sp/>=<sp/><ref refid="_configuration_8h_1ac88bc54db30830eaf8f9eda306633f44" kindref="member">lastTCStateChg</ref>;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(5);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_eprom__external_8h_1a4e004a39677e3cc4a1afc14640b89373" kindref="member">i2c_eeprom_write_page</ref>(<ref refid="_configuration_8h_1a89a97b9b2ba756d03c9adbef6470803b" kindref="member">AT24C32_I2C_ADDR</ref>,<sp/><ref refid="_configuration_8h_1af14987dd3adb2804cefb1fd1ef725ae5" kindref="member">addrLastChg</ref>,<sp/><ref refid="_configuration_8h_1afafa17ffc01ba1f5f254d6238a2d530b" kindref="member">AT24C32_ADDR_LENGH</ref>,<sp/>(byte<sp/>*)&amp;<ref refid="_configuration_8h_1abbd99bb38039caeccaf341f51aa1d3db" kindref="member">u4</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1abbd99bb38039caeccaf341f51aa1d3db" kindref="member">u4</ref>));</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(5);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_eprom__external_8h_1a284278637b8dd14176e9ca07a63c332d" kindref="member">i2c_eeprom_write_byte</ref>(<ref refid="_configuration_8h_1a89a97b9b2ba756d03c9adbef6470803b" kindref="member">AT24C32_I2C_ADDR</ref>,<sp/><ref refid="_configuration_8h_1a3d078a6c91500ce4fed4ee7700da502d" kindref="member">addrPrevTCState</ref>,<sp/><ref refid="_configuration_8h_1afafa17ffc01ba1f5f254d6238a2d530b" kindref="member">AT24C32_ADDR_LENGH</ref>,<sp/><ref refid="_configuration_8h_1a5a8388d6c8d7dd17d39ed21d5f16806c" kindref="member">prevTCState</ref>);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(<sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;prevTCState\&quot;<sp/>nastavljeno<sp/>na<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(<ref refid="_configuration_8h_1a5a8388d6c8d7dd17d39ed21d5f16806c" kindref="member">prevTCState</ref>);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/><sp/>Serial.print(&quot;sizeof(ux):&quot;);</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/><sp/></highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/><sp/>Serial.println(sizeof(u2));</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/><sp/>Serial.println(sizeof(u4));</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/><sp/>Serial.println(sizeof(uf));</highlight></codeline>
+<codeline lineno="136"><highlight class="comment">*/</highlight><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>delay(2);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><ref refid="_eprom__external_8h_1ac488a4cc216ff09301622b3e8a3bf9f9" kindref="member">i2c_eeprom_read_buffer</ref>(<ref refid="_configuration_8h_1a89a97b9b2ba756d03c9adbef6470803b" kindref="member">AT24C32_I2C_ADDR</ref>,<sp/><ref refid="_configuration_8h_1accd72285a220aacb882409f26f9779e8" kindref="member">addrDeltaTh</ref>,<sp/><ref refid="_configuration_8h_1afafa17ffc01ba1f5f254d6238a2d530b" kindref="member">AT24C32_ADDR_LENGH</ref>,<sp/>(byte<sp/>*)&amp;<ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>));</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>delay(2);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1a67ce5d811dacd2b49f3904e3fb7d96dd" kindref="member">deltaTh</ref><sp/>=<sp/><ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>.<ref refid="unionfl2byte4b_1a89560ba498e3fe528d97a435d5f61054" kindref="member">fval</ref>;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;Hir.<sp/>gret:<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/>Serial.print(<ref refid="_configuration_8h_1a67ce5d811dacd2b49f3904e3fb7d96dd" kindref="member">deltaTh</ref>,<sp/>3);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(deltaTh<sp/>&lt;=<sp/>0<sp/>||<sp/>deltaTh<sp/>&gt;<sp/>25.0)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1a67ce5d811dacd2b49f3904e3fb7d96dd" kindref="member">deltaTh</ref><sp/>=<sp/>4.35;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>/<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_configuration_8h_1a67ce5d811dacd2b49f3904e3fb7d96dd" kindref="member">deltaTh</ref>,<sp/>3);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>.<ref refid="unionfl2byte4b_1a89560ba498e3fe528d97a435d5f61054" kindref="member">fval</ref><sp/>=<sp/><sp/><ref refid="_configuration_8h_1a67ce5d811dacd2b49f3904e3fb7d96dd" kindref="member">deltaTh</ref>;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(5);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_eprom__external_8h_1a4e004a39677e3cc4a1afc14640b89373" kindref="member">i2c_eeprom_write_page</ref>(<ref refid="_configuration_8h_1a89a97b9b2ba756d03c9adbef6470803b" kindref="member">AT24C32_I2C_ADDR</ref>,<sp/><ref refid="_configuration_8h_1accd72285a220aacb882409f26f9779e8" kindref="member">addrDeltaTh</ref>,<sp/><ref refid="_configuration_8h_1afafa17ffc01ba1f5f254d6238a2d530b" kindref="member">AT24C32_ADDR_LENGH</ref>,<sp/>(byte<sp/>*)&amp;<ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>));</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>Serial.println(F(</highlight><highlight class="stringliteral">&quot;K/h&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/>delay(2);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><ref refid="_eprom__external_8h_1ac488a4cc216ff09301622b3e8a3bf9f9" kindref="member">i2c_eeprom_read_buffer</ref>(<ref refid="_configuration_8h_1a89a97b9b2ba756d03c9adbef6470803b" kindref="member">AT24C32_I2C_ADDR</ref>,<sp/><ref refid="_configuration_8h_1a96fab0393d7ed32a365b1e4d768c1887" kindref="member">addrDeltaThOk</ref>,<sp/><ref refid="_configuration_8h_1afafa17ffc01ba1f5f254d6238a2d530b" kindref="member">AT24C32_ADDR_LENGH</ref>,<sp/>(byte<sp/>*)&amp;<ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>));</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>delay(2);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1ab40909ebf364ff8fa06067568109f753" kindref="member">deltaThOk</ref><sp/>=<sp/><ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>.<ref refid="unionfl2byte4b_1a89560ba498e3fe528d97a435d5f61054" kindref="member">fval</ref>;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;Komp.ok.:<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/>Serial.print(<ref refid="_configuration_8h_1ab40909ebf364ff8fa06067568109f753" kindref="member">deltaThOk</ref>,<sp/>4);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(abs(<ref refid="_configuration_8h_1ab40909ebf364ff8fa06067568109f753" kindref="member">deltaThOk</ref>)<sp/>&gt;<sp/>100.0)<sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ab40909ebf364ff8fa06067568109f753" kindref="member">deltaThOk</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>/<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_configuration_8h_1ab40909ebf364ff8fa06067568109f753" kindref="member">deltaThOk</ref>,<sp/>4);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>.<ref refid="unionfl2byte4b_1a89560ba498e3fe528d97a435d5f61054" kindref="member">fval</ref><sp/>=<sp/><sp/><ref refid="_configuration_8h_1ab40909ebf364ff8fa06067568109f753" kindref="member">deltaThOk</ref>;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(5);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_eprom__external_8h_1a4e004a39677e3cc4a1afc14640b89373" kindref="member">i2c_eeprom_write_page</ref>(<ref refid="_configuration_8h_1a89a97b9b2ba756d03c9adbef6470803b" kindref="member">AT24C32_I2C_ADDR</ref>,<sp/><ref refid="_configuration_8h_1a96fab0393d7ed32a365b1e4d768c1887" kindref="member">addrDeltaThOk</ref>,<sp/><ref refid="_configuration_8h_1afafa17ffc01ba1f5f254d6238a2d530b" kindref="member">AT24C32_ADDR_LENGH</ref>,<sp/>(byte<sp/>*)&amp;<ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>));</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/>Serial.println(F(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">));<sp/></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;Kompenz.<sp/>temp.<sp/>okolice<sp/>pri<sp/>temp.<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>Serial.print(<ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[<ref refid="_configuration_8h_1a108ae563a98c889c7593e3c9084c2643" kindref="member">OKOLICA_0</ref>]);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;C<sp/>je<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>Serial.println(<ref refid="_kontr___t_c__spl_8h_1a64fc03fbe7167741778170a12d53d21c" kindref="member">KompenzacijaTempOkolice</ref>(<ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[OKOLICA_0]),4);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>delay(2);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><ref refid="_eprom__external_8h_1ac488a4cc216ff09301622b3e8a3bf9f9" kindref="member">i2c_eeprom_read_buffer</ref>(<ref refid="_configuration_8h_1a89a97b9b2ba756d03c9adbef6470803b" kindref="member">AT24C32_I2C_ADDR</ref>,<sp/><ref refid="_configuration_8h_1a4c4089e0ff727252f61d36f9b7432874" kindref="member">addrDeltaThSt</ref>,<sp/><ref refid="_configuration_8h_1afafa17ffc01ba1f5f254d6238a2d530b" kindref="member">AT24C32_ADDR_LENGH</ref>,<sp/>(byte<sp/>*)&amp;<ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>));</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/>delay(2);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1aff8c9c051ae246d3ae6dbed8ece45521" kindref="member">deltaThSt</ref><sp/>=<sp/><ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>.<ref refid="unionfl2byte4b_1a89560ba498e3fe528d97a435d5f61054" kindref="member">fval</ref>;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;Komp.st.:<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/>Serial.print(<ref refid="_configuration_8h_1aff8c9c051ae246d3ae6dbed8ece45521" kindref="member">deltaThSt</ref>,<sp/>4);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(abs(<ref refid="_configuration_8h_1aff8c9c051ae246d3ae6dbed8ece45521" kindref="member">deltaThSt</ref>)<sp/>&gt;<sp/>100.0)<sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1aff8c9c051ae246d3ae6dbed8ece45521" kindref="member">deltaThSt</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>/<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_configuration_8h_1aff8c9c051ae246d3ae6dbed8ece45521" kindref="member">deltaThSt</ref>,<sp/>4);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>.<ref refid="unionfl2byte4b_1a89560ba498e3fe528d97a435d5f61054" kindref="member">fval</ref><sp/>=<sp/><sp/><ref refid="_configuration_8h_1aff8c9c051ae246d3ae6dbed8ece45521" kindref="member">deltaThSt</ref>;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(5);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_eprom__external_8h_1a4e004a39677e3cc4a1afc14640b89373" kindref="member">i2c_eeprom_write_page</ref>(<ref refid="_configuration_8h_1a89a97b9b2ba756d03c9adbef6470803b" kindref="member">AT24C32_I2C_ADDR</ref>,<sp/><ref refid="_configuration_8h_1a4c4089e0ff727252f61d36f9b7432874" kindref="member">addrDeltaThSt</ref>,<sp/><ref refid="_configuration_8h_1afafa17ffc01ba1f5f254d6238a2d530b" kindref="member">AT24C32_ADDR_LENGH</ref>,<sp/>(byte<sp/>*)&amp;<ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1a25b562af0dd7077b02f105c74054f27f" kindref="member">uf</ref>));</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/>Serial.println(F(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">));<sp/></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;Kompenz.<sp/>zacetne<sp/>temp.<sp/>pri<sp/>temp.<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/>Serial.print(<ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[<ref refid="_configuration_8h_1a8c119e9182e69cc14edb6c885122ef80" kindref="member">CRPALKA_0</ref>]);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;C<sp/>je<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/>Serial.println(<ref refid="_kontr___t_c__spl_8h_1aa8a099bc6ad696ff6e64a441411bd8a3" kindref="member">KompenzZacTemp</ref>(<ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[CRPALKA_0]),4);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/><ref refid="_configuration_8h_1afc98de630cedd50c68db295cf66fddfe" kindref="member">numSens</ref>;<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;Addres:&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_configuration_8h_1a7da024777008c7dc2a193ece16a7a9bb" kindref="member">addrTempBack</ref><sp/>+<sp/>((j*<ref refid="_configuration_8h_1a0be71c02aa061750f3b12bfe5acd1d07" kindref="member">histLen</ref>))*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>));</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/><sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i<sp/>&lt;<sp/><ref refid="_configuration_8h_1a0be71c02aa061750f3b12bfe5acd1d07" kindref="member">histLen</ref>;<sp/>i++)<sp/>{<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>7*1440/marXMin</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>addrTmp<sp/>=<sp/><sp/><ref refid="_configuration_8h_1a7da024777008c7dc2a193ece16a7a9bb" kindref="member">addrTempBack</ref><sp/>+<sp/>(i<sp/>+<sp/>(j*<ref refid="_configuration_8h_1a0be71c02aa061750f3b12bfe5acd1d07" kindref="member">histLen</ref>))*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_eprom__external_8h_1ac488a4cc216ff09301622b3e8a3bf9f9" kindref="member">i2c_eeprom_read_buffer</ref>(<ref refid="_configuration_8h_1a89a97b9b2ba756d03c9adbef6470803b" kindref="member">AT24C32_I2C_ADDR</ref>,<sp/>addrTmp,<sp/><ref refid="_configuration_8h_1afafa17ffc01ba1f5f254d6238a2d530b" kindref="member">AT24C32_ADDR_LENGH</ref>,<sp/>(byte<sp/>*)&amp;<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>));</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>delay(2);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>((u2.uival)<sp/>&lt;<sp/>1<sp/>||<sp/>(u2.uival)<sp/>&gt;<sp/>12000)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isnan(<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>.<ref refid="unionui2byte2_1abbeaf8a032705918682563dd182860b5" kindref="member">uival</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>u2.uival<sp/>=<sp/>((sumTemp[j]<sp/>*<sp/>100)<sp/>/(i))<sp/>+<sp/>5000;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>.<ref refid="unionui2byte2_1abbeaf8a032705918682563dd182860b5" kindref="member">uival</ref><sp/>=<sp/><ref refid="_kontr___t_c__spl_8h_1ad2f4972d75cbe66c41a3f9e323868281" kindref="member">PretvoriFloat2EETemp</ref>(<ref refid="_configuration_8h_1a9c77616d1450b94518f6642011dc4345" kindref="member">sumTemp</ref>[j]/(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)<sp/>i);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>.<ref refid="unionui2byte2_1abbeaf8a032705918682563dd182860b5" kindref="member">uival</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delay(2);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_eprom__external_8h_1a4e004a39677e3cc4a1afc14640b89373" kindref="member">i2c_eeprom_write_page</ref>(<ref refid="_configuration_8h_1a89a97b9b2ba756d03c9adbef6470803b" kindref="member">AT24C32_I2C_ADDR</ref>,<sp/>addrTmp,<sp/><ref refid="_configuration_8h_1afafa17ffc01ba1f5f254d6238a2d530b" kindref="member">AT24C32_ADDR_LENGH</ref>,<sp/>(byte<sp/>*)&amp;<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>));</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>sumTemp[j]<sp/>+=<sp/>(float)((u2.uival/100.0)-50.0);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1a9c77616d1450b94518f6642011dc4345" kindref="member">sumTemp</ref>[j]<sp/>+=<sp/><ref refid="_kontr___t_c__spl_8h_1a4f2e8f9e139bd4130bd18504db532b42" kindref="member">PretvotiEETemp2Float</ref>(<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>.<ref refid="unionui2byte2_1abbeaf8a032705918682563dd182860b5" kindref="member">uival</ref>);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>delay(10);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(j+1);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;:<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_kontr___t_c__spl_8h_1af2717bc253ba98d4e5fdc01f2e8f97aa" kindref="member">AvgValFF_F</ref>(<ref refid="_configuration_8h_1a9c77616d1450b94518f6642011dc4345" kindref="member">sumTemp</ref>[j],<sp/>histLen*1.0),<sp/>3);<sp/></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(F(</highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">));<sp/></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>numSens;<sp/>j<sp/>&lt;<sp/>numSens<sp/>+<sp/><ref refid="_configuration_8h_1a4322c867961c6e10f3188d17d33c9a36" kindref="member">numSensDHT22</ref>;<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;Addres:&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_configuration_8h_1a7da024777008c7dc2a193ece16a7a9bb" kindref="member">addrTempBack</ref><sp/>+<sp/>((j*<ref refid="_configuration_8h_1a0be71c02aa061750f3b12bfe5acd1d07" kindref="member">histLen</ref>))*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>));</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/><sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i<sp/>&lt;<sp/><ref refid="_configuration_8h_1a0be71c02aa061750f3b12bfe5acd1d07" kindref="member">histLen</ref>;<sp/>i++)<sp/>{<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>7*1440/marXMin</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>addrTmp<sp/>=<sp/><sp/><ref refid="_configuration_8h_1a7da024777008c7dc2a193ece16a7a9bb" kindref="member">addrTempBack</ref><sp/>+<sp/>(i<sp/>+<sp/>(j*<ref refid="_configuration_8h_1a0be71c02aa061750f3b12bfe5acd1d07" kindref="member">histLen</ref>))*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_eprom__external_8h_1ac488a4cc216ff09301622b3e8a3bf9f9" kindref="member">i2c_eeprom_read_buffer</ref>(<ref refid="_configuration_8h_1a89a97b9b2ba756d03c9adbef6470803b" kindref="member">AT24C32_I2C_ADDR</ref>,<sp/>addrTmp,<sp/><ref refid="_configuration_8h_1afafa17ffc01ba1f5f254d6238a2d530b" kindref="member">AT24C32_ADDR_LENGH</ref>,<sp/>(byte<sp/>*)&amp;<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>));</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>delay(2);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>((u2.uival)<sp/>&lt;<sp/>1<sp/>||<sp/>(u2.uival)<sp/>&gt;<sp/>12000)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isnan(<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>.<ref refid="unionui2byte2_1abbeaf8a032705918682563dd182860b5" kindref="member">uival</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>.<ref refid="unionui2byte2_1abbeaf8a032705918682563dd182860b5" kindref="member">uival</ref><sp/>=<sp/>((<ref refid="_configuration_8h_1a9c77616d1450b94518f6642011dc4345" kindref="member">sumTemp</ref>[j]<sp/>*<sp/>100)<sp/>/(i));</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>.<ref refid="unionui2byte2_1abbeaf8a032705918682563dd182860b5" kindref="member">uival</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delay(2);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_eprom__external_8h_1a4e004a39677e3cc4a1afc14640b89373" kindref="member">i2c_eeprom_write_page</ref>(<ref refid="_configuration_8h_1a89a97b9b2ba756d03c9adbef6470803b" kindref="member">AT24C32_I2C_ADDR</ref>,<sp/>addrTmp,<sp/><ref refid="_configuration_8h_1afafa17ffc01ba1f5f254d6238a2d530b" kindref="member">AT24C32_ADDR_LENGH</ref>,<sp/>(byte<sp/>*)&amp;<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>));</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1a9c77616d1450b94518f6642011dc4345" kindref="member">sumTemp</ref>[j]<sp/>+=<sp/>(float)((<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>.<ref refid="unionui2byte2_1abbeaf8a032705918682563dd182860b5" kindref="member">uival</ref>/100.0));</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>delay(10);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(j+1);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;:<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_kontr___t_c__spl_8h_1af2717bc253ba98d4e5fdc01f2e8f97aa" kindref="member">AvgValFF_F</ref>(<ref refid="_configuration_8h_1a9c77616d1450b94518f6642011dc4345" kindref="member">sumTemp</ref>[j],<sp/>histLen*1.0),<sp/>3);<sp/></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(F(</highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">));<sp/></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="258"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260" refid="_kontr___t_c_8h_1a4da27a15aeca42eeea52667d937b0748" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STIKALO_ON<sp/><sp/><sp/>LOW</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261" refid="_kontr___t_c_8h_1a0a274b83ced50fceebfebb0eff98733d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STIKALO_OFF<sp/><sp/>HIGH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263" refid="_kontr___t_c_8h_1af0786acf72dad0a5ce578c14b1fa542c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STIKALO_STATE_AUT<sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="264" refid="_kontr___t_c_8h_1a9935446022fdbf6af5fbef5177bd5b8e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STIKALO_STATE_ON<sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265" refid="_kontr___t_c_8h_1ab8f7c831ac9b6de357127bb4f189eb01" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STIKALO_STATE_OFF<sp/><sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="267" refid="_kontr___t_c_8h_1a0da38d4d811e7d5c1221f2f48a9fc7a1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STIKALO_CRP_RAD<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="268" refid="_kontr___t_c_8h_1a42a8c3bf07b8267b466aba4905f89bbf" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STIKALO_CRP_TC<sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269" refid="_kontr___t_c_8h_1a6e643d89cefeb3e5e122ddf03bcbcc4d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STIKALO_TC<sp/><sp/><sp/><sp/><sp/><sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271" refid="_kontr___t_c_8h_1ad9b7923d1fe44893c5fe38c332349802" refkind="member"><highlight class="normal">uint8_t<sp/><ref refid="_kontr___t_c_8h_1ad9b7923d1fe44893c5fe38c332349802" kindref="member">stikaloState</ref>[3];</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight><highlight class="comment">//uint8_t<sp/>stikaloState02;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight><highlight class="comment">//uint8_t<sp/>stikaloState03;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275" refid="_kontr___t_c_8h_1a9d2f14f0cb8091e1f886cf48da196cf9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="_kontr___t_c_8h_1a9d2f14f0cb8091e1f886cf48da196cf9" kindref="member">stikaloStateTxt</ref>[3][4]<sp/>=<sp/>{</highlight><highlight class="stringliteral">&quot;AUT&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ON&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OFF&quot;</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="278" refid="_kontr___t_c__spl_8h_1a99da48505109bd092c7f9eaf6aea6695" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_kontr___t_c_8h_1a99da48505109bd092c7f9eaf6aea6695" kindref="member">PreveriStikala</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>izpisState)<sp/>{</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(<ref refid="_configuration_8h_1a2887f47f59787b20484e2c12d3027937" kindref="member">STIKALO_CRP_RAD_ON</ref>)<sp/>==<sp/><ref refid="_kontr___t_c_8h_1a4da27a15aeca42eeea52667d937b0748" kindref="member">STIKALO_ON</ref>)</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c_8h_1ad9b7923d1fe44893c5fe38c332349802" kindref="member">stikaloState</ref>[<ref refid="_kontr___t_c_8h_1a0da38d4d811e7d5c1221f2f48a9fc7a1" kindref="member">STIKALO_CRP_RAD</ref>]<sp/>=<sp/><ref refid="_kontr___t_c_8h_1a9935446022fdbf6af5fbef5177bd5b8e" kindref="member">STIKALO_STATE_ON</ref>;</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(<ref refid="_configuration_8h_1aad800acb5d57c1853b52cfc595add839" kindref="member">STIKALO_CRP_RAD_OFF</ref>)<sp/>==<sp/><ref refid="_kontr___t_c_8h_1a4da27a15aeca42eeea52667d937b0748" kindref="member">STIKALO_ON</ref>)</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c_8h_1ad9b7923d1fe44893c5fe38c332349802" kindref="member">stikaloState</ref>[<ref refid="_kontr___t_c_8h_1a0da38d4d811e7d5c1221f2f48a9fc7a1" kindref="member">STIKALO_CRP_RAD</ref>]<sp/>=<sp/><ref refid="_kontr___t_c_8h_1ab8f7c831ac9b6de357127bb4f189eb01" kindref="member">STIKALO_STATE_OFF</ref>;</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c_8h_1ad9b7923d1fe44893c5fe38c332349802" kindref="member">stikaloState</ref>[<ref refid="_kontr___t_c_8h_1a0da38d4d811e7d5c1221f2f48a9fc7a1" kindref="member">STIKALO_CRP_RAD</ref>]<sp/>=<sp/><ref refid="_kontr___t_c_8h_1af0786acf72dad0a5ce578c14b1fa542c" kindref="member">STIKALO_STATE_AUT</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(<ref refid="_configuration_8h_1a8e71afe809962735f446a9ef8c68c8fe" kindref="member">STIKALO_CRP_TC_ON</ref>)<sp/>==<sp/><ref refid="_kontr___t_c_8h_1a4da27a15aeca42eeea52667d937b0748" kindref="member">STIKALO_ON</ref>)</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c_8h_1ad9b7923d1fe44893c5fe38c332349802" kindref="member">stikaloState</ref>[<ref refid="_kontr___t_c_8h_1a42a8c3bf07b8267b466aba4905f89bbf" kindref="member">STIKALO_CRP_TC</ref>]<sp/>=<sp/><ref refid="_kontr___t_c_8h_1a9935446022fdbf6af5fbef5177bd5b8e" kindref="member">STIKALO_STATE_ON</ref>;</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(<ref refid="_configuration_8h_1a124cb75960b54eb1cc9b8d09adfd924f" kindref="member">STIKALO_CRP_TC_OFF</ref>)<sp/>==<sp/><ref refid="_kontr___t_c_8h_1a4da27a15aeca42eeea52667d937b0748" kindref="member">STIKALO_ON</ref>)</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c_8h_1ad9b7923d1fe44893c5fe38c332349802" kindref="member">stikaloState</ref>[<ref refid="_kontr___t_c_8h_1a42a8c3bf07b8267b466aba4905f89bbf" kindref="member">STIKALO_CRP_TC</ref>]<sp/>=<sp/><ref refid="_kontr___t_c_8h_1ab8f7c831ac9b6de357127bb4f189eb01" kindref="member">STIKALO_STATE_OFF</ref>;</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c_8h_1ad9b7923d1fe44893c5fe38c332349802" kindref="member">stikaloState</ref>[<ref refid="_kontr___t_c_8h_1a42a8c3bf07b8267b466aba4905f89bbf" kindref="member">STIKALO_CRP_TC</ref>]<sp/>=<sp/><ref refid="_kontr___t_c_8h_1af0786acf72dad0a5ce578c14b1fa542c" kindref="member">STIKALO_STATE_AUT</ref>;<sp/></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(<ref refid="_configuration_8h_1ac08036b5fa6d5f8fffae5b626f0ced75" kindref="member">STIKALO_TC_ON</ref>)<sp/>==<sp/><ref refid="_kontr___t_c_8h_1a4da27a15aeca42eeea52667d937b0748" kindref="member">STIKALO_ON</ref>)</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c_8h_1ad9b7923d1fe44893c5fe38c332349802" kindref="member">stikaloState</ref>[<ref refid="_kontr___t_c_8h_1a6e643d89cefeb3e5e122ddf03bcbcc4d" kindref="member">STIKALO_TC</ref>]<sp/>=<sp/><ref refid="_kontr___t_c_8h_1a9935446022fdbf6af5fbef5177bd5b8e" kindref="member">STIKALO_STATE_ON</ref>;</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(digitalRead(<ref refid="_configuration_8h_1a0b6af0417968442b6d7672882bb1e066" kindref="member">STIKALO_TC_OFF</ref>)<sp/>==<sp/><ref refid="_kontr___t_c_8h_1a4da27a15aeca42eeea52667d937b0748" kindref="member">STIKALO_ON</ref>)</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c_8h_1ad9b7923d1fe44893c5fe38c332349802" kindref="member">stikaloState</ref>[<ref refid="_kontr___t_c_8h_1a6e643d89cefeb3e5e122ddf03bcbcc4d" kindref="member">STIKALO_TC</ref>]<sp/>=<sp/><ref refid="_kontr___t_c_8h_1ab8f7c831ac9b6de357127bb4f189eb01" kindref="member">STIKALO_STATE_OFF</ref>;</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c_8h_1ad9b7923d1fe44893c5fe38c332349802" kindref="member">stikaloState</ref>[<ref refid="_kontr___t_c_8h_1a6e643d89cefeb3e5e122ddf03bcbcc4d" kindref="member">STIKALO_TC</ref>]<sp/>=<sp/><ref refid="_kontr___t_c_8h_1af0786acf72dad0a5ce578c14b1fa542c" kindref="member">STIKALO_STATE_AUT</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(izpisState)<sp/>{</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;3;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_kontr___t_c_8h_1a9d2f14f0cb8091e1f886cf48da196cf9" kindref="member">stikaloStateTxt</ref>[<ref refid="_kontr___t_c_8h_1ad9b7923d1fe44893c5fe38c332349802" kindref="member">stikaloState</ref>[i]]);</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/></highlight></codeline>
+<codeline lineno="309"><highlight class="comment"><sp/><sp/>Serial.print(F(&quot;Stikalo<sp/>crpalke<sp/>rad:<sp/>&quot;));</highlight></codeline>
+<codeline lineno="310"><highlight class="comment"><sp/><sp/>if<sp/>(digitalRead(STIKALO_CRP_RAD_ON)<sp/>==<sp/>STIKALO_ON)</highlight></codeline>
+<codeline lineno="311"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.println(F(&quot;ON&quot;));</highlight></codeline>
+<codeline lineno="312"><highlight class="comment"><sp/><sp/>else<sp/>if<sp/>(digitalRead(STIKALO_CRP_RAD_OFF)<sp/>==<sp/>STIKALO_ON)</highlight></codeline>
+<codeline lineno="313"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.println(F(&quot;OFF&quot;));</highlight></codeline>
+<codeline lineno="314"><highlight class="comment"><sp/><sp/>else</highlight></codeline>
+<codeline lineno="315"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.println(F(&quot;AUTO&quot;));<sp/></highlight></codeline>
+<codeline lineno="316"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="317"><highlight class="comment"><sp/><sp/>Serial.print(F(&quot;Stikalo<sp/>crpalke<sp/>TC:<sp/>&quot;));</highlight></codeline>
+<codeline lineno="318"><highlight class="comment"><sp/><sp/>if<sp/>(digitalRead(STIKALO_CRP_TC_ON)<sp/>==<sp/>STIKALO_ON)</highlight></codeline>
+<codeline lineno="319"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.println(F(&quot;ON&quot;));</highlight></codeline>
+<codeline lineno="320"><highlight class="comment"><sp/><sp/>else<sp/>if<sp/>(digitalRead(STIKALO_CRP_TC_OFF)<sp/>==<sp/>STIKALO_ON)</highlight></codeline>
+<codeline lineno="321"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.println(F(&quot;OFF&quot;));<sp/><sp/></highlight></codeline>
+<codeline lineno="322"><highlight class="comment"><sp/><sp/>else</highlight></codeline>
+<codeline lineno="323"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.println(F(&quot;AUTO&quot;));</highlight></codeline>
+<codeline lineno="324"><highlight class="comment"><sp/><sp/></highlight></codeline>
+<codeline lineno="325"><highlight class="comment"><sp/><sp/>Serial.print(F(&quot;Stikalo<sp/>3:<sp/>&quot;));</highlight></codeline>
+<codeline lineno="326"><highlight class="comment"><sp/><sp/>if<sp/>(digitalRead(STIKALO_TC_ON)<sp/>==<sp/>STIKALO_ON)</highlight></codeline>
+<codeline lineno="327"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.println(F(&quot;ON&quot;));</highlight></codeline>
+<codeline lineno="328"><highlight class="comment"><sp/><sp/>else<sp/>if<sp/>(digitalRead(STIKALO_TC_OFF)<sp/>==<sp/>STIKALO_ON)</highlight></codeline>
+<codeline lineno="329"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.println(F(&quot;OFF&quot;));<sp/><sp/></highlight></codeline>
+<codeline lineno="330"><highlight class="comment"><sp/><sp/>else</highlight></codeline>
+<codeline lineno="331"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.println(F(&quot;AUTO&quot;));<sp/></highlight></codeline>
+<codeline lineno="332"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="333"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal"></highlight></codeline>
+<codeline lineno="338"><highlight class="normal"></highlight></codeline>
+<codeline lineno="339"><highlight class="normal"></highlight></codeline>
+<codeline lineno="340"><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight></codeline>
+    </programlisting>
+    <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h"/>
+  </compounddef>
+</doxygen>

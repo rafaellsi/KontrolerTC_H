@@ -1,0 +1,108 @@
+.TH "//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h" 3 "Sat Apr 11 2015" "Kontroler TC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Makro deklaracije"
+
+.in +1c
+.ti -1c
+.RI "#define \fBKontroler_TC_h\fP"
+.br
+.ti -1c
+.RI "#define \fBCO_HEATING_STATE_OFF\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCO_HEATING_STATE_HIGH\fP   1"
+.br
+.ti -1c
+.RI "#define \fBCO_HEATING_STATE_LOW\fP   2"
+.br
+.ti -1c
+.RI "#define \fBCO_HEATING_OFF\fP   HIGH"
+.br
+.ti -1c
+.RI "#define \fBCO_HEATING_ON\fP   LOW"
+.br
+.ti -1c
+.RI "#define \fBCO_HEATING_PWM_LOW\fP   184"
+.br
+.in -1c
+.SS "Funkcije"
+
+.in +1c
+.ti -1c
+.RI "void \fBInitilizacija_CO\fP (void)"
+.br
+.ti -1c
+.RI "void \fBPreveriCO_Senzor\fP ()"
+.br
+.in -1c
+.SS "Spremenljivke"
+
+.in +1c
+.ti -1c
+.RI "unsigned long \fBcoRawValSum\fP = 0"
+.br
+.ti -1c
+.RI "unsigned long \fBnumMerCO\fP =0"
+.br
+.ti -1c
+.RI "int \fBcoRawValMax\fP"
+.br
+.ti -1c
+.RI "int \fBcoRawValRef\fP = 0"
+.br
+.in -1c
+.SH "Opis makro definicije"
+.PP 
+.SS "#define CO_HEATING_OFF   HIGH"
+
+.SS "#define CO_HEATING_ON   LOW"
+
+.SS "#define CO_HEATING_PWM_LOW   184"
+
+.SS "#define CO_HEATING_STATE_HIGH   1"
+
+.SS "#define CO_HEATING_STATE_LOW   2"
+
+.SS "#define CO_HEATING_STATE_OFF   0"
+
+.SS "#define Kontroler_TC_h"
+
+.PP
+Definirano v 2 vrstici datoteke Gas_Sensor\&.h\&.
+.SH "Opis funkcije"
+.PP 
+.SS "void Initilizacija_CO (void)"
+
+.PP
+Definirano v 9 vrstici datoteke Gas_Sensor\&.h\&.
+.SS "void PreveriCO_Senzor ()"
+
+.PP
+Definirano v 32 vrstici datoteke Gas_Sensor\&.h\&.
+.SH "Opis spremenljivke"
+.PP 
+.SS "int coRawValMax"
+
+.PP
+Definirano v 27 vrstici datoteke Gas_Sensor\&.h\&.
+.SS "int coRawValRef = 0"
+
+.PP
+Definirano v 28 vrstici datoteke Gas_Sensor\&.h\&.
+.SS "unsigned long coRawValSum = 0"
+
+.PP
+Definirano v 25 vrstici datoteke Gas_Sensor\&.h\&.
+.SS "unsigned long numMerCO =0"
+
+.PP
+Definirano v 26 vrstici datoteke Gas_Sensor\&.h\&.
+.SH "Avtor"
+.PP 
+zgenerirano z Doxygen-om za Kontroler TC iz izvorne kode\&.

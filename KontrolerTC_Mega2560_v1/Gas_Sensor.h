@@ -1,5 +1,5 @@
 #ifndef Gas_Sensor_h
-#define Kontroler_TC_h
+#define Gas_Sensor_h
 
 
 void Initilizacija_CO(void);

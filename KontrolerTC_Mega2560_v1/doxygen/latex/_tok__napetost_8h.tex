@@ -1,0 +1,155 @@
+\hypertarget{_tok__napetost_8h}{}\section{Datoteka //\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Tok\+\_\+napetost.h}
+\label{_tok__napetost_8h}\index{//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Tok\+\_\+napetost.\+h@{//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Tok\+\_\+napetost.\+h}}
+\subsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{_tok__napetost_8h_a8532bd8557100d921d688e19a95b19b1}{A\+C\+\_\+mimax} (boolean izpis, boolean force\+Calc)
+\item 
+float \hyperlink{_tok__napetost_8h_a12f3449127e4b252f86f287b8115278f}{Tok\+\_\+12\+V} (void)
+\item 
+float \hyperlink{_tok__napetost_8h_a5ceef00e13113ce73455751f32f657d2}{Pretvori\+V2\+A\+\_\+asc712\+\_\+\+D\+C} (int sens\+Val)
+\item 
+float \hyperlink{_tok__napetost_8h_af31ba91892e6a5e197869cf27a875e07}{Pretvori\+V2\+A\+\_\+asc712} (int sens\+Val)
+\item 
+float \hyperlink{_tok__napetost_8h_ade38a1d3370ac77809e5063e4992b66b}{Voltage\+Divider} (int anal\+Read, float r1, float r2, float kor\+Fact)
+\item 
+void \hyperlink{_tok__napetost_8h_a779eb9725dabc01e324a5e250adf4b9e}{Preveri\+Napetosti} (boolean internal, boolean external, boolean battery)
+\item 
+long \hyperlink{_tok__napetost_8h_a2d9d20823919196287deff1988272c18}{read\+Vcc} (void)
+\item 
+void \hyperlink{_tok__napetost_8h_a6703f94853d213e12e0094017b707ab1}{napetosti\+Min\+Max} (int n, boolean is\+First\+Time)
+\item 
+void \hyperlink{_tok__napetost_8h_af99af44d1a9cd50b74f0b36ce072774e}{Preveri\+Napetosti} (boolean izpis=true, boolean internal=false, boolean external=false, boolean battery=false)
+\end{DoxyCompactItemize}
+\subsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_tok__napetost_8h_a22e6d8be301a52dc9e14488bfeabdecb}{mid\+R} = 512
+\item 
+float \hyperlink{_tok__napetost_8h_ae4c0389926423e420115d63358ccc676}{napetost\+\_\+int} \mbox{[}5\mbox{]}\mbox{[}3\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis funkcije}
+\hypertarget{_tok__napetost_8h_a8532bd8557100d921d688e19a95b19b1}{}\index{Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}!A\+C\+\_\+mimax@{A\+C\+\_\+mimax}}
+\index{A\+C\+\_\+mimax@{A\+C\+\_\+mimax}!Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}}
+\subsubsection[{A\+C\+\_\+mimax}]{\setlength{\rightskip}{0pt plus 5cm}float A\+C\+\_\+mimax (
+\begin{DoxyParamCaption}
+\item[{boolean}]{izpis = {\ttfamily false}, }
+\item[{boolean}]{force\+Calc = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{_tok__napetost_8h_a8532bd8557100d921d688e19a95b19b1}
+
+
+Definirano v 24 vrstici datoteke Tok\+\_\+napetost.\+h.
+
+\hypertarget{_tok__napetost_8h_a6703f94853d213e12e0094017b707ab1}{}\index{Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}!napetosti\+Min\+Max@{napetosti\+Min\+Max}}
+\index{napetosti\+Min\+Max@{napetosti\+Min\+Max}!Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}}
+\subsubsection[{napetosti\+Min\+Max}]{\setlength{\rightskip}{0pt plus 5cm}void napetosti\+Min\+Max (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{boolean}]{is\+First\+Time}
+\end{DoxyParamCaption}
+)}\label{_tok__napetost_8h_a6703f94853d213e12e0094017b707ab1}
+
+
+Definirano v 279 vrstici datoteke Tok\+\_\+napetost.\+h.
+
+\hypertarget{_tok__napetost_8h_af31ba91892e6a5e197869cf27a875e07}{}\index{Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}!Pretvori\+V2\+A\+\_\+asc712@{Pretvori\+V2\+A\+\_\+asc712}}
+\index{Pretvori\+V2\+A\+\_\+asc712@{Pretvori\+V2\+A\+\_\+asc712}!Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}}
+\subsubsection[{Pretvori\+V2\+A\+\_\+asc712}]{\setlength{\rightskip}{0pt plus 5cm}float Pretvori\+V2\+A\+\_\+asc712 (
+\begin{DoxyParamCaption}
+\item[{int}]{sens\+Val}
+\end{DoxyParamCaption}
+)}\label{_tok__napetost_8h_af31ba91892e6a5e197869cf27a875e07}
+
+
+Definirano v 183 vrstici datoteke Tok\+\_\+napetost.\+h.
+
+\hypertarget{_tok__napetost_8h_a5ceef00e13113ce73455751f32f657d2}{}\index{Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}!Pretvori\+V2\+A\+\_\+asc712\+\_\+\+D\+C@{Pretvori\+V2\+A\+\_\+asc712\+\_\+\+D\+C}}
+\index{Pretvori\+V2\+A\+\_\+asc712\+\_\+\+D\+C@{Pretvori\+V2\+A\+\_\+asc712\+\_\+\+D\+C}!Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}}
+\subsubsection[{Pretvori\+V2\+A\+\_\+asc712\+\_\+\+D\+C}]{\setlength{\rightskip}{0pt plus 5cm}float Pretvori\+V2\+A\+\_\+asc712\+\_\+\+D\+C (
+\begin{DoxyParamCaption}
+\item[{int}]{sens\+Val}
+\end{DoxyParamCaption}
+)}\label{_tok__napetost_8h_a5ceef00e13113ce73455751f32f657d2}
+
+
+Definirano v 158 vrstici datoteke Tok\+\_\+napetost.\+h.
+
+\hypertarget{_tok__napetost_8h_a779eb9725dabc01e324a5e250adf4b9e}{}\index{Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}!Preveri\+Napetosti@{Preveri\+Napetosti}}
+\index{Preveri\+Napetosti@{Preveri\+Napetosti}!Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}}
+\subsubsection[{Preveri\+Napetosti}]{\setlength{\rightskip}{0pt plus 5cm}void Preveri\+Napetosti (
+\begin{DoxyParamCaption}
+\item[{boolean}]{internal, }
+\item[{boolean}]{external, }
+\item[{boolean}]{battery}
+\end{DoxyParamCaption}
+)}\label{_tok__napetost_8h_a779eb9725dabc01e324a5e250adf4b9e}
+\hypertarget{_tok__napetost_8h_af99af44d1a9cd50b74f0b36ce072774e}{}\index{Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}!Preveri\+Napetosti@{Preveri\+Napetosti}}
+\index{Preveri\+Napetosti@{Preveri\+Napetosti}!Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}}
+\subsubsection[{Preveri\+Napetosti}]{\setlength{\rightskip}{0pt plus 5cm}void Preveri\+Napetosti (
+\begin{DoxyParamCaption}
+\item[{boolean}]{izpis = {\ttfamily true}, }
+\item[{boolean}]{internal = {\ttfamily false}, }
+\item[{boolean}]{external = {\ttfamily false}, }
+\item[{boolean}]{battery = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{_tok__napetost_8h_af99af44d1a9cd50b74f0b36ce072774e}
+
+
+Definirano v 293 vrstici datoteke Tok\+\_\+napetost.\+h.
+
+\hypertarget{_tok__napetost_8h_a2d9d20823919196287deff1988272c18}{}\index{Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}!read\+Vcc@{read\+Vcc}}
+\index{read\+Vcc@{read\+Vcc}!Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}}
+\subsubsection[{read\+Vcc}]{\setlength{\rightskip}{0pt plus 5cm}long read\+Vcc (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_tok__napetost_8h_a2d9d20823919196287deff1988272c18}
+
+
+Definirano v 413 vrstici datoteke Tok\+\_\+napetost.\+h.
+
+\hypertarget{_tok__napetost_8h_a12f3449127e4b252f86f287b8115278f}{}\index{Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}!Tok\+\_\+12\+V@{Tok\+\_\+12\+V}}
+\index{Tok\+\_\+12\+V@{Tok\+\_\+12\+V}!Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}}
+\subsubsection[{Tok\+\_\+12\+V}]{\setlength{\rightskip}{0pt plus 5cm}float Tok\+\_\+12\+V (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_tok__napetost_8h_a12f3449127e4b252f86f287b8115278f}
+
+
+Definirano v 139 vrstici datoteke Tok\+\_\+napetost.\+h.
+
+\hypertarget{_tok__napetost_8h_ade38a1d3370ac77809e5063e4992b66b}{}\index{Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}!Voltage\+Divider@{Voltage\+Divider}}
+\index{Voltage\+Divider@{Voltage\+Divider}!Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}}
+\subsubsection[{Voltage\+Divider}]{\setlength{\rightskip}{0pt plus 5cm}float Voltage\+Divider (
+\begin{DoxyParamCaption}
+\item[{int}]{anal\+Read, }
+\item[{float}]{r1, }
+\item[{float}]{r2, }
+\item[{float}]{kor\+Fact = {\ttfamily 1.0}}
+\end{DoxyParamCaption}
+)}\label{_tok__napetost_8h_ade38a1d3370ac77809e5063e4992b66b}
+
+
+Definirano v 206 vrstici datoteke Tok\+\_\+napetost.\+h.
+
+
+
+\subsection{Opis spremenljivke}
+\hypertarget{_tok__napetost_8h_a22e6d8be301a52dc9e14488bfeabdecb}{}\index{Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}!mid\+R@{mid\+R}}
+\index{mid\+R@{mid\+R}!Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}}
+\subsubsection[{mid\+R}]{\setlength{\rightskip}{0pt plus 5cm}int mid\+R = 512}\label{_tok__napetost_8h_a22e6d8be301a52dc9e14488bfeabdecb}
+
+
+Definirano v 20 vrstici datoteke Tok\+\_\+napetost.\+h.
+
+\hypertarget{_tok__napetost_8h_ae4c0389926423e420115d63358ccc676}{}\index{Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}!napetost\+\_\+int@{napetost\+\_\+int}}
+\index{napetost\+\_\+int@{napetost\+\_\+int}!Tok\+\_\+napetost.\+h@{Tok\+\_\+napetost.\+h}}
+\subsubsection[{napetost\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}float napetost\+\_\+int\mbox{[}5\mbox{]}\mbox{[}3\mbox{]}}\label{_tok__napetost_8h_ae4c0389926423e420115d63358ccc676}
+
+
+Definirano v 277 vrstici datoteke Tok\+\_\+napetost.\+h.
+

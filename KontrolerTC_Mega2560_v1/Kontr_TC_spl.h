@@ -313,7 +313,7 @@ float avgLHTCVodeTC = -0.5;
 float TempVklopa(void)
 {
   float lhcc;
-  
+  float maxLimit = 0.667;
   
   
   seRracunaHitrGret = false;
@@ -340,8 +340,8 @@ float TempVklopa(void)
     
 //    lhcc = (-1.0)* lastHourTempChange + avgLHTCVodeTC;
       lhcc = avgLHTCVodeTC - lastHourTempChange;
-      if (lhcc > dTemp/2.0) {
-        return(ciljnaTempWeekend - (0.5 * dTemp));
+      if (lhcc > dTemp*maxLimit) {
+        return(ciljnaTempWeekend - (maxLimit * dTemp));
       }
 
       return(ciljnaTempWeekend - dTemp + lhcc);  
@@ -353,8 +353,8 @@ float TempVklopa(void)
 //      lhcc = (-1.0)* lastHourTempChange + avgLHTCVodeTC;
       lhcc = avgLHTCVodeTC - lastHourTempChange;
       //if ((-1.0)*lastHourTempChange > dTemp/2.0) {
-      if (lhcc > dTemp/2.0) {
-        return(minTempVTOn + (0.5 * dTemp));
+      if (lhcc > dTemp*maxLimit) {
+        return(minTempVTOn + (maxLimit * dTemp));
       }   
       return(minTempVTOn + lhcc);
     }
@@ -420,13 +420,13 @@ float IzracunLimitTemp(int state, float ciTemp)
     return(max(minTempNightOn, refTemp + deltaTh/2.0/*+dTemp*/)); // !!!
   }
   else if (state == 1) {
-    if (hour() >= uraVTemp[0] - 2 && hour() < uraVTemp[1])
-      return(ciTemp+(dTemp*2.0));
-    else {  
-//      refTemp = max(minTempNightOn+dTemp, refTemp+dTemp*2.0);
+// - uprabno samo v primeru, če je vključen tudi kontroler Toplotne crpalke 
+//    if (hour() >= uraVTemp[0] - 2 && hour() < uraVTemp[1])
+//      return(ciTemp+(dTemp*2.0));
+//    else {  
       refTemp = max(minTempNightOn+dTemp, refTemp+dTemp+deltaTh);
       return(min(ciTemp+(dTemp*2.0), refTemp));
-    }
+//    }
   }
   else 
     return(refTemp);

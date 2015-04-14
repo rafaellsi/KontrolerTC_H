@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_temperature_8h">
+    <title>Temperature.h File Reference</title>
+    <programlisting>#include &lt;DHT.h&gt;</programlisting>
+        <section>
+            <title>Makro deklaracije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_temperature_8h_1ad7d0b0308882eca9936a25065463e8f4">Temperatue_h</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Spremenljivke</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para><link linkend="_configuration_8h_1a7a5445edfac5eacc4404ae5ed58d7880">DeviceAddress</link> <link linkend="_temperature_8h_1ad9ab329716dd814c12e5aaa64d610dd9">devAddress</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_temperature_8h_1ab5bb38e51bc1a06ca683b13d56ea5475">convWaitTime</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_temperature_8h_1afb047b1c04b12b61e04eb0d69374d954">temeratureIzmerjene</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_temperature_8h_1adc9578d1c72bad613087fb3d265934de">avgTempVodeTC</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_temperature_8h_1a8a786cdf9999e97c6e121d11072ca4d6">sumCTemp</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_temperature_8h_1a5bc3d4b0268cf2ee276f15b04a939d3a">sumCTempEMA</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546">vccInternal</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_temperature_8h_1a7dc154232c3e0c515c87c36399a29ecd">sum24</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_temperature_8h_1a99490ebcf0a13b3546d17210032cf82c">maxTemp24</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_temperature_8h_1adf0c27db7f63607615a23e17382c308f">minTemp24</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_temperature_8h_1a0b1da9715e4415f489743f9b9e98c188">maxTemp24Time</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_temperature_8h_1a22c0424ddccb2e1373d99062fa210a02">minTemp24Time</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Funkcije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_temperature_8h_1ad98736b48d836f8d6fec890143887fdb">IzpisHex2</link> (
+int num)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_temperature_8h_1a4de9eb29c16979c6b172e1748174ef7e">Beep</link> (
+unsigned char delayms)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_temperature_8h_1a7bce5a7bfc9716b106c7872c2e276c8d">TempSensorsInit</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static float <link linkend="_temperature_8h_1a5b5b0a9bcb95953a4f5cc9794823f0ff">PreberiTemperaturoDS</link> (
+int cSens, boolean zahtevajBranje)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static boolean <link linkend="_temperature_8h_1a53b07500c361cf7811a4c4bc80e08161">PreberiTemperature</link> (
+boolean zahtevajBranje, boolean allSens)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_temperature_8h_1af15e831deb5e37139865a49a75bf7cc8">PreberiTemperaturoDHT22</link> (
+int n)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_temperature_8h_1a475e0ee674ed7cd76258aeec2f4d52e9">PreberiVlaznostDHT22</link> (
+int n)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_temperature_8h_1a7a255068f50f3b1ba9e8828b9011e391">IzracunTRosicsa</link> (
+float temp, float vlaz)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_temperature_8h_1a5ace0910754371e6bb7fbfc77a8ca25a">IzracunHumidex</link> (
+float temp, float tempRos)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_temperature_8h_1aae9127c14bfb7cacae4f0117b4de1415">PreberiTemperaturoK</link> (
+int n)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_temperature_8h_1ac0ff88e56c74637a4686f8124ba68f1a">PrintAddress</link> (
+<link linkend="_configuration_8h_1a7a5445edfac5eacc4404ae5ed58d7880">DeviceAddress</link> deviceAddress)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_temperature_8h_1a160a61c71a76bc4841b6d7ead3985cc5">PrintTemperatureAll</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>time_t <link linkend="_temperature_8h_1acaab414b0b6bc977dfe89b5201c9d002">processSyncMessage</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_temperature_8h_1a40b0dda43941a61b89819faa1d72f24d">AutoTimeUnitConv</link> (
+unsigned long cas, char * cunits)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_temperature_8h_1a51cd6951b89bef83867df0142b35e612">IsNTempCas</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_temperature_8h_1a4837c478b0165f12f209922b78427732">IsCasTransfTopl</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_temperature_8h_1a968cf641ca86223b20811866f989ecd7">last24H_Info</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned int <link linkend="_temperature_8h_1a6b4c8eecd1863ce6529b507a042e78c3">ObsegZgodovine</link> (
+int sensor, unsigned int pred)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_temperature_8h_1af46d98cc9215cef895874e54a6e6e34e">RefTemp</link> (
+byte refTempType)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Podroben opis</title>
+    <para>Definition in file //Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Temperature.h</para>
+    </simplesect>
+</section>

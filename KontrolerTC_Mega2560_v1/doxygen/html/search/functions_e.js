@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['povprecivred',['PovpreciVred',['../_kontr___t_c__spl_8h.html#a820d4e870fd302896cf5ba2f50d57fac',1,'Kontr_TC_spl.h']]],
+  ['preberitemperature',['PreberiTemperature',['../_temperature_8h.html#a53b07500c361cf7811a4c4bc80e08161',1,'Temperature.h']]],
+  ['preberitemperaturodht22',['PreberiTemperaturoDHT22',['../_temperature_8h.html#af15e831deb5e37139865a49a75bf7cc8',1,'Temperature.h']]],
+  ['preberitemperaturods',['PreberiTemperaturoDS',['../_temperature_8h.html#a5b5b0a9bcb95953a4f5cc9794823f0ff',1,'Temperature.h']]],
+  ['preberitemperaturok',['PreberiTemperaturoK',['../_temperature_8h.html#aae9127c14bfb7cacae4f0117b4de1415',1,'Temperature.h']]],
+  ['preberivlaznostdht22',['PreberiVlaznostDHT22',['../_temperature_8h.html#a475e0ee674ed7cd76258aeec2f4d52e9',1,'Temperature.h']]],
+  ['preklopicrpalkorad',['PreklopiCrpalkoRad',['../_kontr___t_c__izvrs_8h.html#a0ce18347b97b7d407f8ad4920333daf1',1,'Kontr_TC_izvrs.h']]],
+  ['preklopicrpalkotc',['PreklopiCrpalkoTC',['../_kontr___t_c_8h.html#adbb1c5dce75dc2e557a0e526a2ac8722',1,'PreklopiCrpalkoTC(byte newState):&#160;Kontr_TC_izvrs.h'],['../_kontr___t_c__izvrs_8h.html#adbb1c5dce75dc2e557a0e526a2ac8722',1,'PreklopiCrpalkoTC(byte newState):&#160;Kontr_TC_izvrs.h']]],
+  ['preklopiventiltcpec',['PreklopiVentilTCPec',['../_kontr___t_c__izvrs_8h.html#a1580db39ffff0c141f1245279d8bcbb4',1,'Kontr_TC_izvrs.h']]],
+  ['pretvorifloat2eetemp',['PretvoriFloat2EETemp',['../_kontr___t_c__spl_8h.html#ad2f4972d75cbe66c41a3f9e323868281',1,'Kontr_TC_spl.h']]],
+  ['pretvoriv2a_5fasc712',['PretvoriV2A_asc712',['../_tok__napetost_8h.html#af31ba91892e6a5e197869cf27a875e07',1,'Tok_napetost.h']]],
+  ['pretvoriv2a_5fasc712_5fdc',['PretvoriV2A_asc712_DC',['../_tok__napetost_8h.html#a5ceef00e13113ce73455751f32f657d2',1,'Tok_napetost.h']]],
+  ['pretvotieetemp2float',['PretvotiEETemp2Float',['../_kontr___t_c__spl_8h.html#a4f2e8f9e139bd4130bd18504db532b42',1,'Kontr_TC_spl.h']]],
+  ['preverico_5fsenzor',['PreveriCO_Senzor',['../_gas___sensor_8h.html#a94bed2d923712a15d8fa724210bf6c25',1,'Gas_Sensor.h']]],
+  ['preverinapetosti',['PreveriNapetosti',['../_kontr___t_c__spl_8h.html#ad2ba69beb3ef5989f1ff9e81520172cb',1,'PreveriNapetosti(boolean izpis, boolean internal, boolean external, boolean battery):&#160;Tok_napetost.h'],['../_tok__napetost_8h.html#a779eb9725dabc01e324a5e250adf4b9e',1,'PreveriNapetosti(boolean internal, boolean external, boolean battery):&#160;Tok_napetost.h'],['../_tok__napetost_8h.html#af99af44d1a9cd50b74f0b36ce072774e',1,'PreveriNapetosti(boolean izpis=true, boolean internal=false, boolean external=false, boolean battery=false):&#160;Tok_napetost.h']]],
+  ['preveristikala',['PreveriStikala',['../_kontr___t_c_8h.html#a99da48505109bd092c7f9eaf6aea6695',1,'PreveriStikala(boolean izpisState):&#160;Kontr_TC.h'],['../_kontr___t_c__spl_8h.html#a99da48505109bd092c7f9eaf6aea6695',1,'PreveriStikala(boolean izpisState):&#160;Kontr_TC.h']]],
+  ['printaddress',['PrintAddress',['../_temperature_8h.html#ac0ff88e56c74637a4686f8124ba68f1a',1,'Temperature.h']]],
+  ['printdata',['PrintData',['../_kontr___t_c__spl_8h.html#abb3252d2890f9b7ba161f409648875c8',1,'Kontr_TC_spl.h']]],
+  ['printdigitslcda',['PrintDigitsLCDA',['../_l_c_d__funkcije_8h.html#ab1fe73a548c9c5ac801b92e08b7748e9',1,'LCD_funkcije.h']]],
+  ['printtempallsdbin',['PrintTempAllSDbin',['../_kontr___t_c__spl_8h.html#ada8c75979de444d679120bec967d518a',1,'PrintTempAllSDbin(void):&#160;Zapisi_sd.h'],['../_zapisi__sd_8h.html#ada8c75979de444d679120bec967d518a',1,'PrintTempAllSDbin(void):&#160;Zapisi_sd.h']]],
+  ['printtemperatureall',['PrintTemperatureAll',['../_kontr___t_c__spl_8h.html#a160a61c71a76bc4841b6d7ead3985cc5',1,'PrintTemperatureAll(void):&#160;Temperature.h'],['../_temperature_8h.html#a160a61c71a76bc4841b6d7ead3985cc5',1,'PrintTemperatureAll(void):&#160;Temperature.h']]],
+  ['processsyncmessage',['processSyncMessage',['../_kontr___t_c__spl_8h.html#acaab414b0b6bc977dfe89b5201c9d002',1,'processSyncMessage():&#160;Temperature.h'],['../_temperature_8h.html#acaab414b0b6bc977dfe89b5201c9d002',1,'processSyncMessage():&#160;Temperature.h']]]
+];

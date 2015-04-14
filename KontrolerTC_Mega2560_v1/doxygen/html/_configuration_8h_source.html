@@ -1,0 +1,984 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>Kontroler TC: //Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h izvorna koda</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Kontroler TC
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Išči');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>prva&#160;stran</span></a></li>
+      <li><a href="annotated.html"><span>Podatkovne&#160;strukture</span></a></li>
+      <li class="current"><a href="files.html"><span>Datoteke</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Išči" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>seznam&#160;datotek</span></a></li>
+      <li><a href="globals.html"><span>komponente&#160;v&#160;datotekah</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_configuration_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Configuration.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_configuration_8h.html">dokumenacija tekoče datoteke.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef Configuration_h</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define Configuration_h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="_configuration_8h.html#a7776f799a4a163021b43ca485e664952">Beep</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>);</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//#define INTFACT</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a1c6d5de492ac61ad29aec7aa9a436bbf">    8</a></span>&#160;<span class="preprocessor">#define VERSION &quot;v1&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a9f0d160fdb24b001d3eb9f57634c261e">    9</a></span>&#160;<span class="preprocessor">#define MAXSENSORS 9     //maksimalno stevilo temp sensorjev DS18x20</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a4b994cd609d0eb579c81d91606dc8a78">   10</a></span>&#160;<span class="preprocessor">#define MAXSENSORS_DS 7</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a210e4c1fee39d3724fa6d72adb35a179">   11</a></span>&#160;<span class="preprocessor">#define MAX_DHT22_SENS 1</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//----------</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a48ffbe9396ac9a07c43d7f1bcf36fbc6">   14</a></span>&#160;<span class="preprocessor">#define NED  1    //nedelja, kot rezltat weekday()...</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="_configuration_8h.html#accf29fa1fe6c5704bb53c11af7d692ab">   15</a></span>&#160;<span class="preprocessor">#define SOB  7    //sobota, .....</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//----------</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="_configuration_8h.html#aeabc0ae370d9b37412a19f27be2c7aad">   19</a></span>&#160;<span class="preprocessor">#define USEEGRELEC false    //ali se uporablja električni grelec</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">//#define R_TC_ON   LOW      // z RELE_TC - električni grelec ali Priključek TC</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//#define R_TC_OFF  HIGH</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="_configuration_8h.html#af6d60aa85ac3c9c80d91186b12a69b9c">   23</a></span>&#160;<span class="preprocessor">#define STATE_TC_ON   1      // z RELE_TC - električni grelec ali Priključek TC</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a9f41466bdb668f854aefcaec36c25c50">   24</a></span>&#160;<span class="preprocessor">#define STATE_TC_OFF  0</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">//in/out state definition realys</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a1cb2f83141f2778946a0f3e39eb70423">   29</a></span>&#160;<span class="preprocessor">#define R_CRAD_ON   LOW      // z RELE_CRAD</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ac15a0f41200eab832889dc4cfe55fab9">   30</a></span>&#160;<span class="preprocessor">#define R_CRAD_OFF  HIGH     // rele crpalke radijatorjev</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a63ac218cf83adc8ec28d7244c1da8496">   32</a></span>&#160;<span class="preprocessor">#define R_CTC_ON   LOW      //z RELE_CTC </span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a8875c2835e80dff18609efe0efe0649e">   33</a></span>&#160;<span class="preprocessor">#define R_CTC_OFF  HIGH     //rele za crpalko na povezavi TC-pec</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a31f0eca031985cc8f0fe7a820ccb198e">   35</a></span>&#160;<span class="preprocessor">#define CEV_TERM_ON   LOW    //cevni termostat - internal pullup</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a7016376318cd8f9aed1b56c8eb3e72de">   36</a></span>&#160;<span class="preprocessor">#define CEV_TERM_OFF  HIGH</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ae7c6a7850b7a2ea467b9cc29a8cf078d">   38</a></span>&#160;<span class="preprocessor">#define R_TC_EGREL_ON   LOW      // z RELE_TC_EGREL</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="_configuration_8h.html#abf50d6f3e09019e85f7a3b5190355efe">   39</a></span>&#160;<span class="preprocessor">#define R_TC_EGREL_OFF  HIGH     // električni grelec ali Priključek TC </span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a41db07f563d3ed97a993150f9cd2e48a">   41</a></span>&#160;<span class="preprocessor">#define R_TC_VENT_ON  LOW  // z RELE_TC_VENT </span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ac70e405280abb449f6724aef935c8c1a">   42</a></span>&#160;<span class="preprocessor">#define R_TC_VENT_OFF  HIGH  // ventilator kompresorja TC</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ac76b06cf6dff534779bf6c46db0e65d2">   44</a></span>&#160;<span class="preprocessor">#define R_TC_KOMP_ON  LOW  // z RELE_TC_KOMP </span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a629214d1dc1596b2ca569452a198bf3d">   45</a></span>&#160;<span class="preprocessor">#define R_TC_KOMP_OFF  HIGH  // kompresor TC</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="_configuration_8h.html#af09714ad330ab49a1857bd77170e95e2">   48</a></span>&#160;<span class="preprocessor">#define STATE_CRP_TC_ON   1</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="_configuration_8h.html#aa0d4e024c9b3f7fa875196ad53db902a">   49</a></span>&#160;<span class="preprocessor">#define STATE_CRP_TC_OFF  0</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a5b7c9d4b9eb2f4a1a93c9a0bc1edcc93">   51</a></span>&#160;<span class="preprocessor">#define STATE_VENT_TC_ON    1</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a70cdbfa0cf75dfe8e833c8931f760873">   52</a></span>&#160;<span class="preprocessor">#define STATE_VENT_TC_OFF   0</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a1bcd4582b1d59164279ee5128718b7c2">   53</a></span>&#160;<span class="preprocessor">#define STATE_VENT_TC_NDEF 255</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">//----------</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">// pin and address definition</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a01a23ab3441ec4788f29394731207546">   57</a></span>&#160;<span class="preprocessor">#define SENS_TOK_12V  A2    //pin za merjenje toka 12V - swithcher</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="_configuration_8h.html#aff2a284440721c7d6411977a6c0328fb">   59</a></span>&#160;<span class="preprocessor">#define T_KTYP_01_PIN A3   //pin k-type sensorja 1 </span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ae6a129b981d5ef3ccf91ec4113a579c5">   60</a></span>&#160;<span class="preprocessor">#define CO_SENS_APIN  A6    //vrednost CO senzorja</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a0e62c1038115785c066f16571055c995">   61</a></span>&#160;<span class="preprocessor">#define SENS_V5_3     A7    //pin za merjenje zun. napajanja 5V-2 za CO sensor- DC-DC</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a9fc6aaa7d59412d3e662bccfef13b200">   62</a></span>&#160;<span class="preprocessor">#define SENS_V12      A8    //pin za merjenje zun. napetosti napajanja 12V - switcher napajalnik</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a6cc64e8f1f4b8a871a9e11eb11b5237e">   63</a></span>&#160;<span class="preprocessor">#define SENS_V5_2     A9    //pin za merjenje zun. napajanja 5V - DC-DC</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a03ff6c3864851de1a34342dc7e1f385b">   64</a></span>&#160;<span class="preprocessor">#define SENS_RTC_BATT A10  //pin za merjenje napetsti RTC baterije - ni priklopljeno - ne dela RTC preko baterijae ...</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a85fc9ebf5a44eda6146af5d15d7307cd">   65</a></span>&#160;<span class="preprocessor">#define SENS_TOK      A11   //senzor toka - 230v komplet</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a9111880e1aceaf8dc0c76ff1664d8f17">   66</a></span>&#160;<span class="preprocessor">#define SENS_3V3_SD   A12   //napestost 3,3v na SD</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">//#define SENS_V_CO     A13   //napetost na CO sensorju</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="_configuration_8h.html#aaa5102b3d83a0d766ec362d0cd76499f">   71</a></span>&#160;<span class="preprocessor">#define CO_DOUT_PIN  11</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="_configuration_8h.html#aa25fb978959e63155e3d8d7b774483ec">   72</a></span>&#160;<span class="preprocessor">#define CO_PWR_PIN   12    </span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a825026e0f239c3d21fb0d385da890f5a">   74</a></span>&#160;<span class="preprocessor">#define ENC_DT_PIN    2     // Encoder DT signal - interuppt 1</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="_configuration_8h.html#acb653753b9800367e789d901ff2425ea">   75</a></span>&#160;<span class="preprocessor">#define ENC_CLK_PIN   3     // Encoder CLK pin - interuppt 0</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a1d0d3c099399f11227865f5c0cc2345e">   76</a></span>&#160;<span class="preprocessor">#define ENC_SW_PIN    4</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">// Encoder push button switch</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="_configuration_8h.html#adad781230238cce08f775d6bf4327e5a">   79</a></span>&#160;<span class="preprocessor">#define ENC_PIN_A   ENC_DT_PIN</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a2c64724ab26c18fbdcf1131f0b246532">   80</a></span>&#160;<span class="preprocessor">#define ENC_PIN_B   ENC_CLK_PIN</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ab41c2c65bf984347f17ad57ae1665ac7">   82</a></span>&#160;<span class="preprocessor">#define NRF24_CE   8</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a86b0101488f40c906a01351119623eb3">   83</a></span>&#160;<span class="preprocessor">#define NRF24_CSN  9</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a0978b59778f71e5091233afeafd50909">   85</a></span>&#160;<span class="preprocessor">#define ETHER_CS_PIN  10    //Ethrnet (ENC28J60) CS pin</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a1f0366ddfcdfb18d49b010bcb1c714cf">   86</a></span>&#160;<span class="preprocessor">#define ETHER_RESET_PIN 23</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a0e6ebba4660d88c10776f0b76c825224">   88</a></span>&#160;<span class="preprocessor">#define LCD_OSW_SW    7     //pin za vklop osvetlitve LCD-ja</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a4781e073871c6f27f89b9463ad3a4ed1">   89</a></span>&#160;<span class="preprocessor">#define LCD_RS    22        //LCD RS</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">//#define LCD_RW    23        //LCD RW</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a1640ffbc0d8ec0f7edb04a2b93918072">   91</a></span>&#160;<span class="preprocessor">#define LCD_EN    24        //LCD EN</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ade7e247311032a474711416da480ed8b">   92</a></span>&#160;<span class="preprocessor">#define LCD_D4    25        //LCD D4</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a5b91fe480c768d4f246f3890207bfbfc">   93</a></span>&#160;<span class="preprocessor">#define LCD_D5    26        //LCD D5</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a72e105fcda5fd1c07b5f391379a439d4">   94</a></span>&#160;<span class="preprocessor">#define LCD_D6    27        //LCD D6</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="_configuration_8h.html#abd65075e01c7413419581aedee5bcc24">   95</a></span>&#160;<span class="preprocessor">#define LCD_D7    28        //LCD D7</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a59f26dde03d80c6a07868f582ebbed7f">   97</a></span>&#160;<span class="preprocessor">#define BEEP_PIN     29    //buzzer pin</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a4260ed8874da804fb9ef9abba200b487">   98</a></span>&#160;<span class="preprocessor">#define ONE_WIRE_BUS 30    //1-wire na pin D4 - D30</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a757bb4e2bff6148de6ef3989b32a0126">  100</a></span>&#160;<span class="preprocessor">#define DHTPIN 31</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a2c509dba12bba99883a5be9341b7a0c5">  101</a></span>&#160;<span class="preprocessor">#define DHTTYPE DHT22</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ac7b1a17ba250557d0e5802ebd9b1ca3c">  103</a></span>&#160;<span class="preprocessor">#define CEVTERM_PEC_TC  32    //cevni termostat na peci proti TC - vklopi internal pull-up</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">//#define TEMOSTAT_VEZA_I   16</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">//#define TEMOSTAT_VEZA_II  17</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a2887f47f59787b20484e2c12d3027937">  107</a></span>&#160;<span class="preprocessor">#define STIKALO_CRP_RAD_ON 33    //stikalo 1</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="_configuration_8h.html#aad800acb5d57c1853b52cfc595add839">  108</a></span>&#160;<span class="preprocessor">#define STIKALO_CRP_RAD_OFF 34   //stikalo 1 </span></div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a8e71afe809962735f446a9ef8c68c8fe">  109</a></span>&#160;<span class="preprocessor">#define STIKALO_CRP_TC_ON 35     //stikalo 2 </span></div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a124cb75960b54eb1cc9b8d09adfd924f">  110</a></span>&#160;<span class="preprocessor">#define STIKALO_CRP_TC_OFF 36</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ac08036b5fa6d5f8fffae5b626f0ced75">  111</a></span>&#160;<span class="preprocessor">#define STIKALO_TC_ON 37         //stikalo 3</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a0b6af0417968442b6d7672882bb1e066">  112</a></span>&#160;<span class="preprocessor">#define STIKALO_TC_OFF 38</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">//#define stikalo  37            //stikalo 4</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">//#define stikalo  38</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="_configuration_8h.html#aed23f151f53022c84bb4fd896de30c10">  119</a></span>&#160;<span class="preprocessor">#define RELE_TC_KOMP  39    // rele 4/4 kompresor TC  </span></div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a5f056d6437125b7a5932a5006fa31d52">  120</a></span>&#160;<span class="preprocessor">#define RELE_TC_VENT  40    // rele 3/4 ventilator TC</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a352863d548be58b577dc7ba204ffb936">  121</a></span>&#160;<span class="preprocessor">#define RELE_CTC    41    // rele 2/4 za crpalko na povezavi TC-pec</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a1e45d46189b827cbce59566820490389">  122</a></span>&#160;<span class="preprocessor">#define RELE_CRAD   42    // rele 1/4 crpalke radijatorjev</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">//#define RELE_EL_GREL_TC     43    //rele 1 proklopljen na pin D7 -&gt; D40 - vklop  TC</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a122a1211745ce959036377302d47b0c2">  124</a></span>&#160;<span class="preprocessor">#define RELE_TC_EGREL     43    // RELE_TC - električni grelec ali Priključek TC</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">//#define L298 En2  44    //ENB  - enable input 3,4</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">//#define L298 1/2  45    //l298 4/4  - input 3</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">//#define L298 2/2  46    //l298 3/4  - input 3</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="_configuration_8h.html#aadb4dea3ebf4db37add1eb4cb7fd3a51">  129</a></span>&#160;<span class="preprocessor">#define VENTTC_1    47    // na L298  - input 1</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="_configuration_8h.html#adf1c551d5c423c730e776ca1052acbfe">  130</a></span>&#160;<span class="preprocessor">#define VENTTC_2    48    // na L293  - input 2</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a8c835bf467fb4b26734e857c72a8c331">  131</a></span>&#160;<span class="preprocessor">#define VENTTC_EN   49    // ENA na L298 - enable input 1,2  </span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a04d57a6c18b2d5e81f31093e58ed0c62">  133</a></span>&#160;<span class="preprocessor">#define SD_CS_PIN  53     //SD card CS+ pin </span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">//----------</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a1fb9766b11f8c7755309d6546afc9232">  140</a></span>&#160;<span class="preprocessor">#define DS1307_CTRL_ID 0x68  //i2C/TWI - naslov RTC cipa</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ad9dde722c1bcb99f3d4f5e8c3a37dd15">  141</a></span>&#160;<span class="preprocessor">#define TIME_MSG_LEN  11   // time sync to PC is HEADER followed by unix time_t as ten ascii digits</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="_configuration_8h.html#aa9f2cbf2a35ec653aff12241a63ca864">  142</a></span>&#160;<span class="preprocessor">#define TIME_HEADER  &#39;T&#39;   // Header tag for serial time sync message</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment">//----------</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a89a97b9b2ba756d03c9adbef6470803b">  146</a></span>&#160;<span class="preprocessor">#define AT24C32_I2C_ADDR 0x50  //i2C/TWI - naslov memory cipa na RTC modulu</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ada83bafa6b99de4992f5aa4fa61de156">  147</a></span>&#160;<span class="preprocessor">#define AT24C32_MAX_ADDR 4096  // velikost mamory cipa na RTC modulu</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="_configuration_8h.html#afafa17ffc01ba1f5f254d6238a2d530b">  148</a></span>&#160;<span class="preprocessor">#define AT24C32_ADDR_LENGH 2   // dolžina nalova na memory cipu RTC modula</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment">//----------</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">// temperature sensors indexes</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment">int   crpalka_0 = 1;         // index sensorja na crpalki</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment">int   okolica_0 = 0;         // index enzorja okolice</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment">int   pec_pv = 2;   // pec, povratni vod</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment">int   pec_dv = 3;   // pecc, dvizni vod</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment">int   rad_pv = 4;   // radijatorji, povratni vod</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment">int   rad_dv = 5;   // radijatorji, dvizni vod</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">int   pec_TC_dv = 6; // dvizni vod proti TC</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ad49ac149165f75284ac81d1fdc536e21">  162</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#ad49ac149165f75284ac81d1fdc536e21">numSensDS</a> = 0;        <span class="comment">//število DS senzorjev</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a4322c867961c6e10f3188d17d33c9a36">  163</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a4322c867961c6e10f3188d17d33c9a36">numSensDHT22</a> = 1;</div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a173ece5a25e312bb39be0684fbf8a924">  164</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a173ece5a25e312bb39be0684fbf8a924">numSensK</a> = 1;</div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="_configuration_8h.html#afc98de630cedd50c68db295cf66fddfe">  165</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#afc98de630cedd50c68db295cf66fddfe">numSens</a>;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ae2d352f5d7f68f756171dbfbb6ddc750">  167</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#ae2d352f5d7f68f756171dbfbb6ddc750">kTypeOffset</a> = 0.0; <span class="comment">//3.67;</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a108ae563a98c889c7593e3c9084c2643">  169</a></span>&#160;<span class="preprocessor">#define  OKOLICA_0  7   // index senzorja okolice</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a8c119e9182e69cc14edb6c885122ef80">  170</a></span>&#160;<span class="preprocessor">#define  CRPALKA_0  1   // index sensorja na crpalki</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="_configuration_8h.html#aee597cbe9379e814e1929de01b6d872f">  171</a></span>&#160;<span class="preprocessor">#define  PEC_PV     2   // pec, povratni vod</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a7f2d23a9784ad0009fb9a7ede9ebbad1">  172</a></span>&#160;<span class="preprocessor">#define  PEC_DV     3   // pecc, dvizni vod</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="_configuration_8h.html#abcf847c7f2ac45acc8b916bab3f215c8">  173</a></span>&#160;<span class="preprocessor">#define  RAD_PV     4   // radijatorji, povratni vod</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a641839d7e15f4d6424411ccce2e159f7">  174</a></span>&#160;<span class="preprocessor">#define  RAD_DV     5   // radijatorji, dvizni vod</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a9d329698236b2494e771b25735b07d7e">  175</a></span>&#160;<span class="preprocessor">#define  PEC_TC_DV  6   // dvizni vod proti TC</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a8be9eeaf6bbeb6e2f92b6c0fb2695596">  177</a></span>&#160;<span class="keywordtype">char</span> <a class="code" href="_configuration_8h.html#a8be9eeaf6bbeb6e2f92b6c0fb2695596">sensorIme</a>[<a class="code" href="_configuration_8h.html#a9f0d160fdb24b001d3eb9f57634c261e">MAXSENSORS</a>][6] = {<span class="stringliteral">&quot;Okol&quot;</span>, <span class="stringliteral">&quot;ToCrp&quot;</span>, <span class="stringliteral">&quot;PecPV&quot;</span>, <span class="stringliteral">&quot;PecDV&quot;</span>, <span class="stringliteral">&quot;RadPV&quot;</span>, <span class="stringliteral">&quot;RadDV&quot;</span>, <span class="stringliteral">&quot;PecTC&quot;</span>, <span class="stringliteral">&quot;Okol&quot;</span>, <span class="stringliteral">&quot;Dimn&quot;</span>};</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="unionul2byte4b.html">  179</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">union  </span>{</div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="unionul2byte4b.html#a3ac70c71a12988f6a0733cd4a585a5e8">  180</a></span>&#160;    byte by[4];</div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="unionul2byte4b.html#ad937a6850aeb34300671e2daeb4f1b06">  181</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="unionul2byte4b.html#ad937a6850aeb34300671e2daeb4f1b06">ulval</a>;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  } <a class="code" href="unionul2byte4b.html">ul2byte4b</a>;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="unionfl2byte4b.html">  184</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">union  </span>{</div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="unionfl2byte4b.html#a3ac70c71a12988f6a0733cd4a585a5e8">  185</a></span>&#160;    byte by[4];</div>
+<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="unionfl2byte4b.html#a89560ba498e3fe528d97a435d5f61054">  186</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="unionfl2byte4b.html#a89560ba498e3fe528d97a435d5f61054">fval</a>;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  } <a class="code" href="unionfl2byte4b.html">fl2byte4b</a>;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="unionui2byte2.html">  189</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">union  </span>{</div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="unionui2byte2.html#a291b49741a238245f6a13d953f87b936">  190</a></span>&#160;    byte by[2];</div>
+<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="unionui2byte2.html#abbeaf8a032705918682563dd182860b5">  191</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="unionui2byte2.html#abbeaf8a032705918682563dd182860b5">uival</a>;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  } <a class="code" href="unionui2byte2.html">ui2byte2</a>;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ac57c335bf98b8f0e9171dd3bdbb1db2f">  194</a></span>&#160;<a class="code" href="unionui2byte2.html">ui2byte2</a> <a class="code" href="_configuration_8h.html#ac57c335bf98b8f0e9171dd3bdbb1db2f">u2</a>;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment">//------------------------------------------</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="comment">//boolean measureOnly = false;</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="_configuration_8h.html#abaa7fc79b15b7b4b080e3e86ee591282">  203</a></span>&#160;<span class="keywordtype">boolean</span> <a class="code" href="_configuration_8h.html#abaa7fc79b15b7b4b080e3e86ee591282">showCRC</a> = <span class="keyword">true</span>;  <span class="comment">// izpis kontrolnih parametrov na serial</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="comment">//------------------------------------------</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a941bc6f038bd5293499a546460120b5d">  206</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>   <a class="code" href="_configuration_8h.html#a941bc6f038bd5293499a546460120b5d">merXMin</a> = 1;          <span class="comment">//temperaaturo merimo vsakih merXMin minut</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a21fd69f826c2e05a96933e4826748888">  207</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a21fd69f826c2e05a96933e4826748888">minTempVTOn</a> = 37.5;    <span class="comment">//min temp- vode za vklop pri visoki tarifi t &lt; </span></div>
+<div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a5cffc567f1af3e469cb13516a55df60e">  208</a></span>&#160;<span class="keywordtype">int</span>   <a class="code" href="_configuration_8h.html#a5cffc567f1af3e469cb13516a55df60e">minRunTimeMin</a> = 10;    <span class="comment">// minimalni cas (delovanja)  ali ne-delovanja TC / (odvisno od UpostevajElTarife(void)) - ne vec</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment">//------------------------------------------</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a31f0030aa0f4ee96365cea266022c25a">  211</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a31f0030aa0f4ee96365cea266022c25a">dTemp</a> = 5.0;  <span class="comment">// default 5.0</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment">//float sensDiff = 2.5;</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment">//------------------------------------------</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="comment">//------------------------------------------</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a2e1b31d0e4081456b613ecade94e13c9">  218</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a2e1b31d0e4081456b613ecade94e13c9">minTempNightOn</a> = 32.5;</div>
+<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a08fb827935a9af9e2d7e1f45b820dfa9">  219</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a08fb827935a9af9e2d7e1f45b820dfa9">ciljnaTemp</a> = 52;</div>
+<div class="line"><a name="l00220"></a><span class="lineno"><a class="line" href="_configuration_8h.html#aaebeb16c98b06906289c618dcd34e559">  220</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#aaebeb16c98b06906289c618dcd34e559">ciljnaTempWeekend</a> = 48;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="comment">//float deltaTh = 5.55;   // do 16.Oct.2012</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment">//float deltaTh = 4.35;   //</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment">//float tempPregrvanja = 60.0;</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
+<div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a3340621cd5cc4b6619232301b9111a85">  225</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a3340621cd5cc4b6619232301b9111a85">min_TempOK_TCKomp</a> = 5.0;</div>
+<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a16f7c96922e24ff09d25be9090f55e6d">  226</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a16f7c96922e24ff09d25be9090f55e6d">max_TempOK_TCKomp</a> = 35.0;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
+<div class="line"><a name="l00228"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a3852f25a298b299d28035bd394c08568">  228</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a3852f25a298b299d28035bd394c08568">maxDovTempVodeTC_Komp</a> = 64.0;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
+<div class="line"><a name="l00230"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a67ce5d811dacd2b49f3904e3fb7d96dd">  230</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a67ce5d811dacd2b49f3904e3fb7d96dd">deltaTh</a>;</div>
+<div class="line"><a name="l00231"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ab40909ebf364ff8fa06067568109f753">  231</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#ab40909ebf364ff8fa06067568109f753">deltaThOk</a>;</div>
+<div class="line"><a name="l00232"></a><span class="lineno"><a class="line" href="_configuration_8h.html#aff8c9c051ae246d3ae6dbed8ece45521">  232</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#aff8c9c051ae246d3ae6dbed8ece45521">deltaThSt</a>;</div>
+<div class="line"><a name="l00233"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a8eb889559b0e52cae369500d62e79830">  233</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a8eb889559b0e52cae369500d62e79830">tKompOK</a> = 20.0;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment">//const float tKompSt = 20.0;</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a85aeab80fe0d8640f774af42833b7b62">  235</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a85aeab80fe0d8640f774af42833b7b62">tKompSt</a> = 50.0;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
+<div class="line"><a name="l00237"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a8dfaf063148ba551561f3a7c6bf2da49">  237</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a8dfaf063148ba551561f3a7c6bf2da49">zamikMerTemp</a> = 15;  <span class="comment">// hitrost gretja se računa &quot;zamikMerTemp&quot; po izklopu TC</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                        <span class="comment">// povprečenje temperature vode v TC za izračun izklopa TC</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment">//------------------------------------------</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a30b4a298b0e87b552a63fc7c693efe0f">  241</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a30b4a298b0e87b552a63fc7c693efe0f">uraVTemp</a>[] = {6, 21};  <span class="comment">//obdobje vklopa pri temp minTempVTOn - 0-start, 1-end</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment">//int vStartUraOff = 20;  //ura zacetka znizevanja temerature za izklop</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a1e83a11ef486b548c162b056ce4e80ee">  243</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a1e83a11ef486b548c162b056ce4e80ee">dolPrehObd</a> = 121;     <span class="comment">//dolzina prehodnega obdobja postopnega znizevanja temp. za izklop (v minutah)</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a9679b45e0b75ffc857907000bafebe2a">  244</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a9679b45e0b75ffc857907000bafebe2a">startUraVT</a> = 6;       <span class="comment">// zacetek visoke tarife</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a41abb499fe47a94f39dee8e8cb60a543">  245</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a41abb499fe47a94f39dee8e8cb60a543">startUraNT</a> = 22;      <span class="comment">// zacetek nizke tarife :)</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ad9d7eef2f16118bb0e48eb89cea9e239">  246</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#ad9d7eef2f16118bb0e48eb89cea9e239">mejaToka</a> = 1.0;     <span class="comment">// meja velikosti toka, da se smatra da kompresor teče </span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment">//------------------------------------------</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">// boolean upostevajElTarife = false; // glej opombo pod verzijo v0.45 &amp;&amp; v0.54</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment">//povezava crpalka - pec </span></div>
+<div class="line"><a name="l00251"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a139f5d5c215e6406075e02d73c7c7a07">  251</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a139f5d5c215e6406075e02d73c7c7a07">tempVklopaCrpTC</a> = 82.5 ; <span class="comment">//best = 75.0;       // temp. vklopa crpalke TC</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a307030006334874a0dcb2eea6f12d806">  252</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a307030006334874a0dcb2eea6f12d806">histCrpTC</a> = 4.95;          <span class="comment">// min. diff. med vkolopm in izklopom crpalke TC</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="comment">//float tempIzklopaCrpTC = 70.0;      //</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a67ad33b281186550b018c77c8987c046">  254</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a67ad33b281186550b018c77c8987c046">minDiffTCPec</a> = 2.0;           <span class="comment">// min. temp. diferenca mad pecjo TC (pec &gt; TC)</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a5bd97b1d25697151d15d61585da07566">  255</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a5bd97b1d25697151d15d61585da07566">tempIzklopaVentCrpTC</a> = 60.0;  <span class="comment">// best 60.0// temp. nad katero ventil TC ostane odprt</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a5b28fdffaa104aab727faa91eea46a2a">  256</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a5b28fdffaa104aab727faa91eea46a2a">minTempPecPonovnoOdpVent</a> = 55.0; <span class="comment">//min. temp peci za ponovno odpiranje ventila - z pogojem temp. TC</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="comment">//------------------------------------------</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno"><a class="line" href="_configuration_8h.html#adcc522e3cbe2003ac6f13582622d187a">  259</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#adcc522e3cbe2003ac6f13582622d187a">minCrpTCRunTimeMin</a> = 2;</div>
+<div class="line"><a name="l00260"></a><span class="lineno"><a class="line" href="_configuration_8h.html#af2adc7958a53cd941ed79ee193b7efe8">  260</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#af2adc7958a53cd941ed79ee193b7efe8">zaksnitevCrpVent_Sec</a> = 20;</div>
+<div class="line"><a name="l00261"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ae3c0fb120da4d9fade066ba0847c281e">  261</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#ae3c0fb120da4d9fade066ba0847c281e">minCrpRadRunTimeMin</a> = 7;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment">//------------------------------------------</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno"><a class="line" href="_configuration_8h.html#aa8847a0dd3c42957040e91a2013c5262">  264</a></span>&#160;byte <a class="code" href="_configuration_8h.html#aa8847a0dd3c42957040e91a2013c5262">prevCrpRadState</a> = 0;</div>
+<div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a876bb41665d35cdebb5f44809430c9dc">  265</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a876bb41665d35cdebb5f44809430c9dc">minDiffDvOkolCrpRad</a> = 10.0;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="comment">//------------------------------------------</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="comment">//float limTempCrpRad[]</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="comment">//float limTempFactCrpRad[24];</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno"><a class="line" href="_configuration_8h.html#adc3a8c3f44d240c395337a7866291aaf">  271</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#adc3a8c3f44d240c395337a7866291aaf">minMejnaTempRel</a>  = 0.399;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;</div>
+<div class="line"><a name="l00273"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ab5f646886332f4a24e276f599cc7bb1e">  273</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#ab5f646886332f4a24e276f599cc7bb1e">maxTempPVRad</a> = 50.0; <span class="comment">// max temperatura povratnega voda</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ab69f47111e3a095a852b9b8f8eb129bd">  274</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#ab69f47111e3a095a852b9b8f8eb129bd">maxTempDVPec</a> = 90.01; <span class="comment">// max. temperatura dviznega voda peci</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno"><a class="line" href="_configuration_8h.html#aa9aa227fd74d6192483a057fdf5b94ab">  275</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#aa9aa227fd74d6192483a057fdf5b94ab">maxDeltaDev</a> = 5.0;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
+<div class="line"><a name="l00277"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a598129c299682df5fe939e2f3fcdbc7f">  277</a></span>&#160;<span class="keywordtype">boolean</span> <a class="code" href="_configuration_8h.html#a598129c299682df5fe939e2f3fcdbc7f">isCrpRadAsAbsTemp</a> = <span class="keyword">true</span>; <span class="comment">//upobi absol. temp za zagon crpalke</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;</div>
+<div class="line"><a name="l00280"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a38ed03cd0d55a0f53472e7d213888546">  280</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a38ed03cd0d55a0f53472e7d213888546">vccInternal</a> = 5.0;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment">//------------------------------------------</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="comment">//------------------------------------------</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno"><a class="line" href="_configuration_8h.html#af14987dd3adb2804cefb1fd1ef725ae5">  286</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#af14987dd3adb2804cefb1fd1ef725ae5">addrLastChg</a> = 0;</div>
+<div class="line"><a name="l00287"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a3d078a6c91500ce4fed4ee7700da502d">  287</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a3d078a6c91500ce4fed4ee7700da502d">addrPrevTCState</a> = 4;</div>
+<div class="line"><a name="l00288"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a04968c940a7d59436760f8970a1f1361">  288</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a04968c940a7d59436760f8970a1f1361">addrOnTime</a> = 5;</div>
+<div class="line"><a name="l00289"></a><span class="lineno"><a class="line" href="_configuration_8h.html#accd72285a220aacb882409f26f9779e8">  289</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#accd72285a220aacb882409f26f9779e8">addrDeltaTh</a> = 9;</div>
+<div class="line"><a name="l00290"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a96fab0393d7ed32a365b1e4d768c1887">  290</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a96fab0393d7ed32a365b1e4d768c1887">addrDeltaThOk</a> = 13;</div>
+<div class="line"><a name="l00291"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a4c4089e0ff727252f61d36f9b7432874">  291</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a4c4089e0ff727252f61d36f9b7432874">addrDeltaThSt</a> = 17;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
+<div class="line"><a name="l00293"></a><span class="lineno"><a class="line" href="_configuration_8h.html#afa8950683ea624c70566788be369a83e">  293</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#afa8950683ea624c70566788be369a83e">addrLastHourTemp</a> = 40; <span class="comment">// 128</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a7da024777008c7dc2a193ece16a7a9bb">  294</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a7da024777008c7dc2a193ece16a7a9bb">addrTempBack</a> = 400;     <span class="comment">//968</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="comment">//-----------------------------------------</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a0be71c02aa061750f3b12bfe5acd1d07">  296</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a0be71c02aa061750f3b12bfe5acd1d07">histLen</a> = 168;</div>
+<div class="line"><a name="l00297"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a14e924a952efcd5cb1c58385e4bf860b">  297</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a14e924a952efcd5cb1c58385e4bf860b">zapisXMin</a> = 60;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="comment">//--------------------------------------</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a99523aac649d7e063e6df7a01e9f0d23">  300</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a99523aac649d7e063e6df7a01e9f0d23">cTemperatura</a>[<a class="code" href="_configuration_8h.html#a9f0d160fdb24b001d3eb9f57634c261e">MAXSENSORS</a>];</div>
+<div class="line"><a name="l00301"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a4d7a7934e35164dbcfa3502f38fea668">  301</a></span>&#160;byte <a class="code" href="_configuration_8h.html#a4d7a7934e35164dbcfa3502f38fea668">type_s</a>[<a class="code" href="_configuration_8h.html#a9f0d160fdb24b001d3eb9f57634c261e">MAXSENSORS</a>];          <span class="comment">//tip temp sensorja </span></div>
+<div class="line"><a name="l00302"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a9c77616d1450b94518f6642011dc4345">  302</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a9c77616d1450b94518f6642011dc4345">sumTemp</a>[<a class="code" href="_configuration_8h.html#a9f0d160fdb24b001d3eb9f57634c261e">MAXSENSORS</a> + <a class="code" href="_configuration_8h.html#a210e4c1fee39d3724fa6d72adb35a179">MAX_DHT22_SENS</a>];</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;</div>
+<div class="line"><a name="l00304"></a><span class="lineno"><a class="line" href="_configuration_8h.html#adb6bcf11c8f136ddc5e1be86e4c26c7d">  304</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#adb6bcf11c8f136ddc5e1be86e4c26c7d">cVlaznost</a>[<a class="code" href="_configuration_8h.html#a210e4c1fee39d3724fa6d72adb35a179">MAX_DHT22_SENS</a>];</div>
+<div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="_configuration_8h.html#aa14542239cba21ff55951e3b359ad8e2">  305</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#aa14542239cba21ff55951e3b359ad8e2">cHumidex</a>[<a class="code" href="_configuration_8h.html#a210e4c1fee39d3724fa6d72adb35a179">MAX_DHT22_SENS</a>];</div>
+<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a02c4f95b30e5b631ba2e80fd5251fc21">  306</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a02c4f95b30e5b631ba2e80fd5251fc21">cTempRosicsa</a>[<a class="code" href="_configuration_8h.html#a210e4c1fee39d3724fa6d72adb35a179">MAX_DHT22_SENS</a>];</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;</div>
+<div class="line"><a name="l00309"></a><span class="lineno"><a class="line" href="_l_c_d__funkcije_8h.html#a9e759744247766fd4dc988a9e7ee8557">  309</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="_configuration_8h.html#a9e759744247766fd4dc988a9e7ee8557">onTimeTC</a> = 0;</div>
+<div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="_l_c_d__funkcije_8h.html#a5a8388d6c8d7dd17d39ed21d5f16806c">  310</a></span>&#160;byte <a class="code" href="_configuration_8h.html#a5a8388d6c8d7dd17d39ed21d5f16806c">prevTCState</a>;</div>
+<div class="line"><a name="l00311"></a><span class="lineno"><a class="line" href="_l_c_d__funkcije_8h.html#ac88bc54db30830eaf8f9eda306633f44">  311</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="_configuration_8h.html#ac88bc54db30830eaf8f9eda306633f44">lastTCStateChg</a> = 0;  <span class="comment">//cas zadnjega preklopa TC ali kompresorja TC</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
+<div class="line"><a name="l00313"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a54383820083d46d9cc067f9819d5ec59">  313</a></span>&#160;byte <a class="code" href="_configuration_8h.html#a54383820083d46d9cc067f9819d5ec59">releState_ventKompTC</a> = <a class="code" href="_configuration_8h.html#ac70e405280abb449f6724aef935c8c1a">R_TC_VENT_OFF</a>;</div>
+<div class="line"><a name="l00314"></a><span class="lineno"><a class="line" href="_configuration_8h.html#accd6f17a1a15f5c722a2841f98869904">  314</a></span>&#160;byte <a class="code" href="_configuration_8h.html#accd6f17a1a15f5c722a2841f98869904">releState_kompTC</a> = <a class="code" href="_configuration_8h.html#a629214d1dc1596b2ca569452a198bf3d">R_TC_KOMP_OFF</a>;</div>
+<div class="line"><a name="l00315"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ad3f164d73b040f4fa7fda35bc882b4f0">  315</a></span>&#160;byte <a class="code" href="_configuration_8h.html#ad3f164d73b040f4fa7fda35bc882b4f0">releState_egrelecTC</a> = <a class="code" href="_configuration_8h.html#abf50d6f3e09019e85f7a3b5190355efe">R_TC_EGREL_OFF</a>;</div>
+<div class="line"><a name="l00316"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a302977b9a0803246dd4879e04a8e4e16">  316</a></span>&#160;byte  <a class="code" href="_configuration_8h.html#a302977b9a0803246dd4879e04a8e4e16">stateTC</a> = <a class="code" href="_configuration_8h.html#a9f41466bdb668f854aefcaec36c25c50">STATE_TC_OFF</a>; </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="comment">// stateTC = B00000001 - ventilator ON</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="comment">//         = B00000010 - kompresro ON</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="comment">//         = B00000100 - el. grelec ON</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="comment">//boolean releState_TC = R_TC_OFF;  // stanje releja vklopa TC</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
+<div class="line"><a name="l00322"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a9abc7ea8df5d566b8fcf7bb5400db891">  322</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="_configuration_8h.html#a9abc7ea8df5d566b8fcf7bb5400db891">lastCrpTCStateChg</a>;</div>
+<div class="line"><a name="l00323"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a9decaae4517afd31f20f6397a5393b23">  323</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="_configuration_8h.html#a9decaae4517afd31f20f6397a5393b23">onTimeCrpTC</a>=0;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
+<div class="line"><a name="l00325"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a788d869c5986e6a43553b2fae4a9db71">  325</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="_configuration_8h.html#a788d869c5986e6a43553b2fae4a9db71">lastCrpRadStateChg</a>;</div>
+<div class="line"><a name="l00326"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ac5fa4a12c3447fba6fe3bc2999c562f3">  326</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="_configuration_8h.html#ac5fa4a12c3447fba6fe3bc2999c562f3">onTimeCrpRad</a>=0;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;</div>
+<div class="line"><a name="l00328"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a2e007e263bbb2c8d643e20134cbb95a6">  328</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="_configuration_8h.html#a2e007e263bbb2c8d643e20134cbb95a6">casMeritve</a>;        <span class="comment">//cas meritve parametrov</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a4ce16c8ad1e706682c3c871f44251c90">  329</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="_configuration_8h.html#a4ce16c8ad1e706682c3c871f44251c90">prevCasMeritve</a>;    <span class="comment">//cas prejšnje meritve parametrov</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
+<div class="line"><a name="l00331"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ac5c3ee78e3515cf606da51bd6f9b9028">  331</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#ac5c3ee78e3515cf606da51bd6f9b9028">hitrGret</a> = 0;</div>
+<div class="line"><a name="l00332"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a63da3fa17b3ff63b68212bdebc465bfb">  332</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a63da3fa17b3ff63b68212bdebc465bfb">startTemp</a>;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
+<div class="line"><a name="l00334"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a76b9b063c7dc83bd0b3f0f87ea5b8ddc">  334</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a76b9b063c7dc83bd0b3f0f87ea5b8ddc">lastDeltaTh</a>;</div>
+<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a64c232aa1b7da0ea1673aaf8cf8cd48f">  335</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a64c232aa1b7da0ea1673aaf8cf8cd48f">lastDeltaThOk</a>;</div>
+<div class="line"><a name="l00336"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a70f516331c5e990960c6d79c5dfeeaf1">  336</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a70f516331c5e990960c6d79c5dfeeaf1">lastDeltaThSt</a>;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;</div>
+<div class="line"><a name="l00338"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ac2105af9f9449fbdef343e35d114955c">  338</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#ac2105af9f9449fbdef343e35d114955c">lastHourTempChange</a>;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
+<div class="line"><a name="l00340"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a858f96f460a87656b2ba9f83629f9efe">  340</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="_configuration_8h.html#a858f96f460a87656b2ba9f83629f9efe">lastRunTime</a>;</div>
+<div class="line"><a name="l00341"></a><span class="lineno"><a class="line" href="_configuration_8h.html#aa63399c6f5fdee6a7b71df26959663c7">  341</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#aa63399c6f5fdee6a7b71df26959663c7">tempOkolicaSt</a>;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;</div>
+<div class="line"><a name="l00343"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a7fc7a0a5b2323a98b086e6b00b1062f3">  343</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a7fc7a0a5b2323a98b086e6b00b1062f3">porabaWH</a> = 0.0;</div>
+<div class="line"><a name="l00344"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a4a08e8f9549665f763132d0244f97b03">  344</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a4a08e8f9549665f763132d0244f97b03">zacPorabaWH</a>;</div>
+<div class="line"><a name="l00345"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ac381d38bf728dddab21a3a66eaf5210f">  345</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#ac381d38bf728dddab21a3a66eaf5210f">Qv</a>;</div>
+<div class="line"><a name="l00346"></a><span class="lineno"><a class="line" href="_configuration_8h.html#abff5cf4e95270f13ea15a363a8852d3e">  346</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#abff5cf4e95270f13ea15a363a8852d3e">We</a>;</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;</div>
+<div class="line"><a name="l00348"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a7cd4b28149c771d679a463ed54f23120">  348</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a7cd4b28149c771d679a463ed54f23120">Vrms</a> = 230.0;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;</div>
+<div class="line"><a name="l00350"></a><span class="lineno"><a class="line" href="_configuration_8h.html#acfe3787a73e2c1913e5603350001bfe2">  350</a></span>&#160;byte <a class="code" href="_configuration_8h.html#acfe3787a73e2c1913e5603350001bfe2">manuCrpTCState</a> = 0;</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;</div>
+<div class="line"><a name="l00352"></a><span class="lineno"><a class="line" href="_l_c_d__funkcije_8h.html#a0cdc44c047411d10590fe3719a29e6c3">  352</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a0cdc44c047411d10590fe3719a29e6c3">coRawVal</a>;</div>
+<div class="line"><a name="l00353"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a5f62d53d17b315eeb0e4569b5d422bff">  353</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a5f62d53d17b315eeb0e4569b5d422bff">osvetlitevLCD</a> = 0;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;</div>
+<div class="line"><a name="l00355"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a6423501f1aa82d39c61cd52d96ae2d71">  355</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a6423501f1aa82d39c61cd52d96ae2d71">sumTok_12V</a> = 0.0;</div>
+<div class="line"><a name="l00356"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a246248703162c48d7b60c93edbbd88fb">  356</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a246248703162c48d7b60c93edbbd88fb">maxTok_12V</a>;</div>
+<div class="line"><a name="l00357"></a><span class="lineno"><a class="line" href="_configuration_8h.html#ac462f070035b41904c5cce2b0e0090dd">  357</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="_configuration_8h.html#ac462f070035b41904c5cce2b0e0090dd">nMerTok_12V</a> = 0;</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;</div>
+<div class="line"><a name="l00362"></a><span class="lineno"><a class="line" href="_l_c_d__funkcije_8h.html#ae2066ef83505aef3c8e722973e205a72">  362</a></span>&#160;<span class="keywordtype">char</span> <a class="code" href="_configuration_8h.html#ab11f85d31273f5762eded60433da68dc">infoErr</a>[8];</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;</div>
+<div class="line"><a name="l00364"></a><span class="lineno"><a class="line" href="_configuration_8h.html#abbd99bb38039caeccaf341f51aa1d3db">  364</a></span>&#160;<a class="code" href="unionul2byte4b.html">ul2byte4b</a> <a class="code" href="_configuration_8h.html#abbd99bb38039caeccaf341f51aa1d3db">u4</a>;</div>
+<div class="line"><a name="l00365"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a25b562af0dd7077b02f105c74054f27f">  365</a></span>&#160;<a class="code" href="unionfl2byte4b.html">fl2byte4b</a> <a class="code" href="_configuration_8h.html#a25b562af0dd7077b02f105c74054f27f">uf</a>;</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;</div>
+<div class="line"><a name="l00367"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a7a5445edfac5eacc4404ae5ed58d7880">  367</a></span>&#160;<span class="keyword">typedef</span> uint8_t <a class="code" href="_configuration_8h.html#a7a5445edfac5eacc4404ae5ed58d7880">DeviceAddress</a>[8];</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="comment">//definicija naslovov senzorjev</span></div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="comment">//LiquidCrystal lcdA(LCD_RS, LCD_RW, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7);</span></div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;LiquidCrystal <a class="code" href="_configuration_8h.html#ac4eb126ada68895d26982c8ce487a32d">lcdA</a>(<a class="code" href="_configuration_8h.html#a4781e073871c6f27f89b9463ad3a4ed1">LCD_RS</a>, <a class="code" href="_configuration_8h.html#a1640ffbc0d8ec0f7edb04a2b93918072">LCD_EN</a>, <a class="code" href="_configuration_8h.html#ade7e247311032a474711416da480ed8b">LCD_D4</a>, <a class="code" href="_configuration_8h.html#a5b91fe480c768d4f246f3890207bfbfc">LCD_D5</a>, <a class="code" href="_configuration_8h.html#a72e105fcda5fd1c07b5f391379a439d4">LCD_D6</a>, <a class="code" href="_configuration_8h.html#abd65075e01c7413419581aedee5bcc24">LCD_D7</a>);</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="comment">//DHT22 myDHT22(DHT22_PIN);</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;DHT <a class="code" href="_configuration_8h.html#ad7a1df263f6f823242a112ec11297434">dht</a>(<a class="code" href="_configuration_8h.html#a757bb4e2bff6148de6ef3989b32a0126">DHTPIN</a>, <a class="code" href="_configuration_8h.html#a2c509dba12bba99883a5be9341b7a0c5">DHTTYPE</a>);</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="comment">// 1-Wire spremneljivke</span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;OneWire <a class="code" href="_configuration_8h.html#a2777b702f5849cfef18eae74e4f24d61">ds</a>(<a class="code" href="_configuration_8h.html#a4260ed8874da804fb9ef9abba200b487">ONE_WIRE_BUS</a>);</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;</div>
+<div class="line"><a name="l00378"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a8a277bdfd24fd42d99e415bc6520fd6e">  378</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="_configuration_8h.html#a8a277bdfd24fd42d99e415bc6520fd6e">FiksAdrrSens</a>(<a class="code" href="_configuration_8h.html#a7a5445edfac5eacc4404ae5ed58d7880">DeviceAddress</a> <a class="code" href="_temperature_8h.html#ad9ab329716dd814c12e5aaa64d610dd9">devAddress</a>[], byte *<a class="code" href="_configuration_8h.html#a4d7a7934e35164dbcfa3502f38fea668">type_s</a>)</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;{</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="comment">//  normal</span></div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; </div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="comment">// okolica Na DS1307</span></div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;  </div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;  </div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;  devAddress[0][0] = 0x28;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;  devAddress[0][1] = 0xAF;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;  devAddress[0][2] = 0xD9;</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;  devAddress[0][3] = 0x9E;</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;  devAddress[0][4] = 0x04;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;  devAddress[0][5] = 0x00;</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;  devAddress[0][6] = 0x00;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;  devAddress[0][7] = 0xA1;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="comment">//  type_s[0] = 0;</span></div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;  <a class="code" href="_configuration_8h.html#ad49ac149165f75284ac81d1fdc536e21">numSensDS</a>++;</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;  </div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;  <span class="comment">// crpalka</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;  devAddress[1][0] = 0x28;</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;  devAddress[1][1] = 0xA4;</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;  devAddress[1][2] = 0x44;</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;  devAddress[1][3] = 0x9F;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;  devAddress[1][4] = 0x04;</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;  devAddress[1][5] = 0x00;</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;  devAddress[1][6] = 0x00;</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;  devAddress[1][7] = 0x8D;</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;  </div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;  <span class="comment">/*</span></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="comment">  devAddress[1][0] = 0x28;</span></div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="comment">  devAddress[1][1] = 0xC2;</span></div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="comment">  devAddress[1][2] = 0x3A;</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="comment">  devAddress[1][3] = 0x97;</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="comment">  devAddress[1][4] = 0x03;</span></div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="comment">  devAddress[1][5] = 0x00;</span></div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="comment">  devAddress[1][6] = 0x00;</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="comment">  devAddress[1][7] = 0x55;</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160; <span class="comment">/* </span></div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;<span class="comment">  /devAddress[1][0] = 0x28;</span></div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="comment">  devAddress[1][1] = 0x32;</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment">  devAddress[1][2] = 0x5B;</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;<span class="comment">  devAddress[1][3] = 0x97;</span></div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="comment">  devAddress[1][4] = 0x03;</span></div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="comment">  devAddress[1][5] = 0x00;</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="comment">  devAddress[1][6] = 0x00;</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="comment">  devAddress[1][7] = 0xFB;</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment">//  type_s[1] = 0;</span></div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="comment">*/</span>  </div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;  <a class="code" href="_configuration_8h.html#ad49ac149165f75284ac81d1fdc536e21">numSensDS</a>++;</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;  </div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;  </div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;  <span class="comment">//pec - povratni - prej na cevi TC</span></div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;  devAddress[2][0] = 0x28;</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;  devAddress[2][1] = 0x99;</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;  devAddress[2][2] = 0x73;</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;  devAddress[2][3] = 0x97;</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;  devAddress[2][4] = 0x03;</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;  devAddress[2][5] = 0x00;</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;  devAddress[2][6] = 0x00;</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;  devAddress[2][7] = 0x99;</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;<span class="comment">//  type_s[2] = 0;</span></div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;  <a class="code" href="_configuration_8h.html#ad49ac149165f75284ac81d1fdc536e21">numSensDS</a>++;</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;  </div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160; </div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;  </div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;  </div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;   <span class="comment">// pec dvizni vod</span></div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;  devAddress[3][0] = 0x28;</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;  devAddress[3][1] = 0x32;</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;  devAddress[3][2] = 0x7C;</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;  devAddress[3][3] = 0x97;</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;  devAddress[3][4] = 0x03;</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;  devAddress[3][5] = 0x00;</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;  devAddress[3][6] = 0x00;</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;  devAddress[3][7] = 0x52;</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;<span class="comment">//  type_s[3] = 0;</span></div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;   <a class="code" href="_configuration_8h.html#ad49ac149165f75284ac81d1fdc536e21">numSensDS</a>++;</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;   </div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;   <span class="comment">// povratni vod radiatorji</span></div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;  devAddress[4][0] = 0x28;</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;  devAddress[4][1] = 0xEA;</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;  devAddress[4][2] = 0x3A;</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;  devAddress[4][3] = 0x97;</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;  devAddress[4][4] = 0x03;</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;  devAddress[4][5] = 0x00;</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;  devAddress[4][6] = 0x00;</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;  devAddress[4][7] = 0x42;</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="comment">//  type_s[4] = 0;</span></div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;   <a class="code" href="_configuration_8h.html#ad49ac149165f75284ac81d1fdc536e21">numSensDS</a>++;</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;   </div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;   <span class="comment">// dvizni vod radiatorji</span></div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;  devAddress[5][0] = 0x28;</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;  devAddress[5][1] = 0x02;</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;  devAddress[5][2] = 0x8B;</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;  devAddress[5][3] = 0x97;</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;  devAddress[5][4] = 0x03;</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;  devAddress[5][5] = 0x00;</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;  devAddress[5][6] = 0x00;</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;  devAddress[5][7] = 0x48;</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;<span class="comment">//  type_s[5] = 0;</span></div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;  <a class="code" href="_configuration_8h.html#ad49ac149165f75284ac81d1fdc536e21">numSensDS</a>++;</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;  </div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;  devAddress[6][0] = 0x28;</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;  devAddress[6][1] = 0xD7;</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;  devAddress[6][2] = 0x85;</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;  devAddress[6][3] = 0x97;</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;  devAddress[6][4] = 0x03;</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;  devAddress[6][5] = 0x00;</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;  devAddress[6][6] = 0x00;</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;  devAddress[6][7] = 0xC5;</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;<span class="comment">//  type_s[6] = 0;</span></div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;  <a class="code" href="_configuration_8h.html#ad49ac149165f75284ac81d1fdc536e21">numSensDS</a>++;</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;<span class="comment">/* </span></div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;<span class="comment">  </span></div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="comment">  //  test</span></div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;<span class="comment">  // okolica</span></div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;<span class="comment">  devAddress[0][0] = 0x28;</span></div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;<span class="comment">  devAddress[0][1] = 0xC4;</span></div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;<span class="comment">  devAddress[0][2] = 0xE3;</span></div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="comment">  devAddress[0][3] = 0x9E;</span></div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment">  devAddress[0][4] = 0x04;</span></div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;<span class="comment">  devAddress[0][5] = 0x00;</span></div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="comment">  devAddress[0][6] = 0x00;</span></div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="comment">  devAddress[0][7] = 0xA3;</span></div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="comment">//  type_s[0] = 0;</span></div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="comment">  numSensDS++;</span></div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;<span class="comment">// okolica Na DS1307</span></div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;<span class="comment">  devAddress[3][0] = 0x28;</span></div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;<span class="comment">  devAddress[3][1] = 0xC2;</span></div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;<span class="comment">  devAddress[3][2] = 0x3A;</span></div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;<span class="comment">  devAddress[3][3] = 0x97;</span></div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;<span class="comment">  devAddress[3][4] = 0x03;</span></div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;<span class="comment">  devAddress[3][5] = 0x00;</span></div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;<span class="comment">  devAddress[3][6] = 0x00;</span></div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;<span class="comment">  devAddress[3][7] = 0x55;</span></div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="comment">//  type_s[0] = 0;</span></div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;<span class="comment">  numSensDS++;</span></div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;<span class="comment">  // crpalka</span></div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;<span class="comment">/  devAddress[1][0] = 0x28;</span></div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="comment">/  devAddress[1][1] = 0x32;</span></div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="comment">/  devAddress[1][2] = 0x5B;</span></div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;<span class="comment">/  devAddress[1][3] = 0x97;</span></div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="comment">/  devAddress[1][4] = 0x03;</span></div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;<span class="comment">/  devAddress[1][5] = 0x00;</span></div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;<span class="comment">/  devAddress[1][6] = 0x00;</span></div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;<span class="comment">/  devAddress[1][7] = 0xFB;</span></div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;<span class="comment">/  type_s[1] = 0;</span></div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;<span class="comment">  </span></div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;<span class="comment">  </span></div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;<span class="comment">  //pec - povratni - prej na cevi TC</span></div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;<span class="comment">  devAddress[2][0] = 0x28;</span></div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;<span class="comment">  devAddress[2][1] = 0xA4;</span></div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;<span class="comment">  devAddress[2][2] = 0x44;</span></div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;<span class="comment">  devAddress[2][3] = 0x9F;</span></div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="comment">  devAddress[2][4] = 0x04;</span></div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;<span class="comment">  devAddress[2][5] = 0x00;</span></div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;<span class="comment">  devAddress[2][6] = 0x00;</span></div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;<span class="comment">  devAddress[2][7] = 0x8D;</span></div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;<span class="comment">//  type_s[2] = 0;</span></div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;<span class="comment">  numSensDS++;</span></div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;<span class="comment">  </span></div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;<span class="comment"> </span></div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="comment">  </span></div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;<span class="comment">  </span></div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;<span class="comment">   // pec dvizni vod</span></div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;<span class="comment">  devAddress[1][0] = 0x28;</span></div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;<span class="comment">  devAddress[1][1] = 0xAF;</span></div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;<span class="comment">  devAddress[1][2] = 0xD9;</span></div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;<span class="comment">  devAddress[1][3] = 0x9E;</span></div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;<span class="comment">  devAddress[1][4] = 0x04;</span></div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;<span class="comment">  devAddress[1][5] = 0x00;</span></div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;<span class="comment">  devAddress[1][6] = 0x00;</span></div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;<span class="comment">  devAddress[1][7] = 0xA1;</span></div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;<span class="comment">//  type_s[3] = 0;</span></div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;<span class="comment">  numSensDS++;</span></div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;<span class="comment">   // povratni vod radiatorji</span></div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;<span class="comment">  devAddress[4][0] = 0x28;</span></div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;<span class="comment">  devAddress[4][1] = 0x31;</span></div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;<span class="comment">  devAddress[4][2] = 0x38;</span></div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;<span class="comment">  devAddress[4][3] = 0x9F;</span></div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;<span class="comment">  devAddress[4][4] = 0x04;</span></div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;<span class="comment">  devAddress[4][5] = 0x00;</span></div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;<span class="comment">  devAddress[4][6] = 0x00;</span></div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;<span class="comment">  devAddress[4][7] = 0x9B;</span></div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;<span class="comment">//  type_s[4] = 0;</span></div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;<span class="comment">  numSensDS++;</span></div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;<span class="comment">   // dvizni vod radiatorji</span></div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;<span class="comment">  devAddress[5][0] = 0x28;</span></div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;<span class="comment">  devAddress[5][1] = 0xB3;</span></div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;<span class="comment">  devAddress[5][2] = 0xD7;</span></div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;<span class="comment">  devAddress[5][3] = 0x9E;</span></div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;<span class="comment">  devAddress[5][4] = 0x04;</span></div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;<span class="comment">  devAddress[5][5] = 0x00;</span></div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;<span class="comment">  devAddress[5][6] = 0x00;</span></div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;<span class="comment">  devAddress[5][7] = 0x25;</span></div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;<span class="comment">//  type_s[5] = 0;</span></div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;<span class="comment">  numSensDS++;</span></div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;<span class="comment">  </span></div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;<span class="comment">  devAddress[6][0] = 0x28;</span></div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;<span class="comment">  devAddress[6][1] = 0x67;</span></div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;<span class="comment">  devAddress[6][2] = 0xA1;</span></div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;<span class="comment">  devAddress[6][3] = 0x9E;</span></div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;<span class="comment">  devAddress[6][4] = 0x04;</span></div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;<span class="comment">  devAddress[6][5] = 0x00;</span></div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;<span class="comment">  devAddress[6][6] = 0x00;</span></div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;<span class="comment">  devAddress[6][7] = 0xCC;</span></div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;<span class="comment">//  type_s[6] = 0;</span></div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;<span class="comment">  numSensDS++;</span></div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="_configuration_8h.html#ad49ac149165f75284ac81d1fdc536e21">numSensDS</a> &gt; <a class="code" href="_configuration_8h.html#a4b994cd609d0eb579c81d91606dc8a78">MAXSENSORS_DS</a>) {</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    <a class="code" href="_configuration_8h.html#ad49ac149165f75284ac81d1fdc536e21">numSensDS</a> = <a class="code" href="_configuration_8h.html#a4b994cd609d0eb579c81d91606dc8a78">MAXSENSORS_DS</a>;</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    Serial.print(F(<span class="stringliteral">&quot;Stevilo DS senosrjev!!&quot;</span>));</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    <a class="code" href="_configuration_8h.html#ac4eb126ada68895d26982c8ce487a32d">lcdA</a>.clear();</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    <a class="code" href="_configuration_8h.html#ac4eb126ada68895d26982c8ce487a32d">lcdA</a>.print(F(<span class="stringliteral">&quot;Stevilo DS senosrjev!!&quot;</span>));</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    <a class="code" href="_configuration_8h.html#a7776f799a4a163021b43ca485e664952">Beep</a>(250);</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;    </div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;   }   </div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160; </div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="_configuration_8h.html#ad49ac149165f75284ac81d1fdc536e21">numSensDS</a>; i++) {</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    Serial.print(F(<span class="stringliteral">&quot;Temp. sensor &quot;</span>));</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;    Serial.print(i);</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    <span class="keywordflow">switch</span> (devAddress[6][0]) {</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;      <span class="keywordflow">case</span> 0x10:</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        Serial.println(F(<span class="stringliteral">&quot;: DS18S20&quot;</span>));  <span class="comment">// or old DS1820</span></div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;        type_s[i] = 1;</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;      <span class="keywordflow">case</span> 0x28:</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;        Serial.println(F(<span class="stringliteral">&quot;: DS18B20&quot;</span>));</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;        type_s[i] = 0;</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;      <span class="keywordflow">case</span> 0x22:</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;        Serial.println(F(<span class="stringliteral">&quot;: DS1822&quot;</span>));</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;        type_s[i] = 0;</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;      <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;        Serial.println(F(<span class="stringliteral">&quot;: ni DS18x20 family device.&quot;</span>));</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;    }</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;  }   </div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;  </div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;<span class="comment">//  return (7);</span></div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;}  </div>
+<div class="line"><a name="l00626"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a95f7a376eca047e480a83e56fd6bafb4">  626</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a95f7a376eca047e480a83e56fd6bafb4">limTempCrpRad</a>[24] = {30, 30, 30, 30, 30, 30, </div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;                         28, 15, 12, 13, 15, 17, </div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;                         19, 21, 20, 18, 15, 12, </div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;                         14, 16, 18, 22, 30, 30};</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;<span class="comment">//pred 7.12.2014 float</span></div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;<span class="comment">float limTempCrpRad[24] = {30, 30, 30, 30, 30, 30, </span></div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;<span class="comment">                         28, 15, 12, 13, 15, 17, </span></div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;<span class="comment">                         19, 21, 20, 18, 15, 12, </span></div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;<span class="comment">                         14, 16, 18, 22, 30, 30};</span></div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;<span class="comment">//{30, 30, 30, 30, 30, 30, 28, 15, 12, 13, 15, 17, 19, 21, 20, 18, 15, 12, 14, 16, 18, 22, 30, 30};</span></div>
+<div class="line"><a name="l00639"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a1f3afdc37a1a892a8d3268151b10348e">  639</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="_configuration_8h.html#a1f3afdc37a1a892a8d3268151b10348e">limTempFactCrpRad</a>[24] = {0.2, 0.2, 0.2, 0.2, 0.2, 0.2, </div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;                             0.2, 0.2, 0.2, 0.2, 0.2, 0.2, </div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;                             0.2, 0.2, 0.2, 0.2, 0.2, 0.2, </div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;                             0.2, 0.2, 0.2, 0.2, 0.2, 0.2};</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;<span class="comment">float crpRadAsAbsTemp[24] = {15.0, 15.0, 15.0, 15.0, 15.0, 15.0, </span></div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="comment">                             17.0, 19.0, 22.0, 25.0, 30.0, 30.0, </span></div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="comment">                             25.0, 25.0, 25.0, 28.0, 30.0, 32.0, </span></div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="comment">                             30.0, 28.0, 24.0, 20.0, 17.5, 15.0};</span></div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="comment">//pred 7.12.2014 float</span></div>
+<div class="line"><a name="l00650"></a><span class="lineno"><a class="line" href="_configuration_8h.html#a503d78eca5f713d3120f8f2081e7b03e">  650</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_configuration_8h.html#a503d78eca5f713d3120f8f2081e7b03e">crpRadAsAbsTemp</a>[24] = {15, 15, 15, 15, 15, 15, </div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;                             17, 19, 22, 25, 30, 30, </div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;                             25, 25, 25, 28, 30, 32, </div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;                             30, 28, 24, 20, 17, 15};</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;<span class="comment">void NastaviTempCrpRad(float limitTemp[], float limitFact[], float limitAbsOnTemp[])</span></div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;<span class="comment">{</span></div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;<span class="comment">  limitTemp[0] = 30.0;</span></div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;<span class="comment">  limitTemp[1] = 30.0;</span></div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;<span class="comment">  limitTemp[2] = 30.0;</span></div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;<span class="comment">  limitTemp[3] = 30.0;</span></div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;<span class="comment">  limitTemp[4] = 30.0;</span></div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;<span class="comment">  limitTemp[5] = 30.0;</span></div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="comment">  limitTemp[6] = 28.0;</span></div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;<span class="comment">  limitTemp[7] = 15.0;</span></div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;<span class="comment">  limitTemp[8] = 12.0;</span></div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;<span class="comment">  limitTemp[9] = 13.0;</span></div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;<span class="comment">  limitTemp[10] = 15.0;</span></div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;<span class="comment">  limitTemp[11] = 17.0;</span></div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;<span class="comment">  limitTemp[12] = 19.0;</span></div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;<span class="comment">  limitTemp[13] = 21.0;</span></div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;<span class="comment">  limitTemp[14] = 20.0;</span></div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;<span class="comment">  limitTemp[15] = 18.0;</span></div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;<span class="comment">  limitTemp[16] = 15.0;</span></div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;<span class="comment">  limitTemp[17] = 12.0;</span></div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;<span class="comment">  limitTemp[18] = 14.0;</span></div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;<span class="comment">  limitTemp[19] = 16.0;</span></div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;<span class="comment">  limitTemp[20] = 18.5;</span></div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;<span class="comment">  limitTemp[21] = 22.0;</span></div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<span class="comment">  limitTemp[22] = 30.0;</span></div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;<span class="comment">  limitTemp[23] = 30.0;</span></div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="comment">  </span></div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="comment">  limitFact[0] = 0.2;</span></div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;<span class="comment">  limitFact[1] = 0.2;</span></div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;<span class="comment">  limitFact[2] = 0.2;</span></div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;<span class="comment">  limitFact[3] = 0.2;</span></div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;<span class="comment">  limitFact[4] = 0.2;</span></div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;<span class="comment">  limitFact[5] = 0.2;</span></div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;<span class="comment">  limitFact[6] = 0.2;</span></div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;<span class="comment">  limitFact[7] = 0.2;</span></div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;<span class="comment">  limitFact[8] = 0.2;</span></div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;<span class="comment">  limitFact[9] = 0.2;</span></div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;<span class="comment">  limitFact[10] = 0.2;</span></div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<span class="comment">  limitFact[11] = 0.2;</span></div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;<span class="comment">  limitFact[12] = 0.2;</span></div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;<span class="comment">  limitFact[13] = 0.2;</span></div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;<span class="comment">  limitFact[14] = 0.2;</span></div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;<span class="comment">  limitFact[15] = 0.2;</span></div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;<span class="comment">  limitFact[16] = 0.2;</span></div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;<span class="comment">  limitFact[17] = 0.2;</span></div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;<span class="comment">  limitFact[18] = 0.2;</span></div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;<span class="comment">  limitFact[19] = 0.2;</span></div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;<span class="comment">  limitFact[20] = 0.2;</span></div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;<span class="comment">  limitFact[21] = 0.2;</span></div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;<span class="comment">  limitFact[22] = 0.2;</span></div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;<span class="comment">  limitFact[23] = 0.2;</span></div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;<span class="comment">  </span></div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;<span class="comment">  limitAbsOnTemp[0] = 15.0;</span></div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;<span class="comment">  limitAbsOnTemp[1] = 15.0;</span></div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;<span class="comment">  limitAbsOnTemp[2] = 15.0;</span></div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="comment">  limitAbsOnTemp[3] = 15.0;</span></div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;<span class="comment">  limitAbsOnTemp[4] = 15.0;</span></div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;<span class="comment">  limitAbsOnTemp[5] = 15.0;</span></div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;<span class="comment">  limitAbsOnTemp[6] = 17.0;</span></div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;<span class="comment">  limitAbsOnTemp[7] = 19.0;</span></div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;<span class="comment">  limitAbsOnTemp[8] = 22.0;</span></div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;<span class="comment">  limitAbsOnTemp[9] = 25.0;</span></div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;<span class="comment">  limitAbsOnTemp[10] = 30.0;</span></div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;<span class="comment">  limitAbsOnTemp[11] = 30.0;</span></div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;<span class="comment">  limitAbsOnTemp[12] = 25.0;</span></div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;<span class="comment">  limitAbsOnTemp[13] = 25.0;</span></div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;<span class="comment">  limitAbsOnTemp[14] = 25.0;</span></div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;<span class="comment">  limitAbsOnTemp[15] = 28.0;</span></div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;<span class="comment">  limitAbsOnTemp[16] = 30.0;</span></div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;<span class="comment">  limitAbsOnTemp[17] = 32.0;</span></div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;<span class="comment">  limitAbsOnTemp[18] = 30.0;</span></div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;<span class="comment">  limitAbsOnTemp[19] = 28.0;</span></div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;<span class="comment">  limitAbsOnTemp[20] = 24.0;</span></div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;<span class="comment">  limitAbsOnTemp[21] = 20.0;</span></div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;<span class="comment">  limitAbsOnTemp[22] = 17.5;</span></div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;<span class="comment">  limitAbsOnTemp[23] = 15.0;</span></div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;<span class="comment">}</span></div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;<span class="preprocessor">#endif </span></div>
+<div class="ttc" id="_configuration_8h_html_ac57c335bf98b8f0e9171dd3bdbb1db2f"><div class="ttname"><a href="_configuration_8h.html#ac57c335bf98b8f0e9171dd3bdbb1db2f">u2</a></div><div class="ttdeci">ui2byte2 u2</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00194">Configuration.h:194</a></div></div>
+<div class="ttc" id="_configuration_8h_html_abaa7fc79b15b7b4b080e3e86ee591282"><div class="ttname"><a href="_configuration_8h.html#abaa7fc79b15b7b4b080e3e86ee591282">showCRC</a></div><div class="ttdeci">boolean showCRC</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00203">Configuration.h:203</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a04968c940a7d59436760f8970a1f1361"><div class="ttname"><a href="_configuration_8h.html#a04968c940a7d59436760f8970a1f1361">addrOnTime</a></div><div class="ttdeci">unsigned int addrOnTime</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00288">Configuration.h:288</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a307030006334874a0dcb2eea6f12d806"><div class="ttname"><a href="_configuration_8h.html#a307030006334874a0dcb2eea6f12d806">histCrpTC</a></div><div class="ttdeci">float histCrpTC</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00252">Configuration.h:252</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a4260ed8874da804fb9ef9abba200b487"><div class="ttname"><a href="_configuration_8h.html#a4260ed8874da804fb9ef9abba200b487">ONE_WIRE_BUS</a></div><div class="ttdeci">#define ONE_WIRE_BUS</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00098">Configuration.h:98</a></div></div>
+<div class="ttc" id="_configuration_8h_html_ac2105af9f9449fbdef343e35d114955c"><div class="ttname"><a href="_configuration_8h.html#ac2105af9f9449fbdef343e35d114955c">lastHourTempChange</a></div><div class="ttdeci">float lastHourTempChange</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00338">Configuration.h:338</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a5cffc567f1af3e469cb13516a55df60e"><div class="ttname"><a href="_configuration_8h.html#a5cffc567f1af3e469cb13516a55df60e">minRunTimeMin</a></div><div class="ttdeci">int minRunTimeMin</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00208">Configuration.h:208</a></div></div>
+<div class="ttc" id="_configuration_8h_html_abf50d6f3e09019e85f7a3b5190355efe"><div class="ttname"><a href="_configuration_8h.html#abf50d6f3e09019e85f7a3b5190355efe">R_TC_EGREL_OFF</a></div><div class="ttdeci">#define R_TC_EGREL_OFF</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00039">Configuration.h:39</a></div></div>
+<div class="ttc" id="_configuration_8h_html_adcc522e3cbe2003ac6f13582622d187a"><div class="ttname"><a href="_configuration_8h.html#adcc522e3cbe2003ac6f13582622d187a">minCrpTCRunTimeMin</a></div><div class="ttdeci">int minCrpTCRunTimeMin</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00259">Configuration.h:259</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a72e105fcda5fd1c07b5f391379a439d4"><div class="ttname"><a href="_configuration_8h.html#a72e105fcda5fd1c07b5f391379a439d4">LCD_D6</a></div><div class="ttdeci">#define LCD_D6</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00094">Configuration.h:94</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a1640ffbc0d8ec0f7edb04a2b93918072"><div class="ttname"><a href="_configuration_8h.html#a1640ffbc0d8ec0f7edb04a2b93918072">LCD_EN</a></div><div class="ttdeci">#define LCD_EN</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00091">Configuration.h:91</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a67ad33b281186550b018c77c8987c046"><div class="ttname"><a href="_configuration_8h.html#a67ad33b281186550b018c77c8987c046">minDiffTCPec</a></div><div class="ttdeci">float minDiffTCPec</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00254">Configuration.h:254</a></div></div>
+<div class="ttc" id="_configuration_8h_html_aa63399c6f5fdee6a7b71df26959663c7"><div class="ttname"><a href="_configuration_8h.html#aa63399c6f5fdee6a7b71df26959663c7">tempOkolicaSt</a></div><div class="ttdeci">float tempOkolicaSt</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00341">Configuration.h:341</a></div></div>
+<div class="ttc" id="_configuration_8h_html_adc3a8c3f44d240c395337a7866291aaf"><div class="ttname"><a href="_configuration_8h.html#adc3a8c3f44d240c395337a7866291aaf">minMejnaTempRel</a></div><div class="ttdeci">float minMejnaTempRel</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00271">Configuration.h:271</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a1e83a11ef486b548c162b056ce4e80ee"><div class="ttname"><a href="_configuration_8h.html#a1e83a11ef486b548c162b056ce4e80ee">dolPrehObd</a></div><div class="ttdeci">int dolPrehObd</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00243">Configuration.h:243</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a302977b9a0803246dd4879e04a8e4e16"><div class="ttname"><a href="_configuration_8h.html#a302977b9a0803246dd4879e04a8e4e16">stateTC</a></div><div class="ttdeci">byte stateTC</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00316">Configuration.h:316</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a7cd4b28149c771d679a463ed54f23120"><div class="ttname"><a href="_configuration_8h.html#a7cd4b28149c771d679a463ed54f23120">Vrms</a></div><div class="ttdeci">float Vrms</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00348">Configuration.h:348</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a788d869c5986e6a43553b2fae4a9db71"><div class="ttname"><a href="_configuration_8h.html#a788d869c5986e6a43553b2fae4a9db71">lastCrpRadStateChg</a></div><div class="ttdeci">unsigned long lastCrpRadStateChg</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00325">Configuration.h:325</a></div></div>
+<div class="ttc" id="_configuration_8h_html_abff5cf4e95270f13ea15a363a8852d3e"><div class="ttname"><a href="_configuration_8h.html#abff5cf4e95270f13ea15a363a8852d3e">We</a></div><div class="ttdeci">float We</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00346">Configuration.h:346</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a9c77616d1450b94518f6642011dc4345"><div class="ttname"><a href="_configuration_8h.html#a9c77616d1450b94518f6642011dc4345">sumTemp</a></div><div class="ttdeci">float sumTemp[MAXSENSORS+MAX_DHT22_SENS]</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00302">Configuration.h:302</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a173ece5a25e312bb39be0684fbf8a924"><div class="ttname"><a href="_configuration_8h.html#a173ece5a25e312bb39be0684fbf8a924">numSensK</a></div><div class="ttdeci">int numSensK</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00164">Configuration.h:164</a></div></div>
+<div class="ttc" id="_configuration_8h_html_ad7a1df263f6f823242a112ec11297434"><div class="ttname"><a href="_configuration_8h.html#ad7a1df263f6f823242a112ec11297434">dht</a></div><div class="ttdeci">DHT dht(DHTPIN, DHTTYPE)</div></div>
+<div class="ttc" id="_configuration_8h_html_ad49ac149165f75284ac81d1fdc536e21"><div class="ttname"><a href="_configuration_8h.html#ad49ac149165f75284ac81d1fdc536e21">numSensDS</a></div><div class="ttdeci">int numSensDS</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00162">Configuration.h:162</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a76b9b063c7dc83bd0b3f0f87ea5b8ddc"><div class="ttname"><a href="_configuration_8h.html#a76b9b063c7dc83bd0b3f0f87ea5b8ddc">lastDeltaTh</a></div><div class="ttdeci">float lastDeltaTh</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00334">Configuration.h:334</a></div></div>
+<div class="ttc" id="_configuration_8h_html_ac381d38bf728dddab21a3a66eaf5210f"><div class="ttname"><a href="_configuration_8h.html#ac381d38bf728dddab21a3a66eaf5210f">Qv</a></div><div class="ttdeci">float Qv</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00345">Configuration.h:345</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a6423501f1aa82d39c61cd52d96ae2d71"><div class="ttname"><a href="_configuration_8h.html#a6423501f1aa82d39c61cd52d96ae2d71">sumTok_12V</a></div><div class="ttdeci">float sumTok_12V</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00355">Configuration.h:355</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a25b562af0dd7077b02f105c74054f27f"><div class="ttname"><a href="_configuration_8h.html#a25b562af0dd7077b02f105c74054f27f">uf</a></div><div class="ttdeci">fl2byte4b uf</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00365">Configuration.h:365</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a5f62d53d17b315eeb0e4569b5d422bff"><div class="ttname"><a href="_configuration_8h.html#a5f62d53d17b315eeb0e4569b5d422bff">osvetlitevLCD</a></div><div class="ttdeci">int osvetlitevLCD</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00353">Configuration.h:353</a></div></div>
+<div class="ttc" id="_configuration_8h_html_abd65075e01c7413419581aedee5bcc24"><div class="ttname"><a href="_configuration_8h.html#abd65075e01c7413419581aedee5bcc24">LCD_D7</a></div><div class="ttdeci">#define LCD_D7</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00095">Configuration.h:95</a></div></div>
+<div class="ttc" id="_configuration_8h_html_ad9d7eef2f16118bb0e48eb89cea9e239"><div class="ttname"><a href="_configuration_8h.html#ad9d7eef2f16118bb0e48eb89cea9e239">mejaToka</a></div><div class="ttdeci">float mejaToka</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00246">Configuration.h:246</a></div></div>
+<div class="ttc" id="unionui2byte2_html_abbeaf8a032705918682563dd182860b5"><div class="ttname"><a href="unionui2byte2.html#abbeaf8a032705918682563dd182860b5">ui2byte2::uival</a></div><div class="ttdeci">unsigned int uival</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00191">Configuration.h:191</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a8dfaf063148ba551561f3a7c6bf2da49"><div class="ttname"><a href="_configuration_8h.html#a8dfaf063148ba551561f3a7c6bf2da49">zamikMerTemp</a></div><div class="ttdeci">int zamikMerTemp</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00237">Configuration.h:237</a></div></div>
+<div class="ttc" id="_configuration_8h_html_acfe3787a73e2c1913e5603350001bfe2"><div class="ttname"><a href="_configuration_8h.html#acfe3787a73e2c1913e5603350001bfe2">manuCrpTCState</a></div><div class="ttdeci">byte manuCrpTCState</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00350">Configuration.h:350</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a9decaae4517afd31f20f6397a5393b23"><div class="ttname"><a href="_configuration_8h.html#a9decaae4517afd31f20f6397a5393b23">onTimeCrpTC</a></div><div class="ttdeci">unsigned long onTimeCrpTC</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00323">Configuration.h:323</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a9abc7ea8df5d566b8fcf7bb5400db891"><div class="ttname"><a href="_configuration_8h.html#a9abc7ea8df5d566b8fcf7bb5400db891">lastCrpTCStateChg</a></div><div class="ttdeci">unsigned long lastCrpTCStateChg</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00322">Configuration.h:322</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a70f516331c5e990960c6d79c5dfeeaf1"><div class="ttname"><a href="_configuration_8h.html#a70f516331c5e990960c6d79c5dfeeaf1">lastDeltaThSt</a></div><div class="ttdeci">float lastDeltaThSt</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00336">Configuration.h:336</a></div></div>
+<div class="ttc" id="_configuration_8h_html_ab11f85d31273f5762eded60433da68dc"><div class="ttname"><a href="_configuration_8h.html#ab11f85d31273f5762eded60433da68dc">infoErr</a></div><div class="ttdeci">char infoErr[8]</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00362">Configuration.h:362</a></div></div>
+<div class="ttc" id="unionui2byte2_html"><div class="ttname"><a href="unionui2byte2.html">ui2byte2</a></div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00189">Configuration.h:189</a></div></div>
+<div class="ttc" id="_configuration_8h_html_ab5f646886332f4a24e276f599cc7bb1e"><div class="ttname"><a href="_configuration_8h.html#ab5f646886332f4a24e276f599cc7bb1e">maxTempPVRad</a></div><div class="ttdeci">float maxTempPVRad</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00273">Configuration.h:273</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a4d7a7934e35164dbcfa3502f38fea668"><div class="ttname"><a href="_configuration_8h.html#a4d7a7934e35164dbcfa3502f38fea668">type_s</a></div><div class="ttdeci">byte type_s[MAXSENSORS]</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00301">Configuration.h:301</a></div></div>
+<div class="ttc" id="_configuration_8h_html_aa14542239cba21ff55951e3b359ad8e2"><div class="ttname"><a href="_configuration_8h.html#aa14542239cba21ff55951e3b359ad8e2">cHumidex</a></div><div class="ttdeci">float cHumidex[MAX_DHT22_SENS]</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00305">Configuration.h:305</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a3d078a6c91500ce4fed4ee7700da502d"><div class="ttname"><a href="_configuration_8h.html#a3d078a6c91500ce4fed4ee7700da502d">addrPrevTCState</a></div><div class="ttdeci">unsigned int addrPrevTCState</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00287">Configuration.h:287</a></div></div>
+<div class="ttc" id="_configuration_8h_html_accd72285a220aacb882409f26f9779e8"><div class="ttname"><a href="_configuration_8h.html#accd72285a220aacb882409f26f9779e8">addrDeltaTh</a></div><div class="ttdeci">unsigned int addrDeltaTh</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00289">Configuration.h:289</a></div></div>
+<div class="ttc" id="_temperature_8h_html_ad9ab329716dd814c12e5aaa64d610dd9"><div class="ttname"><a href="_temperature_8h.html#ad9ab329716dd814c12e5aaa64d610dd9">devAddress</a></div><div class="ttdeci">DeviceAddress devAddress[MAXSENSORS_DS]</div><div class="ttdef"><b>Definition:</b> <a href="_temperature_8h_source.html#l00038">Temperature.h:38</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a7da024777008c7dc2a193ece16a7a9bb"><div class="ttname"><a href="_configuration_8h.html#a7da024777008c7dc2a193ece16a7a9bb">addrTempBack</a></div><div class="ttdeci">unsigned int addrTempBack</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00294">Configuration.h:294</a></div></div>
+<div class="ttc" id="unionul2byte4b_html_ad937a6850aeb34300671e2daeb4f1b06"><div class="ttname"><a href="unionul2byte4b.html#ad937a6850aeb34300671e2daeb4f1b06">ul2byte4b::ulval</a></div><div class="ttdeci">unsigned long ulval</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00181">Configuration.h:181</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a21fd69f826c2e05a96933e4826748888"><div class="ttname"><a href="_configuration_8h.html#a21fd69f826c2e05a96933e4826748888">minTempVTOn</a></div><div class="ttdeci">float minTempVTOn</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00207">Configuration.h:207</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a139f5d5c215e6406075e02d73c7c7a07"><div class="ttname"><a href="_configuration_8h.html#a139f5d5c215e6406075e02d73c7c7a07">tempVklopaCrpTC</a></div><div class="ttdeci">float tempVklopaCrpTC</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00251">Configuration.h:251</a></div></div>
+<div class="ttc" id="_configuration_8h_html_adb6bcf11c8f136ddc5e1be86e4c26c7d"><div class="ttname"><a href="_configuration_8h.html#adb6bcf11c8f136ddc5e1be86e4c26c7d">cVlaznost</a></div><div class="ttdeci">float cVlaznost[MAX_DHT22_SENS]</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00304">Configuration.h:304</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a5b91fe480c768d4f246f3890207bfbfc"><div class="ttname"><a href="_configuration_8h.html#a5b91fe480c768d4f246f3890207bfbfc">LCD_D5</a></div><div class="ttdeci">#define LCD_D5</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00093">Configuration.h:93</a></div></div>
+<div class="ttc" id="_configuration_8h_html_ae2d352f5d7f68f756171dbfbb6ddc750"><div class="ttname"><a href="_configuration_8h.html#ae2d352f5d7f68f756171dbfbb6ddc750">kTypeOffset</a></div><div class="ttdeci">float kTypeOffset</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00167">Configuration.h:167</a></div></div>
+<div class="ttc" id="_configuration_8h_html_ad3f164d73b040f4fa7fda35bc882b4f0"><div class="ttname"><a href="_configuration_8h.html#ad3f164d73b040f4fa7fda35bc882b4f0">releState_egrelecTC</a></div><div class="ttdeci">byte releState_egrelecTC</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00315">Configuration.h:315</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a5bd97b1d25697151d15d61585da07566"><div class="ttname"><a href="_configuration_8h.html#a5bd97b1d25697151d15d61585da07566">tempIzklopaVentCrpTC</a></div><div class="ttdeci">float tempIzklopaVentCrpTC</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00255">Configuration.h:255</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a31f0030aa0f4ee96365cea266022c25a"><div class="ttname"><a href="_configuration_8h.html#a31f0030aa0f4ee96365cea266022c25a">dTemp</a></div><div class="ttdeci">float dTemp</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00211">Configuration.h:211</a></div></div>
+<div class="ttc" id="_configuration_8h_html_afc98de630cedd50c68db295cf66fddfe"><div class="ttname"><a href="_configuration_8h.html#afc98de630cedd50c68db295cf66fddfe">numSens</a></div><div class="ttdeci">int numSens</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00165">Configuration.h:165</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a757bb4e2bff6148de6ef3989b32a0126"><div class="ttname"><a href="_configuration_8h.html#a757bb4e2bff6148de6ef3989b32a0126">DHTPIN</a></div><div class="ttdeci">#define DHTPIN</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00100">Configuration.h:100</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a08fb827935a9af9e2d7e1f45b820dfa9"><div class="ttname"><a href="_configuration_8h.html#a08fb827935a9af9e2d7e1f45b820dfa9">ciljnaTemp</a></div><div class="ttdeci">float ciljnaTemp</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00219">Configuration.h:219</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a95f7a376eca047e480a83e56fd6bafb4"><div class="ttname"><a href="_configuration_8h.html#a95f7a376eca047e480a83e56fd6bafb4">limTempCrpRad</a></div><div class="ttdeci">int limTempCrpRad[24]</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00626">Configuration.h:626</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a503d78eca5f713d3120f8f2081e7b03e"><div class="ttname"><a href="_configuration_8h.html#a503d78eca5f713d3120f8f2081e7b03e">crpRadAsAbsTemp</a></div><div class="ttdeci">int crpRadAsAbsTemp[24]</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00650">Configuration.h:650</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a4ce16c8ad1e706682c3c871f44251c90"><div class="ttname"><a href="_configuration_8h.html#a4ce16c8ad1e706682c3c871f44251c90">prevCasMeritve</a></div><div class="ttdeci">unsigned long prevCasMeritve</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00329">Configuration.h:329</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a2e007e263bbb2c8d643e20134cbb95a6"><div class="ttname"><a href="_configuration_8h.html#a2e007e263bbb2c8d643e20134cbb95a6">casMeritve</a></div><div class="ttdeci">unsigned long casMeritve</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00328">Configuration.h:328</a></div></div>
+<div class="ttc" id="_configuration_8h_html_abbd99bb38039caeccaf341f51aa1d3db"><div class="ttname"><a href="_configuration_8h.html#abbd99bb38039caeccaf341f51aa1d3db">u4</a></div><div class="ttdeci">ul2byte4b u4</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00364">Configuration.h:364</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a41abb499fe47a94f39dee8e8cb60a543"><div class="ttname"><a href="_configuration_8h.html#a41abb499fe47a94f39dee8e8cb60a543">startUraNT</a></div><div class="ttdeci">int startUraNT</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00245">Configuration.h:245</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a63da3fa17b3ff63b68212bdebc465bfb"><div class="ttname"><a href="_configuration_8h.html#a63da3fa17b3ff63b68212bdebc465bfb">startTemp</a></div><div class="ttdeci">float startTemp</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00332">Configuration.h:332</a></div></div>
+<div class="ttc" id="_configuration_8h_html_ac4eb126ada68895d26982c8ce487a32d"><div class="ttname"><a href="_configuration_8h.html#ac4eb126ada68895d26982c8ce487a32d">lcdA</a></div><div class="ttdeci">LiquidCrystal lcdA(LCD_RS, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7)</div></div>
+<div class="ttc" id="_configuration_8h_html_ab40909ebf364ff8fa06067568109f753"><div class="ttname"><a href="_configuration_8h.html#ab40909ebf364ff8fa06067568109f753">deltaThOk</a></div><div class="ttdeci">float deltaThOk</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00231">Configuration.h:231</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a54383820083d46d9cc067f9819d5ec59"><div class="ttname"><a href="_configuration_8h.html#a54383820083d46d9cc067f9819d5ec59">releState_ventKompTC</a></div><div class="ttdeci">byte releState_ventKompTC</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00313">Configuration.h:313</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a5a8388d6c8d7dd17d39ed21d5f16806c"><div class="ttname"><a href="_configuration_8h.html#a5a8388d6c8d7dd17d39ed21d5f16806c">prevTCState</a></div><div class="ttdeci">byte prevTCState</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00310">Configuration.h:310</a></div></div>
+<div class="ttc" id="_configuration_8h_html_af14987dd3adb2804cefb1fd1ef725ae5"><div class="ttname"><a href="_configuration_8h.html#af14987dd3adb2804cefb1fd1ef725ae5">addrLastChg</a></div><div class="ttdeci">unsigned int addrLastChg</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00286">Configuration.h:286</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a02c4f95b30e5b631ba2e80fd5251fc21"><div class="ttname"><a href="_configuration_8h.html#a02c4f95b30e5b631ba2e80fd5251fc21">cTempRosicsa</a></div><div class="ttdeci">float cTempRosicsa[MAX_DHT22_SENS]</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00306">Configuration.h:306</a></div></div>
+<div class="ttc" id="_configuration_8h_html_ac5c3ee78e3515cf606da51bd6f9b9028"><div class="ttname"><a href="_configuration_8h.html#ac5c3ee78e3515cf606da51bd6f9b9028">hitrGret</a></div><div class="ttdeci">float hitrGret</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00331">Configuration.h:331</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a30b4a298b0e87b552a63fc7c693efe0f"><div class="ttname"><a href="_configuration_8h.html#a30b4a298b0e87b552a63fc7c693efe0f">uraVTemp</a></div><div class="ttdeci">int uraVTemp[]</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00241">Configuration.h:241</a></div></div>
+<div class="ttc" id="unionfl2byte4b_html"><div class="ttname"><a href="unionfl2byte4b.html">fl2byte4b</a></div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00184">Configuration.h:184</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a2777b702f5849cfef18eae74e4f24d61"><div class="ttname"><a href="_configuration_8h.html#a2777b702f5849cfef18eae74e4f24d61">ds</a></div><div class="ttdeci">OneWire ds(ONE_WIRE_BUS)</div></div>
+<div class="ttc" id="_configuration_8h_html_ab69f47111e3a095a852b9b8f8eb129bd"><div class="ttname"><a href="_configuration_8h.html#ab69f47111e3a095a852b9b8f8eb129bd">maxTempDVPec</a></div><div class="ttdeci">float maxTempDVPec</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00274">Configuration.h:274</a></div></div>
+<div class="ttc" id="_configuration_8h_html_ade7e247311032a474711416da480ed8b"><div class="ttname"><a href="_configuration_8h.html#ade7e247311032a474711416da480ed8b">LCD_D4</a></div><div class="ttdeci">#define LCD_D4</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00092">Configuration.h:92</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a8a277bdfd24fd42d99e415bc6520fd6e"><div class="ttname"><a href="_configuration_8h.html#a8a277bdfd24fd42d99e415bc6520fd6e">FiksAdrrSens</a></div><div class="ttdeci">void FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00378">Configuration.h:378</a></div></div>
+<div class="ttc" id="_configuration_8h_html_aaebeb16c98b06906289c618dcd34e559"><div class="ttname"><a href="_configuration_8h.html#aaebeb16c98b06906289c618dcd34e559">ciljnaTempWeekend</a></div><div class="ttdeci">float ciljnaTempWeekend</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00220">Configuration.h:220</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a67ce5d811dacd2b49f3904e3fb7d96dd"><div class="ttname"><a href="_configuration_8h.html#a67ce5d811dacd2b49f3904e3fb7d96dd">deltaTh</a></div><div class="ttdeci">float deltaTh</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00230">Configuration.h:230</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a14e924a952efcd5cb1c58385e4bf860b"><div class="ttname"><a href="_configuration_8h.html#a14e924a952efcd5cb1c58385e4bf860b">zapisXMin</a></div><div class="ttdeci">int zapisXMin</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00297">Configuration.h:297</a></div></div>
+<div class="ttc" id="unionul2byte4b_html"><div class="ttname"><a href="unionul2byte4b.html">ul2byte4b</a></div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00179">Configuration.h:179</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a858f96f460a87656b2ba9f83629f9efe"><div class="ttname"><a href="_configuration_8h.html#a858f96f460a87656b2ba9f83629f9efe">lastRunTime</a></div><div class="ttdeci">unsigned long lastRunTime</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00340">Configuration.h:340</a></div></div>
+<div class="ttc" id="_configuration_8h_html_aff8c9c051ae246d3ae6dbed8ece45521"><div class="ttname"><a href="_configuration_8h.html#aff8c9c051ae246d3ae6dbed8ece45521">deltaThSt</a></div><div class="ttdeci">float deltaThSt</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00232">Configuration.h:232</a></div></div>
+<div class="ttc" id="_configuration_8h_html_af2adc7958a53cd941ed79ee193b7efe8"><div class="ttname"><a href="_configuration_8h.html#af2adc7958a53cd941ed79ee193b7efe8">zaksnitevCrpVent_Sec</a></div><div class="ttdeci">int zaksnitevCrpVent_Sec</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00260">Configuration.h:260</a></div></div>
+<div class="ttc" id="_configuration_8h_html_accd6f17a1a15f5c722a2841f98869904"><div class="ttname"><a href="_configuration_8h.html#accd6f17a1a15f5c722a2841f98869904">releState_kompTC</a></div><div class="ttdeci">byte releState_kompTC</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00314">Configuration.h:314</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a5b28fdffaa104aab727faa91eea46a2a"><div class="ttname"><a href="_configuration_8h.html#a5b28fdffaa104aab727faa91eea46a2a">minTempPecPonovnoOdpVent</a></div><div class="ttdeci">float minTempPecPonovnoOdpVent</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00256">Configuration.h:256</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a16f7c96922e24ff09d25be9090f55e6d"><div class="ttname"><a href="_configuration_8h.html#a16f7c96922e24ff09d25be9090f55e6d">max_TempOK_TCKomp</a></div><div class="ttdeci">float max_TempOK_TCKomp</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00226">Configuration.h:226</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a941bc6f038bd5293499a546460120b5d"><div class="ttname"><a href="_configuration_8h.html#a941bc6f038bd5293499a546460120b5d">merXMin</a></div><div class="ttdeci">unsigned int merXMin</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00206">Configuration.h:206</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a1f3afdc37a1a892a8d3268151b10348e"><div class="ttname"><a href="_configuration_8h.html#a1f3afdc37a1a892a8d3268151b10348e">limTempFactCrpRad</a></div><div class="ttdeci">float limTempFactCrpRad[24]</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00639">Configuration.h:639</a></div></div>
+<div class="ttc" id="_configuration_8h_html_aa9aa227fd74d6192483a057fdf5b94ab"><div class="ttname"><a href="_configuration_8h.html#aa9aa227fd74d6192483a057fdf5b94ab">maxDeltaDev</a></div><div class="ttdeci">float maxDeltaDev</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00275">Configuration.h:275</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a598129c299682df5fe939e2f3fcdbc7f"><div class="ttname"><a href="_configuration_8h.html#a598129c299682df5fe939e2f3fcdbc7f">isCrpRadAsAbsTemp</a></div><div class="ttdeci">boolean isCrpRadAsAbsTemp</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00277">Configuration.h:277</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a876bb41665d35cdebb5f44809430c9dc"><div class="ttname"><a href="_configuration_8h.html#a876bb41665d35cdebb5f44809430c9dc">minDiffDvOkolCrpRad</a></div><div class="ttdeci">float minDiffDvOkolCrpRad</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00265">Configuration.h:265</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a64c232aa1b7da0ea1673aaf8cf8cd48f"><div class="ttname"><a href="_configuration_8h.html#a64c232aa1b7da0ea1673aaf8cf8cd48f">lastDeltaThOk</a></div><div class="ttdeci">float lastDeltaThOk</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00335">Configuration.h:335</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a4b994cd609d0eb579c81d91606dc8a78"><div class="ttname"><a href="_configuration_8h.html#a4b994cd609d0eb579c81d91606dc8a78">MAXSENSORS_DS</a></div><div class="ttdeci">#define MAXSENSORS_DS</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00010">Configuration.h:10</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a3340621cd5cc4b6619232301b9111a85"><div class="ttname"><a href="_configuration_8h.html#a3340621cd5cc4b6619232301b9111a85">min_TempOK_TCKomp</a></div><div class="ttdeci">float min_TempOK_TCKomp</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00225">Configuration.h:225</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a0be71c02aa061750f3b12bfe5acd1d07"><div class="ttname"><a href="_configuration_8h.html#a0be71c02aa061750f3b12bfe5acd1d07">histLen</a></div><div class="ttdeci">unsigned int histLen</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00296">Configuration.h:296</a></div></div>
+<div class="ttc" id="_configuration_8h_html_ae3c0fb120da4d9fade066ba0847c281e"><div class="ttname"><a href="_configuration_8h.html#ae3c0fb120da4d9fade066ba0847c281e">minCrpRadRunTimeMin</a></div><div class="ttdeci">int minCrpRadRunTimeMin</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00261">Configuration.h:261</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a99523aac649d7e063e6df7a01e9f0d23"><div class="ttname"><a href="_configuration_8h.html#a99523aac649d7e063e6df7a01e9f0d23">cTemperatura</a></div><div class="ttdeci">float cTemperatura[MAXSENSORS]</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00300">Configuration.h:300</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a246248703162c48d7b60c93edbbd88fb"><div class="ttname"><a href="_configuration_8h.html#a246248703162c48d7b60c93edbbd88fb">maxTok_12V</a></div><div class="ttdeci">float maxTok_12V</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00356">Configuration.h:356</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a7776f799a4a163021b43ca485e664952"><div class="ttname"><a href="_configuration_8h.html#a7776f799a4a163021b43ca485e664952">Beep</a></div><div class="ttdeci">void Beep(unsigned char)</div><div class="ttdef"><b>Definition:</b> <a href="_l_c_d__funkcije_8h_source.html#l00034">LCD_funkcije.h:34</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a8eb889559b0e52cae369500d62e79830"><div class="ttname"><a href="_configuration_8h.html#a8eb889559b0e52cae369500d62e79830">tKompOK</a></div><div class="ttdeci">const float tKompOK</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00233">Configuration.h:233</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a7a5445edfac5eacc4404ae5ed58d7880"><div class="ttname"><a href="_configuration_8h.html#a7a5445edfac5eacc4404ae5ed58d7880">DeviceAddress</a></div><div class="ttdeci">uint8_t DeviceAddress[8]</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00367">Configuration.h:367</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a9f0d160fdb24b001d3eb9f57634c261e"><div class="ttname"><a href="_configuration_8h.html#a9f0d160fdb24b001d3eb9f57634c261e">MAXSENSORS</a></div><div class="ttdeci">#define MAXSENSORS</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00009">Configuration.h:9</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a4a08e8f9549665f763132d0244f97b03"><div class="ttname"><a href="_configuration_8h.html#a4a08e8f9549665f763132d0244f97b03">zacPorabaWH</a></div><div class="ttdeci">float zacPorabaWH</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00344">Configuration.h:344</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a4c4089e0ff727252f61d36f9b7432874"><div class="ttname"><a href="_configuration_8h.html#a4c4089e0ff727252f61d36f9b7432874">addrDeltaThSt</a></div><div class="ttdeci">unsigned int addrDeltaThSt</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00291">Configuration.h:291</a></div></div>
+<div class="ttc" id="unionfl2byte4b_html_a89560ba498e3fe528d97a435d5f61054"><div class="ttname"><a href="unionfl2byte4b.html#a89560ba498e3fe528d97a435d5f61054">fl2byte4b::fval</a></div><div class="ttdeci">float fval</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00186">Configuration.h:186</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a9679b45e0b75ffc857907000bafebe2a"><div class="ttname"><a href="_configuration_8h.html#a9679b45e0b75ffc857907000bafebe2a">startUraVT</a></div><div class="ttdeci">int startUraVT</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00244">Configuration.h:244</a></div></div>
+<div class="ttc" id="_configuration_8h_html_ac88bc54db30830eaf8f9eda306633f44"><div class="ttname"><a href="_configuration_8h.html#ac88bc54db30830eaf8f9eda306633f44">lastTCStateChg</a></div><div class="ttdeci">unsigned long lastTCStateChg</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00311">Configuration.h:311</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a9e759744247766fd4dc988a9e7ee8557"><div class="ttname"><a href="_configuration_8h.html#a9e759744247766fd4dc988a9e7ee8557">onTimeTC</a></div><div class="ttdeci">unsigned long onTimeTC</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00309">Configuration.h:309</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a629214d1dc1596b2ca569452a198bf3d"><div class="ttname"><a href="_configuration_8h.html#a629214d1dc1596b2ca569452a198bf3d">R_TC_KOMP_OFF</a></div><div class="ttdeci">#define R_TC_KOMP_OFF</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00045">Configuration.h:45</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a0cdc44c047411d10590fe3719a29e6c3"><div class="ttname"><a href="_configuration_8h.html#a0cdc44c047411d10590fe3719a29e6c3">coRawVal</a></div><div class="ttdeci">int coRawVal</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00352">Configuration.h:352</a></div></div>
+<div class="ttc" id="_configuration_8h_html_ac70e405280abb449f6724aef935c8c1a"><div class="ttname"><a href="_configuration_8h.html#ac70e405280abb449f6724aef935c8c1a">R_TC_VENT_OFF</a></div><div class="ttdeci">#define R_TC_VENT_OFF</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00042">Configuration.h:42</a></div></div>
+<div class="ttc" id="_configuration_8h_html_ac5fa4a12c3447fba6fe3bc2999c562f3"><div class="ttname"><a href="_configuration_8h.html#ac5fa4a12c3447fba6fe3bc2999c562f3">onTimeCrpRad</a></div><div class="ttdeci">unsigned long onTimeCrpRad</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00326">Configuration.h:326</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a38ed03cd0d55a0f53472e7d213888546"><div class="ttname"><a href="_configuration_8h.html#a38ed03cd0d55a0f53472e7d213888546">vccInternal</a></div><div class="ttdeci">static float vccInternal</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00280">Configuration.h:280</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a7fc7a0a5b2323a98b086e6b00b1062f3"><div class="ttname"><a href="_configuration_8h.html#a7fc7a0a5b2323a98b086e6b00b1062f3">porabaWH</a></div><div class="ttdeci">float porabaWH</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00343">Configuration.h:343</a></div></div>
+<div class="ttc" id="_configuration_8h_html_afa8950683ea624c70566788be369a83e"><div class="ttname"><a href="_configuration_8h.html#afa8950683ea624c70566788be369a83e">addrLastHourTemp</a></div><div class="ttdeci">unsigned int addrLastHourTemp</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00293">Configuration.h:293</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a85aeab80fe0d8640f774af42833b7b62"><div class="ttname"><a href="_configuration_8h.html#a85aeab80fe0d8640f774af42833b7b62">tKompSt</a></div><div class="ttdeci">const float tKompSt</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00235">Configuration.h:235</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a3852f25a298b299d28035bd394c08568"><div class="ttname"><a href="_configuration_8h.html#a3852f25a298b299d28035bd394c08568">maxDovTempVodeTC_Komp</a></div><div class="ttdeci">float maxDovTempVodeTC_Komp</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00228">Configuration.h:228</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a210e4c1fee39d3724fa6d72adb35a179"><div class="ttname"><a href="_configuration_8h.html#a210e4c1fee39d3724fa6d72adb35a179">MAX_DHT22_SENS</a></div><div class="ttdeci">#define MAX_DHT22_SENS</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00011">Configuration.h:11</a></div></div>
+<div class="ttc" id="_configuration_8h_html_aa8847a0dd3c42957040e91a2013c5262"><div class="ttname"><a href="_configuration_8h.html#aa8847a0dd3c42957040e91a2013c5262">prevCrpRadState</a></div><div class="ttdeci">byte prevCrpRadState</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00264">Configuration.h:264</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a2e1b31d0e4081456b613ecade94e13c9"><div class="ttname"><a href="_configuration_8h.html#a2e1b31d0e4081456b613ecade94e13c9">minTempNightOn</a></div><div class="ttdeci">float minTempNightOn</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00218">Configuration.h:218</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a9f41466bdb668f854aefcaec36c25c50"><div class="ttname"><a href="_configuration_8h.html#a9f41466bdb668f854aefcaec36c25c50">STATE_TC_OFF</a></div><div class="ttdeci">#define STATE_TC_OFF</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00024">Configuration.h:24</a></div></div>
+<div class="ttc" id="_configuration_8h_html_ac462f070035b41904c5cce2b0e0090dd"><div class="ttname"><a href="_configuration_8h.html#ac462f070035b41904c5cce2b0e0090dd">nMerTok_12V</a></div><div class="ttdeci">unsigned long nMerTok_12V</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00357">Configuration.h:357</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a8be9eeaf6bbeb6e2f92b6c0fb2695596"><div class="ttname"><a href="_configuration_8h.html#a8be9eeaf6bbeb6e2f92b6c0fb2695596">sensorIme</a></div><div class="ttdeci">char sensorIme[MAXSENSORS][6]</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00177">Configuration.h:177</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a4781e073871c6f27f89b9463ad3a4ed1"><div class="ttname"><a href="_configuration_8h.html#a4781e073871c6f27f89b9463ad3a4ed1">LCD_RS</a></div><div class="ttdeci">#define LCD_RS</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00089">Configuration.h:89</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a2c509dba12bba99883a5be9341b7a0c5"><div class="ttname"><a href="_configuration_8h.html#a2c509dba12bba99883a5be9341b7a0c5">DHTTYPE</a></div><div class="ttdeci">#define DHTTYPE</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00101">Configuration.h:101</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a4322c867961c6e10f3188d17d33c9a36"><div class="ttname"><a href="_configuration_8h.html#a4322c867961c6e10f3188d17d33c9a36">numSensDHT22</a></div><div class="ttdeci">int numSensDHT22</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00163">Configuration.h:163</a></div></div>
+<div class="ttc" id="_configuration_8h_html_a96fab0393d7ed32a365b1e4d768c1887"><div class="ttname"><a href="_configuration_8h.html#a96fab0393d7ed32a365b1e4d768c1887">addrDeltaThOk</a></div><div class="ttdeci">unsigned int addrDeltaThOk</div><div class="ttdef"><b>Definition:</b> <a href="_configuration_8h_source.html#l00290">Configuration.h:290</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_610cc7ed7def528487cef0892d25d96b.html">Pro03</a></li><li class="navelem"><a class="el" href="dir_dd7f50474d1f582a2bc83c5e1ff7af66.html">github</a></li><li class="navelem"><a class="el" href="dir_8bd426b2a08b5ac2a915c20967c193e3.html">KontrolerTC_H</a></li><li class="navelem"><a class="el" href="dir_769cd14c2325094aacdc661581a082ad.html">KontrolerTC_Mega2560_v1</a></li><li class="navelem"><a class="el" href="_configuration_8h.html">Configuration.h</a></li>
+    <li class="footer">Generirano Sat Apr 11 2015 22:13:24 projekt: Kontroler TC generator: 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

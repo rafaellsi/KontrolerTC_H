@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_tok__napetost_8h">
+    <title>Tok_napetost.h File Reference</title>
+        <section>
+            <title>Spremenljivke</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_tok__napetost_8h_1a22e6d8be301a52dc9e14488bfeabdecb">midR</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676">napetost_int</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Funkcije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_tok__napetost_8h_1a8532bd8557100d921d688e19a95b19b1">AC_mimax</link> (
+boolean izpis, boolean forceCalc)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_tok__napetost_8h_1a12f3449127e4b252f86f287b8115278f">Tok_12V</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_tok__napetost_8h_1a5ceef00e13113ce73455751f32f657d2">PretvoriV2A_asc712_DC</link> (
+int sensVal)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_tok__napetost_8h_1af31ba91892e6a5e197869cf27a875e07">PretvoriV2A_asc712</link> (
+int sensVal)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_tok__napetost_8h_1ade38a1d3370ac77809e5063e4992b66b">VoltageDivider</link> (
+int analRead, float r1, float r2, float korFact)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_tok__napetost_8h_1a779eb9725dabc01e324a5e250adf4b9e">PreveriNapetosti</link> (
+boolean internal, boolean external, boolean battery)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>long <link linkend="_tok__napetost_8h_1a2d9d20823919196287deff1988272c18">readVcc</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_tok__napetost_8h_1a6703f94853d213e12e0094017b707ab1">napetostiMinMax</link> (
+int n, boolean isFirstTime)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_tok__napetost_8h_1af99af44d1a9cd50b74f0b36ce072774e">PreveriNapetosti</link> (
+boolean izpis, boolean internal, boolean external, boolean battery)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Podroben opis</title>
+    <para>Definition in file //Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h</para>
+    </simplesect>
+</section>

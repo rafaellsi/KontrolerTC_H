@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_l_c_d__funkcije_8h">
+    <title>LCD_funkcije.h File Reference</title>
+        <section>
+            <title>Makro deklaracije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_l_c_d__funkcije_8h_1ab37e18286aa5f5c137be33be2b1974ea">MAX_LCD_OSV</link> 160</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Spremenljivke</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>byte <link linkend="_l_c_d__funkcije_8h_1a5a8388d6c8d7dd17d39ed21d5f16806c">prevTCState</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_l_c_d__funkcije_8h_1a9e759744247766fd4dc988a9e7ee8557">onTimeTC</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_l_c_d__funkcije_8h_1ac88bc54db30830eaf8f9eda306633f44">lastTCStateChg</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>char <link linkend="_l_c_d__funkcije_8h_1ae2066ef83505aef3c8e722973e205a72">infoErr</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_l_c_d__funkcije_8h_1a311b3e36e23ded7e0f38b10da8cf73b1">infoModeLCD</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_l_c_d__funkcije_8h_1aea17259e977df3f5a7bcfbe03c1aee2b">menuZaslonNum</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_l_c_d__funkcije_8h_1a182cfd316b07c59583797ae59fc10b59">buttonPressed</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_l_c_d__funkcije_8h_1a0cdc44c047411d10590fe3719a29e6c3">coRawVal</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Funkcije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_l_c_d__funkcije_8h_1afc282662e206781d5412ce0006ea0e76">LCDInitializacija</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_l_c_d__funkcije_8h_1a4de9eb29c16979c6b172e1748174ef7e">Beep</link> (
+unsigned char delayms)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_l_c_d__funkcije_8h_1ad98736b48d836f8d6fec890143887fdb">IzpisHex2</link> (
+int num)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_l_c_d__funkcije_8h_1ab1fe73a548c9c5ac801b92e08b7748e9">PrintDigitsLCDA</link> (
+int digits)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_l_c_d__funkcije_8h_1ada5e79abbbb9885dc5a237ffbceadd9d">IzpisiNaLCD</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_l_c_d__funkcije_8h_1a3e96f386106afe50dcbb8bf5af5dbbc0">IzpisControlMenu</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_l_c_d__funkcije_8h_1a5f03af6449b9ed209147163f45686e55">IzpisInfoMenu</link> (
+int infoLCD)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_l_c_d__funkcije_8h_1af13e3927bb60dda5e8508252d7421978">TempVklopa</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_l_c_d__funkcije_8h_1adb525fcd9c54a91e6578b904ef4ce803">TempIzklopa</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Podroben opis</title>
+    <para>Definition in file //Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h</para>
+    </simplesect>
+</section>

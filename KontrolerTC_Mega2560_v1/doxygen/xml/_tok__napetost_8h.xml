@@ -1,0 +1,690 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="_tok__napetost_8h" kind="file" language="C++">
+    <compoundname>Tok_napetost.h</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_tok__napetost_8h_1a22e6d8be301a52dc9e14488bfeabdecb" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int midR</definition>
+        <argsstring></argsstring>
+        <name>midR</name>
+        <initializer>= 512</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" line="20" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float napetost_int[5][3]</definition>
+        <argsstring>[5][3]</argsstring>
+        <name>napetost_int</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" line="277" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" bodystart="277" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_tok__napetost_8h_1a8532bd8557100d921d688e19a95b19b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float AC_mimax</definition>
+        <argsstring>(boolean izpis, boolean forceCalc)</argsstring>
+        <name>AC_mimax</name>
+        <param>
+          <type>boolean</type>
+          <declname>izpis</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>forceCalc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" line="9" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" bodystart="24" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="_tok__napetost_8h_1a12f3449127e4b252f86f287b8115278f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Tok_12V</definition>
+        <argsstring>(void)</argsstring>
+        <name>Tok_12V</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" line="10" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" bodystart="139" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="_tok__napetost_8h_1a5ceef00e13113ce73455751f32f657d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float PretvoriV2A_asc712_DC</definition>
+        <argsstring>(int sensVal)</argsstring>
+        <name>PretvoriV2A_asc712_DC</name>
+        <param>
+          <type>int</type>
+          <declname>sensVal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" line="11" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" bodystart="158" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="_tok__napetost_8h_1af31ba91892e6a5e197869cf27a875e07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float PretvoriV2A_asc712</definition>
+        <argsstring>(int sensVal)</argsstring>
+        <name>PretvoriV2A_asc712</name>
+        <param>
+          <type>int</type>
+          <declname>sensVal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" line="12" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" bodystart="183" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="_tok__napetost_8h_1ade38a1d3370ac77809e5063e4992b66b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float VoltageDivider</definition>
+        <argsstring>(int analRead, float r1, float r2, float korFact)</argsstring>
+        <name>VoltageDivider</name>
+        <param>
+          <type>int</type>
+          <declname>analRead</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>r1</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>r2</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>korFact</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" line="13" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" bodystart="206" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="_tok__napetost_8h_1a779eb9725dabc01e324a5e250adf4b9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PreveriNapetosti</definition>
+        <argsstring>(boolean internal, boolean external, boolean battery)</argsstring>
+        <name>PreveriNapetosti</name>
+        <param>
+          <type>boolean</type>
+          <declname>internal</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>external</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>battery</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_tok__napetost_8h_1a2d9d20823919196287deff1988272c18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long</type>
+        <definition>long readVcc</definition>
+        <argsstring>(void)</argsstring>
+        <name>readVcc</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" line="15" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" bodystart="413" bodyend="448"/>
+      </memberdef>
+      <memberdef kind="function" id="_tok__napetost_8h_1a6703f94853d213e12e0094017b707ab1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void napetostiMinMax</definition>
+        <argsstring>(int n, boolean isFirstTime)</argsstring>
+        <name>napetostiMinMax</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>isFirstTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" line="279" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" bodystart="279" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="_tok__napetost_8h_1af99af44d1a9cd50b74f0b36ce072774e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PreveriNapetosti</definition>
+        <argsstring>(boolean izpis=true, boolean internal=false, boolean external=false, boolean battery=false)</argsstring>
+        <name>PreveriNapetosti</name>
+        <param>
+          <type>boolean</type>
+          <declname>izpis</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>internal</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>external</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>boolean</type>
+          <declname>battery</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" line="293" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" bodystart="293" bodyend="409"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>Tok_napetost_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>Tok_napetost_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//extern<sp/>boolean<sp/>releState_TC;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//extern<sp/>float<sp/>vccInternal;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//extern<sp/>int<sp/>midR;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_tok__napetost_8h_1a8532bd8557100d921d688e19a95b19b1" kindref="member">AC_mimax</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>izpis,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>forceCalc);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_tok__napetost_8h_1a12f3449127e4b252f86f287b8115278f" kindref="member">Tok_12V</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_tok__napetost_8h_1a5ceef00e13113ce73455751f32f657d2" kindref="member">PretvoriV2A_asc712_DC</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sensVal);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_tok__napetost_8h_1af31ba91892e6a5e197869cf27a875e07" kindref="member">PretvoriV2A_asc712</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sensVal);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_tok__napetost_8h_1ade38a1d3370ac77809e5063e4992b66b" kindref="member">VoltageDivider</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>analRead,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>r1,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>r2,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>korFact);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_tok__napetost_8h_1a779eb9725dabc01e324a5e250adf4b9e" kindref="member">PreveriNapetosti</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">internal</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>external,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>battery);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_tok__napetost_8h_1a2d9d20823919196287deff1988272c18" kindref="member">readVcc</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="_tok__napetost_8h_1a22e6d8be301a52dc9e14488bfeabdecb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_tok__napetost_8h_1a22e6d8be301a52dc9e14488bfeabdecb" kindref="member">midR</ref><sp/>=<sp/>512;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//<sp/>branje<sp/>senzorja<sp/>toka,<sp/>pretvorba,<sp/>izracun<sp/>efektivne<sp/>vrednosti<sp/>toka</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="_tok__napetost_8h_1a8532bd8557100d921d688e19a95b19b1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_tok__napetost_8h_1a8532bd8557100d921d688e19a95b19b1" kindref="member">AC_mimax</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>izpis<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>forceCalc<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>lastMerPorabeWH<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>val_I;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>prebrana<sp/>vrednost<sp/>senzorja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxR,<sp/>minR;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>min/max<sp/>prebrana<sp/>vrednost<sp/>senzorja<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>startTime;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>zacetek<sp/>meritve<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/>dTRSt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>cas<sp/>zadnjega<sp/>branja<sp/>senzorja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><sp/>dTRStMin<sp/>=<sp/>200;<sp/><sp/></highlight><highlight class="comment">//<sp/>minimalni<sp/>cas<sp/>med<sp/>dvema<sp/>branjema<sp/>senzorja<sp/>-<sp/>v<sp/>microsecundah</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>timeDiff;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numMerAC<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>efI;<sp/><sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>tok01;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>vccFactor<sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_configuration_8h_1a302977b9a0803246dd4879e04a8e4e16" kindref="member">stateTC</ref><sp/>==<sp/><ref refid="_configuration_8h_1a9f41466bdb668f854aefcaec36c25c50" kindref="member">STATE_TC_OFF</ref><sp/>&amp;&amp;<sp/>forceCalc<sp/>==<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(0.0);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#ifdef<sp/>INTFACT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>vccFactor<sp/>=<sp/><ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref>/5.0;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>delay(2);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>startTime<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>dTRSt<sp/>=<sp/>micros();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>noInterrupts();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>val_I<sp/>=<sp/>analogRead(<ref refid="_configuration_8h_1a85fc9ebf5a44eda6146af5d15d7307cd" kindref="member">SENS_TOK</ref>)<sp/>*vccFactor;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>interrupts();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>tok01<sp/>=<sp/><ref refid="_tok__napetost_8h_1af31ba91892e6a5e197869cf27a875e07" kindref="member">PretvoriV2A_asc712</ref>(val_I);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>efI<sp/>=<sp/>(tok01<sp/>*<sp/>tok01);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>maxR<sp/>=<sp/>val_I;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>minR<sp/>=<sp/>val_I;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(micros()<sp/>-<sp/>dTRSt<sp/>&lt;<sp/>dTRStMin)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>delayMicroseconds(1);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>if<sp/>(micros()<sp/>-<sp/>dTRSt<sp/>&lt;<sp/>dTRStMin)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>delayMicroseconds((dTRStMin+5)<sp/>-<sp/>(micros()<sp/>-<sp/>dTRSt));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>dTRSt<sp/>=<sp/>micros();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>noInterrupts();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>val_I<sp/>=<sp/>analogRead(<ref refid="_configuration_8h_1a85fc9ebf5a44eda6146af5d15d7307cd" kindref="member">SENS_TOK</ref>)*<sp/>vccFactor;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>interrupts();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>tok01<sp/>=<sp/><ref refid="_tok__napetost_8h_1af31ba91892e6a5e197869cf27a875e07" kindref="member">PretvoriV2A_asc712</ref>(val_I);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>efI<sp/>+=<sp/>((double)<sp/>tok01<sp/>*<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)<sp/>tok01);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(val_I<sp/>&gt;<sp/>maxR)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>maxR<sp/>=<sp/>val_I;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(val_I<sp/>&lt;<sp/>minR)<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>minR<sp/>=<sp/>val_I;<sp/></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>numMerAC++;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(millis()<sp/>-<sp/>startTime<sp/>&lt;<sp/>20<sp/>&amp;&amp;<sp/>millis()<sp/>&gt;=<sp/>startTime);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>efI<sp/>=<sp/>efI/((float)<sp/>numMerAC);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>efI<sp/>=<sp/>sqrt(efI);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(izpis)<sp/>{<sp/></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;Min.-max:&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(minR);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>Serial.print(&quot;<sp/>(&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>Serial.print(PretvoriVAmp5A(minR));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>Serial.print(&quot;A)<sp/>-&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;-&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(maxR);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>Serial.print(&quot;<sp/>(&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>Serial.print(PretvoriVAmp5A(maxR));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>Serial.print(&quot;A)<sp/>-&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>Serial.print(&quot;<sp/>midR:&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1a22e6d8be301a52dc9e14488bfeabdecb" kindref="member">midR</ref>);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref>,2);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;V<sp/>-&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>poraba<sp/>+=<sp/>(((now()<sp/>-<sp/>lastAMesTime)/3600.0)<sp/>*<sp/>efI);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>lastAMesTime<sp/>=<sp/>now();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><ref refid="_tok__napetost_8h_1a22e6d8be301a52dc9e14488bfeabdecb" kindref="member">midR</ref><sp/>=<sp/>(3*<ref refid="_tok__napetost_8h_1a22e6d8be301a52dc9e14488bfeabdecb" kindref="member">midR</ref><sp/>+<sp/>minR<sp/>+<sp/>maxR)/5;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(millis()<sp/>&gt;=<sp/>lastMerPorabeWH)<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>timeDiff<sp/>=<sp/>millis()<sp/>-<sp/>lastMerPorabeWH;<sp/></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>timeDiff<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>lastMerPorabeWH<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1a7fc7a0a5b2323a98b086e6b00b1062f3" kindref="member">porabaWH</ref><sp/>+=<sp/>(efI<sp/>*(<ref refid="_configuration_8h_1a7cd4b28149c771d679a463ed54f23120" kindref="member">Vrms</ref><sp/>*<sp/>((float)<sp/>timeDiff/1000.0)/3600.0));<sp/><sp/></highlight><highlight class="comment">//<sp/>poraba<sp/>v<sp/>VAh<sp/>-<sp/>(timer<sp/>[ms]/1000)[s]<sp/>/3600<sp/>[h]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(efI);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">}<sp/></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139" refid="_tok__napetost_8h_1a12f3449127e4b252f86f287b8115278f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_tok__napetost_8h_1a12f3449127e4b252f86f287b8115278f" kindref="member">Tok_12V</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>raw_I;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>tok_12V;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>raw_I<sp/>=<sp/>analogRead(<ref refid="_configuration_8h_1a01a23ab3441ec4788f29394731207546" kindref="member">SENS_TOK_12V</ref>);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>tok_12V<sp/>=<sp/><ref refid="_tok__napetost_8h_1a5ceef00e13113ce73455751f32f657d2" kindref="member">PretvoriV2A_asc712_DC</ref>(raw_I);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1a6423501f1aa82d39c61cd52d96ae2d71" kindref="member">sumTok_12V</ref><sp/>+=<sp/>tok_12V;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1ac462f070035b41904c5cce2b0e0090dd" kindref="member">nMerTok_12V</ref><sp/>+=<sp/>1;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tok_12V<sp/>&gt;<sp/><ref refid="_configuration_8h_1a246248703162c48d7b60c93edbbd88fb" kindref="member">maxTok_12V</ref>)</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1a246248703162c48d7b60c93edbbd88fb" kindref="member">maxTok_12V</ref><sp/>=<sp/>tok_12V;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(tok_12V);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}<sp/><sp/></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158" refid="_tok__napetost_8h_1a5ceef00e13113ce73455751f32f657d2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_tok__napetost_8h_1a5ceef00e13113ce73455751f32f657d2" kindref="member">PretvoriV2A_asc712_DC</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sensVal)<sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>tok;<sp/><sp/></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cVal<sp/>=<sp/>sensVal<sp/>-<sp/><ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref>/2;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref><sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tok<sp/>=<sp/>(((float)<sp/>cVal<sp/>/<sp/>1024.0)*<ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref>);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tok<sp/>=<sp/>(((float)<sp/>cVal<sp/>/<sp/>1024.0)*5.0);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>tok<sp/>-=<sp/>(<ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref>/2.0);<sp/></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/><sp/><sp/><sp/>if<sp/>(vccInternal<sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>tok<sp/>=<sp/>(((float)<sp/>cVal<sp/>/<sp/>1024.0)*vccInternal);</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/><sp/><sp/><sp/>else<sp/><sp/></highlight></codeline>
+<codeline lineno="172"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>tok<sp/>=<sp/>(((float)<sp/>cVal<sp/>/<sp/>1024.0)*5.0);</highlight></codeline>
+<codeline lineno="173"><highlight class="comment">//<sp/><sp/>tok<sp/>=<sp/>(((float)<sp/>sensVal<sp/>/<sp/>1024.0)*5.0)<sp/>-<sp/>2.50;</highlight></codeline>
+<codeline lineno="174"><highlight class="comment"></highlight></codeline>
+<codeline lineno="175"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(tok<sp/>/=<sp/>0.185);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//za<sp/>senzor<sp/>(max.<sp/>5A)<sp/>0.185V<sp/>na<sp/>1A<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>return(tok<sp/>/=<sp/>0.100);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//za<sp/>senzor<sp/>(max.<sp/>20A)<sp/>0.100V<sp/>na<sp/>1A</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>return(tok<sp/>/=<sp/>0.001250);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//test<sp/>za<sp/>0.01V/A</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal">}<sp/><sp/></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="comment">//<sp/>pretvorba<sp/>prebrane<sp/>vrednosti<sp/>senzorj<sp/>v<sp/>tok</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183" refid="_tok__napetost_8h_1af31ba91892e6a5e197869cf27a875e07" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_tok__napetost_8h_1af31ba91892e6a5e197869cf27a875e07" kindref="member">PretvoriV2A_asc712</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sensVal)<sp/>{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>tok;<sp/><sp/></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cVal<sp/>=<sp/>sensVal<sp/>-<sp/><ref refid="_tok__napetost_8h_1a22e6d8be301a52dc9e14488bfeabdecb" kindref="member">midR</ref>;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#ifdef<sp/>INTFACT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tok<sp/>=<sp/>(((float)<sp/>cVal<sp/>/<sp/>1024.0)*5.0);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tok<sp/>=<sp/>(((float)<sp/>cVal<sp/>/<sp/>1024.0)*<ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref>);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/><sp/><sp/><sp/>if<sp/>(vccInternal<sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>tok<sp/>=<sp/>(((float)<sp/>cVal<sp/>/<sp/>1024.0)*vccInternal);</highlight></codeline>
+<codeline lineno="195"><highlight class="comment"><sp/><sp/><sp/><sp/>else<sp/><sp/></highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>tok<sp/>=<sp/>(((float)<sp/>cVal<sp/>/<sp/>1024.0)*5.0);</highlight></codeline>
+<codeline lineno="197"><highlight class="comment">//<sp/><sp/>tok<sp/>=<sp/>(((float)<sp/>sensVal<sp/>/<sp/>1024.0)*5.0)<sp/>-<sp/>2.50;</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"></highlight></codeline>
+<codeline lineno="199"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>return(tok<sp/>/=<sp/>0.185);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//za<sp/>senzor<sp/>(max.<sp/>5A)<sp/>0.185V<sp/>na<sp/>1A<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(tok<sp/>/=<sp/>0.100);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//za<sp/>senzor<sp/>(max.<sp/>20A)<sp/>0.100V<sp/>na<sp/>1A</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>return(tok<sp/>/=<sp/>0.001250);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//test<sp/>za<sp/>0.01V/A</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal">}<sp/><sp/></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206" refid="_tok__napetost_8h_1ade38a1d3370ac77809e5063e4992b66b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_tok__napetost_8h_1ade38a1d3370ac77809e5063e4992b66b" kindref="member">VoltageDivider</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>analRead,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>r1,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>r2,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>korFact<sp/>=<sp/>1.0)<sp/>{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numSamples<sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>napetost<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>noInterrupts();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>numSamples;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>delay(2);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>napetost<sp/>+=<sp/>(analogRead(analRead)<sp/>*<sp/><ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref>/<sp/>1023.0)<sp/>*<sp/>(r1<sp/>+<sp/>r2)<sp/>/<sp/>r2;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>interrupts();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/>napetost<sp/>/=<sp/>((float)<sp/>numSamples);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(napetost<sp/>*<sp/>korFact);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal">}<sp/><sp/></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight><highlight class="comment">//static<sp/>float<sp/>v5_3_r1<sp/>=<sp/>2200;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight><highlight class="comment">//static<sp/>float<sp/>v5_3_r2<sp/>=<sp/>2200;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="225"><highlight class="comment">//--------------------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="226"><highlight class="comment">void<sp/>PreveriNapetosti(boolean<sp/>internal<sp/>=<sp/>false,<sp/>boolean<sp/>external<sp/>=<sp/>false,<sp/>boolean<sp/>battery<sp/>=<sp/>false)</highlight></codeline>
+<codeline lineno="227"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/><sp/>static<sp/>float<sp/>v12_r1<sp/>=<sp/>6800;</highlight></codeline>
+<codeline lineno="229"><highlight class="comment"><sp/><sp/>static<sp/>float<sp/>v12_r2<sp/>=<sp/>3300;</highlight></codeline>
+<codeline lineno="230"><highlight class="comment"><sp/><sp/>static<sp/>float<sp/>v5_r1<sp/>=<sp/><sp/>1000;</highlight></codeline>
+<codeline lineno="231"><highlight class="comment"><sp/><sp/>static<sp/>float<sp/>v5_r2<sp/>=<sp/><sp/>3900;</highlight></codeline>
+<codeline lineno="232"><highlight class="comment"><sp/><sp/></highlight></codeline>
+<codeline lineno="233"><highlight class="comment"><sp/><sp/></highlight></codeline>
+<codeline lineno="234"><highlight class="comment"><sp/><sp/>float<sp/>vTemp;</highlight></codeline>
+<codeline lineno="235"><highlight class="comment"><sp/><sp/></highlight></codeline>
+<codeline lineno="236"><highlight class="comment"><sp/><sp/>if<sp/>(internal)<sp/>{</highlight></codeline>
+<codeline lineno="237"><highlight class="comment"><sp/><sp/><sp/><sp/>vTemp<sp/>=<sp/>(float)<sp/>readVcc()/1000.0;</highlight></codeline>
+<codeline lineno="238"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.print(F(&quot;<sp/>5In:&quot;));</highlight></codeline>
+<codeline lineno="239"><highlight class="comment"><sp/><sp/><sp/><sp/>if<sp/>(vTemp<sp/>&lt;<sp/>5.0<sp/>*<sp/>0.5<sp/>||<sp/>vTemp<sp/>&gt;<sp/>1.5<sp/>*5.0)<sp/>{</highlight></codeline>
+<codeline lineno="240"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(vTemp);</highlight></codeline>
+<codeline lineno="241"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(&quot;(Err)<sp/>&quot;));</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"><sp/><sp/><sp/><sp/>else<sp/>{<sp/><sp/></highlight></codeline>
+<codeline lineno="244"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>vccInternal<sp/>=<sp/>vTemp;</highlight></codeline>
+<codeline lineno="245"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="246"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="247"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.print(vccInternal);</highlight></codeline>
+<codeline lineno="248"><highlight class="comment"><sp/><sp/><sp/><sp/>delay(5);</highlight></codeline>
+<codeline lineno="249"><highlight class="comment"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="250"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="251"><highlight class="comment"><sp/><sp/>if<sp/>(external)<sp/>{</highlight></codeline>
+<codeline lineno="252"><highlight class="comment"><sp/><sp/><sp/><sp/>if<sp/>(vccInternal<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="253"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>vccInternal<sp/>=<sp/>5.0;</highlight></codeline>
+<codeline lineno="254"><highlight class="comment"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="255"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.print(F(&quot;<sp/>12V:&quot;));</highlight></codeline>
+<codeline lineno="256"><highlight class="comment"><sp/><sp/><sp/><sp/>delay(5);</highlight></codeline>
+<codeline lineno="257"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.print(VoltageDivider(SENS_V12,<sp/>v12_r1,<sp/>v12_r2,<sp/>1.01759));</highlight></codeline>
+<codeline lineno="258"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.print(F(&quot;<sp/><sp/>5V2:&quot;));</highlight></codeline>
+<codeline lineno="259"><highlight class="comment"><sp/><sp/><sp/><sp/>delay(5);</highlight></codeline>
+<codeline lineno="260"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.print(VoltageDivider(SENS_V5_2,<sp/>v5_r1,<sp/>v5_r2,<sp/>1.0041));<sp/></highlight></codeline>
+<codeline lineno="261"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.print(F(&quot;<sp/><sp/>5V3:&quot;));</highlight></codeline>
+<codeline lineno="262"><highlight class="comment"><sp/><sp/><sp/><sp/>delay(5);</highlight></codeline>
+<codeline lineno="263"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.print(VoltageDivider(SENS_V5_3,<sp/>v5_3_r1,<sp/>v5_3_r2));<sp/></highlight></codeline>
+<codeline lineno="264"><highlight class="comment"></highlight></codeline>
+<codeline lineno="265"><highlight class="comment"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="266"><highlight class="comment"><sp/><sp/>if<sp/>(battery)<sp/>{</highlight></codeline>
+<codeline lineno="267"><highlight class="comment"><sp/><sp/><sp/><sp/>if<sp/>(vccInternal<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="268"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>vccInternal<sp/>=<sp/>5.0;</highlight></codeline>
+<codeline lineno="269"><highlight class="comment"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="270"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.print(F(&quot;<sp/>Batt+:&quot;));</highlight></codeline>
+<codeline lineno="271"><highlight class="comment"><sp/><sp/><sp/><sp/>delay(5);</highlight></codeline>
+<codeline lineno="272"><highlight class="comment"><sp/><sp/><sp/><sp/>Serial.print(analogRead(SENS_RTC_BATT)<sp/>*<sp/>vccInternal/<sp/>1024.0);</highlight></codeline>
+<codeline lineno="273"><highlight class="comment"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="274"><highlight class="comment">}</highlight></codeline>
+<codeline lineno="275"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277" refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[5][3];</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="279" refid="_tok__napetost_8h_1a6703f94853d213e12e0094017b707ab1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_tok__napetost_8h_1a6703f94853d213e12e0094017b707ab1" kindref="member">napetostiMinMax</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>isFirstTime)<sp/>{</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isFirstTime)<sp/>{</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[n][1]<sp/>=<sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[n][0];</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[n][2]<sp/>=<sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[n][0];</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[n][0]<sp/>&lt;<sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[n][1])</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[n][1]<sp/>=<sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[n][0];</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[n][0]<sp/>&gt;<sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[n][2])</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[n][2]<sp/>=<sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[n][0];<sp/><sp/></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="290"><highlight class="normal">}<sp/><sp/></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="293" refid="_tok__napetost_8h_1af99af44d1a9cd50b74f0b36ce072774e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_tok__napetost_8h_1a779eb9725dabc01e324a5e250adf4b9e" kindref="member">PreveriNapetosti</ref>(</highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>izpis<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">internal</highlight><highlight class="normal"><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>external<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>battery<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="294"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>isFirstTime<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/></highlight></codeline>
+<codeline lineno="298"><highlight class="comment"><sp/><sp/>static<sp/>float<sp/>v12_r1<sp/>=<sp/>6800;</highlight></codeline>
+<codeline lineno="299"><highlight class="comment"><sp/><sp/>static<sp/>float<sp/>v12_r2<sp/>=<sp/>3300;</highlight></codeline>
+<codeline lineno="300"><highlight class="comment"><sp/><sp/>static<sp/>float<sp/>v5_r1<sp/>=<sp/><sp/>1000;</highlight></codeline>
+<codeline lineno="301"><highlight class="comment"><sp/><sp/>static<sp/>float<sp/>v5_r2<sp/>=<sp/><sp/>3900;</highlight></codeline>
+<codeline lineno="302"><highlight class="comment">*/</highlight><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>upr_delilnika[3][2]<sp/>=<sp/>{6800,<sp/>3300,<sp/>1000,<sp/>3900,<sp/>2200,<sp/>2200};</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>vTemp;</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">internal</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[0][0]<sp/>=<sp/>(float)<sp/><ref refid="_tok__napetost_8h_1a2d9d20823919196287deff1988272c18" kindref="member">readVcc</ref>()/1000.0;</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[0][0]<sp/>&lt;<sp/>5.0<sp/>*<sp/>0.5<sp/>||<sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[0][0]<sp/>&gt;<sp/>1.5<sp/>*5.0)<sp/>{</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>5In:&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[0][0]);</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;(Err)<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{<sp/><sp/></highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref><sp/>=<sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[0][0];</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1a6703f94853d213e12e0094017b707ab1" kindref="member">napetostiMinMax</ref>(0,<sp/>isFirstTime);</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(izpis)<sp/>{</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>5In:&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[0][0]);</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;(&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[0][1]);</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[0][2]);</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//delay(2);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(external)<sp/>{</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref><sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref><sp/>=<sp/>5.0;</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[0][0]<sp/>=<sp/><ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref>;</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[0][1]<sp/>=<sp/><ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref>;</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[0][2]<sp/>=<sp/><ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref>;</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[1][0]<sp/>=<sp/><ref refid="_tok__napetost_8h_1ade38a1d3370ac77809e5063e4992b66b" kindref="member">VoltageDivider</ref>(<ref refid="_configuration_8h_1a9fc6aaa7d59412d3e662bccfef13b200" kindref="member">SENS_V12</ref>,<sp/>upr_delilnika[0][0],<sp/>upr_delilnika[0][1],<sp/>1.01759);</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1a6703f94853d213e12e0094017b707ab1" kindref="member">napetostiMinMax</ref>(1,<sp/>isFirstTime);</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(izpis)<sp/>{</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>12V:&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[1][0]);</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;(&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[1][1]);</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[1][2]);</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>delay(5);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[2][0]<sp/>=<sp/><ref refid="_tok__napetost_8h_1ade38a1d3370ac77809e5063e4992b66b" kindref="member">VoltageDivider</ref>(<ref refid="_configuration_8h_1a6cc64e8f1f4b8a871a9e11eb11b5237e" kindref="member">SENS_V5_2</ref>,<sp/>upr_delilnika[1][0],<sp/>upr_delilnika[1][1],<sp/>1.0041);</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1a6703f94853d213e12e0094017b707ab1" kindref="member">napetostiMinMax</ref>(2,<sp/>isFirstTime);</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(izpis)<sp/>{</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>5V2:&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[2][0]);</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;(&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[2][1]);</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[2][2]);</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="365"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>delay(5);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[3][0]<sp/>=<sp/><ref refid="_tok__napetost_8h_1ade38a1d3370ac77809e5063e4992b66b" kindref="member">VoltageDivider</ref>(<ref refid="_configuration_8h_1a0e62c1038115785c066f16571055c995" kindref="member">SENS_V5_3</ref>,<sp/>upr_delilnika[2][0],<sp/>upr_delilnika[2][1]);</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1a6703f94853d213e12e0094017b707ab1" kindref="member">napetostiMinMax</ref>(3,<sp/>isFirstTime);</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(izpis)<sp/>{</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>5V3:&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[3][0]);</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;(&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[3][1]);</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[3][2]);</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>delay(5);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[4][0]<sp/>=<sp/>analogRead(<ref refid="_configuration_8h_1a9111880e1aceaf8dc0c76ff1664d8f17" kindref="member">SENS_3V3_SD</ref>)<sp/>*<sp/><ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref>/<sp/>1023.0;</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1a6703f94853d213e12e0094017b707ab1" kindref="member">napetostiMinMax</ref>(4,<sp/>isFirstTime);</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(izpis)<sp/>{</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>3V3:&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[4][0]);</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;(&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="384"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[4][1]);</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[4][2]);</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="390"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="391"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(battery)<sp/>{</highlight></codeline>
+<codeline lineno="392"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref><sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="393"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref><sp/>=<sp/>5.0;</highlight></codeline>
+<codeline lineno="394"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="395"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[4][0]<sp/>=<sp/>analogRead(<ref refid="_configuration_8h_1a03ff6c3864851de1a34342dc7e1f385b" kindref="member">SENS_RTC_BATT</ref>)<sp/>*<sp/><ref refid="_temperature_8h_1a38ed03cd0d55a0f53472e7d213888546" kindref="member">vccInternal</ref>/<sp/>1024.0;</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_tok__napetost_8h_1a6703f94853d213e12e0094017b707ab1" kindref="member">napetostiMinMax</ref>(4,<sp/>isFirstTime);</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(izpis)<sp/>{</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>Batt+:&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[4][0]);</highlight></codeline>
+<codeline lineno="400"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;(&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="401"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[4][1]);</highlight></codeline>
+<codeline lineno="402"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="403"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(<ref refid="_tok__napetost_8h_1ae4c0389926423e420115d63358ccc676" kindref="member">napetost_int</ref>[4][2]);</highlight></codeline>
+<codeline lineno="404"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="405"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="406"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>delay(5);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="407"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><sp/><sp/>isFirstTime<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="409"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="410"><highlight class="normal"></highlight></codeline>
+<codeline lineno="411"><highlight class="normal"></highlight></codeline>
+<codeline lineno="412"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="413" refid="_tok__napetost_8h_1a2d9d20823919196287deff1988272c18" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_tok__napetost_8h_1a2d9d20823919196287deff1988272c18" kindref="member">readVcc</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="414"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>1.1V<sp/>reference<sp/>against<sp/>AVcc</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="415"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>the<sp/>reference<sp/>to<sp/>Vcc<sp/>and<sp/>the<sp/>measurement<sp/>to<sp/>the<sp/>internal<sp/>1.1V<sp/>reference</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="416"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>delay(3);<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="417"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>noInterrupts();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="418"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#if<sp/>defined(__AVR_ATmega32U4__)<sp/>||<sp/>defined(__AVR_ATmega1280__)<sp/>||<sp/>defined(__AVR_ATmega2560__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="419"><highlight class="normal"><sp/><sp/><sp/><sp/>ADMUX<sp/>=<sp/>_BV(REFS0)<sp/>|<sp/>_BV(MUX4)<sp/>|<sp/>_BV(MUX3)<sp/>|<sp/>_BV(MUX2)<sp/>|<sp/>_BV(MUX1);</highlight></codeline>
+<codeline lineno="420"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#elif<sp/>defined<sp/>(__AVR_ATtiny24__)<sp/>||<sp/>defined(__AVR_ATtiny44__)<sp/>||<sp/>defined(__AVR_ATtiny84__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="421"><highlight class="normal"><sp/><sp/><sp/><sp/>ADMUX<sp/>=<sp/>_BV(MUX5)<sp/>|<sp/>_BV(MUX0);</highlight></codeline>
+<codeline lineno="422"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#elif<sp/>defined<sp/>(__AVR_ATtiny25__)<sp/>||<sp/>defined(__AVR_ATtiny45__)<sp/>||<sp/>defined(__AVR_ATtiny85__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="423"><highlight class="normal"><sp/><sp/><sp/><sp/>ADMUX<sp/>=<sp/>_BV(MUX3)<sp/>|<sp/>_BV(MUX2);</highlight></codeline>
+<codeline lineno="424"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="425"><highlight class="normal"><sp/><sp/><sp/><sp/>ADMUX<sp/>=<sp/>_BV(REFS0)<sp/>|<sp/>_BV(MUX3)<sp/>|<sp/>_BV(MUX2)<sp/>|<sp/>_BV(MUX1);</highlight></codeline>
+<codeline lineno="426"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#endif<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="427"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="428"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>delay(2);<sp/>//<sp/>Wait<sp/>for<sp/>Vref<sp/>to<sp/>settle</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="429"><highlight class="normal"><sp/><sp/>delay(2);</highlight></codeline>
+<codeline lineno="430"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="431"><highlight class="normal"><sp/><sp/>ADCSRA<sp/>|=<sp/>_BV(ADSC);<sp/></highlight><highlight class="comment">//<sp/>Start<sp/>conversion</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="432"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>while<sp/>(bit_is_set(ADCSRA,ADSC));<sp/>//<sp/>measuring</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="433"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="434"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(bit_is_set(ADCSRA,ADSC))<sp/>{<sp/></highlight><highlight class="comment">//<sp/>measuring</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="435"><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="436"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="437"><highlight class="normal"><sp/><sp/>uint8_t<sp/>low<sp/><sp/>=<sp/>ADCL;<sp/></highlight><highlight class="comment">//<sp/>must<sp/>read<sp/>ADCL<sp/>first<sp/>-<sp/>it<sp/>then<sp/>locks<sp/>ADCH<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="438"><highlight class="normal"><sp/><sp/>uint8_t<sp/>high<sp/>=<sp/>ADCH;<sp/></highlight><highlight class="comment">//<sp/>unlocks<sp/>both</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="439"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>interrupts();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>result<sp/>=<sp/>(high&lt;&lt;8)<sp/>|<sp/>low;</highlight></codeline>
+<codeline lineno="441"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="442"><highlight class="normal"><sp/><sp/>result<sp/>=<sp/>1125300L<sp/>/<sp/>result;<sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>Vcc<sp/>(in<sp/>mV);<sp/>1125300<sp/>=<sp/>1.1*1023*1000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="443"><highlight class="normal"></highlight></codeline>
+<codeline lineno="444"><highlight class="normal"></highlight></codeline>
+<codeline lineno="445"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>analogReference(DEFAULT);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="446"><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;<sp/></highlight><highlight class="comment">//<sp/>Vcc<sp/>in<sp/>millivolts</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="447"><highlight class="normal"></highlight></codeline>
+<codeline lineno="448"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="449"><highlight class="normal"></highlight></codeline>
+<codeline lineno="450"><highlight class="normal"></highlight></codeline>
+<codeline lineno="451"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h"/>
+  </compounddef>
+</doxygen>

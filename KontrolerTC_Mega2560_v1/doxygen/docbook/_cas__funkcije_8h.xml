@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_cas__funkcije_8h">
+    <title>Cas_funkcije.h File Reference</title>
+        <section>
+            <title>Funkcije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_cas__funkcije_8h_1adfb3f10d2c40a8f3a1015a735402132a">NarediTimeStr</link> (
+char * cas, unsigned long tcas, boolean izpSec)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_cas__funkcije_8h_1aa6849eef7b24c5db5eba9cfd307f21c0">IsWeekend</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Podroben opis</title>
+    <para>Definition in file //Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Cas_funkcije.h</para>
+    </simplesect>
+</section>

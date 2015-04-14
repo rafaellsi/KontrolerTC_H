@@ -1,0 +1,155 @@
+.TH "//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" 3 "Sat Apr 11 2015" "Kontroler TC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Makro deklaracije"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAX_LCD_OSV\fP   160"
+.br
+.in -1c
+.SS "Funkcije"
+
+.in +1c
+.ti -1c
+.RI "void \fBLCDInitializacija\fP (void)"
+.br
+.ti -1c
+.RI "void \fBBeep\fP (unsigned char delayms)"
+.br
+.ti -1c
+.RI "void \fBIzpisHex2\fP (int num)"
+.br
+.ti -1c
+.RI "void \fBPrintDigitsLCDA\fP (int digits)"
+.br
+.ti -1c
+.RI "void \fBIzpisiNaLCD\fP (void)"
+.br
+.ti -1c
+.RI "void \fBIzpisControlMenu\fP (void)"
+.br
+.ti -1c
+.RI "void \fBIzpisInfoMenu\fP (int infoLCD)"
+.br
+.ti -1c
+.RI "float \fBTempVklopa\fP (void)"
+.br
+.ti -1c
+.RI "float \fBTempIzklopa\fP (void)"
+.br
+.in -1c
+.SS "Spremenljivke"
+
+.in +1c
+.ti -1c
+.RI "byte \fBprevTCState\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBonTimeTC\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBlastTCStateChg\fP"
+.br
+.ti -1c
+.RI "char \fBinfoErr\fP []"
+.br
+.ti -1c
+.RI "int \fBinfoModeLCD\fP = -1"
+.br
+.ti -1c
+.RI "int \fBmenuZaslonNum\fP = -1"
+.br
+.ti -1c
+.RI "boolean \fBbuttonPressed\fP = false"
+.br
+.ti -1c
+.RI "int \fBcoRawVal\fP"
+.br
+.in -1c
+.SH "Opis makro definicije"
+.PP 
+.SS "#define MAX_LCD_OSV   160"
+
+.PP
+Definirano v 22 vrstici datoteke LCD_funkcije\&.h\&.
+.SH "Opis funkcije"
+.PP 
+.SS "void Beep (unsigned char delayms)"
+
+.PP
+Definirano v 34 vrstici datoteke LCD_funkcije\&.h\&.
+.SS "void IzpisControlMenu (void)"
+
+.PP
+Definirano v 134 vrstici datoteke LCD_funkcije\&.h\&.
+.SS "void IzpisHex2 (int num)"
+
+.PP
+Definirano v 41 vrstici datoteke LCD_funkcije\&.h\&.
+.SS "void IzpisiNaLCD (void)"
+
+.PP
+Definirano v 73 vrstici datoteke LCD_funkcije\&.h\&.
+.SS "void IzpisInfoMenu (int infoLCD)"
+
+.PP
+Definirano v 141 vrstici datoteke LCD_funkcije\&.h\&.
+.SS "void LCDInitializacija (void)"
+
+.PP
+Definirano v 24 vrstici datoteke LCD_funkcije\&.h\&.
+.SS "void PrintDigitsLCDA (int digits)"
+
+.PP
+Definirano v 48 vrstici datoteke LCD_funkcije\&.h\&.
+.SS "float TempIzklopa (void)"
+
+.PP
+Definirano v 373 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float TempVklopa (void)"
+
+.PP
+Definirano v 313 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SH "Opis spremenljivke"
+.PP 
+.SS "boolean buttonPressed = false"
+
+.PP
+Definirano v 71 vrstici datoteke LCD_funkcije\&.h\&.
+.SS "int coRawVal"
+
+.PP
+Definirano v 352 vrstici datoteke Configuration\&.h\&.
+.SS "char infoErr[]"
+
+.PP
+Definirano v 362 vrstici datoteke Configuration\&.h\&.
+.SS "int infoModeLCD = -1"
+
+.PP
+Definirano v 68 vrstici datoteke LCD_funkcije\&.h\&.
+.SS "unsigned long lastTCStateChg"
+
+.PP
+Definirano v 311 vrstici datoteke Configuration\&.h\&.
+.SS "int menuZaslonNum = -1"
+
+.PP
+Definirano v 69 vrstici datoteke LCD_funkcije\&.h\&.
+.SS "unsigned long onTimeTC"
+
+.PP
+Definirano v 309 vrstici datoteke Configuration\&.h\&.
+.SS "byte prevTCState"
+
+.PP
+Definirano v 310 vrstici datoteke Configuration\&.h\&.
+.SH "Avtor"
+.PP 
+zgenerirano z Doxygen-om za Kontroler TC iz izvorne kode\&.

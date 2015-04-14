@@ -1,0 +1,502 @@
+.TH "//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_spl.h" 3 "Sat Apr 11 2015" "Kontroler TC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_spl.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Funkcije"
+
+.in +1c
+.ti -1c
+.RI "boolean \fBIsNTempCas\fP ()"
+.br
+.ti -1c
+.RI "time_t \fBprocessSyncMessage\fP ()"
+.br
+.ti -1c
+.RI "void \fBEthernetInit\fP (boolean izpisShort)"
+.br
+.ti -1c
+.RI "void \fBEthernetIzpisInfo\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSDInit\fP (void)"
+.br
+.ti -1c
+.RI "void \fBPrintTempAllSDbin\fP (void)"
+.br
+.ti -1c
+.RI "void \fBImeDatotekeOnOff\fP (char *ime)"
+.br
+.ti -1c
+.RI "void \fBIzpisDataOnOffSerial\fP (void)"
+.br
+.ti -1c
+.RI "void \fBIzpisDatnaSerial\fP (void)"
+.br
+.ti -1c
+.RI "unsigned int \fBObsegZgodovine\fP (int sensor, unsigned int pred=0)"
+.br
+.ti -1c
+.RI "float \fBAC_mimax\fP (boolean izpis, boolean forceCalc)"
+.br
+.ti -1c
+.RI "float \fBTok_12V\fP (void)"
+.br
+.ti -1c
+.RI "void \fBPreveriStikala\fP (boolean izpisState)"
+.br
+.ti -1c
+.RI "void \fBPrintTemperatureAll\fP (void)"
+.br
+.ti -1c
+.RI "void \fBPreveriNapetosti\fP (boolean izpis, boolean internal, boolean external, boolean battery)"
+.br
+.ti -1c
+.RI "float \fBSec2Hour\fP (unsigned long sec)"
+.br
+.ti -1c
+.RI "float \fBAvgValFF_F\fP (float suma, float num)"
+.br
+.ti -1c
+.RI "float \fBAvgValULUL_F\fP (unsigned long sum, unsigned long num)"
+.br
+.ti -1c
+.RI "float \fBKompenzacijaTempOkolice\fP (float tOkolice)"
+.br
+.ti -1c
+.RI "float \fBKompenzZacTemp\fP (float tStart)"
+.br
+.ti -1c
+.RI "float \fBIzracDeltaTh\fP ()"
+.br
+.ti -1c
+.RI "float \fBIzracDeltaThOk\fP ()"
+.br
+.ti -1c
+.RI "float \fBIzracDeltaThSt\fP ()"
+.br
+.ti -1c
+.RI "float \fBCop\fP (void)"
+.br
+.ti -1c
+.RI "boolean \fBVodaVre\fP (boolean izpis)"
+.br
+.ti -1c
+.RI "boolean \fBMaxCrpTCRunTime\fP ()"
+.br
+.ti -1c
+.RI "float \fBTempVklopaCrpTC_NTemp\fP ()"
+.br
+.ti -1c
+.RI "float \fBTempIzklopaCrpTC_NTemp\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBRelaksTimeLimitSec\fP (unsigned long cTime, unsigned long pTime, int rTime)"
+.br
+.ti -1c
+.RI "float \fBTempVklopa\fP (void)"
+.br
+.ti -1c
+.RI "float \fBTempIzklopa\fP (void)"
+.br
+.ti -1c
+.RI "float \fBIzracunLimitTemp\fP (int state, float ciTemp)"
+.br
+.ti -1c
+.RI "float \fBIzracunTempVTOff\fP (void)"
+.br
+.ti -1c
+.RI "boolean \fBUpostevajElTarife\fP (void)"
+.br
+.ti -1c
+.RI "void \fBCheckSerial\fP (void)"
+.br
+.ti -1c
+.RI "void \fBIzpisPorabaWH\fP (float \fBporabaWH\fP)"
+.br
+.ti -1c
+.RI "void \fBIzracunHitrostiGretjaTC\fP (void)"
+.br
+.ti -1c
+.RI "float \fBPovpreciVred\fP (float a, float povVred, float lastVred)"
+.br
+.ti -1c
+.RI "void \fBZapisiInIzpisiPodatke\fP (void)"
+.br
+.ti -1c
+.RI "void \fBPrintData\fP (void)"
+.br
+.ti -1c
+.RI "float \fBMejnaTempPreklCrpRad\fP (byte newState)"
+.br
+.ti -1c
+.RI "int \fBZakasnitevVklopa\fP (float temp, float mejnaTemp, int faktor)"
+.br
+.ti -1c
+.RI "float \fBTempIzklopaCrpTC\fP (void)"
+.br
+.ti -1c
+.RI "static float \fBPretvotiEETemp2Float\fP (unsigned int u2uival)"
+.br
+.ti -1c
+.RI "static unsigned int \fBPretvoriFloat2EETemp\fP (float temp)"
+.br
+.ti -1c
+.RI "static word \fBhomePage\fP (void)"
+.br
+.in -1c
+.SS "Spremenljivke"
+
+.in +1c
+.ti -1c
+.RI "unsigned long \fBcycStart\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBsumCycle\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBncyc\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBminCycle\fP = 0"
+.br
+.ti -1c
+.RI "unsigned long \fBmaxCycle\fP = 0"
+.br
+.ti -1c
+.RI "boolean \fBuseDeltaThOk\fP = false"
+.br
+.ti -1c
+.RI "float \fBpTempCrp\fP [3]"
+.br
+.ti -1c
+.RI "boolean \fBizracHitrGret\fP = false"
+.br
+.ti -1c
+.RI "boolean \fBizracHitrGretInfo\fP =false"
+.br
+.ti -1c
+.RI "boolean \fBseRracunaHitrGret\fP"
+.br
+.ti -1c
+.RI "float \fBavgWeightLHTC\fP = (0\&.5/(float) \fBzamikMerTemp\fP)"
+.br
+.ti -1c
+.RI "float \fBavgLHTCVodeTC\fP = -0\&.5"
+.br
+.ti -1c
+.RI "boolean \fBdebugDeviceHub\fP"
+.br
+.ti -1c
+.RI "float \fBsumPing\fP = 0"
+.br
+.ti -1c
+.RI "unsigned long \fBnumPing\fP = 0"
+.br
+.ti -1c
+.RI "int \fBstateCevStPecTC\fP"
+.br
+.ti -1c
+.RI "float \fBtok230V\fP = -100\&.0"
+.br
+.ti -1c
+.RI "unsigned long \fBcoRawValSum\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBnumMerCO\fP"
+.br
+.ti -1c
+.RI "int \fBcoRawValMax\fP"
+.br
+.ti -1c
+.RI "int \fBcoRawValRef\fP"
+.br
+.ti -1c
+.RI "float \fBminVoltGas\fP"
+.br
+.ti -1c
+.RI "float \fBmaxVoltGas\fP"
+.br
+.in -1c
+.SH "Opis funkcije"
+.PP 
+.SS "float AC_mimax (boolean izpis = \fCfalse\fP, boolean forceCalc = \fCfalse\fP)"
+
+.PP
+Definirano v 24 vrstici datoteke Tok_napetost\&.h\&.
+.SS "float AvgValFF_F (float suma, float num)\fC [inline]\fP"
+
+.PP
+Definirano v 67 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float AvgValULUL_F (unsigned long sum, unsigned long num)\fC [inline]\fP"
+
+.PP
+Definirano v 83 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "void CheckSerial (void)"
+
+.PP
+Definirano v 485 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float Cop (void)"
+
+.PP
+Definirano v 214 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "void EthernetInit (boolean izpisShort)"
+
+.PP
+Definirano v 50 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "void EthernetIzpisInfo (void)"
+
+.PP
+Definirano v 377 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "static word homePage (void)\fC [static]\fP"
+
+.PP
+Definirano v 198 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "void ImeDatotekeOnOff (char * ime)"
+
+.PP
+Definirano v 55 vrstici datoteke Zapisi_sd\&.h\&.
+.SS "boolean IsNTempCas ()"
+
+.PP
+Definirano v 672 vrstici datoteke Temperature\&.h\&.
+.SS "void IzpisDataOnOffSerial (void)"
+
+.PP
+Definirano v 372 vrstici datoteke Zapisi_sd\&.h\&.
+.SS "void IzpisDatnaSerial (void)"
+
+.PP
+Definirano v 401 vrstici datoteke Zapisi_sd\&.h\&.
+.SS "void IzpisPorabaWH (float porabaWH)"
+
+.PP
+Definirano v 604 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float IzracDeltaTh ()"
+
+.PP
+Definirano v 143 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float IzracDeltaThOk ()"
+
+.PP
+Definirano v 158 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float IzracDeltaThSt ()"
+
+.PP
+Definirano v 189 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "void IzracunHitrostiGretjaTC (void)"
+
+.PP
+Definirano v 627 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float IzracunLimitTemp (int state, float ciTemp)"
+
+.PP
+Definirano v 398 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float IzracunTempVTOff (void)"
+
+.PP
+Definirano v 439 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float KompenzacijaTempOkolice (float tOkolice)"
+
+.PP
+Definirano v 91 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float KompenzZacTemp (float tStart)"
+
+.PP
+Definirano v 109 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "boolean MaxCrpTCRunTime ()"
+
+.PP
+Definirano v 269 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float MejnaTempPreklCrpRad (byte newState)"
+
+.PP
+Definirano v 1037 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "unsigned int ObsegZgodovine (int sensor, unsigned int pred = \fC0\fP)"
+
+.PP
+Definirano v 764 vrstici datoteke Temperature\&.h\&.
+.SS "float PovpreciVred (float a, float povVred, float lastVred)"
+
+.PP
+Definirano v 720 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "static unsigned int PretvoriFloat2EETemp (float temp)\fC [static]\fP"
+
+.PP
+Definirano v 732 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "static float PretvotiEETemp2Float (unsigned int u2uival)\fC [static]\fP"
+
+.PP
+Definirano v 725 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "void PreveriNapetosti (boolean izpis, boolean internal, boolean external, boolean battery)"
+
+.PP
+Definirano v 293 vrstici datoteke Tok_napetost\&.h\&.
+.SS "void PreveriStikala (boolean izpisState)"
+
+.PP
+Definirano v 278 vrstici datoteke Kontr_TC\&.h\&.
+.SS "void PrintData (void)"
+
+.PP
+Definirano v 1012 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "void PrintTempAllSDbin (void)"
+
+.PP
+Definirano v 94 vrstici datoteke Zapisi_sd\&.h\&.
+.SS "void PrintTemperatureAll (void)"
+
+.PP
+Definirano v 461 vrstici datoteke Temperature\&.h\&.
+.SS "time_t processSyncMessage ()"
+
+.PP
+Definirano v 629 vrstici datoteke Temperature\&.h\&.
+.SS "boolean RelaksTimeLimitSec (unsigned long cTime, unsigned long pTime, int rTime)"
+
+.PP
+Definirano v 297 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "void SDInit (void)"
+
+.PP
+Definirano v 22 vrstici datoteke Zapisi_sd\&.h\&.
+.SS "float Sec2Hour (unsigned long sec)\fC [inline]\fP"
+
+.PP
+Definirano v 57 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float TempIzklopa (void)"
+
+.PP
+Definirano v 373 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float TempIzklopaCrpTC (void)"
+
+.PP
+Definirano v 1087 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float TempIzklopaCrpTC_NTemp ()"
+
+.PP
+Definirano v 286 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float TempVklopa (void)"
+
+.PP
+Definirano v 313 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float TempVklopaCrpTC_NTemp ()"
+
+.PP
+Definirano v 275 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float Tok_12V (void)"
+
+.PP
+Definirano v 139 vrstici datoteke Tok_napetost\&.h\&.
+.SS "boolean UpostevajElTarife (void)"
+
+.PP
+Definirano v 465 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "boolean VodaVre (boolean izpis)"
+
+.PP
+Definirano v 240 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "int ZakasnitevVklopa (float temp, float mejnaTemp, int faktor)"
+
+.PP
+Definirano v 1093 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "void ZapisiInIzpisiPodatke (void)"
+
+.PP
+Definirano v 759 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SH "Opis spremenljivke"
+.PP 
+.SS "float avgLHTCVodeTC = -0\&.5"
+
+.PP
+Definirano v 311 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float avgWeightLHTC = (0\&.5/(float) \fBzamikMerTemp\fP)"
+
+.PP
+Definirano v 310 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "int coRawValMax"
+
+.PP
+Definirano v 27 vrstici datoteke Gas_Sensor\&.h\&.
+.SS "int coRawValRef"
+
+.PP
+Definirano v 28 vrstici datoteke Gas_Sensor\&.h\&.
+.SS "unsigned long coRawValSum"
+
+.PP
+Definirano v 25 vrstici datoteke Gas_Sensor\&.h\&.
+.SS "unsigned long cycStart"
+
+.PP
+Definirano v 76 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "boolean debugDeviceHub"
+
+.PP
+Definirano v 426 vrstici datoteke Ethernet_funk\&.h\&.
+.SS "boolean izracHitrGret = false"
+
+.PP
+Definirano v 306 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "boolean izracHitrGretInfo =false"
+
+.PP
+Definirano v 307 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "unsigned long maxCycle = 0"
+
+.PP
+Definirano v 80 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float maxVoltGas"
+
+.SS "unsigned long minCycle = 0"
+
+.PP
+Definirano v 79 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float minVoltGas"
+
+.SS "unsigned long ncyc"
+
+.PP
+Definirano v 78 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "unsigned long numMerCO"
+
+.PP
+Definirano v 26 vrstici datoteke Gas_Sensor\&.h\&.
+.SS "unsigned long numPing = 0"
+
+.PP
+Definirano v 740 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float pTempCrp[3]"
+
+.PP
+Definirano v 238 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "boolean seRracunaHitrGret"
+
+.PP
+Definirano v 308 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "int stateCevStPecTC"
+
+.PP
+Definirano v 742 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "unsigned long sumCycle"
+
+.PP
+Definirano v 77 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float sumPing = 0"
+
+.PP
+Definirano v 739 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "float tok230V = -100\&.0"
+
+.PP
+Definirano v 745 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SS "boolean useDeltaThOk = false"
+
+.PP
+Definirano v 156 vrstici datoteke Kontr_TC_spl\&.h\&.
+.SH "Avtor"
+.PP 
+zgenerirano z Doxygen-om za Kontroler TC iz izvorne kode\&.

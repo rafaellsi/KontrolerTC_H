@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_kontr___t_c_8h">
+    <title>Kontr_TC.h File Reference</title>
+    <programlisting>#include &lt;inttypes.h&gt;</programlisting>
+    <programlisting>#include &lt;Arduino.h&gt;</programlisting>
+    <programlisting>#include &lt;Wire.h&gt;</programlisting>
+        <section>
+            <title>Makro deklaracije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_kontr___t_c_8h_1a4da27a15aeca42eeea52667d937b0748">STIKALO_ON</link> LOW</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_kontr___t_c_8h_1a0a274b83ced50fceebfebb0eff98733d">STIKALO_OFF</link> HIGH</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_kontr___t_c_8h_1af0786acf72dad0a5ce578c14b1fa542c">STIKALO_STATE_AUT</link> 0</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_kontr___t_c_8h_1a9935446022fdbf6af5fbef5177bd5b8e">STIKALO_STATE_ON</link> 1</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_kontr___t_c_8h_1ab8f7c831ac9b6de357127bb4f189eb01">STIKALO_STATE_OFF</link> 2</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_kontr___t_c_8h_1a0da38d4d811e7d5c1221f2f48a9fc7a1">STIKALO_CRP_RAD</link> 0</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_kontr___t_c_8h_1a42a8c3bf07b8267b466aba4905f89bbf">STIKALO_CRP_TC</link> 1</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_kontr___t_c_8h_1a6e643d89cefeb3e5e122ddf03bcbcc4d">STIKALO_TC</link> 2</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Spremenljivke</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>uint8_t <link linkend="_kontr___t_c_8h_1ad9b7923d1fe44893c5fe38c332349802">stikaloState</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>char <link linkend="_kontr___t_c_8h_1a9d2f14f0cb8091e1f886cf48da196cf9">stikaloStateTxt</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Funkcije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c_8h_1adbb1c5dce75dc2e557a0e526a2ac8722">PreklopiCrpalkoTC</link> (
+byte newState)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c_8h_1a4de9eb29c16979c6b172e1748174ef7e">Beep</link> (
+unsigned char delayms)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c_8h_1a0e4d40e129991c6b2ac87cbcac87cab6">NastavitevPinov</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c_8h_1ae833b86efb85a4f51d5f9a3bb31ed01b">InitParametri</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c_8h_1a99da48505109bd092c7f9eaf6aea6695">PreveriStikala</link> (
+boolean izpisState)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Podroben opis</title>
+    <para>Definition in file //Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC.h</para>
+    </simplesect>
+</section>

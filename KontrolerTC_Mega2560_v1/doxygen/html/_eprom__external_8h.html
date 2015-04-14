@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>Kontroler TC: Datoteka //Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Eprom_external.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Kontroler TC
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Išči');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>prva&#160;stran</span></a></li>
+      <li><a href="annotated.html"><span>Podatkovne&#160;strukture</span></a></li>
+      <li class="current"><a href="files.html"><span>Datoteke</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Išči" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>seznam&#160;datotek</span></a></li>
+      <li><a href="globals.html"><span>komponente&#160;v&#160;datotekah</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_eprom__external_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funkcije</a>  </div>
+  <div class="headertitle">
+<div class="title">Datoteka Eprom_external.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><a href="_eprom__external_8h_source.html">izvorna koda</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funkcije</h2></td></tr>
+<tr class="memitem:a532285a822d0696cf6805897bf3fb3eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_eprom__external_8h.html#a532285a822d0696cf6805897bf3fb3eb">waitEEReady</a> (int deviceAddress)</td></tr>
+<tr class="separator:a532285a822d0696cf6805897bf3fb3eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e004a39677e3cc4a1afc14640b89373"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_eprom__external_8h.html#a4e004a39677e3cc4a1afc14640b89373">i2c_eeprom_write_page</a> (int deviceaddress, unsigned int eeaddresspage, byte addrlen, byte *up, byte length)</td></tr>
+<tr class="separator:a4e004a39677e3cc4a1afc14640b89373"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a284278637b8dd14176e9ca07a63c332d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_eprom__external_8h.html#a284278637b8dd14176e9ca07a63c332d">i2c_eeprom_write_byte</a> (int deviceaddress, unsigned int eeaddress, byte addrlen, byte data)</td></tr>
+<tr class="separator:a284278637b8dd14176e9ca07a63c332d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac488a4cc216ff09301622b3e8a3bf9f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_eprom__external_8h.html#ac488a4cc216ff09301622b3e8a3bf9f9">i2c_eeprom_read_buffer</a> (int deviceaddress, unsigned int eeaddress, byte addrlen, byte *up, int length)</td></tr>
+<tr class="separator:ac488a4cc216ff09301622b3e8a3bf9f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afab122a2c123df1cf1115475ace4b2f4"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_eprom__external_8h.html#afab122a2c123df1cf1115475ace4b2f4">i2c_eeprom_read_byte</a> (int deviceaddress, unsigned int eeaddress, byte addrlen)</td></tr>
+<tr class="separator:afab122a2c123df1cf1115475ace4b2f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Opis funkcije</h2>
+<a class="anchor" id="ac488a4cc216ff09301622b3e8a3bf9f9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void i2c_eeprom_read_buffer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>deviceaddress</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>eeaddress</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">byte&#160;</td>
+          <td class="paramname"><em>addrlen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">byte *&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definirano v <a class="el" href="_eprom__external_8h_source.html#l00070">70</a> vrstici datoteke <a class="el" href="_eprom__external_8h_source.html">Eprom_external.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afab122a2c123df1cf1115475ace4b2f4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">byte i2c_eeprom_read_byte </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>deviceaddress</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>eeaddress</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">byte&#160;</td>
+          <td class="paramname"><em>addrlen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definirano v <a class="el" href="_eprom__external_8h_source.html#l00115">115</a> vrstici datoteke <a class="el" href="_eprom__external_8h_source.html">Eprom_external.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a284278637b8dd14176e9ca07a63c332d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void i2c_eeprom_write_byte </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>deviceaddress</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>eeaddress</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">byte&#160;</td>
+          <td class="paramname"><em>addrlen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">byte&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definirano v <a class="el" href="_eprom__external_8h_source.html#l00038">38</a> vrstici datoteke <a class="el" href="_eprom__external_8h_source.html">Eprom_external.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4e004a39677e3cc4a1afc14640b89373"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void i2c_eeprom_write_page </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>deviceaddress</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>eeaddresspage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">byte&#160;</td>
+          <td class="paramname"><em>addrlen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">byte *&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">byte&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definirano v <a class="el" href="_eprom__external_8h_source.html#l00009">9</a> vrstici datoteke <a class="el" href="_eprom__external_8h_source.html">Eprom_external.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a532285a822d0696cf6805897bf3fb3eb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void waitEEReady </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>deviceAddress</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definirano v <a class="el" href="_eprom__external_8h_source.html#l00148">148</a> vrstici datoteke <a class="el" href="_eprom__external_8h_source.html">Eprom_external.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_610cc7ed7def528487cef0892d25d96b.html">Pro03</a></li><li class="navelem"><a class="el" href="dir_dd7f50474d1f582a2bc83c5e1ff7af66.html">github</a></li><li class="navelem"><a class="el" href="dir_8bd426b2a08b5ac2a915c20967c193e3.html">KontrolerTC_H</a></li><li class="navelem"><a class="el" href="dir_769cd14c2325094aacdc661581a082ad.html">KontrolerTC_Mega2560_v1</a></li><li class="navelem"><a class="el" href="_eprom__external_8h.html">Eprom_external.h</a></li>
+    <li class="footer">Generirano Sat Apr 11 2015 22:13:26 projekt: Kontroler TC generator: 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

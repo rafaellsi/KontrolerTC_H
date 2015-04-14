@@ -1,0 +1,121 @@
+\hypertarget{_gas___sensor_8h}{}\section{Datoteka //\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Gas\+\_\+\+Sensor.h}
+\label{_gas___sensor_8h}\index{//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Gas\+\_\+\+Sensor.\+h@{//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Gas\+\_\+\+Sensor.\+h}}
+\subsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_gas___sensor_8h_adb97e97675b2e13e19f7caa166e81ae1}{Kontroler\+\_\+\+T\+C\+\_\+h}
+\item 
+\#define \hyperlink{_gas___sensor_8h_acf888d3c44dadec7605c59ad7a1aee4f}{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+F\+F}~0
+\item 
+\#define \hyperlink{_gas___sensor_8h_a81b5221481e08df28fb164961a30f986}{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+H\+I\+G\+H}~1
+\item 
+\#define \hyperlink{_gas___sensor_8h_abb4101bce1af20b65ef9516623a4e17d}{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+L\+O\+W}~2
+\item 
+\#define \hyperlink{_gas___sensor_8h_a869a912d6a04a9a9c0da8b055d8f2a00}{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+F\+F}~H\+I\+G\+H
+\item 
+\#define \hyperlink{_gas___sensor_8h_a23ddf881326291c10ff176ceffa77141}{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+N}~L\+O\+W
+\item 
+\#define \hyperlink{_gas___sensor_8h_a7b52bf2b5eb7dd82fdbb8c628f4fc309}{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+P\+W\+M\+\_\+\+L\+O\+W}~184
+\end{DoxyCompactItemize}
+\subsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_gas___sensor_8h_ae8a881d0f89a3979cdf3fe2976c43ff8}{Initilizacija\+\_\+\+C\+O} (void)
+\item 
+void \hyperlink{_gas___sensor_8h_a94bed2d923712a15d8fa724210bf6c25}{Preveri\+C\+O\+\_\+\+Senzor} ()
+\end{DoxyCompactItemize}
+\subsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+unsigned long \hyperlink{_gas___sensor_8h_ac4b00b12f377cfe03da41e1232241f3c}{co\+Raw\+Val\+Sum} = 0
+\item 
+unsigned long \hyperlink{_gas___sensor_8h_a826de08a6094b912832e739c7ceb7312}{num\+Mer\+C\+O} =0
+\item 
+int \hyperlink{_gas___sensor_8h_a34f3e6494f80560e4e94aa77ee4ced66}{co\+Raw\+Val\+Max}
+\item 
+int \hyperlink{_gas___sensor_8h_a537b59c17084787f2acf099109829196}{co\+Raw\+Val\+Ref} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis makro definicije}
+\hypertarget{_gas___sensor_8h_a869a912d6a04a9a9c0da8b055d8f2a00}{}\index{Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}!C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+F\+F@{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+F\+F}}
+\index{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+F\+F@{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+F\+F}!Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}}
+\subsubsection[{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+F\+F}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+F\+F~H\+I\+G\+H}\label{_gas___sensor_8h_a869a912d6a04a9a9c0da8b055d8f2a00}
+\hypertarget{_gas___sensor_8h_a23ddf881326291c10ff176ceffa77141}{}\index{Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}!C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+N@{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+N}}
+\index{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+N@{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+N}!Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}}
+\subsubsection[{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+N~L\+O\+W}\label{_gas___sensor_8h_a23ddf881326291c10ff176ceffa77141}
+\hypertarget{_gas___sensor_8h_a7b52bf2b5eb7dd82fdbb8c628f4fc309}{}\index{Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}!C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+P\+W\+M\+\_\+\+L\+O\+W@{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+P\+W\+M\+\_\+\+L\+O\+W}}
+\index{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+P\+W\+M\+\_\+\+L\+O\+W@{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+P\+W\+M\+\_\+\+L\+O\+W}!Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}}
+\subsubsection[{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+P\+W\+M\+\_\+\+L\+O\+W}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+P\+W\+M\+\_\+\+L\+O\+W~184}\label{_gas___sensor_8h_a7b52bf2b5eb7dd82fdbb8c628f4fc309}
+\hypertarget{_gas___sensor_8h_a81b5221481e08df28fb164961a30f986}{}\index{Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}!C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+H\+I\+G\+H@{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+H\+I\+G\+H}}
+\index{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+H\+I\+G\+H@{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+H\+I\+G\+H}!Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}}
+\subsubsection[{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+H\+I\+G\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+H\+I\+G\+H~1}\label{_gas___sensor_8h_a81b5221481e08df28fb164961a30f986}
+\hypertarget{_gas___sensor_8h_abb4101bce1af20b65ef9516623a4e17d}{}\index{Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}!C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+L\+O\+W@{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+L\+O\+W}}
+\index{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+L\+O\+W@{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+L\+O\+W}!Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}}
+\subsubsection[{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+L\+O\+W}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+L\+O\+W~2}\label{_gas___sensor_8h_abb4101bce1af20b65ef9516623a4e17d}
+\hypertarget{_gas___sensor_8h_acf888d3c44dadec7605c59ad7a1aee4f}{}\index{Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}!C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+F\+F@{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+F\+F}}
+\index{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+F\+F@{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+F\+F}!Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}}
+\subsubsection[{C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+F\+F}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+F\+F~0}\label{_gas___sensor_8h_acf888d3c44dadec7605c59ad7a1aee4f}
+\hypertarget{_gas___sensor_8h_adb97e97675b2e13e19f7caa166e81ae1}{}\index{Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}!Kontroler\+\_\+\+T\+C\+\_\+h@{Kontroler\+\_\+\+T\+C\+\_\+h}}
+\index{Kontroler\+\_\+\+T\+C\+\_\+h@{Kontroler\+\_\+\+T\+C\+\_\+h}!Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}}
+\subsubsection[{Kontroler\+\_\+\+T\+C\+\_\+h}]{\setlength{\rightskip}{0pt plus 5cm}\#define Kontroler\+\_\+\+T\+C\+\_\+h}\label{_gas___sensor_8h_adb97e97675b2e13e19f7caa166e81ae1}
+
+
+Definirano v 2 vrstici datoteke Gas\+\_\+\+Sensor.\+h.
+
+
+
+\subsection{Opis funkcije}
+\hypertarget{_gas___sensor_8h_ae8a881d0f89a3979cdf3fe2976c43ff8}{}\index{Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}!Initilizacija\+\_\+\+C\+O@{Initilizacija\+\_\+\+C\+O}}
+\index{Initilizacija\+\_\+\+C\+O@{Initilizacija\+\_\+\+C\+O}!Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}}
+\subsubsection[{Initilizacija\+\_\+\+C\+O}]{\setlength{\rightskip}{0pt plus 5cm}void Initilizacija\+\_\+\+C\+O (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_gas___sensor_8h_ae8a881d0f89a3979cdf3fe2976c43ff8}
+
+
+Definirano v 9 vrstici datoteke Gas\+\_\+\+Sensor.\+h.
+
+\hypertarget{_gas___sensor_8h_a94bed2d923712a15d8fa724210bf6c25}{}\index{Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}!Preveri\+C\+O\+\_\+\+Senzor@{Preveri\+C\+O\+\_\+\+Senzor}}
+\index{Preveri\+C\+O\+\_\+\+Senzor@{Preveri\+C\+O\+\_\+\+Senzor}!Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}}
+\subsubsection[{Preveri\+C\+O\+\_\+\+Senzor}]{\setlength{\rightskip}{0pt plus 5cm}void Preveri\+C\+O\+\_\+\+Senzor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{_gas___sensor_8h_a94bed2d923712a15d8fa724210bf6c25}
+
+
+Definirano v 32 vrstici datoteke Gas\+\_\+\+Sensor.\+h.
+
+
+
+\subsection{Opis spremenljivke}
+\hypertarget{_gas___sensor_8h_a34f3e6494f80560e4e94aa77ee4ced66}{}\index{Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}!co\+Raw\+Val\+Max@{co\+Raw\+Val\+Max}}
+\index{co\+Raw\+Val\+Max@{co\+Raw\+Val\+Max}!Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}}
+\subsubsection[{co\+Raw\+Val\+Max}]{\setlength{\rightskip}{0pt plus 5cm}int co\+Raw\+Val\+Max}\label{_gas___sensor_8h_a34f3e6494f80560e4e94aa77ee4ced66}
+
+
+Definirano v 27 vrstici datoteke Gas\+\_\+\+Sensor.\+h.
+
+\hypertarget{_gas___sensor_8h_a537b59c17084787f2acf099109829196}{}\index{Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}!co\+Raw\+Val\+Ref@{co\+Raw\+Val\+Ref}}
+\index{co\+Raw\+Val\+Ref@{co\+Raw\+Val\+Ref}!Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}}
+\subsubsection[{co\+Raw\+Val\+Ref}]{\setlength{\rightskip}{0pt plus 5cm}int co\+Raw\+Val\+Ref = 0}\label{_gas___sensor_8h_a537b59c17084787f2acf099109829196}
+
+
+Definirano v 28 vrstici datoteke Gas\+\_\+\+Sensor.\+h.
+
+\hypertarget{_gas___sensor_8h_ac4b00b12f377cfe03da41e1232241f3c}{}\index{Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}!co\+Raw\+Val\+Sum@{co\+Raw\+Val\+Sum}}
+\index{co\+Raw\+Val\+Sum@{co\+Raw\+Val\+Sum}!Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}}
+\subsubsection[{co\+Raw\+Val\+Sum}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long co\+Raw\+Val\+Sum = 0}\label{_gas___sensor_8h_ac4b00b12f377cfe03da41e1232241f3c}
+
+
+Definirano v 25 vrstici datoteke Gas\+\_\+\+Sensor.\+h.
+
+\hypertarget{_gas___sensor_8h_a826de08a6094b912832e739c7ceb7312}{}\index{Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}!num\+Mer\+C\+O@{num\+Mer\+C\+O}}
+\index{num\+Mer\+C\+O@{num\+Mer\+C\+O}!Gas\+\_\+\+Sensor.\+h@{Gas\+\_\+\+Sensor.\+h}}
+\subsubsection[{num\+Mer\+C\+O}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long num\+Mer\+C\+O =0}\label{_gas___sensor_8h_a826de08a6094b912832e739c7ceb7312}
+
+
+Definirano v 26 vrstici datoteke Gas\+\_\+\+Sensor.\+h.
+

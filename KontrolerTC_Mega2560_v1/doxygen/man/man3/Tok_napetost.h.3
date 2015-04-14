@@ -1,0 +1,98 @@
+.TH "//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h" 3 "Sat Apr 11 2015" "Kontroler TC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Tok_napetost.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Funkcije"
+
+.in +1c
+.ti -1c
+.RI "float \fBAC_mimax\fP (boolean izpis, boolean forceCalc)"
+.br
+.ti -1c
+.RI "float \fBTok_12V\fP (void)"
+.br
+.ti -1c
+.RI "float \fBPretvoriV2A_asc712_DC\fP (int sensVal)"
+.br
+.ti -1c
+.RI "float \fBPretvoriV2A_asc712\fP (int sensVal)"
+.br
+.ti -1c
+.RI "float \fBVoltageDivider\fP (int analRead, float r1, float r2, float korFact)"
+.br
+.ti -1c
+.RI "void \fBPreveriNapetosti\fP (boolean internal, boolean external, boolean battery)"
+.br
+.ti -1c
+.RI "long \fBreadVcc\fP (void)"
+.br
+.ti -1c
+.RI "void \fBnapetostiMinMax\fP (int n, boolean isFirstTime)"
+.br
+.ti -1c
+.RI "void \fBPreveriNapetosti\fP (boolean izpis=true, boolean internal=false, boolean external=false, boolean battery=false)"
+.br
+.in -1c
+.SS "Spremenljivke"
+
+.in +1c
+.ti -1c
+.RI "int \fBmidR\fP = 512"
+.br
+.ti -1c
+.RI "float \fBnapetost_int\fP [5][3]"
+.br
+.in -1c
+.SH "Opis funkcije"
+.PP 
+.SS "float AC_mimax (boolean izpis = \fCfalse\fP, boolean forceCalc = \fCfalse\fP)"
+
+.PP
+Definirano v 24 vrstici datoteke Tok_napetost\&.h\&.
+.SS "void napetostiMinMax (int n, boolean isFirstTime)"
+
+.PP
+Definirano v 279 vrstici datoteke Tok_napetost\&.h\&.
+.SS "float PretvoriV2A_asc712 (int sensVal)"
+
+.PP
+Definirano v 183 vrstici datoteke Tok_napetost\&.h\&.
+.SS "float PretvoriV2A_asc712_DC (int sensVal)"
+
+.PP
+Definirano v 158 vrstici datoteke Tok_napetost\&.h\&.
+.SS "void PreveriNapetosti (boolean internal, boolean external, boolean battery)"
+
+.SS "void PreveriNapetosti (boolean izpis = \fCtrue\fP, boolean internal = \fCfalse\fP, boolean external = \fCfalse\fP, boolean battery = \fCfalse\fP)"
+
+.PP
+Definirano v 293 vrstici datoteke Tok_napetost\&.h\&.
+.SS "long readVcc (void)"
+
+.PP
+Definirano v 413 vrstici datoteke Tok_napetost\&.h\&.
+.SS "float Tok_12V (void)"
+
+.PP
+Definirano v 139 vrstici datoteke Tok_napetost\&.h\&.
+.SS "float VoltageDivider (int analRead, float r1, float r2, float korFact = \fC1\&.0\fP)"
+
+.PP
+Definirano v 206 vrstici datoteke Tok_napetost\&.h\&.
+.SH "Opis spremenljivke"
+.PP 
+.SS "int midR = 512"
+
+.PP
+Definirano v 20 vrstici datoteke Tok_napetost\&.h\&.
+.SS "float napetost_int[5][3]"
+
+.PP
+Definirano v 277 vrstici datoteke Tok_napetost\&.h\&.
+.SH "Avtor"
+.PP 
+zgenerirano z Doxygen-om za Kontroler TC iz izvorne kode\&.

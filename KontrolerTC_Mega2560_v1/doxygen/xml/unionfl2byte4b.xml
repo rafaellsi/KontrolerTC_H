@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="unionfl2byte4b" kind="union" language="C++" prot="public">
+    <compoundname>fl2byte4b</compoundname>
+    <includes refid="_configuration_8h" local="no">Configuration.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="unionfl2byte4b_1a3ac70c71a12988f6a0733cd4a585a5e8" prot="public" static="no" mutable="no">
+        <type>byte</type>
+        <definition>byte by[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>by</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" line="185" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionfl2byte4b_1a89560ba498e3fe528d97a435d5f61054" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float fval</definition>
+        <argsstring></argsstring>
+        <name>fval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" line="186" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" line="184" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" bodystart="184" bodyend="187"/>
+    <listofallmembers>
+      <member refid="unionfl2byte4b_1a3ac70c71a12988f6a0733cd4a585a5e8" prot="public" virt="non-virtual"><scope>fl2byte4b</scope><name>by</name></member>
+      <member refid="unionfl2byte4b_1a89560ba498e3fe528d97a435d5f61054" prot="public" virt="non-virtual"><scope>fl2byte4b</scope><name>fval</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

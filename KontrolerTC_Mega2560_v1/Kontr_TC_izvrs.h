@@ -10,8 +10,8 @@ void PreklopiVentilTCPec(byte newState);
 void PreklopiCrpalkoTC(byte newState);
 void ResetCrpTCVzr(void);
 
-byte prevCrpTCState = 0;
-byte prevVentTCState = 255;
+byte prevCrpTCState = STATE_CRP_TC_OFF;
+byte prevVentTCState = STATE_VENT_TC_NDEF;
 
 unsigned long lastVentTCChg[2];
 int preklopCrpTCVzr = 0;        //0 - normal
@@ -77,7 +77,7 @@ void PreklopiVentilTCPec(byte newState)
   if (newState < 2) {
     prevVentTCState = newState;
     lastVentTCChg[(int) newState] = now();
-    if (newState == 1) {
+    if (newState == STATE_VENT_TC_ON) {
       digitalWrite(VENTTC_2, LOW);
       digitalWrite(VENTTC_1, HIGH);
       
@@ -93,7 +93,7 @@ void PreklopiVentilTCPec(byte newState)
       Serial.print(F(" Odpiram ventil "));
 
     }
-    else if (newState == 0){
+    else if (newState == STATE_VENT_TC_OFF){
       digitalWrite(VENTTC_1, LOW);
       digitalWrite(VENTTC_2, HIGH);
       
@@ -118,7 +118,7 @@ void PreklopiCrpalkoTC(byte newState)
   
 //  if (newState < 255) {
     
-    if (newState == 1) {
+    if (newState == STATE_CRP_TC_ON) {
       if (preklopCrpTCVzr == 0) {
         if (cTemperatura[PEC_TC_DV] >= tempVklopaCrpTC || cTemperatura[PEC_DV] >= tempVklopaCrpTC) {
           if ((cTemperatura[PEC_PV] < tempVklopaCrpTC - 5.0*dTemp) && (cTemperatura[RAD_PV] < tempVklopaCrpTC - 5.0*dTemp)) {
@@ -131,7 +131,7 @@ void PreklopiCrpalkoTC(byte newState)
     NarediTimeStr(cas, now());
     Serial.print(cas);
     
-    if (newState == 1) {
+    if (newState == STATE_CRP_TC_ON) {
       digitalWrite(RELE_CTC, R_CTC_ON);
       
       

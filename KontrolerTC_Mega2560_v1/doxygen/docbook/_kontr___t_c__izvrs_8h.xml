@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_kontr___t_c__izvrs_8h">
+    <title>Kontr_TC_izvrs.h File Reference</title>
+        <section>
+            <title>Spremenljivke</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>byte <link linkend="_kontr___t_c__izvrs_8h_1abb9fc97e799fea39ddde1c33cce7ef9b">prevCrpTCState</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>byte <link linkend="_kontr___t_c__izvrs_8h_1a398911f1f4196d89da4486cbc4a1640d">prevVentTCState</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_kontr___t_c__izvrs_8h_1a5e53fd00c6e4bf47f6654481d64a8101">lastVentTCChg</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_kontr___t_c__izvrs_8h_1a7e0476509511d4da9c76be6eb00964ab">preklopCrpTCVzr</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Funkcije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__izvrs_8h_1aeb1bbd6094ced5b27dcbbfb5807136a2">ZapisiOnOffSD</link> (
+int state, byte tipSpremembe)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__izvrs_8h_1a0ce18347b97b7d407f8ad4920333daf1">PreklopiCrpalkoRad</link> (
+byte newState)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__izvrs_8h_1a1580db39ffff0c141f1245279d8bcbb4">PreklopiVentilTCPec</link> (
+byte newState)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__izvrs_8h_1adbb1c5dce75dc2e557a0e526a2ac8722">PreklopiCrpalkoTC</link> (
+byte newState)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__izvrs_8h_1a3e3b4295420e7c3a02d357dd626b8994">ResetCrpTCVzr</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Podroben opis</title>
+    <para>Definition in file //Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h</para>
+    </simplesect>
+</section>

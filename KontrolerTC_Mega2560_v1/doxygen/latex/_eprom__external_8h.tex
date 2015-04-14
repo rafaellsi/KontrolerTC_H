@@ -1,0 +1,86 @@
+\hypertarget{_eprom__external_8h}{}\section{Datoteka //\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Eprom\+\_\+external.h}
+\label{_eprom__external_8h}\index{//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Eprom\+\_\+external.\+h@{//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Eprom\+\_\+external.\+h}}
+\subsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_eprom__external_8h_a532285a822d0696cf6805897bf3fb3eb}{wait\+E\+E\+Ready} (int device\+Address)
+\item 
+void \hyperlink{_eprom__external_8h_a4e004a39677e3cc4a1afc14640b89373}{i2c\+\_\+eeprom\+\_\+write\+\_\+page} (int deviceaddress, unsigned int eeaddresspage, byte addrlen, byte $\ast$up, byte length)
+\item 
+void \hyperlink{_eprom__external_8h_a284278637b8dd14176e9ca07a63c332d}{i2c\+\_\+eeprom\+\_\+write\+\_\+byte} (int deviceaddress, unsigned int eeaddress, byte addrlen, byte data)
+\item 
+void \hyperlink{_eprom__external_8h_ac488a4cc216ff09301622b3e8a3bf9f9}{i2c\+\_\+eeprom\+\_\+read\+\_\+buffer} (int deviceaddress, unsigned int eeaddress, byte addrlen, byte $\ast$up, int length)
+\item 
+byte \hyperlink{_eprom__external_8h_afab122a2c123df1cf1115475ace4b2f4}{i2c\+\_\+eeprom\+\_\+read\+\_\+byte} (int deviceaddress, unsigned int eeaddress, byte addrlen)
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis funkcije}
+\hypertarget{_eprom__external_8h_ac488a4cc216ff09301622b3e8a3bf9f9}{}\index{Eprom\+\_\+external.\+h@{Eprom\+\_\+external.\+h}!i2c\+\_\+eeprom\+\_\+read\+\_\+buffer@{i2c\+\_\+eeprom\+\_\+read\+\_\+buffer}}
+\index{i2c\+\_\+eeprom\+\_\+read\+\_\+buffer@{i2c\+\_\+eeprom\+\_\+read\+\_\+buffer}!Eprom\+\_\+external.\+h@{Eprom\+\_\+external.\+h}}
+\subsubsection[{i2c\+\_\+eeprom\+\_\+read\+\_\+buffer}]{\setlength{\rightskip}{0pt plus 5cm}void i2c\+\_\+eeprom\+\_\+read\+\_\+buffer (
+\begin{DoxyParamCaption}
+\item[{int}]{deviceaddress, }
+\item[{unsigned int}]{eeaddress, }
+\item[{byte}]{addrlen, }
+\item[{byte $\ast$}]{up, }
+\item[{int}]{length}
+\end{DoxyParamCaption}
+)}\label{_eprom__external_8h_ac488a4cc216ff09301622b3e8a3bf9f9}
+
+
+Definirano v 70 vrstici datoteke Eprom\+\_\+external.\+h.
+
+\hypertarget{_eprom__external_8h_afab122a2c123df1cf1115475ace4b2f4}{}\index{Eprom\+\_\+external.\+h@{Eprom\+\_\+external.\+h}!i2c\+\_\+eeprom\+\_\+read\+\_\+byte@{i2c\+\_\+eeprom\+\_\+read\+\_\+byte}}
+\index{i2c\+\_\+eeprom\+\_\+read\+\_\+byte@{i2c\+\_\+eeprom\+\_\+read\+\_\+byte}!Eprom\+\_\+external.\+h@{Eprom\+\_\+external.\+h}}
+\subsubsection[{i2c\+\_\+eeprom\+\_\+read\+\_\+byte}]{\setlength{\rightskip}{0pt plus 5cm}byte i2c\+\_\+eeprom\+\_\+read\+\_\+byte (
+\begin{DoxyParamCaption}
+\item[{int}]{deviceaddress, }
+\item[{unsigned int}]{eeaddress, }
+\item[{byte}]{addrlen}
+\end{DoxyParamCaption}
+)}\label{_eprom__external_8h_afab122a2c123df1cf1115475ace4b2f4}
+
+
+Definirano v 115 vrstici datoteke Eprom\+\_\+external.\+h.
+
+\hypertarget{_eprom__external_8h_a284278637b8dd14176e9ca07a63c332d}{}\index{Eprom\+\_\+external.\+h@{Eprom\+\_\+external.\+h}!i2c\+\_\+eeprom\+\_\+write\+\_\+byte@{i2c\+\_\+eeprom\+\_\+write\+\_\+byte}}
+\index{i2c\+\_\+eeprom\+\_\+write\+\_\+byte@{i2c\+\_\+eeprom\+\_\+write\+\_\+byte}!Eprom\+\_\+external.\+h@{Eprom\+\_\+external.\+h}}
+\subsubsection[{i2c\+\_\+eeprom\+\_\+write\+\_\+byte}]{\setlength{\rightskip}{0pt plus 5cm}void i2c\+\_\+eeprom\+\_\+write\+\_\+byte (
+\begin{DoxyParamCaption}
+\item[{int}]{deviceaddress, }
+\item[{unsigned int}]{eeaddress, }
+\item[{byte}]{addrlen, }
+\item[{byte}]{data}
+\end{DoxyParamCaption}
+)}\label{_eprom__external_8h_a284278637b8dd14176e9ca07a63c332d}
+
+
+Definirano v 38 vrstici datoteke Eprom\+\_\+external.\+h.
+
+\hypertarget{_eprom__external_8h_a4e004a39677e3cc4a1afc14640b89373}{}\index{Eprom\+\_\+external.\+h@{Eprom\+\_\+external.\+h}!i2c\+\_\+eeprom\+\_\+write\+\_\+page@{i2c\+\_\+eeprom\+\_\+write\+\_\+page}}
+\index{i2c\+\_\+eeprom\+\_\+write\+\_\+page@{i2c\+\_\+eeprom\+\_\+write\+\_\+page}!Eprom\+\_\+external.\+h@{Eprom\+\_\+external.\+h}}
+\subsubsection[{i2c\+\_\+eeprom\+\_\+write\+\_\+page}]{\setlength{\rightskip}{0pt plus 5cm}void i2c\+\_\+eeprom\+\_\+write\+\_\+page (
+\begin{DoxyParamCaption}
+\item[{int}]{deviceaddress, }
+\item[{unsigned int}]{eeaddresspage, }
+\item[{byte}]{addrlen, }
+\item[{byte $\ast$}]{up, }
+\item[{byte}]{length}
+\end{DoxyParamCaption}
+)}\label{_eprom__external_8h_a4e004a39677e3cc4a1afc14640b89373}
+
+
+Definirano v 9 vrstici datoteke Eprom\+\_\+external.\+h.
+
+\hypertarget{_eprom__external_8h_a532285a822d0696cf6805897bf3fb3eb}{}\index{Eprom\+\_\+external.\+h@{Eprom\+\_\+external.\+h}!wait\+E\+E\+Ready@{wait\+E\+E\+Ready}}
+\index{wait\+E\+E\+Ready@{wait\+E\+E\+Ready}!Eprom\+\_\+external.\+h@{Eprom\+\_\+external.\+h}}
+\subsubsection[{wait\+E\+E\+Ready}]{\setlength{\rightskip}{0pt plus 5cm}void wait\+E\+E\+Ready (
+\begin{DoxyParamCaption}
+\item[{int}]{device\+Address}
+\end{DoxyParamCaption}
+)}\label{_eprom__external_8h_a532285a822d0696cf6805897bf3fb3eb}
+
+
+Definirano v 148 vrstici datoteke Eprom\+\_\+external.\+h.
+

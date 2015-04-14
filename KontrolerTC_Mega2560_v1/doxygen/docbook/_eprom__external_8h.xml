@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_eprom__external_8h">
+    <title>Eprom_external.h File Reference</title>
+        <section>
+            <title>Funkcije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_eprom__external_8h_1a532285a822d0696cf6805897bf3fb3eb">waitEEReady</link> (
+int deviceAddress)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_eprom__external_8h_1a4e004a39677e3cc4a1afc14640b89373">i2c_eeprom_write_page</link> (
+int deviceaddress, unsigned int eeaddresspage, byte addrlen, byte * up, byte length)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_eprom__external_8h_1a284278637b8dd14176e9ca07a63c332d">i2c_eeprom_write_byte</link> (
+int deviceaddress, unsigned int eeaddress, byte addrlen, byte data)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_eprom__external_8h_1ac488a4cc216ff09301622b3e8a3bf9f9">i2c_eeprom_read_buffer</link> (
+int deviceaddress, unsigned int eeaddress, byte addrlen, byte * up, int length)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>byte <link linkend="_eprom__external_8h_1afab122a2c123df1cf1115475ace4b2f4">i2c_eeprom_read_byte</link> (
+int deviceaddress, unsigned int eeaddress, byte addrlen)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Podroben opis</title>
+    <para>Definition in file //Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Eprom_external.h</para>
+    </simplesect>
+</section>

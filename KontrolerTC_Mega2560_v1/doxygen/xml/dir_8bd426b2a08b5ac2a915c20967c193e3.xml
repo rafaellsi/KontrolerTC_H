@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="dir_8bd426b2a08b5ac2a915c20967c193e3" kind="dir">
+    <compoundname>//Pro03/github/KontrolerTC_H</compoundname>
+    <innerdir refid="dir_769cd14c2325094aacdc661581a082ad">//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="//Pro03/github/KontrolerTC_H/"/>
+  </compounddef>
+</doxygen>

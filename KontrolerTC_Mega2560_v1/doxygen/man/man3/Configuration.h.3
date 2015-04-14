@@ -1,0 +1,1400 @@
+.TH "//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" 3 "Sat Apr 11 2015" "Kontroler TC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Strukture"
+
+.in +1c
+.ti -1c
+.RI "union \fBul2byte4b\fP"
+.br
+.ti -1c
+.RI "union \fBfl2byte4b\fP"
+.br
+.ti -1c
+.RI "union \fBui2byte2\fP"
+.br
+.in -1c
+.SS "Makro deklaracije"
+
+.in +1c
+.ti -1c
+.RI "#define \fBVERSION\fP   'v1'"
+.br
+.ti -1c
+.RI "#define \fBMAXSENSORS\fP   9"
+.br
+.ti -1c
+.RI "#define \fBMAXSENSORS_DS\fP   7"
+.br
+.ti -1c
+.RI "#define \fBMAX_DHT22_SENS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBNED\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSOB\fP   7"
+.br
+.ti -1c
+.RI "#define \fBUSEEGRELEC\fP   false"
+.br
+.ti -1c
+.RI "#define \fBSTATE_TC_ON\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSTATE_TC_OFF\fP   0"
+.br
+.ti -1c
+.RI "#define \fBR_CRAD_ON\fP   LOW"
+.br
+.ti -1c
+.RI "#define \fBR_CRAD_OFF\fP   HIGH"
+.br
+.ti -1c
+.RI "#define \fBR_CTC_ON\fP   LOW"
+.br
+.ti -1c
+.RI "#define \fBR_CTC_OFF\fP   HIGH"
+.br
+.ti -1c
+.RI "#define \fBCEV_TERM_ON\fP   LOW"
+.br
+.ti -1c
+.RI "#define \fBCEV_TERM_OFF\fP   HIGH"
+.br
+.ti -1c
+.RI "#define \fBR_TC_EGREL_ON\fP   LOW"
+.br
+.ti -1c
+.RI "#define \fBR_TC_EGREL_OFF\fP   HIGH"
+.br
+.ti -1c
+.RI "#define \fBR_TC_VENT_ON\fP   LOW"
+.br
+.ti -1c
+.RI "#define \fBR_TC_VENT_OFF\fP   HIGH"
+.br
+.ti -1c
+.RI "#define \fBR_TC_KOMP_ON\fP   LOW"
+.br
+.ti -1c
+.RI "#define \fBR_TC_KOMP_OFF\fP   HIGH"
+.br
+.ti -1c
+.RI "#define \fBSTATE_CRP_TC_ON\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSTATE_CRP_TC_OFF\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSTATE_VENT_TC_ON\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSTATE_VENT_TC_OFF\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSTATE_VENT_TC_NDEF\fP   255"
+.br
+.ti -1c
+.RI "#define \fBSENS_TOK_12V\fP   A2"
+.br
+.ti -1c
+.RI "#define \fBT_KTYP_01_PIN\fP   A3"
+.br
+.ti -1c
+.RI "#define \fBCO_SENS_APIN\fP   A6"
+.br
+.ti -1c
+.RI "#define \fBSENS_V5_3\fP   A7"
+.br
+.ti -1c
+.RI "#define \fBSENS_V12\fP   A8"
+.br
+.ti -1c
+.RI "#define \fBSENS_V5_2\fP   A9"
+.br
+.ti -1c
+.RI "#define \fBSENS_RTC_BATT\fP   A10"
+.br
+.ti -1c
+.RI "#define \fBSENS_TOK\fP   A11"
+.br
+.ti -1c
+.RI "#define \fBSENS_3V3_SD\fP   A12"
+.br
+.ti -1c
+.RI "#define \fBCO_DOUT_PIN\fP   11"
+.br
+.ti -1c
+.RI "#define \fBCO_PWR_PIN\fP   12"
+.br
+.ti -1c
+.RI "#define \fBENC_DT_PIN\fP   2"
+.br
+.ti -1c
+.RI "#define \fBENC_CLK_PIN\fP   3"
+.br
+.ti -1c
+.RI "#define \fBENC_SW_PIN\fP   4"
+.br
+.ti -1c
+.RI "#define \fBENC_PIN_A\fP   \fBENC_DT_PIN\fP"
+.br
+.ti -1c
+.RI "#define \fBENC_PIN_B\fP   \fBENC_CLK_PIN\fP"
+.br
+.ti -1c
+.RI "#define \fBNRF24_CE\fP   8"
+.br
+.ti -1c
+.RI "#define \fBNRF24_CSN\fP   9"
+.br
+.ti -1c
+.RI "#define \fBETHER_CS_PIN\fP   10"
+.br
+.ti -1c
+.RI "#define \fBETHER_RESET_PIN\fP   23"
+.br
+.ti -1c
+.RI "#define \fBLCD_OSW_SW\fP   7"
+.br
+.ti -1c
+.RI "#define \fBLCD_RS\fP   22"
+.br
+.ti -1c
+.RI "#define \fBLCD_EN\fP   24"
+.br
+.ti -1c
+.RI "#define \fBLCD_D4\fP   25"
+.br
+.ti -1c
+.RI "#define \fBLCD_D5\fP   26"
+.br
+.ti -1c
+.RI "#define \fBLCD_D6\fP   27"
+.br
+.ti -1c
+.RI "#define \fBLCD_D7\fP   28"
+.br
+.ti -1c
+.RI "#define \fBBEEP_PIN\fP   29"
+.br
+.ti -1c
+.RI "#define \fBONE_WIRE_BUS\fP   30"
+.br
+.ti -1c
+.RI "#define \fBDHTPIN\fP   31"
+.br
+.ti -1c
+.RI "#define \fBDHTTYPE\fP   DHT22"
+.br
+.ti -1c
+.RI "#define \fBCEVTERM_PEC_TC\fP   32"
+.br
+.ti -1c
+.RI "#define \fBSTIKALO_CRP_RAD_ON\fP   33"
+.br
+.ti -1c
+.RI "#define \fBSTIKALO_CRP_RAD_OFF\fP   34"
+.br
+.ti -1c
+.RI "#define \fBSTIKALO_CRP_TC_ON\fP   35"
+.br
+.ti -1c
+.RI "#define \fBSTIKALO_CRP_TC_OFF\fP   36"
+.br
+.ti -1c
+.RI "#define \fBSTIKALO_TC_ON\fP   37"
+.br
+.ti -1c
+.RI "#define \fBSTIKALO_TC_OFF\fP   38"
+.br
+.ti -1c
+.RI "#define \fBRELE_TC_KOMP\fP   39"
+.br
+.ti -1c
+.RI "#define \fBRELE_TC_VENT\fP   40"
+.br
+.ti -1c
+.RI "#define \fBRELE_CTC\fP   41"
+.br
+.ti -1c
+.RI "#define \fBRELE_CRAD\fP   42"
+.br
+.ti -1c
+.RI "#define \fBRELE_TC_EGREL\fP   43"
+.br
+.ti -1c
+.RI "#define \fBVENTTC_1\fP   47"
+.br
+.ti -1c
+.RI "#define \fBVENTTC_2\fP   48"
+.br
+.ti -1c
+.RI "#define \fBVENTTC_EN\fP   49"
+.br
+.ti -1c
+.RI "#define \fBSD_CS_PIN\fP   53"
+.br
+.ti -1c
+.RI "#define \fBDS1307_CTRL_ID\fP   0x68"
+.br
+.ti -1c
+.RI "#define \fBTIME_MSG_LEN\fP   11"
+.br
+.ti -1c
+.RI "#define \fBTIME_HEADER\fP   'T'"
+.br
+.ti -1c
+.RI "#define \fBAT24C32_I2C_ADDR\fP   0x50"
+.br
+.ti -1c
+.RI "#define \fBAT24C32_MAX_ADDR\fP   4096"
+.br
+.ti -1c
+.RI "#define \fBAT24C32_ADDR_LENGH\fP   2"
+.br
+.ti -1c
+.RI "#define \fBOKOLICA_0\fP   7"
+.br
+.ti -1c
+.RI "#define \fBCRPALKA_0\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPEC_PV\fP   2"
+.br
+.ti -1c
+.RI "#define \fBPEC_DV\fP   3"
+.br
+.ti -1c
+.RI "#define \fBRAD_PV\fP   4"
+.br
+.ti -1c
+.RI "#define \fBRAD_DV\fP   5"
+.br
+.ti -1c
+.RI "#define \fBPEC_TC_DV\fP   6"
+.br
+.in -1c
+.SS "Uporabniško definirani tipi"
+
+.in +1c
+.ti -1c
+.RI "typedef uint8_t \fBDeviceAddress\fP[8]"
+.br
+.in -1c
+.SS "Funkcije"
+
+.in +1c
+.ti -1c
+.RI "void \fBBeep\fP (unsigned char)"
+.br
+.ti -1c
+.RI "LiquidCrystal \fBlcdA\fP (\fBLCD_RS\fP, \fBLCD_EN\fP, \fBLCD_D4\fP, \fBLCD_D5\fP, \fBLCD_D6\fP, \fBLCD_D7\fP)"
+.br
+.ti -1c
+.RI "DHT \fBdht\fP (\fBDHTPIN\fP, \fBDHTTYPE\fP)"
+.br
+.ti -1c
+.RI "OneWire \fBds\fP (\fBONE_WIRE_BUS\fP)"
+.br
+.ti -1c
+.RI "void \fBFiksAdrrSens\fP (\fBDeviceAddress\fP \fBdevAddress\fP[], byte *\fBtype_s\fP)"
+.br
+.in -1c
+.SS "Spremenljivke"
+
+.in +1c
+.ti -1c
+.RI "int \fBnumSensDS\fP = 0"
+.br
+.ti -1c
+.RI "int \fBnumSensDHT22\fP = 1"
+.br
+.ti -1c
+.RI "int \fBnumSensK\fP = 1"
+.br
+.ti -1c
+.RI "int \fBnumSens\fP"
+.br
+.ti -1c
+.RI "float \fBkTypeOffset\fP = 0\&.0"
+.br
+.ti -1c
+.RI "char \fBsensorIme\fP [\fBMAXSENSORS\fP][6] = {'Okol', 'ToCrp', 'PecPV', 'PecDV', 'RadPV', 'RadDV', 'PecTC', 'Okol', 'Dimn'}"
+.br
+.ti -1c
+.RI "\fBui2byte2\fP \fBu2\fP"
+.br
+.ti -1c
+.RI "boolean \fBshowCRC\fP = true"
+.br
+.ti -1c
+.RI "unsigned int \fBmerXMin\fP = 1"
+.br
+.ti -1c
+.RI "float \fBminTempVTOn\fP = 37\&.5"
+.br
+.ti -1c
+.RI "int \fBminRunTimeMin\fP = 10"
+.br
+.ti -1c
+.RI "float \fBdTemp\fP = 5\&.0"
+.br
+.ti -1c
+.RI "float \fBminTempNightOn\fP = 32\&.5"
+.br
+.ti -1c
+.RI "float \fBciljnaTemp\fP = 52"
+.br
+.ti -1c
+.RI "float \fBciljnaTempWeekend\fP = 48"
+.br
+.ti -1c
+.RI "float \fBmin_TempOK_TCKomp\fP = 5\&.0"
+.br
+.ti -1c
+.RI "float \fBmax_TempOK_TCKomp\fP = 35\&.0"
+.br
+.ti -1c
+.RI "float \fBmaxDovTempVodeTC_Komp\fP = 64\&.0"
+.br
+.ti -1c
+.RI "float \fBdeltaTh\fP"
+.br
+.ti -1c
+.RI "float \fBdeltaThOk\fP"
+.br
+.ti -1c
+.RI "float \fBdeltaThSt\fP"
+.br
+.ti -1c
+.RI "const float \fBtKompOK\fP = 20\&.0"
+.br
+.ti -1c
+.RI "const float \fBtKompSt\fP = 50\&.0"
+.br
+.ti -1c
+.RI "int \fBzamikMerTemp\fP = 15"
+.br
+.ti -1c
+.RI "int \fBuraVTemp\fP [] = {6, 21}"
+.br
+.ti -1c
+.RI "int \fBdolPrehObd\fP = 121"
+.br
+.ti -1c
+.RI "int \fBstartUraVT\fP = 6"
+.br
+.ti -1c
+.RI "int \fBstartUraNT\fP = 22"
+.br
+.ti -1c
+.RI "float \fBmejaToka\fP = 1\&.0"
+.br
+.ti -1c
+.RI "float \fBtempVklopaCrpTC\fP = 82\&.5"
+.br
+.ti -1c
+.RI "float \fBhistCrpTC\fP = 4\&.95"
+.br
+.ti -1c
+.RI "float \fBminDiffTCPec\fP = 2\&.0"
+.br
+.ti -1c
+.RI "float \fBtempIzklopaVentCrpTC\fP = 60\&.0"
+.br
+.ti -1c
+.RI "float \fBminTempPecPonovnoOdpVent\fP = 55\&.0"
+.br
+.ti -1c
+.RI "int \fBminCrpTCRunTimeMin\fP = 2"
+.br
+.ti -1c
+.RI "int \fBzaksnitevCrpVent_Sec\fP = 20"
+.br
+.ti -1c
+.RI "int \fBminCrpRadRunTimeMin\fP = 7"
+.br
+.ti -1c
+.RI "byte \fBprevCrpRadState\fP = 0"
+.br
+.ti -1c
+.RI "float \fBminDiffDvOkolCrpRad\fP = 10\&.0"
+.br
+.ti -1c
+.RI "float \fBminMejnaTempRel\fP = 0\&.399"
+.br
+.ti -1c
+.RI "float \fBmaxTempPVRad\fP = 50\&.0"
+.br
+.ti -1c
+.RI "float \fBmaxTempDVPec\fP = 90\&.01"
+.br
+.ti -1c
+.RI "float \fBmaxDeltaDev\fP = 5\&.0"
+.br
+.ti -1c
+.RI "boolean \fBisCrpRadAsAbsTemp\fP = true"
+.br
+.ti -1c
+.RI "static float \fBvccInternal\fP = 5\&.0"
+.br
+.ti -1c
+.RI "unsigned int \fBaddrLastChg\fP = 0"
+.br
+.ti -1c
+.RI "unsigned int \fBaddrPrevTCState\fP = 4"
+.br
+.ti -1c
+.RI "unsigned int \fBaddrOnTime\fP = 5"
+.br
+.ti -1c
+.RI "unsigned int \fBaddrDeltaTh\fP = 9"
+.br
+.ti -1c
+.RI "unsigned int \fBaddrDeltaThOk\fP = 13"
+.br
+.ti -1c
+.RI "unsigned int \fBaddrDeltaThSt\fP = 17"
+.br
+.ti -1c
+.RI "unsigned int \fBaddrLastHourTemp\fP = 40"
+.br
+.ti -1c
+.RI "unsigned int \fBaddrTempBack\fP = 400"
+.br
+.ti -1c
+.RI "unsigned int \fBhistLen\fP = 168"
+.br
+.ti -1c
+.RI "int \fBzapisXMin\fP = 60"
+.br
+.ti -1c
+.RI "float \fBcTemperatura\fP [\fBMAXSENSORS\fP]"
+.br
+.ti -1c
+.RI "byte \fBtype_s\fP [\fBMAXSENSORS\fP]"
+.br
+.ti -1c
+.RI "float \fBsumTemp\fP [\fBMAXSENSORS\fP+\fBMAX_DHT22_SENS\fP]"
+.br
+.ti -1c
+.RI "float \fBcVlaznost\fP [\fBMAX_DHT22_SENS\fP]"
+.br
+.ti -1c
+.RI "float \fBcHumidex\fP [\fBMAX_DHT22_SENS\fP]"
+.br
+.ti -1c
+.RI "float \fBcTempRosicsa\fP [\fBMAX_DHT22_SENS\fP]"
+.br
+.ti -1c
+.RI "unsigned long \fBonTimeTC\fP = 0"
+.br
+.ti -1c
+.RI "byte \fBprevTCState\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBlastTCStateChg\fP = 0"
+.br
+.ti -1c
+.RI "byte \fBreleState_ventKompTC\fP = \fBR_TC_VENT_OFF\fP"
+.br
+.ti -1c
+.RI "byte \fBreleState_kompTC\fP = \fBR_TC_KOMP_OFF\fP"
+.br
+.ti -1c
+.RI "byte \fBreleState_egrelecTC\fP = \fBR_TC_EGREL_OFF\fP"
+.br
+.ti -1c
+.RI "byte \fBstateTC\fP = \fBSTATE_TC_OFF\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBlastCrpTCStateChg\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBonTimeCrpTC\fP =0"
+.br
+.ti -1c
+.RI "unsigned long \fBlastCrpRadStateChg\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBonTimeCrpRad\fP =0"
+.br
+.ti -1c
+.RI "unsigned long \fBcasMeritve\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBprevCasMeritve\fP"
+.br
+.ti -1c
+.RI "float \fBhitrGret\fP = 0"
+.br
+.ti -1c
+.RI "float \fBstartTemp\fP"
+.br
+.ti -1c
+.RI "float \fBlastDeltaTh\fP"
+.br
+.ti -1c
+.RI "float \fBlastDeltaThOk\fP"
+.br
+.ti -1c
+.RI "float \fBlastDeltaThSt\fP"
+.br
+.ti -1c
+.RI "float \fBlastHourTempChange\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBlastRunTime\fP"
+.br
+.ti -1c
+.RI "float \fBtempOkolicaSt\fP"
+.br
+.ti -1c
+.RI "float \fBporabaWH\fP = 0\&.0"
+.br
+.ti -1c
+.RI "float \fBzacPorabaWH\fP"
+.br
+.ti -1c
+.RI "float \fBQv\fP"
+.br
+.ti -1c
+.RI "float \fBWe\fP"
+.br
+.ti -1c
+.RI "float \fBVrms\fP = 230\&.0"
+.br
+.ti -1c
+.RI "byte \fBmanuCrpTCState\fP = 0"
+.br
+.ti -1c
+.RI "int \fBcoRawVal\fP"
+.br
+.ti -1c
+.RI "int \fBosvetlitevLCD\fP = 0"
+.br
+.ti -1c
+.RI "float \fBsumTok_12V\fP = 0\&.0"
+.br
+.ti -1c
+.RI "float \fBmaxTok_12V\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBnMerTok_12V\fP = 0"
+.br
+.ti -1c
+.RI "char \fBinfoErr\fP [8]"
+.br
+.ti -1c
+.RI "\fBul2byte4b\fP \fBu4\fP"
+.br
+.ti -1c
+.RI "\fBfl2byte4b\fP \fBuf\fP"
+.br
+.ti -1c
+.RI "int \fBlimTempCrpRad\fP [24]"
+.br
+.ti -1c
+.RI "float \fBlimTempFactCrpRad\fP [24]"
+.br
+.ti -1c
+.RI "int \fBcrpRadAsAbsTemp\fP [24]"
+.br
+.in -1c
+.SH "Opis makro definicije"
+.PP 
+.SS "#define AT24C32_ADDR_LENGH   2"
+
+.PP
+Definirano v 148 vrstici datoteke Configuration\&.h\&.
+.SS "#define AT24C32_I2C_ADDR   0x50"
+
+.PP
+Definirano v 146 vrstici datoteke Configuration\&.h\&.
+.SS "#define AT24C32_MAX_ADDR   4096"
+
+.PP
+Definirano v 147 vrstici datoteke Configuration\&.h\&.
+.SS "#define BEEP_PIN   29"
+
+.PP
+Definirano v 97 vrstici datoteke Configuration\&.h\&.
+.SS "#define CEV_TERM_OFF   HIGH"
+
+.PP
+Definirano v 36 vrstici datoteke Configuration\&.h\&.
+.SS "#define CEV_TERM_ON   LOW"
+
+.PP
+Definirano v 35 vrstici datoteke Configuration\&.h\&.
+.SS "#define CEVTERM_PEC_TC   32"
+
+.PP
+Definirano v 103 vrstici datoteke Configuration\&.h\&.
+.SS "#define CO_DOUT_PIN   11"
+
+.PP
+Definirano v 71 vrstici datoteke Configuration\&.h\&.
+.SS "#define CO_PWR_PIN   12"
+
+.PP
+Definirano v 72 vrstici datoteke Configuration\&.h\&.
+.SS "#define CO_SENS_APIN   A6"
+
+.PP
+Definirano v 60 vrstici datoteke Configuration\&.h\&.
+.SS "#define CRPALKA_0   1"
+
+.PP
+Definirano v 170 vrstici datoteke Configuration\&.h\&.
+.SS "#define DHTPIN   31"
+
+.PP
+Definirano v 100 vrstici datoteke Configuration\&.h\&.
+.SS "#define DHTTYPE   DHT22"
+
+.PP
+Definirano v 101 vrstici datoteke Configuration\&.h\&.
+.SS "#define DS1307_CTRL_ID   0x68"
+
+.PP
+Definirano v 140 vrstici datoteke Configuration\&.h\&.
+.SS "#define ENC_CLK_PIN   3"
+
+.PP
+Definirano v 75 vrstici datoteke Configuration\&.h\&.
+.SS "#define ENC_DT_PIN   2"
+
+.PP
+Definirano v 74 vrstici datoteke Configuration\&.h\&.
+.SS "#define ENC_PIN_A   \fBENC_DT_PIN\fP"
+
+.PP
+Definirano v 79 vrstici datoteke Configuration\&.h\&.
+.SS "#define ENC_PIN_B   \fBENC_CLK_PIN\fP"
+
+.PP
+Definirano v 80 vrstici datoteke Configuration\&.h\&.
+.SS "#define ENC_SW_PIN   4"
+
+.PP
+Definirano v 76 vrstici datoteke Configuration\&.h\&.
+.SS "#define ETHER_CS_PIN   10"
+
+.PP
+Definirano v 85 vrstici datoteke Configuration\&.h\&.
+.SS "#define ETHER_RESET_PIN   23"
+
+.PP
+Definirano v 86 vrstici datoteke Configuration\&.h\&.
+.SS "#define LCD_D4   25"
+
+.PP
+Definirano v 92 vrstici datoteke Configuration\&.h\&.
+.SS "#define LCD_D5   26"
+
+.PP
+Definirano v 93 vrstici datoteke Configuration\&.h\&.
+.SS "#define LCD_D6   27"
+
+.PP
+Definirano v 94 vrstici datoteke Configuration\&.h\&.
+.SS "#define LCD_D7   28"
+
+.PP
+Definirano v 95 vrstici datoteke Configuration\&.h\&.
+.SS "#define LCD_EN   24"
+
+.PP
+Definirano v 91 vrstici datoteke Configuration\&.h\&.
+.SS "#define LCD_OSW_SW   7"
+
+.PP
+Definirano v 88 vrstici datoteke Configuration\&.h\&.
+.SS "#define LCD_RS   22"
+
+.PP
+Definirano v 89 vrstici datoteke Configuration\&.h\&.
+.SS "#define MAX_DHT22_SENS   1"
+
+.PP
+Definirano v 11 vrstici datoteke Configuration\&.h\&.
+.SS "#define MAXSENSORS   9"
+
+.PP
+Definirano v 9 vrstici datoteke Configuration\&.h\&.
+.SS "#define MAXSENSORS_DS   7"
+
+.PP
+Definirano v 10 vrstici datoteke Configuration\&.h\&.
+.SS "#define NED   1"
+
+.PP
+Definirano v 14 vrstici datoteke Configuration\&.h\&.
+.SS "#define NRF24_CE   8"
+
+.PP
+Definirano v 82 vrstici datoteke Configuration\&.h\&.
+.SS "#define NRF24_CSN   9"
+
+.PP
+Definirano v 83 vrstici datoteke Configuration\&.h\&.
+.SS "#define OKOLICA_0   7"
+
+.PP
+Definirano v 169 vrstici datoteke Configuration\&.h\&.
+.SS "#define ONE_WIRE_BUS   30"
+
+.PP
+Definirano v 98 vrstici datoteke Configuration\&.h\&.
+.SS "#define PEC_DV   3"
+
+.PP
+Definirano v 172 vrstici datoteke Configuration\&.h\&.
+.SS "#define PEC_PV   2"
+
+.PP
+Definirano v 171 vrstici datoteke Configuration\&.h\&.
+.SS "#define PEC_TC_DV   6"
+
+.PP
+Definirano v 175 vrstici datoteke Configuration\&.h\&.
+.SS "#define R_CRAD_OFF   HIGH"
+
+.PP
+Definirano v 30 vrstici datoteke Configuration\&.h\&.
+.SS "#define R_CRAD_ON   LOW"
+
+.PP
+Definirano v 29 vrstici datoteke Configuration\&.h\&.
+.SS "#define R_CTC_OFF   HIGH"
+
+.PP
+Definirano v 33 vrstici datoteke Configuration\&.h\&.
+.SS "#define R_CTC_ON   LOW"
+
+.PP
+Definirano v 32 vrstici datoteke Configuration\&.h\&.
+.SS "#define R_TC_EGREL_OFF   HIGH"
+
+.PP
+Definirano v 39 vrstici datoteke Configuration\&.h\&.
+.SS "#define R_TC_EGREL_ON   LOW"
+
+.PP
+Definirano v 38 vrstici datoteke Configuration\&.h\&.
+.SS "#define R_TC_KOMP_OFF   HIGH"
+
+.PP
+Definirano v 45 vrstici datoteke Configuration\&.h\&.
+.SS "#define R_TC_KOMP_ON   LOW"
+
+.PP
+Definirano v 44 vrstici datoteke Configuration\&.h\&.
+.SS "#define R_TC_VENT_OFF   HIGH"
+
+.PP
+Definirano v 42 vrstici datoteke Configuration\&.h\&.
+.SS "#define R_TC_VENT_ON   LOW"
+
+.PP
+Definirano v 41 vrstici datoteke Configuration\&.h\&.
+.SS "#define RAD_DV   5"
+
+.PP
+Definirano v 174 vrstici datoteke Configuration\&.h\&.
+.SS "#define RAD_PV   4"
+
+.PP
+Definirano v 173 vrstici datoteke Configuration\&.h\&.
+.SS "#define RELE_CRAD   42"
+
+.PP
+Definirano v 122 vrstici datoteke Configuration\&.h\&.
+.SS "#define RELE_CTC   41"
+
+.PP
+Definirano v 121 vrstici datoteke Configuration\&.h\&.
+.SS "#define RELE_TC_EGREL   43"
+
+.PP
+Definirano v 124 vrstici datoteke Configuration\&.h\&.
+.SS "#define RELE_TC_KOMP   39"
+
+.PP
+Definirano v 119 vrstici datoteke Configuration\&.h\&.
+.SS "#define RELE_TC_VENT   40"
+
+.PP
+Definirano v 120 vrstici datoteke Configuration\&.h\&.
+.SS "#define SD_CS_PIN   53"
+
+.PP
+Definirano v 133 vrstici datoteke Configuration\&.h\&.
+.SS "#define SENS_3V3_SD   A12"
+
+.PP
+Definirano v 66 vrstici datoteke Configuration\&.h\&.
+.SS "#define SENS_RTC_BATT   A10"
+
+.PP
+Definirano v 64 vrstici datoteke Configuration\&.h\&.
+.SS "#define SENS_TOK   A11"
+
+.PP
+Definirano v 65 vrstici datoteke Configuration\&.h\&.
+.SS "#define SENS_TOK_12V   A2"
+
+.PP
+Definirano v 57 vrstici datoteke Configuration\&.h\&.
+.SS "#define SENS_V12   A8"
+
+.PP
+Definirano v 62 vrstici datoteke Configuration\&.h\&.
+.SS "#define SENS_V5_2   A9"
+
+.PP
+Definirano v 63 vrstici datoteke Configuration\&.h\&.
+.SS "#define SENS_V5_3   A7"
+
+.PP
+Definirano v 61 vrstici datoteke Configuration\&.h\&.
+.SS "#define SOB   7"
+
+.PP
+Definirano v 15 vrstici datoteke Configuration\&.h\&.
+.SS "#define STATE_CRP_TC_OFF   0"
+
+.PP
+Definirano v 49 vrstici datoteke Configuration\&.h\&.
+.SS "#define STATE_CRP_TC_ON   1"
+
+.PP
+Definirano v 48 vrstici datoteke Configuration\&.h\&.
+.SS "#define STATE_TC_OFF   0"
+
+.PP
+Definirano v 24 vrstici datoteke Configuration\&.h\&.
+.SS "#define STATE_TC_ON   1"
+
+.PP
+Definirano v 23 vrstici datoteke Configuration\&.h\&.
+.SS "#define STATE_VENT_TC_NDEF   255"
+
+.PP
+Definirano v 53 vrstici datoteke Configuration\&.h\&.
+.SS "#define STATE_VENT_TC_OFF   0"
+
+.PP
+Definirano v 52 vrstici datoteke Configuration\&.h\&.
+.SS "#define STATE_VENT_TC_ON   1"
+
+.PP
+Definirano v 51 vrstici datoteke Configuration\&.h\&.
+.SS "#define STIKALO_CRP_RAD_OFF   34"
+
+.PP
+Definirano v 108 vrstici datoteke Configuration\&.h\&.
+.SS "#define STIKALO_CRP_RAD_ON   33"
+
+.PP
+Definirano v 107 vrstici datoteke Configuration\&.h\&.
+.SS "#define STIKALO_CRP_TC_OFF   36"
+
+.PP
+Definirano v 110 vrstici datoteke Configuration\&.h\&.
+.SS "#define STIKALO_CRP_TC_ON   35"
+
+.PP
+Definirano v 109 vrstici datoteke Configuration\&.h\&.
+.SS "#define STIKALO_TC_OFF   38"
+
+.PP
+Definirano v 112 vrstici datoteke Configuration\&.h\&.
+.SS "#define STIKALO_TC_ON   37"
+
+.PP
+Definirano v 111 vrstici datoteke Configuration\&.h\&.
+.SS "#define T_KTYP_01_PIN   A3"
+
+.PP
+Definirano v 59 vrstici datoteke Configuration\&.h\&.
+.SS "#define TIME_HEADER   'T'"
+
+.PP
+Definirano v 142 vrstici datoteke Configuration\&.h\&.
+.SS "#define TIME_MSG_LEN   11"
+
+.PP
+Definirano v 141 vrstici datoteke Configuration\&.h\&.
+.SS "#define USEEGRELEC   false"
+
+.PP
+Definirano v 19 vrstici datoteke Configuration\&.h\&.
+.SS "#define VENTTC_1   47"
+
+.PP
+Definirano v 129 vrstici datoteke Configuration\&.h\&.
+.SS "#define VENTTC_2   48"
+
+.PP
+Definirano v 130 vrstici datoteke Configuration\&.h\&.
+.SS "#define VENTTC_EN   49"
+
+.PP
+Definirano v 131 vrstici datoteke Configuration\&.h\&.
+.SS "#define VERSION   'v1'"
+
+.PP
+Definirano v 8 vrstici datoteke Configuration\&.h\&.
+.SH "Opis uporabniško definiranega tipa"
+.PP 
+.SS "typedef uint8_t DeviceAddress[8]"
+
+.PP
+Definirano v 367 vrstici datoteke Configuration\&.h\&.
+.SH "Opis funkcije"
+.PP 
+.SS "void Beep (unsigned char delayms)"
+
+.PP
+Definirano v 34 vrstici datoteke LCD_funkcije\&.h\&.
+.SS "DHT dht (\fBDHTPIN\fP, \fBDHTTYPE\fP)"
+
+.SS "OneWire ds (\fBONE_WIRE_BUS\fP)"
+
+.SS "void FiksAdrrSens (\fBDeviceAddress\fP devAddress[], byte * type_s)"
+
+.PP
+Definirano v 378 vrstici datoteke Configuration\&.h\&.
+.SS "LiquidCrystal lcdA (\fBLCD_RS\fP, \fBLCD_EN\fP, \fBLCD_D4\fP, \fBLCD_D5\fP, \fBLCD_D6\fP, \fBLCD_D7\fP)"
+
+.SH "Opis spremenljivke"
+.PP 
+.SS "unsigned int addrDeltaTh = 9"
+
+.PP
+Definirano v 289 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned int addrDeltaThOk = 13"
+
+.PP
+Definirano v 290 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned int addrDeltaThSt = 17"
+
+.PP
+Definirano v 291 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned int addrLastChg = 0"
+
+.PP
+Definirano v 286 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned int addrLastHourTemp = 40"
+
+.PP
+Definirano v 293 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned int addrOnTime = 5"
+
+.PP
+Definirano v 288 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned int addrPrevTCState = 4"
+
+.PP
+Definirano v 287 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned int addrTempBack = 400"
+
+.PP
+Definirano v 294 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned long casMeritve"
+
+.PP
+Definirano v 328 vrstici datoteke Configuration\&.h\&.
+.SS "float cHumidex[\fBMAX_DHT22_SENS\fP]"
+
+.PP
+Definirano v 305 vrstici datoteke Configuration\&.h\&.
+.SS "float ciljnaTemp = 52"
+
+.PP
+Definirano v 219 vrstici datoteke Configuration\&.h\&.
+.SS "float ciljnaTempWeekend = 48"
+
+.PP
+Definirano v 220 vrstici datoteke Configuration\&.h\&.
+.SS "int coRawVal"
+
+.PP
+Definirano v 352 vrstici datoteke Configuration\&.h\&.
+.SS "int crpRadAsAbsTemp[24]"
+\fBZačetna vrednost / definicija :\fP
+.PP
+.nf
+= {15, 15, 15, 15, 15, 15, 
+                             17, 19, 22, 25, 30, 30, 
+                             25, 25, 25, 28, 30, 32, 
+                             30, 28, 24, 20, 17, 15}
+.fi
+.PP
+Definirano v 650 vrstici datoteke Configuration\&.h\&.
+.SS "float cTemperatura[\fBMAXSENSORS\fP]"
+
+.PP
+Definirano v 300 vrstici datoteke Configuration\&.h\&.
+.SS "float cTempRosicsa[\fBMAX_DHT22_SENS\fP]"
+
+.PP
+Definirano v 306 vrstici datoteke Configuration\&.h\&.
+.SS "float cVlaznost[\fBMAX_DHT22_SENS\fP]"
+
+.PP
+Definirano v 304 vrstici datoteke Configuration\&.h\&.
+.SS "float deltaTh"
+
+.PP
+Definirano v 230 vrstici datoteke Configuration\&.h\&.
+.SS "float deltaThOk"
+
+.PP
+Definirano v 231 vrstici datoteke Configuration\&.h\&.
+.SS "float deltaThSt"
+
+.PP
+Definirano v 232 vrstici datoteke Configuration\&.h\&.
+.SS "int dolPrehObd = 121"
+
+.PP
+Definirano v 243 vrstici datoteke Configuration\&.h\&.
+.SS "float dTemp = 5\&.0"
+
+.PP
+Definirano v 211 vrstici datoteke Configuration\&.h\&.
+.SS "float histCrpTC = 4\&.95"
+
+.PP
+Definirano v 252 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned int histLen = 168"
+
+.PP
+Definirano v 296 vrstici datoteke Configuration\&.h\&.
+.SS "float hitrGret = 0"
+
+.PP
+Definirano v 331 vrstici datoteke Configuration\&.h\&.
+.SS "char infoErr[8]"
+
+.PP
+Definirano v 362 vrstici datoteke Configuration\&.h\&.
+.SS "boolean isCrpRadAsAbsTemp = true"
+
+.PP
+Definirano v 277 vrstici datoteke Configuration\&.h\&.
+.SS "float kTypeOffset = 0\&.0"
+
+.PP
+Definirano v 167 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned long lastCrpRadStateChg"
+
+.PP
+Definirano v 325 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned long lastCrpTCStateChg"
+
+.PP
+Definirano v 322 vrstici datoteke Configuration\&.h\&.
+.SS "float lastDeltaTh"
+
+.PP
+Definirano v 334 vrstici datoteke Configuration\&.h\&.
+.SS "float lastDeltaThOk"
+
+.PP
+Definirano v 335 vrstici datoteke Configuration\&.h\&.
+.SS "float lastDeltaThSt"
+
+.PP
+Definirano v 336 vrstici datoteke Configuration\&.h\&.
+.SS "float lastHourTempChange"
+
+.PP
+Definirano v 338 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned long lastRunTime"
+
+.PP
+Definirano v 340 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned long lastTCStateChg = 0"
+
+.PP
+Definirano v 311 vrstici datoteke Configuration\&.h\&.
+.SS "int limTempCrpRad[24]"
+\fBZačetna vrednost / definicija :\fP
+.PP
+.nf
+= {30, 30, 30, 30, 30, 30, 
+                         28, 15, 12, 13, 15, 17, 
+                         19, 21, 20, 18, 15, 12, 
+                         14, 16, 18, 22, 30, 30}
+.fi
+.PP
+Definirano v 626 vrstici datoteke Configuration\&.h\&.
+.SS "float limTempFactCrpRad[24]"
+\fBZačetna vrednost / definicija :\fP
+.PP
+.nf
+= {0\&.2, 0\&.2, 0\&.2, 0\&.2, 0\&.2, 0\&.2, 
+                             0\&.2, 0\&.2, 0\&.2, 0\&.2, 0\&.2, 0\&.2, 
+                             0\&.2, 0\&.2, 0\&.2, 0\&.2, 0\&.2, 0\&.2, 
+                             0\&.2, 0\&.2, 0\&.2, 0\&.2, 0\&.2, 0\&.2}
+.fi
+.PP
+Definirano v 639 vrstici datoteke Configuration\&.h\&.
+.SS "byte manuCrpTCState = 0"
+
+.PP
+Definirano v 350 vrstici datoteke Configuration\&.h\&.
+.SS "float max_TempOK_TCKomp = 35\&.0"
+
+.PP
+Definirano v 226 vrstici datoteke Configuration\&.h\&.
+.SS "float maxDeltaDev = 5\&.0"
+
+.PP
+Definirano v 275 vrstici datoteke Configuration\&.h\&.
+.SS "float maxDovTempVodeTC_Komp = 64\&.0"
+
+.PP
+Definirano v 228 vrstici datoteke Configuration\&.h\&.
+.SS "float maxTempDVPec = 90\&.01"
+
+.PP
+Definirano v 274 vrstici datoteke Configuration\&.h\&.
+.SS "float maxTempPVRad = 50\&.0"
+
+.PP
+Definirano v 273 vrstici datoteke Configuration\&.h\&.
+.SS "float maxTok_12V"
+
+.PP
+Definirano v 356 vrstici datoteke Configuration\&.h\&.
+.SS "float mejaToka = 1\&.0"
+
+.PP
+Definirano v 246 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned int merXMin = 1"
+
+.PP
+Definirano v 206 vrstici datoteke Configuration\&.h\&.
+.SS "float min_TempOK_TCKomp = 5\&.0"
+
+.PP
+Definirano v 225 vrstici datoteke Configuration\&.h\&.
+.SS "int minCrpRadRunTimeMin = 7"
+
+.PP
+Definirano v 261 vrstici datoteke Configuration\&.h\&.
+.SS "int minCrpTCRunTimeMin = 2"
+
+.PP
+Definirano v 259 vrstici datoteke Configuration\&.h\&.
+.SS "float minDiffDvOkolCrpRad = 10\&.0"
+
+.PP
+Definirano v 265 vrstici datoteke Configuration\&.h\&.
+.SS "float minDiffTCPec = 2\&.0"
+
+.PP
+Definirano v 254 vrstici datoteke Configuration\&.h\&.
+.SS "float minMejnaTempRel = 0\&.399"
+
+.PP
+Definirano v 271 vrstici datoteke Configuration\&.h\&.
+.SS "int minRunTimeMin = 10"
+
+.PP
+Definirano v 208 vrstici datoteke Configuration\&.h\&.
+.SS "float minTempNightOn = 32\&.5"
+
+.PP
+Definirano v 218 vrstici datoteke Configuration\&.h\&.
+.SS "float minTempPecPonovnoOdpVent = 55\&.0"
+
+.PP
+Definirano v 256 vrstici datoteke Configuration\&.h\&.
+.SS "float minTempVTOn = 37\&.5"
+
+.PP
+Definirano v 207 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned long nMerTok_12V = 0"
+
+.PP
+Definirano v 357 vrstici datoteke Configuration\&.h\&.
+.SS "int numSens"
+
+.PP
+Definirano v 165 vrstici datoteke Configuration\&.h\&.
+.SS "int numSensDHT22 = 1"
+
+.PP
+Definirano v 163 vrstici datoteke Configuration\&.h\&.
+.SS "int numSensDS = 0"
+
+.PP
+Definirano v 162 vrstici datoteke Configuration\&.h\&.
+.SS "int numSensK = 1"
+
+.PP
+Definirano v 164 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned long onTimeCrpRad =0"
+
+.PP
+Definirano v 326 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned long onTimeCrpTC =0"
+
+.PP
+Definirano v 323 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned long onTimeTC = 0"
+
+.PP
+Definirano v 309 vrstici datoteke Configuration\&.h\&.
+.SS "int osvetlitevLCD = 0"
+
+.PP
+Definirano v 353 vrstici datoteke Configuration\&.h\&.
+.SS "float porabaWH = 0\&.0"
+
+.PP
+Definirano v 343 vrstici datoteke Configuration\&.h\&.
+.SS "unsigned long prevCasMeritve"
+
+.PP
+Definirano v 329 vrstici datoteke Configuration\&.h\&.
+.SS "byte prevCrpRadState = 0"
+
+.PP
+Definirano v 264 vrstici datoteke Configuration\&.h\&.
+.SS "byte prevTCState"
+
+.PP
+Definirano v 310 vrstici datoteke Configuration\&.h\&.
+.SS "float Qv"
+
+.PP
+Definirano v 345 vrstici datoteke Configuration\&.h\&.
+.SS "byte releState_egrelecTC = \fBR_TC_EGREL_OFF\fP"
+
+.PP
+Definirano v 315 vrstici datoteke Configuration\&.h\&.
+.SS "byte releState_kompTC = \fBR_TC_KOMP_OFF\fP"
+
+.PP
+Definirano v 314 vrstici datoteke Configuration\&.h\&.
+.SS "byte releState_ventKompTC = \fBR_TC_VENT_OFF\fP"
+
+.PP
+Definirano v 313 vrstici datoteke Configuration\&.h\&.
+.SS "char sensorIme[\fBMAXSENSORS\fP][6] = {'Okol', 'ToCrp', 'PecPV', 'PecDV', 'RadPV', 'RadDV', 'PecTC', 'Okol', 'Dimn'}"
+
+.PP
+Definirano v 177 vrstici datoteke Configuration\&.h\&.
+.SS "boolean showCRC = true"
+
+.PP
+Definirano v 203 vrstici datoteke Configuration\&.h\&.
+.SS "float startTemp"
+
+.PP
+Definirano v 332 vrstici datoteke Configuration\&.h\&.
+.SS "int startUraNT = 22"
+
+.PP
+Definirano v 245 vrstici datoteke Configuration\&.h\&.
+.SS "int startUraVT = 6"
+
+.PP
+Definirano v 244 vrstici datoteke Configuration\&.h\&.
+.SS "byte stateTC = \fBSTATE_TC_OFF\fP"
+
+.PP
+Definirano v 316 vrstici datoteke Configuration\&.h\&.
+.SS "float sumTemp[\fBMAXSENSORS\fP+\fBMAX_DHT22_SENS\fP]"
+
+.PP
+Definirano v 302 vrstici datoteke Configuration\&.h\&.
+.SS "float sumTok_12V = 0\&.0"
+
+.PP
+Definirano v 355 vrstici datoteke Configuration\&.h\&.
+.SS "float tempIzklopaVentCrpTC = 60\&.0"
+
+.PP
+Definirano v 255 vrstici datoteke Configuration\&.h\&.
+.SS "float tempOkolicaSt"
+
+.PP
+Definirano v 341 vrstici datoteke Configuration\&.h\&.
+.SS "float tempVklopaCrpTC = 82\&.5"
+
+.PP
+Definirano v 251 vrstici datoteke Configuration\&.h\&.
+.SS "const float tKompOK = 20\&.0"
+
+.PP
+Definirano v 233 vrstici datoteke Configuration\&.h\&.
+.SS "const float tKompSt = 50\&.0"
+
+.PP
+Definirano v 235 vrstici datoteke Configuration\&.h\&.
+.SS "byte type_s[\fBMAXSENSORS\fP]"
+
+.PP
+Definirano v 301 vrstici datoteke Configuration\&.h\&.
+.SS "\fBui2byte2\fP u2"
+
+.PP
+Definirano v 194 vrstici datoteke Configuration\&.h\&.
+.SS "\fBul2byte4b\fP u4"
+
+.PP
+Definirano v 364 vrstici datoteke Configuration\&.h\&.
+.SS "\fBfl2byte4b\fP uf"
+
+.PP
+Definirano v 365 vrstici datoteke Configuration\&.h\&.
+.SS "int uraVTemp[] = {6, 21}"
+
+.PP
+Definirano v 241 vrstici datoteke Configuration\&.h\&.
+.SS "float vccInternal = 5\&.0\fC [static]\fP"
+
+.PP
+Definirano v 280 vrstici datoteke Configuration\&.h\&.
+.SS "float Vrms = 230\&.0"
+
+.PP
+Definirano v 348 vrstici datoteke Configuration\&.h\&.
+.SS "float We"
+
+.PP
+Definirano v 346 vrstici datoteke Configuration\&.h\&.
+.SS "float zacPorabaWH"
+
+.PP
+Definirano v 344 vrstici datoteke Configuration\&.h\&.
+.SS "int zaksnitevCrpVent_Sec = 20"
+
+.PP
+Definirano v 260 vrstici datoteke Configuration\&.h\&.
+.SS "int zamikMerTemp = 15"
+
+.PP
+Definirano v 237 vrstici datoteke Configuration\&.h\&.
+.SS "int zapisXMin = 60"
+
+.PP
+Definirano v 297 vrstici datoteke Configuration\&.h\&.
+.SH "Avtor"
+.PP 
+zgenerirano z Doxygen-om za Kontroler TC iz izvorne kode\&.

@@ -1,0 +1,254 @@
+.TH "//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Temperature.h" 3 "Sat Apr 11 2015" "Kontroler TC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Temperature.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <DHT\&.h>\fP
+.br
+
+.SS "Makro deklaracije"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTemperatue_h\fP"
+.br
+.in -1c
+.SS "Funkcije"
+
+.in +1c
+.ti -1c
+.RI "void \fBIzpisHex2\fP (int num)"
+.br
+.ti -1c
+.RI "void \fBBeep\fP (unsigned char delayms)"
+.br
+.ti -1c
+.RI "void \fBTempSensorsInit\fP (void)"
+.br
+.ti -1c
+.RI "static float \fBPreberiTemperaturoDS\fP (int cSens, boolean zahtevajBranje)"
+.br
+.ti -1c
+.RI "static boolean \fBPreberiTemperature\fP (boolean zahtevajBranje, boolean allSens)"
+.br
+.ti -1c
+.RI "float \fBPreberiTemperaturoDHT22\fP (int n)"
+.br
+.ti -1c
+.RI "float \fBPreberiVlaznostDHT22\fP (int n)"
+.br
+.ti -1c
+.RI "float \fBIzracunTRosicsa\fP (float temp, float vlaz)"
+.br
+.ti -1c
+.RI "float \fBIzracunHumidex\fP (float temp, float tempRos)"
+.br
+.ti -1c
+.RI "float \fBPreberiTemperaturoK\fP (int n)"
+.br
+.ti -1c
+.RI "void \fBPrintAddress\fP (\fBDeviceAddress\fP deviceAddress)"
+.br
+.ti -1c
+.RI "void \fBPrintTemperatureAll\fP (void)"
+.br
+.ti -1c
+.RI "time_t \fBprocessSyncMessage\fP ()"
+.br
+.ti -1c
+.RI "float \fBAutoTimeUnitConv\fP (unsigned long cas, char *cunits)"
+.br
+.ti -1c
+.RI "boolean \fBIsNTempCas\fP ()"
+.br
+.ti -1c
+.RI "boolean \fBIsCasTransfTopl\fP ()"
+.br
+.ti -1c
+.RI "void \fBlast24H_Info\fP (void)"
+.br
+.ti -1c
+.RI "unsigned int \fBObsegZgodovine\fP (int sensor, unsigned int pred)"
+.br
+.ti -1c
+.RI "float \fBRefTemp\fP (byte refTempType)"
+.br
+.in -1c
+.SS "Spremenljivke"
+
+.in +1c
+.ti -1c
+.RI "\fBDeviceAddress\fP \fBdevAddress\fP [\fBMAXSENSORS_DS\fP]"
+.br
+.ti -1c
+.RI "unsigned long \fBconvWaitTime\fP = 800"
+.br
+.ti -1c
+.RI "boolean \fBtemeratureIzmerjene\fP =true"
+.br
+.ti -1c
+.RI "float \fBavgTempVodeTC\fP"
+.br
+.ti -1c
+.RI "float \fBsumCTemp\fP =0\&.0"
+.br
+.ti -1c
+.RI "float \fBsumCTempEMA\fP =0\&.0"
+.br
+.ti -1c
+.RI "float \fBvccInternal\fP"
+.br
+.ti -1c
+.RI "float \fBsum24\fP [\fBMAXSENSORS\fP]"
+.br
+.ti -1c
+.RI "float \fBmaxTemp24\fP [\fBMAXSENSORS\fP]"
+.br
+.ti -1c
+.RI "float \fBminTemp24\fP [\fBMAXSENSORS\fP]"
+.br
+.ti -1c
+.RI "unsigned long \fBmaxTemp24Time\fP [\fBMAXSENSORS\fP]"
+.br
+.ti -1c
+.RI "unsigned long \fBminTemp24Time\fP [\fBMAXSENSORS\fP]"
+.br
+.in -1c
+.SH "Opis makro definicije"
+.PP 
+.SS "#define Temperatue_h"
+
+.PP
+Definirano v 2 vrstici datoteke Temperature\&.h\&.
+.SH "Opis funkcije"
+.PP 
+.SS "float AutoTimeUnitConv (unsigned long cas, char * cunits)"
+
+.PP
+Definirano v 650 vrstici datoteke Temperature\&.h\&.
+.SS "void Beep (unsigned char delayms)"
+
+.PP
+Definirano v 34 vrstici datoteke LCD_funkcije\&.h\&.
+.SS "boolean IsCasTransfTopl ()"
+
+.PP
+Definirano v 687 vrstici datoteke Temperature\&.h\&.
+.SS "boolean IsNTempCas ()"
+
+.PP
+Definirano v 672 vrstici datoteke Temperature\&.h\&.
+.SS "void IzpisHex2 (int num)"
+
+.PP
+Definirano v 41 vrstici datoteke LCD_funkcije\&.h\&.
+.SS "float IzracunHumidex (float temp, float tempRos)"
+
+.PP
+Definirano v 355 vrstici datoteke Temperature\&.h\&.
+.SS "float IzracunTRosicsa (float temp, float vlaz)"
+
+.PP
+Definirano v 349 vrstici datoteke Temperature\&.h\&.
+.SS "void last24H_Info (void)"
+
+.PP
+Definirano v 800 vrstici datoteke Temperature\&.h\&.
+.SS "unsigned int ObsegZgodovine (int sensor, unsigned int pred)"
+
+.PP
+Definirano v 764 vrstici datoteke Temperature\&.h\&.
+.SS "static boolean PreberiTemperature (boolean zahtevajBranje, boolean allSens = \fCfalse\fP)\fC [static]\fP"
+
+.PP
+Definirano v 285 vrstici datoteke Temperature\&.h\&.
+.SS "float PreberiTemperaturoDHT22 (int n)"
+
+.PP
+Definirano v 325 vrstici datoteke Temperature\&.h\&.
+.SS "static float PreberiTemperaturoDS (int cSens, boolean zahtevajBranje)\fC [static]\fP"
+
+.PP
+Definirano v 187 vrstici datoteke Temperature\&.h\&.
+.SS "float PreberiTemperaturoK (int n)"
+
+.PP
+Definirano v 363 vrstici datoteke Temperature\&.h\&.
+.SS "float PreberiVlaznostDHT22 (int n)"
+
+.PP
+Definirano v 337 vrstici datoteke Temperature\&.h\&.
+.SS "void PrintAddress (\fBDeviceAddress\fP deviceAddress)"
+
+.PP
+Definirano v 441 vrstici datoteke Temperature\&.h\&.
+.SS "void PrintTemperatureAll (void)"
+
+.PP
+Definirano v 461 vrstici datoteke Temperature\&.h\&.
+.SS "time_t processSyncMessage ()"
+
+.PP
+Definirano v 629 vrstici datoteke Temperature\&.h\&.
+.SS "float RefTemp (byte refTempType)"
+
+.PP
+Definirano v 916 vrstici datoteke Temperature\&.h\&.
+.SS "void TempSensorsInit (void)"
+
+.PP
+Definirano v 46 vrstici datoteke Temperature\&.h\&.
+.SH "Opis spremenljivke"
+.PP 
+.SS "float avgTempVodeTC"
+
+.PP
+Definirano v 42 vrstici datoteke Temperature\&.h\&.
+.SS "unsigned long convWaitTime = 800"
+
+.PP
+Definirano v 39 vrstici datoteke Temperature\&.h\&.
+.SS "\fBDeviceAddress\fP devAddress[\fBMAXSENSORS_DS\fP]"
+
+.PP
+Definirano v 38 vrstici datoteke Temperature\&.h\&.
+.SS "float maxTemp24[\fBMAXSENSORS\fP]"
+
+.PP
+Definirano v 794 vrstici datoteke Temperature\&.h\&.
+.SS "unsigned long maxTemp24Time[\fBMAXSENSORS\fP]"
+
+.PP
+Definirano v 796 vrstici datoteke Temperature\&.h\&.
+.SS "float minTemp24[\fBMAXSENSORS\fP]"
+
+.PP
+Definirano v 795 vrstici datoteke Temperature\&.h\&.
+.SS "unsigned long minTemp24Time[\fBMAXSENSORS\fP]"
+
+.PP
+Definirano v 797 vrstici datoteke Temperature\&.h\&.
+.SS "float sum24[\fBMAXSENSORS\fP]"
+
+.PP
+Definirano v 791 vrstici datoteke Temperature\&.h\&.
+.SS "float sumCTemp =0\&.0"
+
+.PP
+Definirano v 456 vrstici datoteke Temperature\&.h\&.
+.SS "float sumCTempEMA =0\&.0"
+
+.PP
+Definirano v 457 vrstici datoteke Temperature\&.h\&.
+.SS "boolean temeratureIzmerjene =true"
+
+.PP
+Definirano v 40 vrstici datoteke Temperature\&.h\&.
+.SS "float vccInternal"
+
+.SH "Avtor"
+.PP 
+zgenerirano z Doxygen-om za Kontroler TC iz izvorne kode\&.

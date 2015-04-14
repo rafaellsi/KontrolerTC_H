@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="_kontr___t_c__izvrs_8h" kind="file" language="C++">
+    <compoundname>Kontr_TC_izvrs.h</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_kontr___t_c__izvrs_8h_1abb9fc97e799fea39ddde1c33cce7ef9b" prot="public" static="no" mutable="no">
+        <type>byte</type>
+        <definition>byte prevCrpTCState</definition>
+        <argsstring></argsstring>
+        <name>prevCrpTCState</name>
+        <initializer>= <ref refid="_configuration_8h_1aa0d4e024c9b3f7fa875196ad53db902a" kindref="member">STATE_CRP_TC_OFF</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" line="13" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_kontr___t_c__izvrs_8h_1a398911f1f4196d89da4486cbc4a1640d" prot="public" static="no" mutable="no">
+        <type>byte</type>
+        <definition>byte prevVentTCState</definition>
+        <argsstring></argsstring>
+        <name>prevVentTCState</name>
+        <initializer>= <ref refid="_configuration_8h_1a1bcd4582b1d59164279ee5128718b7c2" kindref="member">STATE_VENT_TC_NDEF</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" line="14" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_kontr___t_c__izvrs_8h_1a5e53fd00c6e4bf47f6654481d64a8101" prot="public" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long lastVentTCChg[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>lastVentTCChg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" line="16" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_kontr___t_c__izvrs_8h_1a7e0476509511d4da9c76be6eb00964ab" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int preklopCrpTCVzr</definition>
+        <argsstring></argsstring>
+        <name>preklopCrpTCVzr</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" line="17" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_kontr___t_c__izvrs_8h_1aeb1bbd6094ced5b27dcbbfb5807136a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ZapisiOnOffSD</definition>
+        <argsstring>(int state, byte tipSpremembe)</argsstring>
+        <name>ZapisiOnOffSD</name>
+        <param>
+          <type>int</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>byte</type>
+          <declname>tipSpremembe</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" line="4" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Zapisi_sd.h" bodystart="198" bodyend="369"/>
+      </memberdef>
+      <memberdef kind="function" id="_kontr___t_c__izvrs_8h_1a0ce18347b97b7d407f8ad4920333daf1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PreklopiCrpalkoRad</definition>
+        <argsstring>(byte newState)</argsstring>
+        <name>PreklopiCrpalkoRad</name>
+        <param>
+          <type>byte</type>
+          <declname>newState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" line="8" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" bodystart="24" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="_kontr___t_c__izvrs_8h_1a1580db39ffff0c141f1245279d8bcbb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PreklopiVentilTCPec</definition>
+        <argsstring>(byte newState)</argsstring>
+        <name>PreklopiVentilTCPec</name>
+        <param>
+          <type>byte</type>
+          <declname>newState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" line="9" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" bodystart="55" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="_kontr___t_c__izvrs_8h_1adbb1c5dce75dc2e557a0e526a2ac8722" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PreklopiCrpalkoTC</definition>
+        <argsstring>(byte newState)</argsstring>
+        <name>PreklopiCrpalkoTC</name>
+        <param>
+          <type>byte</type>
+          <declname>newState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" line="10" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" bodystart="115" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="_kontr___t_c__izvrs_8h_1a3e3b4295420e7c3a02d357dd626b8994" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ResetCrpTCVzr</definition>
+        <argsstring>(void)</argsstring>
+        <name>ResetCrpTCVzr</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" line="11" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h" bodystart="156" bodyend="159"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>Kontr_TC_izvrs_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>Kontr_TC_izvrs_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_kontr___t_c__izvrs_8h_1aeb1bbd6094ced5b27dcbbfb5807136a2" kindref="member">ZapisiOnOffSD</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>state,<sp/>byte<sp/>tipSpremembe);</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_kontr___t_c__izvrs_8h_1a0ce18347b97b7d407f8ad4920333daf1" kindref="member">PreklopiCrpalkoRad</ref>(byte<sp/>newState);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_kontr___t_c__izvrs_8h_1a1580db39ffff0c141f1245279d8bcbb4" kindref="member">PreklopiVentilTCPec</ref>(byte<sp/>newState);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_kontr___t_c__izvrs_8h_1adbb1c5dce75dc2e557a0e526a2ac8722" kindref="member">PreklopiCrpalkoTC</ref>(byte<sp/>newState);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_kontr___t_c__izvrs_8h_1a3e3b4295420e7c3a02d357dd626b8994" kindref="member">ResetCrpTCVzr</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="_kontr___t_c__izvrs_8h_1abb9fc97e799fea39ddde1c33cce7ef9b" refkind="member"><highlight class="normal">byte<sp/><ref refid="_kontr___t_c__izvrs_8h_1abb9fc97e799fea39ddde1c33cce7ef9b" kindref="member">prevCrpTCState</ref><sp/>=<sp/><ref refid="_configuration_8h_1aa0d4e024c9b3f7fa875196ad53db902a" kindref="member">STATE_CRP_TC_OFF</ref>;</highlight></codeline>
+<codeline lineno="14" refid="_kontr___t_c__izvrs_8h_1a398911f1f4196d89da4486cbc4a1640d" refkind="member"><highlight class="normal">byte<sp/><ref refid="_kontr___t_c__izvrs_8h_1a398911f1f4196d89da4486cbc4a1640d" kindref="member">prevVentTCState</ref><sp/>=<sp/><ref refid="_configuration_8h_1a1bcd4582b1d59164279ee5128718b7c2" kindref="member">STATE_VENT_TC_NDEF</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="_kontr___t_c__izvrs_8h_1a5e53fd00c6e4bf47f6654481d64a8101" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_kontr___t_c__izvrs_8h_1a5e53fd00c6e4bf47f6654481d64a8101" kindref="member">lastVentTCChg</ref>[2];</highlight></codeline>
+<codeline lineno="17" refid="_kontr___t_c__izvrs_8h_1a7e0476509511d4da9c76be6eb00964ab" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_kontr___t_c__izvrs_8h_1a7e0476509511d4da9c76be6eb00964ab" kindref="member">preklopCrpTCVzr</ref><sp/>=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//0<sp/>-<sp/>normal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//1<sp/>-<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//2<sp/>-<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//3<sp/>-<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//4<sp/>-<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="_kontr___t_c__izvrs_8h_1a0ce18347b97b7d407f8ad4920333daf1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_kontr___t_c__izvrs_8h_1a0ce18347b97b7d407f8ad4920333daf1" kindref="member">PreklopiCrpalkoRad</ref>(byte<sp/>newState)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>cas[13];</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(newState<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1a1e45d46189b827cbce59566820490389" kindref="member">RELE_CRAD</ref>,<sp/><ref refid="_configuration_8h_1a1cb2f83141f2778946a0f3e39eb70423" kindref="member">R_CRAD_ON</ref>);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c__izvrs_8h_1aeb1bbd6094ced5b27dcbbfb5807136a2" kindref="member">ZapisiOnOffSD</ref>(1,<sp/>10);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(F(</highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_cas__funkcije_8h_1adfb3f10d2c40a8f3a1015a735402132a" kindref="member">NarediTimeStr</ref>(cas,<sp/>now());</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(cas);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>Vklop<sp/>crp.<sp/>radiator&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1a1e45d46189b827cbce59566820490389" kindref="member">RELE_CRAD</ref>,<sp/><ref refid="_configuration_8h_1ac15a0f41200eab832889dc4cfe55fab9" kindref="member">R_CRAD_OFF</ref>);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac5fa4a12c3447fba6fe3bc2999c562f3" kindref="member">onTimeCrpRad</ref><sp/>+=<sp/>(now()<sp/>-<sp/><ref refid="_configuration_8h_1a788d869c5986e6a43553b2fae4a9db71" kindref="member">lastCrpRadStateChg</ref>);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c__izvrs_8h_1aeb1bbd6094ced5b27dcbbfb5807136a2" kindref="member">ZapisiOnOffSD</ref>(0,<sp/>10);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(F(</highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_cas__funkcije_8h_1adfb3f10d2c40a8f3a1015a735402132a" kindref="member">NarediTimeStr</ref>(cas,<sp/>now());</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(cas);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>Izkolp<sp/>crp.<sp/>radiator&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1aa8847a0dd3c42957040e91a2013c5262" kindref="member">prevCrpRadState</ref><sp/>=<sp/>newState;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1a788d869c5986e6a43553b2fae4a9db71" kindref="member">lastCrpRadStateChg</ref><sp/>=<sp/>now();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="_kontr___t_c__izvrs_8h_1a1580db39ffff0c141f1245279d8bcbb4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_kontr___t_c__izvrs_8h_1a1580db39ffff0c141f1245279d8bcbb4" kindref="member">PreklopiVentilTCPec</ref>(byte<sp/>newState)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>cas[13];</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>byte<sp/>lastCommand;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(newState<sp/>&lt;<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>lastCommand<sp/>=<sp/>newState;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(10);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(lastCommand<sp/>&lt;<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>newState<sp/>=<sp/>lastCommand;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_kontr___t_c__izvrs_8h_1a398911f1f4196d89da4486cbc4a1640d" kindref="member">prevVentTCState</ref><sp/>==<sp/>newState)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(newState<sp/>&lt;<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c__izvrs_8h_1a398911f1f4196d89da4486cbc4a1640d" kindref="member">prevVentTCState</ref><sp/>=<sp/>newState;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c__izvrs_8h_1a5e53fd00c6e4bf47f6654481d64a8101" kindref="member">lastVentTCChg</ref>[(int)<sp/>newState]<sp/>=<sp/>now();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(newState<sp/>==<sp/><ref refid="_configuration_8h_1a5b7c9d4b9eb2f4a1a93c9a0bc1edcc93" kindref="member">STATE_VENT_TC_ON</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1adf1c551d5c423c730e776ca1052acbfe" kindref="member">VENTTC_2</ref>,<sp/>LOW);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1aadb4dea3ebf4db37add1eb4cb7fd3a51" kindref="member">VENTTC_1</ref>,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(F(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>PreveriNapetosti(true,<sp/>true,<sp/>false);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c__izvrs_8h_1aeb1bbd6094ced5b27dcbbfb5807136a2" kindref="member">ZapisiOnOffSD</ref>(1,<sp/>1);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(F(</highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_cas__funkcije_8h_1adfb3f10d2c40a8f3a1015a735402132a" kindref="member">NarediTimeStr</ref>(cas,<sp/>now());</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(cas);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(millis());</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>Odpiram<sp/>ventil<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(newState<sp/>==<sp/><ref refid="_configuration_8h_1a70cdbfa0cf75dfe8e833c8931f760873" kindref="member">STATE_VENT_TC_OFF</ref>){</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1aadb4dea3ebf4db37add1eb4cb7fd3a51" kindref="member">VENTTC_1</ref>,<sp/>LOW);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1adf1c551d5c423c730e776ca1052acbfe" kindref="member">VENTTC_2</ref>,<sp/>HIGH);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c__izvrs_8h_1aeb1bbd6094ced5b27dcbbfb5807136a2" kindref="member">ZapisiOnOffSD</ref>(0,<sp/>1);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(F(</highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_cas__funkcije_8h_1adfb3f10d2c40a8f3a1015a735402132a" kindref="member">NarediTimeStr</ref>(cas,<sp/>now());</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(cas);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(millis());</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>PreveriNapetosti(true,<sp/>true,<sp/>false);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>Zapiram<sp/>ventil&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="_kontr___t_c__izvrs_8h_1adbb1c5dce75dc2e557a0e526a2ac8722" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_kontr___t_c__izvrs_8h_1adbb1c5dce75dc2e557a0e526a2ac8722" kindref="member">PreklopiCrpalkoTC</ref>(byte<sp/>newState)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>cas[13];</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>if<sp/>(newState<sp/>&lt;<sp/>255)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(newState<sp/>==<sp/><ref refid="_configuration_8h_1af09714ad330ab49a1857bd77170e95e2" kindref="member">STATE_CRP_TC_ON</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_kontr___t_c__izvrs_8h_1a7e0476509511d4da9c76be6eb00964ab" kindref="member">preklopCrpTCVzr</ref><sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[<ref refid="_configuration_8h_1a9d329698236b2494e771b25735b07d7e" kindref="member">PEC_TC_DV</ref>]<sp/>&gt;=<sp/><ref refid="_configuration_8h_1a139f5d5c215e6406075e02d73c7c7a07" kindref="member">tempVklopaCrpTC</ref><sp/>||<sp/><ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[<ref refid="_configuration_8h_1a7f2d23a9784ad0009fb9a7ede9ebbad1" kindref="member">PEC_DV</ref>]<sp/>&gt;=<sp/><ref refid="_configuration_8h_1a139f5d5c215e6406075e02d73c7c7a07" kindref="member">tempVklopaCrpTC</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((<ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[<ref refid="_configuration_8h_1aee597cbe9379e814e1929de01b6d872f" kindref="member">PEC_PV</ref>]<sp/>&lt;<sp/><ref refid="_configuration_8h_1a139f5d5c215e6406075e02d73c7c7a07" kindref="member">tempVklopaCrpTC</ref><sp/>-<sp/>5.0*<ref refid="_configuration_8h_1a31f0030aa0f4ee96365cea266022c25a" kindref="member">dTemp</ref>)<sp/>&amp;&amp;<sp/>(<ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[<ref refid="_configuration_8h_1abcf847c7f2ac45acc8b916bab3f215c8" kindref="member">RAD_PV</ref>]<sp/>&lt;<sp/><ref refid="_configuration_8h_1a139f5d5c215e6406075e02d73c7c7a07" kindref="member">tempVklopaCrpTC</ref><sp/>-<sp/>5.0*<ref refid="_configuration_8h_1a31f0030aa0f4ee96365cea266022c25a" kindref="member">dTemp</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_cas__funkcije_8h_1adfb3f10d2c40a8f3a1015a735402132a" kindref="member">NarediTimeStr</ref>(cas,<sp/>now());</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(cas);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(newState<sp/>==<sp/><ref refid="_configuration_8h_1af09714ad330ab49a1857bd77170e95e2" kindref="member">STATE_CRP_TC_ON</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1a352863d548be58b577dc7ba204ffb936" kindref="member">RELE_CTC</ref>,<sp/><ref refid="_configuration_8h_1a63ac218cf83adc8ec28d7244c1da8496" kindref="member">R_CTC_ON</ref>);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c__izvrs_8h_1aeb1bbd6094ced5b27dcbbfb5807136a2" kindref="member">ZapisiOnOffSD</ref>(1,<sp/>2);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>Vklop<sp/>crpalke<sp/>TC&quot;</highlight><highlight class="normal">));<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1a352863d548be58b577dc7ba204ffb936" kindref="member">RELE_CTC</ref>,<sp/><ref refid="_configuration_8h_1a8875c2835e80dff18609efe0efe0649e" kindref="member">R_CTC_OFF</ref>);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1a9decaae4517afd31f20f6397a5393b23" kindref="member">onTimeCrpTC</ref><sp/>+=<sp/>(now()<sp/>-<sp/><ref refid="_configuration_8h_1a9abc7ea8df5d566b8fcf7bb5400db891" kindref="member">lastCrpTCStateChg</ref>);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c__izvrs_8h_1aeb1bbd6094ced5b27dcbbfb5807136a2" kindref="member">ZapisiOnOffSD</ref>(0,<sp/>2);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>Izklop<sp/>crpalke<sp/>TC&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c__izvrs_8h_1a3e3b4295420e7c3a02d357dd626b8994" kindref="member">ResetCrpTCVzr</ref>();</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_kontr___t_c__izvrs_8h_1abb9fc97e799fea39ddde1c33cce7ef9b" kindref="member">prevCrpTCState</ref><sp/>=<sp/>newState;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1a9abc7ea8df5d566b8fcf7bb5400db891" kindref="member">lastCrpTCStateChg</ref><sp/>=<sp/>now();</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156" refid="_kontr___t_c__izvrs_8h_1a3e3b4295420e7c3a02d357dd626b8994" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_kontr___t_c__izvrs_8h_1a3e3b4295420e7c3a02d357dd626b8994" kindref="member">ResetCrpTCVzr</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="157"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><ref refid="_kontr___t_c__izvrs_8h_1a7e0476509511d4da9c76be6eb00964ab" kindref="member">preklopCrpTCVzr</ref><sp/>=<sp/>0;<sp/></highlight></codeline>
+<codeline lineno="159"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_izvrs.h"/>
+  </compounddef>
+</doxygen>

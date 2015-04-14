@@ -1,0 +1,1338 @@
+\begin{theindex}
+
+  \item {//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Cas\+\_\+funkcije.\+h}, 
+		\hyperpage{7}
+  \item {//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Configuration.\+h}, 
+		\hyperpage{7}
+  \item {//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Encoder\+\_\+butt.\+h}, 
+		\hyperpage{27}
+  \item {//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Eprom\+\_\+external.\+h}, 
+		\hyperpage{28}
+  \item {//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Ethernet\+\_\+funk.\+h}, 
+		\hyperpage{29}
+  \item {//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Gas\+\_\+\+Sensor.\+h}, 
+		\hyperpage{31}
+  \item {//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Kontr\+\_\+\+T\+C.\+h}, 
+		\hyperpage{33}
+  \item {//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Kontr\+\_\+\+T\+C\+\_\+izvrs.\+h}, 
+		\hyperpage{35}
+  \item {//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, 
+		\hyperpage{36}
+  \item {//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1.\+ino}, 
+		\hyperpage{43}
+  \item {//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+L\+C\+D\+\_\+funkcije.\+h}, 
+		\hyperpage{43}
+  \item {//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Temperature.\+h}, 
+		\hyperpage{45}
+  \item {//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Tok\+\_\+napetost.\+h}, 
+		\hyperpage{49}
+  \item {//\+Pro03/github/\+Kontroler\+T\+C\+\_\+\+H/\+Kontroler\+T\+C\+\_\+\+Mega2560\+\_\+v1/\+Zapisi\+\_\+sd.\+h}, 
+		\hyperpage{50}
+
+  \indexspace
+
+  \item {A\+\_\+set}
+    \subitem {Encoder\+\_\+butt.\+h}, \hyperpage{28}
+  \item {A\+C\+\_\+mimax}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{37}
+    \subitem {Tok\+\_\+napetost.\+h}, \hyperpage{49}
+  \item {A\+T24\+C32\+\_\+\+A\+D\+D\+R\+\_\+\+L\+E\+N\+G\+H}
+    \subitem {Configuration.\+h}, \hyperpage{11}
+  \item {A\+T24\+C32\+\_\+\+I2\+C\+\_\+\+A\+D\+D\+R}
+    \subitem {Configuration.\+h}, \hyperpage{11}
+  \item {A\+T24\+C32\+\_\+\+M\+A\+X\+\_\+\+A\+D\+D\+R}
+    \subitem {Configuration.\+h}, \hyperpage{11}
+  \item {addr\+Delta\+Th}
+    \subitem {Configuration.\+h}, \hyperpage{19}
+  \item {addr\+Delta\+Th\+Ok}
+    \subitem {Configuration.\+h}, \hyperpage{19}
+  \item {addr\+Delta\+Th\+St}
+    \subitem {Configuration.\+h}, \hyperpage{19}
+  \item {addr\+Last\+Chg}
+    \subitem {Configuration.\+h}, \hyperpage{19}
+  \item {addr\+Last\+Hour\+Temp}
+    \subitem {Configuration.\+h}, \hyperpage{19}
+  \item {addr\+On\+Time}
+    \subitem {Configuration.\+h}, \hyperpage{19}
+  \item {addr\+Prev\+T\+C\+State}
+    \subitem {Configuration.\+h}, \hyperpage{19}
+  \item {addr\+Temp\+Back}
+    \subitem {Configuration.\+h}, \hyperpage{19}
+  \item {Auto\+Time\+Unit\+Conv}
+    \subitem {Temperature.\+h}, \hyperpage{46}
+  \item {avg\+L\+H\+T\+C\+Vode\+T\+C}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{41}
+  \item {avg\+Temp\+Vode\+T\+C}
+    \subitem {Temperature.\+h}, \hyperpage{48}
+  \item {Avg\+Val\+F\+F\+\_\+\+F}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{37}
+  \item {Avg\+Val\+U\+L\+U\+L\+\_\+\+F}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{37}
+  \item {avg\+Weight\+L\+H\+T\+C}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{41}
+
+  \indexspace
+
+  \item {B\+\_\+set}
+    \subitem {Encoder\+\_\+butt.\+h}, \hyperpage{28}
+  \item {B\+E\+E\+P\+\_\+\+P\+I\+N}
+    \subitem {Configuration.\+h}, \hyperpage{11}
+  \item {Beep}
+    \subitem {Configuration.\+h}, \hyperpage{18}
+    \subitem {Kontr\+\_\+\+T\+C.\+h}, \hyperpage{34}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{44}
+    \subitem {Temperature.\+h}, \hyperpage{46}
+  \item {bfill}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{30}
+  \item {button\+Pressed}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{45}
+  \item {by}
+    \subitem {fl2byte4b}, \hyperpage{5}
+    \subitem {ui2byte2}, \hyperpage{6}
+    \subitem {ul2byte4b}, \hyperpage{6}
+
+  \indexspace
+
+  \item {C\+E\+V\+\_\+\+T\+E\+R\+M\+\_\+\+O\+F\+F}
+    \subitem {Configuration.\+h}, \hyperpage{11}
+  \item {C\+E\+V\+\_\+\+T\+E\+R\+M\+\_\+\+O\+N}
+    \subitem {Configuration.\+h}, \hyperpage{11}
+  \item {C\+E\+V\+T\+E\+R\+M\+\_\+\+P\+E\+C\+\_\+\+T\+C}
+    \subitem {Configuration.\+h}, \hyperpage{12}
+  \item {c\+Humidex}
+    \subitem {Configuration.\+h}, \hyperpage{19}
+  \item {C\+O\+\_\+\+D\+O\+U\+T\+\_\+\+P\+I\+N}
+    \subitem {Configuration.\+h}, \hyperpage{12}
+  \item {C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+F\+F}
+    \subitem {Gas\+\_\+\+Sensor.\+h}, \hyperpage{32}
+  \item {C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+N}
+    \subitem {Gas\+\_\+\+Sensor.\+h}, \hyperpage{32}
+  \item {C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+P\+W\+M\+\_\+\+L\+O\+W}
+    \subitem {Gas\+\_\+\+Sensor.\+h}, \hyperpage{32}
+  \item {C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+H\+I\+G\+H}
+    \subitem {Gas\+\_\+\+Sensor.\+h}, \hyperpage{32}
+  \item {C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+L\+O\+W}
+    \subitem {Gas\+\_\+\+Sensor.\+h}, \hyperpage{32}
+  \item {C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+F\+F}
+    \subitem {Gas\+\_\+\+Sensor.\+h}, \hyperpage{32}
+  \item {C\+O\+\_\+\+P\+W\+R\+\_\+\+P\+I\+N}
+    \subitem {Configuration.\+h}, \hyperpage{12}
+  \item {C\+O\+\_\+\+S\+E\+N\+S\+\_\+\+A\+P\+I\+N}
+    \subitem {Configuration.\+h}, \hyperpage{12}
+  \item {C\+R\+P\+A\+L\+K\+A\+\_\+0}
+    \subitem {Configuration.\+h}, \hyperpage{12}
+  \item {c\+Temp\+Rosicsa}
+    \subitem {Configuration.\+h}, \hyperpage{20}
+  \item {c\+Temperatura}
+    \subitem {Configuration.\+h}, \hyperpage{20}
+  \item {c\+Vlaznost}
+    \subitem {Configuration.\+h}, \hyperpage{20}
+  \item {card\+S\+D}
+    \subitem {Zapisi\+\_\+sd.\+h}, \hyperpage{51}
+  \item {Cas\+\_\+funkcije.\+h}
+    \subitem {Is\+Weekend}, \hyperpage{7}
+    \subitem {Naredi\+Time\+Str}, \hyperpage{7}
+  \item {cas\+Meritve}
+    \subitem {Configuration.\+h}, \hyperpage{19}
+  \item {Check\+Ethernet}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{30}
+  \item {Check\+Serial}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{38}
+  \item {ciljna\+Temp}
+    \subitem {Configuration.\+h}, \hyperpage{20}
+  \item {ciljna\+Temp\+Weekend}
+    \subitem {Configuration.\+h}, \hyperpage{20}
+  \item {co\+Raw\+Val}
+    \subitem {Configuration.\+h}, \hyperpage{20}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{45}
+  \item {co\+Raw\+Val\+Max}
+    \subitem {Gas\+\_\+\+Sensor.\+h}, \hyperpage{32}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{41}
+  \item {co\+Raw\+Val\+Ref}
+    \subitem {Gas\+\_\+\+Sensor.\+h}, \hyperpage{32}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{41}
+  \item {co\+Raw\+Val\+Sum}
+    \subitem {Gas\+\_\+\+Sensor.\+h}, \hyperpage{32}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{41}
+  \item {Configuration.\+h}
+    \subitem {A\+T24\+C32\+\_\+\+A\+D\+D\+R\+\_\+\+L\+E\+N\+G\+H}, 
+		\hyperpage{11}
+    \subitem {A\+T24\+C32\+\_\+\+I2\+C\+\_\+\+A\+D\+D\+R}, 
+		\hyperpage{11}
+    \subitem {A\+T24\+C32\+\_\+\+M\+A\+X\+\_\+\+A\+D\+D\+R}, 
+		\hyperpage{11}
+    \subitem {addr\+Delta\+Th}, \hyperpage{19}
+    \subitem {addr\+Delta\+Th\+Ok}, \hyperpage{19}
+    \subitem {addr\+Delta\+Th\+St}, \hyperpage{19}
+    \subitem {addr\+Last\+Chg}, \hyperpage{19}
+    \subitem {addr\+Last\+Hour\+Temp}, \hyperpage{19}
+    \subitem {addr\+On\+Time}, \hyperpage{19}
+    \subitem {addr\+Prev\+T\+C\+State}, \hyperpage{19}
+    \subitem {addr\+Temp\+Back}, \hyperpage{19}
+    \subitem {B\+E\+E\+P\+\_\+\+P\+I\+N}, \hyperpage{11}
+    \subitem {Beep}, \hyperpage{18}
+    \subitem {C\+E\+V\+\_\+\+T\+E\+R\+M\+\_\+\+O\+F\+F}, \hyperpage{11}
+    \subitem {C\+E\+V\+\_\+\+T\+E\+R\+M\+\_\+\+O\+N}, \hyperpage{11}
+    \subitem {C\+E\+V\+T\+E\+R\+M\+\_\+\+P\+E\+C\+\_\+\+T\+C}, 
+		\hyperpage{12}
+    \subitem {c\+Humidex}, \hyperpage{19}
+    \subitem {C\+O\+\_\+\+D\+O\+U\+T\+\_\+\+P\+I\+N}, \hyperpage{12}
+    \subitem {C\+O\+\_\+\+P\+W\+R\+\_\+\+P\+I\+N}, \hyperpage{12}
+    \subitem {C\+O\+\_\+\+S\+E\+N\+S\+\_\+\+A\+P\+I\+N}, \hyperpage{12}
+    \subitem {C\+R\+P\+A\+L\+K\+A\+\_\+0}, \hyperpage{12}
+    \subitem {c\+Temp\+Rosicsa}, \hyperpage{20}
+    \subitem {c\+Temperatura}, \hyperpage{20}
+    \subitem {c\+Vlaznost}, \hyperpage{20}
+    \subitem {cas\+Meritve}, \hyperpage{19}
+    \subitem {ciljna\+Temp}, \hyperpage{20}
+    \subitem {ciljna\+Temp\+Weekend}, \hyperpage{20}
+    \subitem {co\+Raw\+Val}, \hyperpage{20}
+    \subitem {crp\+Rad\+As\+Abs\+Temp}, \hyperpage{20}
+    \subitem {D\+H\+T\+P\+I\+N}, \hyperpage{12}
+    \subitem {D\+H\+T\+T\+Y\+P\+E}, \hyperpage{12}
+    \subitem {D\+S1307\+\_\+\+C\+T\+R\+L\+\_\+\+I\+D}, \hyperpage{12}
+    \subitem {d\+Temp}, \hyperpage{21}
+    \subitem {delta\+Th}, \hyperpage{20}
+    \subitem {delta\+Th\+Ok}, \hyperpage{20}
+    \subitem {delta\+Th\+St}, \hyperpage{20}
+    \subitem {Device\+Address}, \hyperpage{18}
+    \subitem {dht}, \hyperpage{18}
+    \subitem {dol\+Preh\+Obd}, \hyperpage{20}
+    \subitem {ds}, \hyperpage{19}
+    \subitem {E\+N\+C\+\_\+\+C\+L\+K\+\_\+\+P\+I\+N}, \hyperpage{12}
+    \subitem {E\+N\+C\+\_\+\+D\+T\+\_\+\+P\+I\+N}, \hyperpage{12}
+    \subitem {E\+N\+C\+\_\+\+P\+I\+N\+\_\+\+A}, \hyperpage{12}
+    \subitem {E\+N\+C\+\_\+\+P\+I\+N\+\_\+\+B}, \hyperpage{12}
+    \subitem {E\+N\+C\+\_\+\+S\+W\+\_\+\+P\+I\+N}, \hyperpage{13}
+    \subitem {E\+T\+H\+E\+R\+\_\+\+C\+S\+\_\+\+P\+I\+N}, \hyperpage{13}
+    \subitem {E\+T\+H\+E\+R\+\_\+\+R\+E\+S\+E\+T\+\_\+\+P\+I\+N}, 
+		\hyperpage{13}
+    \subitem {Fiks\+Adrr\+Sens}, \hyperpage{19}
+    \subitem {hist\+Crp\+T\+C}, \hyperpage{21}
+    \subitem {hist\+Len}, \hyperpage{21}
+    \subitem {hitr\+Gret}, \hyperpage{21}
+    \subitem {info\+Err}, \hyperpage{21}
+    \subitem {is\+Crp\+Rad\+As\+Abs\+Temp}, \hyperpage{21}
+    \subitem {k\+Type\+Offset}, \hyperpage{21}
+    \subitem {L\+C\+D\+\_\+\+D4}, \hyperpage{13}
+    \subitem {L\+C\+D\+\_\+\+D5}, \hyperpage{13}
+    \subitem {L\+C\+D\+\_\+\+D6}, \hyperpage{13}
+    \subitem {L\+C\+D\+\_\+\+D7}, \hyperpage{13}
+    \subitem {L\+C\+D\+\_\+\+E\+N}, \hyperpage{13}
+    \subitem {L\+C\+D\+\_\+\+O\+S\+W\+\_\+\+S\+W}, \hyperpage{13}
+    \subitem {L\+C\+D\+\_\+\+R\+S}, \hyperpage{13}
+    \subitem {last\+Crp\+Rad\+State\+Chg}, \hyperpage{21}
+    \subitem {last\+Crp\+T\+C\+State\+Chg}, \hyperpage{21}
+    \subitem {last\+Delta\+Th}, \hyperpage{21}
+    \subitem {last\+Delta\+Th\+Ok}, \hyperpage{21}
+    \subitem {last\+Delta\+Th\+St}, \hyperpage{21}
+    \subitem {last\+Hour\+Temp\+Change}, \hyperpage{22}
+    \subitem {last\+Run\+Time}, \hyperpage{22}
+    \subitem {last\+T\+C\+State\+Chg}, \hyperpage{22}
+    \subitem {lcd\+A}, \hyperpage{19}
+    \subitem {lim\+Temp\+Crp\+Rad}, \hyperpage{22}
+    \subitem {lim\+Temp\+Fact\+Crp\+Rad}, \hyperpage{22}
+    \subitem {M\+A\+X\+\_\+\+D\+H\+T22\+\_\+\+S\+E\+N\+S}, 
+		\hyperpage{13}
+    \subitem {M\+A\+X\+S\+E\+N\+S\+O\+R\+S}, \hyperpage{13}
+    \subitem {M\+A\+X\+S\+E\+N\+S\+O\+R\+S\+\_\+\+D\+S}, \hyperpage{14}
+    \subitem {manu\+Crp\+T\+C\+State}, \hyperpage{22}
+    \subitem {max\+\_\+\+Temp\+O\+K\+\_\+\+T\+C\+Komp}, \hyperpage{22}
+    \subitem {max\+Delta\+Dev}, \hyperpage{22}
+    \subitem {max\+Dov\+Temp\+Vode\+T\+C\+\_\+\+Komp}, \hyperpage{22}
+    \subitem {max\+Temp\+D\+V\+Pec}, \hyperpage{22}
+    \subitem {max\+Temp\+P\+V\+Rad}, \hyperpage{23}
+    \subitem {max\+Tok\+\_\+12\+V}, \hyperpage{23}
+    \subitem {meja\+Toka}, \hyperpage{23}
+    \subitem {mer\+X\+Min}, \hyperpage{23}
+    \subitem {min\+\_\+\+Temp\+O\+K\+\_\+\+T\+C\+Komp}, \hyperpage{23}
+    \subitem {min\+Crp\+Rad\+Run\+Time\+Min}, \hyperpage{23}
+    \subitem {min\+Crp\+T\+C\+Run\+Time\+Min}, \hyperpage{23}
+    \subitem {min\+Diff\+Dv\+Okol\+Crp\+Rad}, \hyperpage{23}
+    \subitem {min\+Diff\+T\+C\+Pec}, \hyperpage{23}
+    \subitem {min\+Mejna\+Temp\+Rel}, \hyperpage{23}
+    \subitem {min\+Run\+Time\+Min}, \hyperpage{23}
+    \subitem {min\+Temp\+Night\+On}, \hyperpage{23}
+    \subitem {min\+Temp\+Pec\+Ponovno\+Odp\+Vent}, \hyperpage{24}
+    \subitem {min\+Temp\+V\+T\+On}, \hyperpage{24}
+    \subitem {N\+E\+D}, \hyperpage{14}
+    \subitem {n\+Mer\+Tok\+\_\+12\+V}, \hyperpage{24}
+    \subitem {N\+R\+F24\+\_\+\+C\+E}, \hyperpage{14}
+    \subitem {N\+R\+F24\+\_\+\+C\+S\+N}, \hyperpage{14}
+    \subitem {num\+Sens}, \hyperpage{24}
+    \subitem {num\+Sens\+D\+H\+T22}, \hyperpage{24}
+    \subitem {num\+Sens\+D\+S}, \hyperpage{24}
+    \subitem {num\+Sens\+K}, \hyperpage{24}
+    \subitem {O\+K\+O\+L\+I\+C\+A\+\_\+0}, \hyperpage{14}
+    \subitem {O\+N\+E\+\_\+\+W\+I\+R\+E\+\_\+\+B\+U\+S}, \hyperpage{14}
+    \subitem {on\+Time\+Crp\+Rad}, \hyperpage{24}
+    \subitem {on\+Time\+Crp\+T\+C}, \hyperpage{24}
+    \subitem {on\+Time\+T\+C}, \hyperpage{24}
+    \subitem {osvetlitev\+L\+C\+D}, \hyperpage{24}
+    \subitem {P\+E\+C\+\_\+\+D\+V}, \hyperpage{14}
+    \subitem {P\+E\+C\+\_\+\+P\+V}, \hyperpage{14}
+    \subitem {P\+E\+C\+\_\+\+T\+C\+\_\+\+D\+V}, \hyperpage{14}
+    \subitem {poraba\+W\+H}, \hyperpage{24}
+    \subitem {prev\+Cas\+Meritve}, \hyperpage{25}
+    \subitem {prev\+Crp\+Rad\+State}, \hyperpage{25}
+    \subitem {prev\+T\+C\+State}, \hyperpage{25}
+    \subitem {Qv}, \hyperpage{25}
+    \subitem {R\+\_\+\+C\+R\+A\+D\+\_\+\+O\+F\+F}, \hyperpage{14}
+    \subitem {R\+\_\+\+C\+R\+A\+D\+\_\+\+O\+N}, \hyperpage{14}
+    \subitem {R\+\_\+\+C\+T\+C\+\_\+\+O\+F\+F}, \hyperpage{14}
+    \subitem {R\+\_\+\+C\+T\+C\+\_\+\+O\+N}, \hyperpage{15}
+    \subitem {R\+\_\+\+T\+C\+\_\+\+E\+G\+R\+E\+L\+\_\+\+O\+F\+F}, 
+		\hyperpage{15}
+    \subitem {R\+\_\+\+T\+C\+\_\+\+E\+G\+R\+E\+L\+\_\+\+O\+N}, 
+		\hyperpage{15}
+    \subitem {R\+\_\+\+T\+C\+\_\+\+K\+O\+M\+P\+\_\+\+O\+F\+F}, 
+		\hyperpage{15}
+    \subitem {R\+\_\+\+T\+C\+\_\+\+K\+O\+M\+P\+\_\+\+O\+N}, 
+		\hyperpage{15}
+    \subitem {R\+\_\+\+T\+C\+\_\+\+V\+E\+N\+T\+\_\+\+O\+F\+F}, 
+		\hyperpage{15}
+    \subitem {R\+\_\+\+T\+C\+\_\+\+V\+E\+N\+T\+\_\+\+O\+N}, 
+		\hyperpage{15}
+    \subitem {R\+A\+D\+\_\+\+D\+V}, \hyperpage{15}
+    \subitem {R\+A\+D\+\_\+\+P\+V}, \hyperpage{15}
+    \subitem {R\+E\+L\+E\+\_\+\+C\+R\+A\+D}, \hyperpage{15}
+    \subitem {R\+E\+L\+E\+\_\+\+C\+T\+C}, \hyperpage{15}
+    \subitem {R\+E\+L\+E\+\_\+\+T\+C\+\_\+\+E\+G\+R\+E\+L}, 
+		\hyperpage{15}
+    \subitem {R\+E\+L\+E\+\_\+\+T\+C\+\_\+\+K\+O\+M\+P}, \hyperpage{16}
+    \subitem {R\+E\+L\+E\+\_\+\+T\+C\+\_\+\+V\+E\+N\+T}, \hyperpage{16}
+    \subitem {rele\+State\+\_\+egrelec\+T\+C}, \hyperpage{25}
+    \subitem {rele\+State\+\_\+komp\+T\+C}, \hyperpage{25}
+    \subitem {rele\+State\+\_\+vent\+Komp\+T\+C}, \hyperpage{25}
+    \subitem {S\+D\+\_\+\+C\+S\+\_\+\+P\+I\+N}, \hyperpage{16}
+    \subitem {S\+E\+N\+S\+\_\+3\+V3\+\_\+\+S\+D}, \hyperpage{16}
+    \subitem {S\+E\+N\+S\+\_\+\+R\+T\+C\+\_\+\+B\+A\+T\+T}, 
+		\hyperpage{16}
+    \subitem {S\+E\+N\+S\+\_\+\+T\+O\+K}, \hyperpage{16}
+    \subitem {S\+E\+N\+S\+\_\+\+T\+O\+K\+\_\+12\+V}, \hyperpage{16}
+    \subitem {S\+E\+N\+S\+\_\+\+V12}, \hyperpage{16}
+    \subitem {S\+E\+N\+S\+\_\+\+V5\+\_\+2}, \hyperpage{16}
+    \subitem {S\+E\+N\+S\+\_\+\+V5\+\_\+3}, \hyperpage{16}
+    \subitem {S\+O\+B}, \hyperpage{16}
+    \subitem {S\+T\+A\+T\+E\+\_\+\+C\+R\+P\+\_\+\+T\+C\+\_\+\+O\+F\+F}, 
+		\hyperpage{16}
+    \subitem {S\+T\+A\+T\+E\+\_\+\+C\+R\+P\+\_\+\+T\+C\+\_\+\+O\+N}, 
+		\hyperpage{17}
+    \subitem {S\+T\+A\+T\+E\+\_\+\+T\+C\+\_\+\+O\+F\+F}, \hyperpage{17}
+    \subitem {S\+T\+A\+T\+E\+\_\+\+T\+C\+\_\+\+O\+N}, \hyperpage{17}
+    \subitem {S\+T\+A\+T\+E\+\_\+\+V\+E\+N\+T\+\_\+\+T\+C\+\_\+\+N\+D\+E\+F}, 
+		\hyperpage{17}
+    \subitem {S\+T\+A\+T\+E\+\_\+\+V\+E\+N\+T\+\_\+\+T\+C\+\_\+\+O\+F\+F}, 
+		\hyperpage{17}
+    \subitem {S\+T\+A\+T\+E\+\_\+\+V\+E\+N\+T\+\_\+\+T\+C\+\_\+\+O\+N}, 
+		\hyperpage{17}
+    \subitem {S\+T\+I\+K\+A\+L\+O\+\_\+\+C\+R\+P\+\_\+\+R\+A\+D\+\_\+\+O\+F\+F}, 
+		\hyperpage{17}
+    \subitem {S\+T\+I\+K\+A\+L\+O\+\_\+\+C\+R\+P\+\_\+\+R\+A\+D\+\_\+\+O\+N}, 
+		\hyperpage{17}
+    \subitem {S\+T\+I\+K\+A\+L\+O\+\_\+\+C\+R\+P\+\_\+\+T\+C\+\_\+\+O\+F\+F}, 
+		\hyperpage{17}
+    \subitem {S\+T\+I\+K\+A\+L\+O\+\_\+\+C\+R\+P\+\_\+\+T\+C\+\_\+\+O\+N}, 
+		\hyperpage{17}
+    \subitem {S\+T\+I\+K\+A\+L\+O\+\_\+\+T\+C\+\_\+\+O\+F\+F}, 
+		\hyperpage{17}
+    \subitem {S\+T\+I\+K\+A\+L\+O\+\_\+\+T\+C\+\_\+\+O\+N}, 
+		\hyperpage{17}
+    \subitem {sensor\+Ime}, \hyperpage{25}
+    \subitem {show\+C\+R\+C}, \hyperpage{25}
+    \subitem {start\+Temp}, \hyperpage{25}
+    \subitem {start\+Ura\+N\+T}, \hyperpage{25}
+    \subitem {start\+Ura\+V\+T}, \hyperpage{25}
+    \subitem {state\+T\+C}, \hyperpage{26}
+    \subitem {sum\+Temp}, \hyperpage{26}
+    \subitem {sum\+Tok\+\_\+12\+V}, \hyperpage{26}
+    \subitem {T\+\_\+\+K\+T\+Y\+P\+\_\+01\+\_\+\+P\+I\+N}, 
+		\hyperpage{18}
+    \subitem {T\+I\+M\+E\+\_\+\+H\+E\+A\+D\+E\+R}, \hyperpage{18}
+    \subitem {T\+I\+M\+E\+\_\+\+M\+S\+G\+\_\+\+L\+E\+N}, \hyperpage{18}
+    \subitem {t\+Komp\+O\+K}, \hyperpage{26}
+    \subitem {t\+Komp\+St}, \hyperpage{26}
+    \subitem {temp\+Izklopa\+Vent\+Crp\+T\+C}, \hyperpage{26}
+    \subitem {temp\+Okolica\+St}, \hyperpage{26}
+    \subitem {temp\+Vklopa\+Crp\+T\+C}, \hyperpage{26}
+    \subitem {type\+\_\+s}, \hyperpage{26}
+    \subitem {u2}, \hyperpage{26}
+    \subitem {u4}, \hyperpage{26}
+    \subitem {U\+S\+E\+E\+G\+R\+E\+L\+E\+C}, \hyperpage{18}
+    \subitem {uf}, \hyperpage{26}
+    \subitem {ura\+V\+Temp}, \hyperpage{27}
+    \subitem {V\+E\+N\+T\+T\+C\+\_\+1}, \hyperpage{18}
+    \subitem {V\+E\+N\+T\+T\+C\+\_\+2}, \hyperpage{18}
+    \subitem {V\+E\+N\+T\+T\+C\+\_\+\+E\+N}, \hyperpage{18}
+    \subitem {V\+E\+R\+S\+I\+O\+N}, \hyperpage{18}
+    \subitem {vcc\+Internal}, \hyperpage{27}
+    \subitem {Vrms}, \hyperpage{27}
+    \subitem {We}, \hyperpage{27}
+    \subitem {zac\+Poraba\+W\+H}, \hyperpage{27}
+    \subitem {zaksnitev\+Crp\+Vent\+\_\+\+Sec}, \hyperpage{27}
+    \subitem {zamik\+Mer\+Temp}, \hyperpage{27}
+    \subitem {zapis\+X\+Min}, \hyperpage{27}
+  \item {conv\+Wait\+Time}
+    \subitem {Temperature.\+h}, \hyperpage{48}
+  \item {Cop}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{38}
+  \item {crp\+Rad\+As\+Abs\+Temp}
+    \subitem {Configuration.\+h}, \hyperpage{20}
+  \item {cyc\+Start}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{42}
+
+  \indexspace
+
+  \item {D\+H\+T\+P\+I\+N}
+    \subitem {Configuration.\+h}, \hyperpage{12}
+  \item {D\+H\+T\+T\+Y\+P\+E}
+    \subitem {Configuration.\+h}, \hyperpage{12}
+  \item {D\+S1307\+\_\+\+C\+T\+R\+L\+\_\+\+I\+D}
+    \subitem {Configuration.\+h}, \hyperpage{12}
+  \item {d\+Temp}
+    \subitem {Configuration.\+h}, \hyperpage{21}
+  \item {debug\+Device\+Hub}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{30}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{42}
+  \item {delta\+Th}
+    \subitem {Configuration.\+h}, \hyperpage{20}
+  \item {delta\+Th\+Ok}
+    \subitem {Configuration.\+h}, \hyperpage{20}
+  \item {delta\+Th\+St}
+    \subitem {Configuration.\+h}, \hyperpage{20}
+  \item {dev\+Address}
+    \subitem {Temperature.\+h}, \hyperpage{48}
+  \item {Device\+Address}
+    \subitem {Configuration.\+h}, \hyperpage{18}
+  \item {Device\+Hub}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{30}
+  \item {device\+Hub\+\_\+ip}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{30}
+  \item {dht}
+    \subitem {Configuration.\+h}, \hyperpage{18}
+  \item {dnsip}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{31}
+  \item {do\+Encoder\+A}
+    \subitem {Encoder\+\_\+butt.\+h}, \hyperpage{28}
+  \item {do\+Encoder\+B}
+    \subitem {Encoder\+\_\+butt.\+h}, \hyperpage{28}
+  \item {dol\+Preh\+Obd}
+    \subitem {Configuration.\+h}, \hyperpage{20}
+  \item {ds}
+    \subitem {Configuration.\+h}, \hyperpage{19}
+
+  \indexspace
+
+  \item {E\+N\+C\+\_\+\+C\+L\+K\+\_\+\+P\+I\+N}
+    \subitem {Configuration.\+h}, \hyperpage{12}
+  \item {E\+N\+C\+\_\+\+D\+T\+\_\+\+P\+I\+N}
+    \subitem {Configuration.\+h}, \hyperpage{12}
+  \item {E\+N\+C\+\_\+\+P\+I\+N\+\_\+\+A}
+    \subitem {Configuration.\+h}, \hyperpage{12}
+  \item {E\+N\+C\+\_\+\+P\+I\+N\+\_\+\+B}
+    \subitem {Configuration.\+h}, \hyperpage{12}
+  \item {E\+N\+C\+\_\+\+S\+W\+\_\+\+P\+I\+N}
+    \subitem {Configuration.\+h}, \hyperpage{13}
+  \item {E\+T\+H\+E\+R\+\_\+\+C\+S\+\_\+\+P\+I\+N}
+    \subitem {Configuration.\+h}, \hyperpage{13}
+  \item {E\+T\+H\+E\+R\+\_\+\+R\+E\+S\+E\+T\+\_\+\+P\+I\+N}
+    \subitem {Configuration.\+h}, \hyperpage{13}
+  \item {Encoder\+\_\+butt.\+h}
+    \subitem {A\+\_\+set}, \hyperpage{28}
+    \subitem {B\+\_\+set}, \hyperpage{28}
+    \subitem {do\+Encoder\+A}, \hyperpage{28}
+    \subitem {do\+Encoder\+B}, \hyperpage{28}
+    \subitem {Encoder\+\_\+check}, \hyperpage{28}
+    \subitem {Encoder\+\_\+init}, \hyperpage{28}
+    \subitem {Izpis\+Na\+L\+C\+D}, \hyperpage{28}
+    \subitem {rotating}, \hyperpage{28}
+    \subitem {virtual\+Position}, \hyperpage{28}
+  \item {Encoder\+\_\+check}
+    \subitem {Encoder\+\_\+butt.\+h}, \hyperpage{28}
+  \item {Encoder\+\_\+init}
+    \subitem {Encoder\+\_\+butt.\+h}, \hyperpage{28}
+  \item {Eprom\+\_\+external.\+h}
+    \subitem {i2c\+\_\+eeprom\+\_\+read\+\_\+buffer}, \hyperpage{29}
+    \subitem {i2c\+\_\+eeprom\+\_\+read\+\_\+byte}, \hyperpage{29}
+    \subitem {i2c\+\_\+eeprom\+\_\+write\+\_\+byte}, \hyperpage{29}
+    \subitem {i2c\+\_\+eeprom\+\_\+write\+\_\+page}, \hyperpage{29}
+    \subitem {wait\+E\+E\+Ready}, \hyperpage{29}
+  \item {Ethernet\+\_\+funk.\+h}
+    \subitem {bfill}, \hyperpage{30}
+    \subitem {Check\+Ethernet}, \hyperpage{30}
+    \subitem {debug\+Device\+Hub}, \hyperpage{30}
+    \subitem {Device\+Hub}, \hyperpage{30}
+    \subitem {device\+Hub\+\_\+ip}, \hyperpage{30}
+    \subitem {dnsip}, \hyperpage{31}
+    \subitem {Ethernet\+Init}, \hyperpage{30}
+    \subitem {Ethernet\+Izpis\+Info}, \hyperpage{30}
+    \subitem {got\+Pinged}, \hyperpage{30}
+    \subitem {gwip}, \hyperpage{31}
+    \subitem {home\+Page}, \hyperpage{30}
+    \subitem {ipmask}, \hyperpage{31}
+    \subitem {my\+\_\+callback}, \hyperpage{30}
+    \subitem {myip}, \hyperpage{31}
+    \subitem {mymac}, \hyperpage{31}
+    \subitem {P\+R\+O\+G\+M\+E\+M}, \hyperpage{31}
+    \subitem {ping\+\_\+1}, \hyperpage{31}
+    \subitem {proc\+\_\+ip}, \hyperpage{31}
+    \subitem {Send\+To\+Proc}, \hyperpage{30}
+  \item {Ethernet\+Init}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{30}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{38}
+  \item {Ethernet\+Izpis\+Info}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{30}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{38}
+
+  \indexspace
+
+  \item {Fiks\+Adrr\+Sens}
+    \subitem {Configuration.\+h}, \hyperpage{19}
+  \item {fl2byte4b}, \hyperpage{5}
+    \subitem {by}, \hyperpage{5}
+    \subitem {fval}, \hyperpage{5}
+  \item {fval}
+    \subitem {fl2byte4b}, \hyperpage{5}
+
+  \indexspace
+
+  \item {Gas\+\_\+\+Sensor.\+h}
+    \subitem {C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+F\+F}, 
+		\hyperpage{32}
+    \subitem {C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+O\+N}, 
+		\hyperpage{32}
+    \subitem {C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+P\+W\+M\+\_\+\+L\+O\+W}, 
+		\hyperpage{32}
+    \subitem {C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+H\+I\+G\+H}, 
+		\hyperpage{32}
+    \subitem {C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+L\+O\+W}, 
+		\hyperpage{32}
+    \subitem {C\+O\+\_\+\+H\+E\+A\+T\+I\+N\+G\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+F\+F}, 
+		\hyperpage{32}
+    \subitem {co\+Raw\+Val\+Max}, \hyperpage{32}
+    \subitem {co\+Raw\+Val\+Ref}, \hyperpage{32}
+    \subitem {co\+Raw\+Val\+Sum}, \hyperpage{32}
+    \subitem {Initilizacija\+\_\+\+C\+O}, \hyperpage{32}
+    \subitem {Kontroler\+\_\+\+T\+C\+\_\+h}, \hyperpage{32}
+    \subitem {num\+Mer\+C\+O}, \hyperpage{33}
+    \subitem {Preveri\+C\+O\+\_\+\+Senzor}, \hyperpage{32}
+  \item {got\+Pinged}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{30}
+  \item {gwip}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{31}
+
+  \indexspace
+
+  \item {hist\+Crp\+T\+C}
+    \subitem {Configuration.\+h}, \hyperpage{21}
+  \item {hist\+Len}
+    \subitem {Configuration.\+h}, \hyperpage{21}
+  \item {hitr\+Gret}
+    \subitem {Configuration.\+h}, \hyperpage{21}
+  \item {home\+Page}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{30}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{38}
+
+  \indexspace
+
+  \item {i2c\+\_\+eeprom\+\_\+read\+\_\+buffer}
+    \subitem {Eprom\+\_\+external.\+h}, \hyperpage{29}
+  \item {i2c\+\_\+eeprom\+\_\+read\+\_\+byte}
+    \subitem {Eprom\+\_\+external.\+h}, \hyperpage{29}
+  \item {i2c\+\_\+eeprom\+\_\+write\+\_\+byte}
+    \subitem {Eprom\+\_\+external.\+h}, \hyperpage{29}
+  \item {i2c\+\_\+eeprom\+\_\+write\+\_\+page}
+    \subitem {Eprom\+\_\+external.\+h}, \hyperpage{29}
+  \item {Ime\+Datoteke}
+    \subitem {Zapisi\+\_\+sd.\+h}, \hyperpage{51}
+  \item {Ime\+Datoteke\+On\+Off}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{38}
+    \subitem {Zapisi\+\_\+sd.\+h}, \hyperpage{51}
+  \item {info\+Err}
+    \subitem {Configuration.\+h}, \hyperpage{21}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{45}
+  \item {info\+Mode\+L\+C\+D}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{45}
+  \item {Init\+Parametri}
+    \subitem {Kontr\+\_\+\+T\+C.\+h}, \hyperpage{34}
+  \item {Initilizacija\+\_\+\+C\+O}
+    \subitem {Gas\+\_\+\+Sensor.\+h}, \hyperpage{32}
+  \item {ipmask}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{31}
+  \item {Is\+Cas\+Transf\+Topl}
+    \subitem {Temperature.\+h}, \hyperpage{46}
+  \item {is\+Crp\+Rad\+As\+Abs\+Temp}
+    \subitem {Configuration.\+h}, \hyperpage{21}
+  \item {Is\+N\+Temp\+Cas}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{38}
+    \subitem {Temperature.\+h}, \hyperpage{47}
+  \item {Is\+Weekend}
+    \subitem {Cas\+\_\+funkcije.\+h}, \hyperpage{7}
+  \item {Izpis\+Control\+Menu}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{44}
+  \item {Izpis\+Data\+On\+Off\+Serial}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{38}
+    \subitem {Zapisi\+\_\+sd.\+h}, \hyperpage{51}
+  \item {Izpis\+Datna\+Serial}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{38}
+    \subitem {Zapisi\+\_\+sd.\+h}, \hyperpage{51}
+  \item {Izpis\+Hex2}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{44}
+    \subitem {Temperature.\+h}, \hyperpage{47}
+  \item {Izpis\+Info\+Menu}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{44}
+  \item {Izpis\+Na\+L\+C\+D}
+    \subitem {Encoder\+\_\+butt.\+h}, \hyperpage{28}
+  \item {Izpis\+Poraba\+W\+H}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{38}
+  \item {Izpisi\+Na\+L\+C\+D}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{44}
+  \item {Izrac\+Delta\+Th}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{38}
+  \item {Izrac\+Delta\+Th\+Ok}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{38}
+  \item {Izrac\+Delta\+Th\+St}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{39}
+  \item {izrac\+Hitr\+Gret}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{42}
+  \item {izrac\+Hitr\+Gret\+Info}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{42}
+  \item {Izracun\+Hitrosti\+Gretja\+T\+C}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{39}
+  \item {Izracun\+Humidex}
+    \subitem {Temperature.\+h}, \hyperpage{47}
+  \item {Izracun\+Limit\+Temp}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{39}
+  \item {Izracun\+T\+Rosicsa}
+    \subitem {Temperature.\+h}, \hyperpage{47}
+  \item {Izracun\+Temp\+V\+T\+Off}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{39}
+
+  \indexspace
+
+  \item {k\+Type\+Offset}
+    \subitem {Configuration.\+h}, \hyperpage{21}
+  \item {Kompenz\+Zac\+Temp}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{39}
+  \item {Kompenzacija\+Temp\+Okolice}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{39}
+  \item {Kontr\+\_\+\+T\+C.\+h}
+    \subitem {Beep}, \hyperpage{34}
+    \subitem {Init\+Parametri}, \hyperpage{34}
+    \subitem {Nastavitev\+Pinov}, \hyperpage{34}
+    \subitem {Preklopi\+Crpalko\+T\+C}, \hyperpage{34}
+    \subitem {Preveri\+Stikala}, \hyperpage{34}
+    \subitem {S\+T\+I\+K\+A\+L\+O\+\_\+\+C\+R\+P\+\_\+\+R\+A\+D}, 
+		\hyperpage{33}
+    \subitem {S\+T\+I\+K\+A\+L\+O\+\_\+\+C\+R\+P\+\_\+\+T\+C}, 
+		\hyperpage{33}
+    \subitem {S\+T\+I\+K\+A\+L\+O\+\_\+\+O\+F\+F}, \hyperpage{33}
+    \subitem {S\+T\+I\+K\+A\+L\+O\+\_\+\+O\+N}, \hyperpage{34}
+    \subitem {S\+T\+I\+K\+A\+L\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+A\+U\+T}, 
+		\hyperpage{34}
+    \subitem {S\+T\+I\+K\+A\+L\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+F\+F}, 
+		\hyperpage{34}
+    \subitem {S\+T\+I\+K\+A\+L\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+N}, 
+		\hyperpage{34}
+    \subitem {S\+T\+I\+K\+A\+L\+O\+\_\+\+T\+C}, \hyperpage{34}
+    \subitem {stikalo\+State}, \hyperpage{35}
+    \subitem {stikalo\+State\+Txt}, \hyperpage{35}
+  \item {Kontr\+\_\+\+T\+C\+\_\+izvrs.\+h}
+    \subitem {last\+Vent\+T\+C\+Chg}, \hyperpage{36}
+    \subitem {preklop\+Crp\+T\+C\+Vzr}, \hyperpage{36}
+    \subitem {Preklopi\+Crpalko\+Rad}, \hyperpage{35}
+    \subitem {Preklopi\+Crpalko\+T\+C}, \hyperpage{35}
+    \subitem {Preklopi\+Ventil\+T\+C\+Pec}, \hyperpage{35}
+    \subitem {prev\+Crp\+T\+C\+State}, \hyperpage{36}
+    \subitem {prev\+Vent\+T\+C\+State}, \hyperpage{36}
+    \subitem {Reset\+Crp\+T\+C\+Vzr}, \hyperpage{35}
+    \subitem {Zapisi\+On\+Off\+S\+D}, \hyperpage{35}
+  \item {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}
+    \subitem {A\+C\+\_\+mimax}, \hyperpage{37}
+    \subitem {avg\+L\+H\+T\+C\+Vode\+T\+C}, \hyperpage{41}
+    \subitem {Avg\+Val\+F\+F\+\_\+\+F}, \hyperpage{37}
+    \subitem {Avg\+Val\+U\+L\+U\+L\+\_\+\+F}, \hyperpage{37}
+    \subitem {avg\+Weight\+L\+H\+T\+C}, \hyperpage{41}
+    \subitem {Check\+Serial}, \hyperpage{38}
+    \subitem {co\+Raw\+Val\+Max}, \hyperpage{41}
+    \subitem {co\+Raw\+Val\+Ref}, \hyperpage{41}
+    \subitem {co\+Raw\+Val\+Sum}, \hyperpage{41}
+    \subitem {Cop}, \hyperpage{38}
+    \subitem {cyc\+Start}, \hyperpage{42}
+    \subitem {debug\+Device\+Hub}, \hyperpage{42}
+    \subitem {Ethernet\+Init}, \hyperpage{38}
+    \subitem {Ethernet\+Izpis\+Info}, \hyperpage{38}
+    \subitem {home\+Page}, \hyperpage{38}
+    \subitem {Ime\+Datoteke\+On\+Off}, \hyperpage{38}
+    \subitem {Is\+N\+Temp\+Cas}, \hyperpage{38}
+    \subitem {Izpis\+Data\+On\+Off\+Serial}, \hyperpage{38}
+    \subitem {Izpis\+Datna\+Serial}, \hyperpage{38}
+    \subitem {Izpis\+Poraba\+W\+H}, \hyperpage{38}
+    \subitem {Izrac\+Delta\+Th}, \hyperpage{38}
+    \subitem {Izrac\+Delta\+Th\+Ok}, \hyperpage{38}
+    \subitem {Izrac\+Delta\+Th\+St}, \hyperpage{39}
+    \subitem {izrac\+Hitr\+Gret}, \hyperpage{42}
+    \subitem {izrac\+Hitr\+Gret\+Info}, \hyperpage{42}
+    \subitem {Izracun\+Hitrosti\+Gretja\+T\+C}, \hyperpage{39}
+    \subitem {Izracun\+Limit\+Temp}, \hyperpage{39}
+    \subitem {Izracun\+Temp\+V\+T\+Off}, \hyperpage{39}
+    \subitem {Kompenz\+Zac\+Temp}, \hyperpage{39}
+    \subitem {Kompenzacija\+Temp\+Okolice}, \hyperpage{39}
+    \subitem {Max\+Crp\+T\+C\+Run\+Time}, \hyperpage{39}
+    \subitem {max\+Cycle}, \hyperpage{42}
+    \subitem {max\+Volt\+Gas}, \hyperpage{42}
+    \subitem {Mejna\+Temp\+Prekl\+Crp\+Rad}, \hyperpage{39}
+    \subitem {min\+Cycle}, \hyperpage{42}
+    \subitem {min\+Volt\+Gas}, \hyperpage{42}
+    \subitem {ncyc}, \hyperpage{42}
+    \subitem {num\+Mer\+C\+O}, \hyperpage{42}
+    \subitem {num\+Ping}, \hyperpage{42}
+    \subitem {Obseg\+Zgodovine}, \hyperpage{39}
+    \subitem {p\+Temp\+Crp}, \hyperpage{42}
+    \subitem {Povpreci\+Vred}, \hyperpage{39}
+    \subitem {Pretvori\+Float2\+E\+E\+Temp}, \hyperpage{39}
+    \subitem {Pretvoti\+E\+E\+Temp2\+Float}, \hyperpage{39}
+    \subitem {Preveri\+Napetosti}, \hyperpage{40}
+    \subitem {Preveri\+Stikala}, \hyperpage{40}
+    \subitem {Print\+Data}, \hyperpage{40}
+    \subitem {Print\+Temp\+All\+S\+Dbin}, \hyperpage{40}
+    \subitem {Print\+Temperature\+All}, \hyperpage{40}
+    \subitem {process\+Sync\+Message}, \hyperpage{40}
+    \subitem {Relaks\+Time\+Limit\+Sec}, \hyperpage{40}
+    \subitem {S\+D\+Init}, \hyperpage{40}
+    \subitem {se\+Rracuna\+Hitr\+Gret}, \hyperpage{42}
+    \subitem {Sec2\+Hour}, \hyperpage{40}
+    \subitem {state\+Cev\+St\+Pec\+T\+C}, \hyperpage{43}
+    \subitem {sum\+Cycle}, \hyperpage{43}
+    \subitem {sum\+Ping}, \hyperpage{43}
+    \subitem {Temp\+Izklopa}, \hyperpage{40}
+    \subitem {Temp\+Izklopa\+Crp\+T\+C}, \hyperpage{40}
+    \subitem {Temp\+Izklopa\+Crp\+T\+C\+\_\+\+N\+Temp}, \hyperpage{40}
+    \subitem {Temp\+Vklopa}, \hyperpage{41}
+    \subitem {Temp\+Vklopa\+Crp\+T\+C\+\_\+\+N\+Temp}, \hyperpage{41}
+    \subitem {tok230\+V}, \hyperpage{43}
+    \subitem {Tok\+\_\+12\+V}, \hyperpage{41}
+    \subitem {Upostevaj\+El\+Tarife}, \hyperpage{41}
+    \subitem {use\+Delta\+Th\+Ok}, \hyperpage{43}
+    \subitem {Voda\+Vre}, \hyperpage{41}
+    \subitem {Zakasnitev\+Vklopa}, \hyperpage{41}
+    \subitem {Zapisi\+In\+Izpisi\+Podatke}, \hyperpage{41}
+  \item {Kontroler\+\_\+\+T\+C\+\_\+h}
+    \subitem {Gas\+\_\+\+Sensor.\+h}, \hyperpage{32}
+
+  \indexspace
+
+  \item {L\+C\+D\+\_\+\+D4}
+    \subitem {Configuration.\+h}, \hyperpage{13}
+  \item {L\+C\+D\+\_\+\+D5}
+    \subitem {Configuration.\+h}, \hyperpage{13}
+  \item {L\+C\+D\+\_\+\+D6}
+    \subitem {Configuration.\+h}, \hyperpage{13}
+  \item {L\+C\+D\+\_\+\+D7}
+    \subitem {Configuration.\+h}, \hyperpage{13}
+  \item {L\+C\+D\+\_\+\+E\+N}
+    \subitem {Configuration.\+h}, \hyperpage{13}
+  \item {L\+C\+D\+\_\+\+O\+S\+W\+\_\+\+S\+W}
+    \subitem {Configuration.\+h}, \hyperpage{13}
+  \item {L\+C\+D\+\_\+\+R\+S}
+    \subitem {Configuration.\+h}, \hyperpage{13}
+  \item {L\+C\+D\+\_\+funkcije.\+h}
+    \subitem {Beep}, \hyperpage{44}
+    \subitem {button\+Pressed}, \hyperpage{45}
+    \subitem {co\+Raw\+Val}, \hyperpage{45}
+    \subitem {info\+Err}, \hyperpage{45}
+    \subitem {info\+Mode\+L\+C\+D}, \hyperpage{45}
+    \subitem {Izpis\+Control\+Menu}, \hyperpage{44}
+    \subitem {Izpis\+Hex2}, \hyperpage{44}
+    \subitem {Izpis\+Info\+Menu}, \hyperpage{44}
+    \subitem {Izpisi\+Na\+L\+C\+D}, \hyperpage{44}
+    \subitem {L\+C\+D\+Initializacija}, \hyperpage{44}
+    \subitem {last\+T\+C\+State\+Chg}, \hyperpage{45}
+    \subitem {M\+A\+X\+\_\+\+L\+C\+D\+\_\+\+O\+S\+V}, \hyperpage{44}
+    \subitem {menu\+Zaslon\+Num}, \hyperpage{45}
+    \subitem {on\+Time\+T\+C}, \hyperpage{45}
+    \subitem {prev\+T\+C\+State}, \hyperpage{45}
+    \subitem {Print\+Digits\+L\+C\+D\+A}, \hyperpage{44}
+    \subitem {Temp\+Izklopa}, \hyperpage{44}
+    \subitem {Temp\+Vklopa}, \hyperpage{44}
+  \item {L\+C\+D\+Initializacija}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{44}
+  \item {last24\+H\+\_\+\+Info}
+    \subitem {Temperature.\+h}, \hyperpage{47}
+  \item {last\+Crp\+Rad\+State\+Chg}
+    \subitem {Configuration.\+h}, \hyperpage{21}
+  \item {last\+Crp\+T\+C\+State\+Chg}
+    \subitem {Configuration.\+h}, \hyperpage{21}
+  \item {last\+Delta\+Th}
+    \subitem {Configuration.\+h}, \hyperpage{21}
+  \item {last\+Delta\+Th\+Ok}
+    \subitem {Configuration.\+h}, \hyperpage{21}
+  \item {last\+Delta\+Th\+St}
+    \subitem {Configuration.\+h}, \hyperpage{21}
+  \item {last\+Hour\+Temp\+Change}
+    \subitem {Configuration.\+h}, \hyperpage{22}
+  \item {last\+Run\+Time}
+    \subitem {Configuration.\+h}, \hyperpage{22}
+  \item {last\+T\+C\+State\+Chg}
+    \subitem {Configuration.\+h}, \hyperpage{22}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{45}
+  \item {last\+Vent\+T\+C\+Chg}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+izvrs.\+h}, \hyperpage{36}
+  \item {lcd\+A}
+    \subitem {Configuration.\+h}, \hyperpage{19}
+  \item {lim\+Temp\+Crp\+Rad}
+    \subitem {Configuration.\+h}, \hyperpage{22}
+  \item {lim\+Temp\+Fact\+Crp\+Rad}
+    \subitem {Configuration.\+h}, \hyperpage{22}
+
+  \indexspace
+
+  \item {M\+A\+X\+\_\+\+D\+H\+T22\+\_\+\+S\+E\+N\+S}
+    \subitem {Configuration.\+h}, \hyperpage{13}
+  \item {M\+A\+X\+\_\+\+L\+C\+D\+\_\+\+O\+S\+V}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{44}
+  \item {M\+A\+X\+S\+E\+N\+S\+O\+R\+S}
+    \subitem {Configuration.\+h}, \hyperpage{13}
+  \item {M\+A\+X\+S\+E\+N\+S\+O\+R\+S\+\_\+\+D\+S}
+    \subitem {Configuration.\+h}, \hyperpage{14}
+  \item {manu\+Crp\+T\+C\+State}
+    \subitem {Configuration.\+h}, \hyperpage{22}
+  \item {max\+\_\+\+Temp\+O\+K\+\_\+\+T\+C\+Komp}
+    \subitem {Configuration.\+h}, \hyperpage{22}
+  \item {Max\+Crp\+T\+C\+Run\+Time}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{39}
+  \item {max\+Cycle}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{42}
+  \item {max\+Delta\+Dev}
+    \subitem {Configuration.\+h}, \hyperpage{22}
+  \item {max\+Dov\+Temp\+Vode\+T\+C\+\_\+\+Komp}
+    \subitem {Configuration.\+h}, \hyperpage{22}
+  \item {max\+Temp24}
+    \subitem {Temperature.\+h}, \hyperpage{48}
+  \item {max\+Temp24\+Time}
+    \subitem {Temperature.\+h}, \hyperpage{48}
+  \item {max\+Temp\+D\+V\+Pec}
+    \subitem {Configuration.\+h}, \hyperpage{22}
+  \item {max\+Temp\+P\+V\+Rad}
+    \subitem {Configuration.\+h}, \hyperpage{23}
+  \item {max\+Tok\+\_\+12\+V}
+    \subitem {Configuration.\+h}, \hyperpage{23}
+  \item {max\+Volt\+Gas}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{42}
+  \item {meja\+Toka}
+    \subitem {Configuration.\+h}, \hyperpage{23}
+  \item {Mejna\+Temp\+Prekl\+Crp\+Rad}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{39}
+  \item {menu\+Zaslon\+Num}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{45}
+  \item {mer\+X\+Min}
+    \subitem {Configuration.\+h}, \hyperpage{23}
+  \item {mid\+R}
+    \subitem {Tok\+\_\+napetost.\+h}, \hyperpage{50}
+  \item {min\+\_\+\+Temp\+O\+K\+\_\+\+T\+C\+Komp}
+    \subitem {Configuration.\+h}, \hyperpage{23}
+  \item {min\+Crp\+Rad\+Run\+Time\+Min}
+    \subitem {Configuration.\+h}, \hyperpage{23}
+  \item {min\+Crp\+T\+C\+Run\+Time\+Min}
+    \subitem {Configuration.\+h}, \hyperpage{23}
+  \item {min\+Cycle}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{42}
+  \item {min\+Diff\+Dv\+Okol\+Crp\+Rad}
+    \subitem {Configuration.\+h}, \hyperpage{23}
+  \item {min\+Diff\+T\+C\+Pec}
+    \subitem {Configuration.\+h}, \hyperpage{23}
+  \item {min\+Mejna\+Temp\+Rel}
+    \subitem {Configuration.\+h}, \hyperpage{23}
+  \item {min\+Run\+Time\+Min}
+    \subitem {Configuration.\+h}, \hyperpage{23}
+  \item {min\+Temp24}
+    \subitem {Temperature.\+h}, \hyperpage{48}
+  \item {min\+Temp24\+Time}
+    \subitem {Temperature.\+h}, \hyperpage{48}
+  \item {min\+Temp\+Night\+On}
+    \subitem {Configuration.\+h}, \hyperpage{23}
+  \item {min\+Temp\+Pec\+Ponovno\+Odp\+Vent}
+    \subitem {Configuration.\+h}, \hyperpage{24}
+  \item {min\+Temp\+V\+T\+On}
+    \subitem {Configuration.\+h}, \hyperpage{24}
+  \item {min\+Volt\+Gas}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{42}
+  \item {my\+\_\+callback}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{30}
+  \item {myip}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{31}
+  \item {mymac}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{31}
+
+  \indexspace
+
+  \item {N\+E\+D}
+    \subitem {Configuration.\+h}, \hyperpage{14}
+  \item {n\+Mer\+Tok\+\_\+12\+V}
+    \subitem {Configuration.\+h}, \hyperpage{24}
+  \item {N\+R\+F24\+\_\+\+C\+E}
+    \subitem {Configuration.\+h}, \hyperpage{14}
+  \item {N\+R\+F24\+\_\+\+C\+S\+N}
+    \subitem {Configuration.\+h}, \hyperpage{14}
+  \item {napetost\+\_\+int}
+    \subitem {Tok\+\_\+napetost.\+h}, \hyperpage{50}
+  \item {napetosti\+Min\+Max}
+    \subitem {Tok\+\_\+napetost.\+h}, \hyperpage{49}
+  \item {Naredi\+Time\+Str}
+    \subitem {Cas\+\_\+funkcije.\+h}, \hyperpage{7}
+  \item {Nastavitev\+Pinov}
+    \subitem {Kontr\+\_\+\+T\+C.\+h}, \hyperpage{34}
+  \item {ncyc}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{42}
+  \item {num\+Mer\+C\+O}
+    \subitem {Gas\+\_\+\+Sensor.\+h}, \hyperpage{33}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{42}
+  \item {num\+Ping}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{42}
+  \item {num\+Sens}
+    \subitem {Configuration.\+h}, \hyperpage{24}
+  \item {num\+Sens\+D\+H\+T22}
+    \subitem {Configuration.\+h}, \hyperpage{24}
+  \item {num\+Sens\+D\+S}
+    \subitem {Configuration.\+h}, \hyperpage{24}
+  \item {num\+Sens\+K}
+    \subitem {Configuration.\+h}, \hyperpage{24}
+
+  \indexspace
+
+  \item {O\+K\+O\+L\+I\+C\+A\+\_\+0}
+    \subitem {Configuration.\+h}, \hyperpage{14}
+  \item {O\+N\+E\+\_\+\+W\+I\+R\+E\+\_\+\+B\+U\+S}
+    \subitem {Configuration.\+h}, \hyperpage{14}
+  \item {Obseg\+Zgodovine}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{39}
+    \subitem {Temperature.\+h}, \hyperpage{47}
+  \item {Odpri\+Datoteko}
+    \subitem {Zapisi\+\_\+sd.\+h}, \hyperpage{51}
+  \item {on\+Time\+Crp\+Rad}
+    \subitem {Configuration.\+h}, \hyperpage{24}
+  \item {on\+Time\+Crp\+T\+C}
+    \subitem {Configuration.\+h}, \hyperpage{24}
+  \item {on\+Time\+T\+C}
+    \subitem {Configuration.\+h}, \hyperpage{24}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{45}
+  \item {osvetlitev\+L\+C\+D}
+    \subitem {Configuration.\+h}, \hyperpage{24}
+
+  \indexspace
+
+  \item {P\+E\+C\+\_\+\+D\+V}
+    \subitem {Configuration.\+h}, \hyperpage{14}
+  \item {P\+E\+C\+\_\+\+P\+V}
+    \subitem {Configuration.\+h}, \hyperpage{14}
+  \item {P\+E\+C\+\_\+\+T\+C\+\_\+\+D\+V}
+    \subitem {Configuration.\+h}, \hyperpage{14}
+  \item {P\+R\+O\+G\+M\+E\+M}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{31}
+  \item {p\+Temp\+Crp}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{42}
+  \item {ping\+\_\+1}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{31}
+  \item {poraba\+W\+H}
+    \subitem {Configuration.\+h}, \hyperpage{24}
+  \item {Povpreci\+Vred}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{39}
+  \item {Preberi\+Temperature}
+    \subitem {Temperature.\+h}, \hyperpage{47}
+  \item {Preberi\+Temperaturo\+D\+H\+T22}
+    \subitem {Temperature.\+h}, \hyperpage{47}
+  \item {Preberi\+Temperaturo\+D\+S}
+    \subitem {Temperature.\+h}, \hyperpage{47}
+  \item {Preberi\+Temperaturo\+K}
+    \subitem {Temperature.\+h}, \hyperpage{47}
+  \item {Preberi\+Vlaznost\+D\+H\+T22}
+    \subitem {Temperature.\+h}, \hyperpage{47}
+  \item {preklop\+Crp\+T\+C\+Vzr}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+izvrs.\+h}, \hyperpage{36}
+  \item {Preklopi\+Crpalko\+Rad}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+izvrs.\+h}, \hyperpage{35}
+  \item {Preklopi\+Crpalko\+T\+C}
+    \subitem {Kontr\+\_\+\+T\+C.\+h}, \hyperpage{34}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+izvrs.\+h}, \hyperpage{35}
+  \item {Preklopi\+Ventil\+T\+C\+Pec}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+izvrs.\+h}, \hyperpage{35}
+  \item {Pretvori\+Float2\+E\+E\+Temp}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{39}
+  \item {Pretvori\+V2\+A\+\_\+asc712}
+    \subitem {Tok\+\_\+napetost.\+h}, \hyperpage{49}
+  \item {Pretvori\+V2\+A\+\_\+asc712\+\_\+\+D\+C}
+    \subitem {Tok\+\_\+napetost.\+h}, \hyperpage{49}
+  \item {Pretvoti\+E\+E\+Temp2\+Float}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{39}
+  \item {prev\+Cas\+Meritve}
+    \subitem {Configuration.\+h}, \hyperpage{25}
+  \item {prev\+Crp\+Rad\+State}
+    \subitem {Configuration.\+h}, \hyperpage{25}
+  \item {prev\+Crp\+T\+C\+State}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+izvrs.\+h}, \hyperpage{36}
+  \item {prev\+T\+C\+State}
+    \subitem {Configuration.\+h}, \hyperpage{25}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{45}
+  \item {prev\+Vent\+T\+C\+State}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+izvrs.\+h}, \hyperpage{36}
+  \item {Preveri\+C\+O\+\_\+\+Senzor}
+    \subitem {Gas\+\_\+\+Sensor.\+h}, \hyperpage{32}
+  \item {Preveri\+Napetosti}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{40}
+    \subitem {Tok\+\_\+napetost.\+h}, \hyperpage{50}
+  \item {Preveri\+Stikala}
+    \subitem {Kontr\+\_\+\+T\+C.\+h}, \hyperpage{34}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{40}
+  \item {Print\+Address}
+    \subitem {Temperature.\+h}, \hyperpage{47}
+  \item {Print\+Data}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{40}
+  \item {Print\+Digits\+L\+C\+D\+A}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{44}
+  \item {Print\+Temp\+All\+S\+Dbin}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{40}
+    \subitem {Zapisi\+\_\+sd.\+h}, \hyperpage{51}
+  \item {Print\+Temperature\+All}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{40}
+    \subitem {Temperature.\+h}, \hyperpage{48}
+  \item {proc\+\_\+ip}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{31}
+  \item {process\+Sync\+Message}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{40}
+    \subitem {Temperature.\+h}, \hyperpage{48}
+
+  \indexspace
+
+  \item {Qv}
+    \subitem {Configuration.\+h}, \hyperpage{25}
+
+  \indexspace
+
+  \item {R\+\_\+\+C\+R\+A\+D\+\_\+\+O\+F\+F}
+    \subitem {Configuration.\+h}, \hyperpage{14}
+  \item {R\+\_\+\+C\+R\+A\+D\+\_\+\+O\+N}
+    \subitem {Configuration.\+h}, \hyperpage{14}
+  \item {R\+\_\+\+C\+T\+C\+\_\+\+O\+F\+F}
+    \subitem {Configuration.\+h}, \hyperpage{14}
+  \item {R\+\_\+\+C\+T\+C\+\_\+\+O\+N}
+    \subitem {Configuration.\+h}, \hyperpage{15}
+  \item {R\+\_\+\+T\+C\+\_\+\+E\+G\+R\+E\+L\+\_\+\+O\+F\+F}
+    \subitem {Configuration.\+h}, \hyperpage{15}
+  \item {R\+\_\+\+T\+C\+\_\+\+E\+G\+R\+E\+L\+\_\+\+O\+N}
+    \subitem {Configuration.\+h}, \hyperpage{15}
+  \item {R\+\_\+\+T\+C\+\_\+\+K\+O\+M\+P\+\_\+\+O\+F\+F}
+    \subitem {Configuration.\+h}, \hyperpage{15}
+  \item {R\+\_\+\+T\+C\+\_\+\+K\+O\+M\+P\+\_\+\+O\+N}
+    \subitem {Configuration.\+h}, \hyperpage{15}
+  \item {R\+\_\+\+T\+C\+\_\+\+V\+E\+N\+T\+\_\+\+O\+F\+F}
+    \subitem {Configuration.\+h}, \hyperpage{15}
+  \item {R\+\_\+\+T\+C\+\_\+\+V\+E\+N\+T\+\_\+\+O\+N}
+    \subitem {Configuration.\+h}, \hyperpage{15}
+  \item {R\+A\+D\+\_\+\+D\+V}
+    \subitem {Configuration.\+h}, \hyperpage{15}
+  \item {R\+A\+D\+\_\+\+P\+V}
+    \subitem {Configuration.\+h}, \hyperpage{15}
+  \item {R\+E\+L\+E\+\_\+\+C\+R\+A\+D}
+    \subitem {Configuration.\+h}, \hyperpage{15}
+  \item {R\+E\+L\+E\+\_\+\+C\+T\+C}
+    \subitem {Configuration.\+h}, \hyperpage{15}
+  \item {R\+E\+L\+E\+\_\+\+T\+C\+\_\+\+E\+G\+R\+E\+L}
+    \subitem {Configuration.\+h}, \hyperpage{15}
+  \item {R\+E\+L\+E\+\_\+\+T\+C\+\_\+\+K\+O\+M\+P}
+    \subitem {Configuration.\+h}, \hyperpage{16}
+  \item {R\+E\+L\+E\+\_\+\+T\+C\+\_\+\+V\+E\+N\+T}
+    \subitem {Configuration.\+h}, \hyperpage{16}
+  \item {read\+Vcc}
+    \subitem {Tok\+\_\+napetost.\+h}, \hyperpage{50}
+  \item {Ref\+Temp}
+    \subitem {Temperature.\+h}, \hyperpage{48}
+  \item {Relaks\+Time\+Limit\+Sec}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{40}
+  \item {rele\+State\+\_\+egrelec\+T\+C}
+    \subitem {Configuration.\+h}, \hyperpage{25}
+  \item {rele\+State\+\_\+komp\+T\+C}
+    \subitem {Configuration.\+h}, \hyperpage{25}
+  \item {rele\+State\+\_\+vent\+Komp\+T\+C}
+    \subitem {Configuration.\+h}, \hyperpage{25}
+  \item {Reset\+Crp\+T\+C\+Vzr}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+izvrs.\+h}, \hyperpage{35}
+  \item {rotating}
+    \subitem {Encoder\+\_\+butt.\+h}, \hyperpage{28}
+
+  \indexspace
+
+  \item {S\+D\+\_\+\+C\+S\+\_\+\+P\+I\+N}
+    \subitem {Configuration.\+h}, \hyperpage{16}
+  \item {S\+D\+Init}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{40}
+    \subitem {Zapisi\+\_\+sd.\+h}, \hyperpage{51}
+  \item {S\+E\+N\+S\+\_\+3\+V3\+\_\+\+S\+D}
+    \subitem {Configuration.\+h}, \hyperpage{16}
+  \item {S\+E\+N\+S\+\_\+\+R\+T\+C\+\_\+\+B\+A\+T\+T}
+    \subitem {Configuration.\+h}, \hyperpage{16}
+  \item {S\+E\+N\+S\+\_\+\+T\+O\+K}
+    \subitem {Configuration.\+h}, \hyperpage{16}
+  \item {S\+E\+N\+S\+\_\+\+T\+O\+K\+\_\+12\+V}
+    \subitem {Configuration.\+h}, \hyperpage{16}
+  \item {S\+E\+N\+S\+\_\+\+V12}
+    \subitem {Configuration.\+h}, \hyperpage{16}
+  \item {S\+E\+N\+S\+\_\+\+V5\+\_\+2}
+    \subitem {Configuration.\+h}, \hyperpage{16}
+  \item {S\+E\+N\+S\+\_\+\+V5\+\_\+3}
+    \subitem {Configuration.\+h}, \hyperpage{16}
+  \item {S\+O\+B}
+    \subitem {Configuration.\+h}, \hyperpage{16}
+  \item {S\+T\+A\+T\+E\+\_\+\+C\+R\+P\+\_\+\+T\+C\+\_\+\+O\+F\+F}
+    \subitem {Configuration.\+h}, \hyperpage{16}
+  \item {S\+T\+A\+T\+E\+\_\+\+C\+R\+P\+\_\+\+T\+C\+\_\+\+O\+N}
+    \subitem {Configuration.\+h}, \hyperpage{17}
+  \item {S\+T\+A\+T\+E\+\_\+\+T\+C\+\_\+\+O\+F\+F}
+    \subitem {Configuration.\+h}, \hyperpage{17}
+  \item {S\+T\+A\+T\+E\+\_\+\+T\+C\+\_\+\+O\+N}
+    \subitem {Configuration.\+h}, \hyperpage{17}
+  \item {S\+T\+A\+T\+E\+\_\+\+V\+E\+N\+T\+\_\+\+T\+C\+\_\+\+N\+D\+E\+F}
+    \subitem {Configuration.\+h}, \hyperpage{17}
+  \item {S\+T\+A\+T\+E\+\_\+\+V\+E\+N\+T\+\_\+\+T\+C\+\_\+\+O\+F\+F}
+    \subitem {Configuration.\+h}, \hyperpage{17}
+  \item {S\+T\+A\+T\+E\+\_\+\+V\+E\+N\+T\+\_\+\+T\+C\+\_\+\+O\+N}
+    \subitem {Configuration.\+h}, \hyperpage{17}
+  \item {S\+T\+I\+K\+A\+L\+O\+\_\+\+C\+R\+P\+\_\+\+R\+A\+D}
+    \subitem {Kontr\+\_\+\+T\+C.\+h}, \hyperpage{33}
+  \item {S\+T\+I\+K\+A\+L\+O\+\_\+\+C\+R\+P\+\_\+\+R\+A\+D\+\_\+\+O\+F\+F}
+    \subitem {Configuration.\+h}, \hyperpage{17}
+  \item {S\+T\+I\+K\+A\+L\+O\+\_\+\+C\+R\+P\+\_\+\+R\+A\+D\+\_\+\+O\+N}
+    \subitem {Configuration.\+h}, \hyperpage{17}
+  \item {S\+T\+I\+K\+A\+L\+O\+\_\+\+C\+R\+P\+\_\+\+T\+C}
+    \subitem {Kontr\+\_\+\+T\+C.\+h}, \hyperpage{33}
+  \item {S\+T\+I\+K\+A\+L\+O\+\_\+\+C\+R\+P\+\_\+\+T\+C\+\_\+\+O\+F\+F}
+    \subitem {Configuration.\+h}, \hyperpage{17}
+  \item {S\+T\+I\+K\+A\+L\+O\+\_\+\+C\+R\+P\+\_\+\+T\+C\+\_\+\+O\+N}
+    \subitem {Configuration.\+h}, \hyperpage{17}
+  \item {S\+T\+I\+K\+A\+L\+O\+\_\+\+O\+F\+F}
+    \subitem {Kontr\+\_\+\+T\+C.\+h}, \hyperpage{33}
+  \item {S\+T\+I\+K\+A\+L\+O\+\_\+\+O\+N}
+    \subitem {Kontr\+\_\+\+T\+C.\+h}, \hyperpage{34}
+  \item {S\+T\+I\+K\+A\+L\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+A\+U\+T}
+    \subitem {Kontr\+\_\+\+T\+C.\+h}, \hyperpage{34}
+  \item {S\+T\+I\+K\+A\+L\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+F\+F}
+    \subitem {Kontr\+\_\+\+T\+C.\+h}, \hyperpage{34}
+  \item {S\+T\+I\+K\+A\+L\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+N}
+    \subitem {Kontr\+\_\+\+T\+C.\+h}, \hyperpage{34}
+  \item {S\+T\+I\+K\+A\+L\+O\+\_\+\+T\+C}
+    \subitem {Kontr\+\_\+\+T\+C.\+h}, \hyperpage{34}
+  \item {S\+T\+I\+K\+A\+L\+O\+\_\+\+T\+C\+\_\+\+O\+F\+F}
+    \subitem {Configuration.\+h}, \hyperpage{17}
+  \item {S\+T\+I\+K\+A\+L\+O\+\_\+\+T\+C\+\_\+\+O\+N}
+    \subitem {Configuration.\+h}, \hyperpage{17}
+  \item {se\+Rracuna\+Hitr\+Gret}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{42}
+  \item {Sec2\+Hour}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{40}
+  \item {Send\+To\+Proc}
+    \subitem {Ethernet\+\_\+funk.\+h}, \hyperpage{30}
+  \item {sensor\+Ime}
+    \subitem {Configuration.\+h}, \hyperpage{25}
+  \item {show\+C\+R\+C}
+    \subitem {Configuration.\+h}, \hyperpage{25}
+  \item {start\+Temp}
+    \subitem {Configuration.\+h}, \hyperpage{25}
+  \item {start\+Ura\+N\+T}
+    \subitem {Configuration.\+h}, \hyperpage{25}
+  \item {start\+Ura\+V\+T}
+    \subitem {Configuration.\+h}, \hyperpage{25}
+  \item {state\+Cev\+St\+Pec\+T\+C}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{43}
+  \item {state\+T\+C}
+    \subitem {Configuration.\+h}, \hyperpage{26}
+  \item {stikalo\+State}
+    \subitem {Kontr\+\_\+\+T\+C.\+h}, \hyperpage{35}
+  \item {stikalo\+State\+Txt}
+    \subitem {Kontr\+\_\+\+T\+C.\+h}, \hyperpage{35}
+  \item {sum24}
+    \subitem {Temperature.\+h}, \hyperpage{48}
+  \item {sum\+C\+Temp}
+    \subitem {Temperature.\+h}, \hyperpage{49}
+  \item {sum\+C\+Temp\+E\+M\+A}
+    \subitem {Temperature.\+h}, \hyperpage{49}
+  \item {sum\+Cycle}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{43}
+  \item {sum\+Ping}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{43}
+  \item {sum\+Temp}
+    \subitem {Configuration.\+h}, \hyperpage{26}
+  \item {sum\+Tok\+\_\+12\+V}
+    \subitem {Configuration.\+h}, \hyperpage{26}
+
+  \indexspace
+
+  \item {T\+\_\+\+K\+T\+Y\+P\+\_\+01\+\_\+\+P\+I\+N}
+    \subitem {Configuration.\+h}, \hyperpage{18}
+  \item {T\+I\+M\+E\+\_\+\+H\+E\+A\+D\+E\+R}
+    \subitem {Configuration.\+h}, \hyperpage{18}
+  \item {T\+I\+M\+E\+\_\+\+M\+S\+G\+\_\+\+L\+E\+N}
+    \subitem {Configuration.\+h}, \hyperpage{18}
+  \item {t\+Komp\+O\+K}
+    \subitem {Configuration.\+h}, \hyperpage{26}
+  \item {t\+Komp\+St}
+    \subitem {Configuration.\+h}, \hyperpage{26}
+  \item {temerature\+Izmerjene}
+    \subitem {Temperature.\+h}, \hyperpage{49}
+  \item {Temp\+Izklopa}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{40}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{44}
+  \item {Temp\+Izklopa\+Crp\+T\+C}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{40}
+  \item {Temp\+Izklopa\+Crp\+T\+C\+\_\+\+N\+Temp}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{40}
+  \item {temp\+Izklopa\+Vent\+Crp\+T\+C}
+    \subitem {Configuration.\+h}, \hyperpage{26}
+  \item {temp\+Okolica\+St}
+    \subitem {Configuration.\+h}, \hyperpage{26}
+  \item {Temp\+Sensors\+Init}
+    \subitem {Temperature.\+h}, \hyperpage{48}
+  \item {Temp\+Vklopa}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{41}
+    \subitem {L\+C\+D\+\_\+funkcije.\+h}, \hyperpage{44}
+  \item {temp\+Vklopa\+Crp\+T\+C}
+    \subitem {Configuration.\+h}, \hyperpage{26}
+  \item {Temp\+Vklopa\+Crp\+T\+C\+\_\+\+N\+Temp}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{41}
+  \item {Temperatue\+\_\+h}
+    \subitem {Temperature.\+h}, \hyperpage{46}
+  \item {Temperature.\+h}
+    \subitem {Auto\+Time\+Unit\+Conv}, \hyperpage{46}
+    \subitem {avg\+Temp\+Vode\+T\+C}, \hyperpage{48}
+    \subitem {Beep}, \hyperpage{46}
+    \subitem {conv\+Wait\+Time}, \hyperpage{48}
+    \subitem {dev\+Address}, \hyperpage{48}
+    \subitem {Is\+Cas\+Transf\+Topl}, \hyperpage{46}
+    \subitem {Is\+N\+Temp\+Cas}, \hyperpage{47}
+    \subitem {Izpis\+Hex2}, \hyperpage{47}
+    \subitem {Izracun\+Humidex}, \hyperpage{47}
+    \subitem {Izracun\+T\+Rosicsa}, \hyperpage{47}
+    \subitem {last24\+H\+\_\+\+Info}, \hyperpage{47}
+    \subitem {max\+Temp24}, \hyperpage{48}
+    \subitem {max\+Temp24\+Time}, \hyperpage{48}
+    \subitem {min\+Temp24}, \hyperpage{48}
+    \subitem {min\+Temp24\+Time}, \hyperpage{48}
+    \subitem {Obseg\+Zgodovine}, \hyperpage{47}
+    \subitem {Preberi\+Temperature}, \hyperpage{47}
+    \subitem {Preberi\+Temperaturo\+D\+H\+T22}, \hyperpage{47}
+    \subitem {Preberi\+Temperaturo\+D\+S}, \hyperpage{47}
+    \subitem {Preberi\+Temperaturo\+K}, \hyperpage{47}
+    \subitem {Preberi\+Vlaznost\+D\+H\+T22}, \hyperpage{47}
+    \subitem {Print\+Address}, \hyperpage{47}
+    \subitem {Print\+Temperature\+All}, \hyperpage{48}
+    \subitem {process\+Sync\+Message}, \hyperpage{48}
+    \subitem {Ref\+Temp}, \hyperpage{48}
+    \subitem {sum24}, \hyperpage{48}
+    \subitem {sum\+C\+Temp}, \hyperpage{49}
+    \subitem {sum\+C\+Temp\+E\+M\+A}, \hyperpage{49}
+    \subitem {temerature\+Izmerjene}, \hyperpage{49}
+    \subitem {Temp\+Sensors\+Init}, \hyperpage{48}
+    \subitem {Temperatue\+\_\+h}, \hyperpage{46}
+    \subitem {vcc\+Internal}, \hyperpage{49}
+  \item {tok230\+V}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{43}
+  \item {Tok\+\_\+12\+V}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{41}
+    \subitem {Tok\+\_\+napetost.\+h}, \hyperpage{50}
+  \item {Tok\+\_\+napetost.\+h}
+    \subitem {A\+C\+\_\+mimax}, \hyperpage{49}
+    \subitem {mid\+R}, \hyperpage{50}
+    \subitem {napetost\+\_\+int}, \hyperpage{50}
+    \subitem {napetosti\+Min\+Max}, \hyperpage{49}
+    \subitem {Pretvori\+V2\+A\+\_\+asc712}, \hyperpage{49}
+    \subitem {Pretvori\+V2\+A\+\_\+asc712\+\_\+\+D\+C}, \hyperpage{49}
+    \subitem {Preveri\+Napetosti}, \hyperpage{50}
+    \subitem {read\+Vcc}, \hyperpage{50}
+    \subitem {Tok\+\_\+12\+V}, \hyperpage{50}
+    \subitem {Voltage\+Divider}, \hyperpage{50}
+  \item {type\+\_\+s}
+    \subitem {Configuration.\+h}, \hyperpage{26}
+
+  \indexspace
+
+  \item {u2}
+    \subitem {Configuration.\+h}, \hyperpage{26}
+  \item {u4}
+    \subitem {Configuration.\+h}, \hyperpage{26}
+  \item {U\+S\+E\+E\+G\+R\+E\+L\+E\+C}
+    \subitem {Configuration.\+h}, \hyperpage{18}
+  \item {uf}
+    \subitem {Configuration.\+h}, \hyperpage{26}
+  \item {ui2byte2}, \hyperpage{5}
+    \subitem {by}, \hyperpage{6}
+    \subitem {uival}, \hyperpage{6}
+  \item {uival}
+    \subitem {ui2byte2}, \hyperpage{6}
+  \item {ul2byte4b}, \hyperpage{6}
+    \subitem {by}, \hyperpage{6}
+    \subitem {ulval}, \hyperpage{6}
+  \item {ulval}
+    \subitem {ul2byte4b}, \hyperpage{6}
+  \item {Upostevaj\+El\+Tarife}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{41}
+  \item {ura\+V\+Temp}
+    \subitem {Configuration.\+h}, \hyperpage{27}
+  \item {use\+Delta\+Th\+Ok}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{43}
+
+  \indexspace
+
+  \item {V\+E\+N\+T\+T\+C\+\_\+1}
+    \subitem {Configuration.\+h}, \hyperpage{18}
+  \item {V\+E\+N\+T\+T\+C\+\_\+2}
+    \subitem {Configuration.\+h}, \hyperpage{18}
+  \item {V\+E\+N\+T\+T\+C\+\_\+\+E\+N}
+    \subitem {Configuration.\+h}, \hyperpage{18}
+  \item {V\+E\+R\+S\+I\+O\+N}
+    \subitem {Configuration.\+h}, \hyperpage{18}
+  \item {vcc\+Internal}
+    \subitem {Configuration.\+h}, \hyperpage{27}
+    \subitem {Temperature.\+h}, \hyperpage{49}
+  \item {virtual\+Position}
+    \subitem {Encoder\+\_\+butt.\+h}, \hyperpage{28}
+  \item {Voda\+Vre}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{41}
+  \item {Voltage\+Divider}
+    \subitem {Tok\+\_\+napetost.\+h}, \hyperpage{50}
+  \item {Vrms}
+    \subitem {Configuration.\+h}, \hyperpage{27}
+
+  \indexspace
+
+  \item {wait\+E\+E\+Ready}
+    \subitem {Eprom\+\_\+external.\+h}, \hyperpage{29}
+  \item {We}
+    \subitem {Configuration.\+h}, \hyperpage{27}
+
+  \indexspace
+
+  \item {zac\+Poraba\+W\+H}
+    \subitem {Configuration.\+h}, \hyperpage{27}
+  \item {Zakasnitev\+Vklopa}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{41}
+  \item {zaksnitev\+Crp\+Vent\+\_\+\+Sec}
+    \subitem {Configuration.\+h}, \hyperpage{27}
+  \item {zamik\+Mer\+Temp}
+    \subitem {Configuration.\+h}, \hyperpage{27}
+  \item {zapis\+X\+Min}
+    \subitem {Configuration.\+h}, \hyperpage{27}
+  \item {Zapisi\+\_\+sd.\+h}
+    \subitem {card\+S\+D}, \hyperpage{51}
+    \subitem {Ime\+Datoteke}, \hyperpage{51}
+    \subitem {Ime\+Datoteke\+On\+Off}, \hyperpage{51}
+    \subitem {Izpis\+Data\+On\+Off\+Serial}, \hyperpage{51}
+    \subitem {Izpis\+Datna\+Serial}, \hyperpage{51}
+    \subitem {Odpri\+Datoteko}, \hyperpage{51}
+    \subitem {Print\+Temp\+All\+S\+Dbin}, \hyperpage{51}
+    \subitem {S\+D\+Init}, \hyperpage{51}
+    \subitem {Zapisi\+On\+Off\+S\+D}, \hyperpage{51}
+  \item {Zapisi\+In\+Izpisi\+Podatke}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+spl.\+h}, \hyperpage{41}
+  \item {Zapisi\+On\+Off\+S\+D}
+    \subitem {Kontr\+\_\+\+T\+C\+\_\+izvrs.\+h}, \hyperpage{35}
+    \subitem {Zapisi\+\_\+sd.\+h}, \hyperpage{51}
+
+\end{theindex}

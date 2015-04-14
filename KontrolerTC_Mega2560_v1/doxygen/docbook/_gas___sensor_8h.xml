@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_gas___sensor_8h">
+    <title>Gas_Sensor.h File Reference</title>
+        <section>
+            <title>Makro deklaracije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_gas___sensor_8h_1adb97e97675b2e13e19f7caa166e81ae1">Kontroler_TC_h</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_gas___sensor_8h_1acf888d3c44dadec7605c59ad7a1aee4f">CO_HEATING_STATE_OFF</link> 0</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_gas___sensor_8h_1a81b5221481e08df28fb164961a30f986">CO_HEATING_STATE_HIGH</link> 1</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_gas___sensor_8h_1abb4101bce1af20b65ef9516623a4e17d">CO_HEATING_STATE_LOW</link> 2</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_gas___sensor_8h_1a869a912d6a04a9a9c0da8b055d8f2a00">CO_HEATING_OFF</link> HIGH</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_gas___sensor_8h_1a23ddf881326291c10ff176ceffa77141">CO_HEATING_ON</link> LOW</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>#define <link linkend="_gas___sensor_8h_1a7b52bf2b5eb7dd82fdbb8c628f4fc309">CO_HEATING_PWM_LOW</link> 184</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Spremenljivke</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_gas___sensor_8h_1ac4b00b12f377cfe03da41e1232241f3c">coRawValSum</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_gas___sensor_8h_1a826de08a6094b912832e739c7ceb7312">numMerCO</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_gas___sensor_8h_1a34f3e6494f80560e4e94aa77ee4ced66">coRawValMax</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_gas___sensor_8h_1a537b59c17084787f2acf099109829196">coRawValRef</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Funkcije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_gas___sensor_8h_1ae8a881d0f89a3979cdf3fe2976c43ff8">Initilizacija_CO</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_gas___sensor_8h_1a94bed2d923712a15d8fa724210bf6c25">PreveriCO_Senzor</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Podroben opis</title>
+    <para>Definition in file //Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Gas_Sensor.h</para>
+    </simplesect>
+</section>

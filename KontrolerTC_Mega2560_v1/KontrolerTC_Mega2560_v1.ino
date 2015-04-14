@@ -351,7 +351,7 @@ void loop(void)
   }    
   else {  //if (stateTC == STATE_TC_OFF)
     if ((now() - lastTCStateChg > (1 + prevTCState*4.0)*(unsigned)minRunTimeMin * 60) && (now() - lastReleChg > (unsigned)minRunTimeMin * 60)) {  
-      if ((RefTemp(B01) > TempIzklopa()) || ((RefTemp(B00) > TempIzklopa()) && prevCrpTCState == R_CTC_ON)) {//if (stateTC == STATE_TC_OFF)
+      if ((RefTemp(B01) > TempIzklopa()) || ((RefTemp(B00) > TempIzklopa()) && prevCrpTCState == STATE_CRP_TC_ON)) {//if (stateTC == STATE_TC_OFF)
         PreklopiTC(STATE_TC_OFF);
       }
     }
@@ -490,7 +490,7 @@ static byte StatePovezTCPec(byte state)
   }
   
   if (preklopCrpTCVzr == 2) 
-    if (prevCrpTCState == 0 &&  prevVentTCState == 0)
+    if (prevCrpTCState == STATE_CRP_TC_OFF &&  prevVentTCState == STATE_VENT_TC_OFF)
       if (stateCevStPecTC == CEV_TERM_OFF) 
         preklopCrpTCVzr = 0;
   
@@ -506,7 +506,7 @@ static byte StatePovezTCPec(byte state)
     return(state);
   }  
   
-  if (prevCrpTCState == 0) {
+  if (prevCrpTCState == STATE_CRP_TC_OFF) {
     if (max(cTemperatura[PEC_DV], cTemperatura[PEC_TC_DV]) > cTemperatura[CRPALKA_0] + minDiffTCPec) {
       if (max(cTemperatura[PEC_DV], cTemperatura[PEC_TC_DV]) > tempVklopaCrpTC) {
         return(1);
@@ -596,8 +596,8 @@ void PovezTCPec(byte newState) {
   
   if (manuCrpTCState > 0) {
     if (manuCrpTCState == 3) {
-      if (prevCrpTCState == 0) {
-        if (prevVentTCState == 1) {
+      if (prevCrpTCState == STATE_CRP_TC_OFF) {
+        if (prevVentTCState == STATE_VENT_TC_ON) {
           zakasnitevVklopaSec = ZakasnitevVklopa(cTemperatura[PEC_TC_DV], tempVklopaCrpTC, 6); 
           if (RelaksTimeLimitSec(now(), lastVentTCChg[1], zakasnitevVklopaSec)) { 
             PreklopiCrpalkoTC(1);      // 1 - vklopi crpalko
@@ -609,11 +609,11 @@ void PovezTCPec(byte newState) {
       }
     }
     else if (manuCrpTCState == 1) {
-      if (prevCrpTCState == 1) {
+      if (prevCrpTCState == STATE_CRP_TC_ON) {
         PreklopiCrpalkoTC(0);
         manuCrpTCState = 0;
       }
-      if (prevVentTCState == 1) {
+      if (prevVentTCState == STATE_VENT_TC_ON) {
         if (RelaksTimeLimitSec(now(), lastCrpTCStateChg, zaksnitevCrpVent_Sec/2)) {
           PreklopiVentilTCPec(0);  
         }  
@@ -622,10 +622,10 @@ void PovezTCPec(byte newState) {
     return;
   } 
   
-  if (prevCrpTCState == 0) {
+  if (prevCrpTCState == STATE_CRP_TC_OFF) {
     if (newState == 1) {
       if (RelaksTimeLimitSec(now(), lastCrpTCStateChg, minCrpTCRunTimeMin*60) && RelaksTimeLimitSec(now(), lastCrpRadStateChg, 1*60)) {
-        if (prevVentTCState == 1) {
+        if (prevVentTCState == STATE_VENT_TC_ON) {
           zakasnitevVklopaSec = ZakasnitevVklopa(cTemperatura[PEC_TC_DV], tempVklopaCrpTC, 6);
           if (RelaksTimeLimitSec(now(), lastVentTCChg[1], zakasnitevVklopaSec)) { 
             PreklopiCrpalkoTC(1);      // 1 - vklopi crpalko
@@ -636,7 +636,7 @@ void PovezTCPec(byte newState) {
         }  
       }
     } // newState == 0
-    else if (prevVentTCState == 1) {
+    else if (prevVentTCState == STATE_VENT_TC_ON) {
       if (RelaksTimeLimitSec(now(), lastCrpTCStateChg, zaksnitevCrpVent_Sec/2)) {
         if (IsCasTransfTopl()) {
           if (cTemperatura[CRPALKA_0] >= cTemperatura[PEC_DV]) {
@@ -661,7 +661,7 @@ void PovezTCPec(byte newState) {
         }
       }
     }
-    if (prevVentTCState == 0) {
+    if (prevVentTCState == STATE_VENT_TC_OFF) {
       if (!IsCasTransfTopl() && !IsNTempCas()) {
         if (cTemperatura[CRPALKA_0] > tempIzklopaVentCrpTC) {
           if (max(cTemperatura[PEC_DV], cTemperatura[PEC_TC_DV]) > minTempPecPonovnoOdpVent) {
@@ -686,8 +686,8 @@ void PovezTCPec(byte newState) {
   
  
   
-  if (prevVentTCState == 255) {
-    if (cTemperatura[CRPALKA_0] + minDiffTCPec > tempIzklopaVentCrpTC || prevCrpTCState == 1) {
+  if (prevVentTCState == STATE_VENT_TC_NDEF) {
+    if (cTemperatura[CRPALKA_0] + minDiffTCPec > tempIzklopaVentCrpTC || prevCrpTCState == STATE_CRP_TC_ON) {
        PreklopiVentilTCPec(1);         //1 - odpre ventil
     } else {
        PreklopiVentilTCPec(0);         //1 - odpre ventil

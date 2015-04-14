@@ -1,0 +1,704 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="_l_c_d__funkcije_8h" kind="file" language="C++">
+    <compoundname>LCD_funkcije.h</compoundname>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_l_c_d__funkcije_8h_1ab37e18286aa5f5c137be33be2b1974ea" prot="public" static="no">
+        <name>MAX_LCD_OSV</name>
+        <initializer>160</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="22" column="9" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_l_c_d__funkcije_8h_1a5a8388d6c8d7dd17d39ed21d5f16806c" prot="public" static="no" mutable="no">
+        <type>byte</type>
+        <definition>byte prevTCState</definition>
+        <argsstring></argsstring>
+        <name>prevTCState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="62" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_l_c_d__funkcije_8h_1a9e759744247766fd4dc988a9e7ee8557" prot="public" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long onTimeTC</definition>
+        <argsstring></argsstring>
+        <name>onTimeTC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="63" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" bodystart="309" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_l_c_d__funkcije_8h_1ac88bc54db30830eaf8f9eda306633f44" prot="public" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long lastTCStateChg</definition>
+        <argsstring></argsstring>
+        <name>lastTCStateChg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="64" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" bodystart="311" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_l_c_d__funkcije_8h_1ae2066ef83505aef3c8e722973e205a72" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char infoErr[]</definition>
+        <argsstring>[]</argsstring>
+        <name>infoErr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="66" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" bodystart="362" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_l_c_d__funkcije_8h_1a311b3e36e23ded7e0f38b10da8cf73b1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int infoModeLCD</definition>
+        <argsstring></argsstring>
+        <name>infoModeLCD</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="68" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_l_c_d__funkcije_8h_1aea17259e977df3f5a7bcfbe03c1aee2b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int menuZaslonNum</definition>
+        <argsstring></argsstring>
+        <name>menuZaslonNum</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="69" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_l_c_d__funkcije_8h_1a182cfd316b07c59583797ae59fc10b59" prot="public" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean buttonPressed</definition>
+        <argsstring></argsstring>
+        <name>buttonPressed</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="71" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="_l_c_d__funkcije_8h_1a0cdc44c047411d10590fe3719a29e6c3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int coRawVal</definition>
+        <argsstring></argsstring>
+        <name>coRawVal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="139" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Configuration.h" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_l_c_d__funkcije_8h_1afc282662e206781d5412ce0006ea0e76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCDInitializacija</definition>
+        <argsstring>(void)</argsstring>
+        <name>LCDInitializacija</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="6" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" bodystart="24" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="_l_c_d__funkcije_8h_1a4de9eb29c16979c6b172e1748174ef7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Beep</definition>
+        <argsstring>(unsigned char delayms)</argsstring>
+        <name>Beep</name>
+        <param>
+          <type>unsigned char</type>
+          <declname>delayms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="7" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" bodystart="34" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="_l_c_d__funkcije_8h_1ad98736b48d836f8d6fec890143887fdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IzpisHex2</definition>
+        <argsstring>(int num)</argsstring>
+        <name>IzpisHex2</name>
+        <param>
+          <type>int</type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="8" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" bodystart="41" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="_l_c_d__funkcije_8h_1ab1fe73a548c9c5ac801b92e08b7748e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PrintDigitsLCDA</definition>
+        <argsstring>(int digits)</argsstring>
+        <name>PrintDigitsLCDA</name>
+        <param>
+          <type>int</type>
+          <declname>digits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="9" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" bodystart="48" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="_l_c_d__funkcije_8h_1ada5e79abbbb9885dc5a237ffbceadd9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IzpisiNaLCD</definition>
+        <argsstring>(void)</argsstring>
+        <name>IzpisiNaLCD</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="10" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" bodystart="73" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="_l_c_d__funkcije_8h_1a3e96f386106afe50dcbb8bf5af5dbbc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IzpisControlMenu</definition>
+        <argsstring>(void)</argsstring>
+        <name>IzpisControlMenu</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="11" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" bodystart="134" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="_l_c_d__funkcije_8h_1a5f03af6449b9ed209147163f45686e55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IzpisInfoMenu</definition>
+        <argsstring>(int infoLCD)</argsstring>
+        <name>IzpisInfoMenu</name>
+        <param>
+          <type>int</type>
+          <declname>infoLCD</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="12" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" bodystart="141" bodyend="313"/>
+      </memberdef>
+      <memberdef kind="function" id="_l_c_d__funkcije_8h_1af13e3927bb60dda5e8508252d7421978" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float TempVklopa</definition>
+        <argsstring>(void)</argsstring>
+        <name>TempVklopa</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="58" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_spl.h" bodystart="313" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="_l_c_d__funkcije_8h_1adb525fcd9c54a91e6578b904ef4ce803" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float TempIzklopa</definition>
+        <argsstring>(void)</argsstring>
+        <name>TempIzklopa</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h" line="59" column="1" bodyfile="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_spl.h" bodystart="373" bodyend="393"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>Izpis_LCD_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>Izpis_LCD_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//#include<sp/>&lt;LiquidCrystal.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1afc282662e206781d5412ce0006ea0e76" kindref="member">LCDInitializacija</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1a4de9eb29c16979c6b172e1748174ef7e" kindref="member">Beep</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>delayms);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1ad98736b48d836f8d6fec890143887fdb" kindref="member">IzpisHex2</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1ab1fe73a548c9c5ac801b92e08b7748e9" kindref="member">PrintDigitsLCDA</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>digits);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1ada5e79abbbb9885dc5a237ffbceadd9d" kindref="member">IzpisiNaLCD</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1a3e96f386106afe50dcbb8bf5af5dbbc0" kindref="member">IzpisControlMenu</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1a5f03af6449b9ed209147163f45686e55" kindref="member">IzpisInfoMenu</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>infoLCD);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//LiquidCrystal<sp/>lcdA(5,<sp/>9,<sp/>2,<sp/>3,<sp/>6,<sp/>10);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//LiquidCrystal<sp/>lcdA(LCD_RS,<sp/>LCD_RW,<sp/>LCD_EN,<sp/>LCD_D4,<sp/>LCD_D5,<sp/>LCD_D6,<sp/>LCD_D7);<sp/>//<sp/>nano,<sp/>glej<sp/>zgoraj</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="_l_c_d__funkcije_8h_1ab37e18286aa5f5c137be33be2b1974ea" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_LCD_OSV<sp/>160</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="_l_c_d__funkcije_8h_1afc282662e206781d5412ce0006ea0e76" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1afc282662e206781d5412ce0006ea0e76" kindref="member">LCDInitializacija</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.begin(20,<sp/>2);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>delay(250);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>LCD<sp/>OK&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>analogWrite(<ref refid="_configuration_8h_1a0e6ebba4660d88c10776f0b76c825224" kindref="member">LCD_OSW_SW</ref>,<sp/><ref refid="_l_c_d__funkcije_8h_1ab37e18286aa5f5c137be33be2b1974ea" kindref="member">MAX_LCD_OSV</ref>);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="_temperature_8h_1a4de9eb29c16979c6b172e1748174ef7e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1a4de9eb29c16979c6b172e1748174ef7e" kindref="member">Beep</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>delayms)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1a59f26dde03d80c6a07868f582ebbed7f" kindref="member">BEEP_PIN</ref>,<sp/>HIGH);<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Almost<sp/>any<sp/>value<sp/>can<sp/>be<sp/>used<sp/>except<sp/>0<sp/>and<sp/>255</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>experiment<sp/>to<sp/>get<sp/>the<sp/>best<sp/>tone</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>delay(delayms);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>wait<sp/>for<sp/>a<sp/>delayms<sp/>ms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>digitalWrite(<ref refid="_configuration_8h_1a59f26dde03d80c6a07868f582ebbed7f" kindref="member">BEEP_PIN</ref>,<sp/>LOW);<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>0<sp/>turns<sp/>it<sp/>off<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}<sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="_temperature_8h_1ad98736b48d836f8d6fec890143887fdb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1ad98736b48d836f8d6fec890143887fdb" kindref="member">IzpisHex2</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(num<sp/>&lt;<sp/>0x10)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;0&quot;</highlight><highlight class="normal">));<sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(num,HEX);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//<sp/>izpais<sp/>vodilni<sp/>nicel<sp/>za<sp/>stevila<sp/>manjsa<sp/>od<sp/>10,<sp/>za<sp/>dvomestni<sp/>izpis<sp/>na<sp/>LCDA</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="_l_c_d__funkcije_8h_1ab1fe73a548c9c5ac801b92e08b7748e9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1ab1fe73a548c9c5ac801b92e08b7748e9" kindref="member">PrintDigitsLCDA</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>digits)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(digits<sp/>&lt;<sp/>10)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;0&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(digits);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1af13e3927bb60dda5e8508252d7421978" kindref="member">TempVklopa</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1adb525fcd9c54a91e6578b904ef4ce803" kindref="member">TempIzklopa</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>byte<sp/><ref refid="_l_c_d__funkcije_8h_1a5a8388d6c8d7dd17d39ed21d5f16806c" kindref="member">prevTCState</ref>;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1a9e759744247766fd4dc988a9e7ee8557" kindref="member">onTimeTC</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1ac88bc54db30830eaf8f9eda306633f44" kindref="member">lastTCStateChg</ref>;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">//extern<sp/>int<sp/>infoErr;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1ae2066ef83505aef3c8e722973e205a72" kindref="member">infoErr</ref>[];</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="_l_c_d__funkcije_8h_1a311b3e36e23ded7e0f38b10da8cf73b1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1a311b3e36e23ded7e0f38b10da8cf73b1" kindref="member">infoModeLCD</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="69" refid="_l_c_d__funkcije_8h_1aea17259e977df3f5a7bcfbe03c1aee2b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1aea17259e977df3f5a7bcfbe03c1aee2b" kindref="member">menuZaslonNum</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="_l_c_d__funkcije_8h_1a182cfd316b07c59583797ae59fc10b59" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1a182cfd316b07c59583797ae59fc10b59" kindref="member">buttonPressed</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="_l_c_d__funkcije_8h_1ada5e79abbbb9885dc5a237ffbceadd9d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1ada5e79abbbb9885dc5a237ffbceadd9d" kindref="member">IzpisiNaLCD</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>t_lastNonDefaultLCDScreen;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>prevMenuZaslonNum;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>menuZaslonNumMax[]<sp/>=<sp/>{7,<sp/>1};</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>menuType<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxMenuType<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_l_c_d__funkcije_8h_1a182cfd316b07c59583797ae59fc10b59" kindref="member">buttonPressed</ref><sp/>==<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(menuType<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>menuType<sp/>+=<sp/>1;<sp/><sp/></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_l_c_d__funkcije_8h_1aea17259e977df3f5a7bcfbe03c1aee2b" kindref="member">menuZaslonNum</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>buttonPressed<sp/>=<sp/>false;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(menuType<sp/>&gt;<sp/>maxMenuType)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>menuType<sp/>=<sp/>maxMenuType;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>buttonPressed<sp/>=<sp/>false;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_l_c_d__funkcije_8h_1aea17259e977df3f5a7bcfbe03c1aee2b" kindref="member">menuZaslonNum</ref><sp/>!=<sp/>prevMenuZaslonNum<sp/>||<sp/><ref refid="_l_c_d__funkcije_8h_1a182cfd316b07c59583797ae59fc10b59" kindref="member">buttonPressed</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>t_lastNonDefaultLCDScreen<sp/>=<sp/>now();</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>prevMenuZaslonNum<sp/>=<sp/><ref refid="_l_c_d__funkcije_8h_1aea17259e977df3f5a7bcfbe03c1aee2b" kindref="member">menuZaslonNum</ref>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_l_c_d__funkcije_8h_1a182cfd316b07c59583797ae59fc10b59" kindref="member">buttonPressed</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_l_c_d__funkcije_8h_1aea17259e977df3f5a7bcfbe03c1aee2b" kindref="member">menuZaslonNum</ref><sp/>!=<sp/>0<sp/>||<sp/>menuType<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(now()<sp/>-<sp/>t_lastNonDefaultLCDScreen<sp/>&gt;<sp/>30<sp/>||<sp/>t_lastNonDefaultLCDScreen<sp/>&gt;<sp/>now())<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>menuType<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_l_c_d__funkcije_8h_1aea17259e977df3f5a7bcfbe03c1aee2b" kindref="member">menuZaslonNum</ref><sp/>=<sp/>0;<sp/><sp/></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_l_c_d__funkcije_8h_1aea17259e977df3f5a7bcfbe03c1aee2b" kindref="member">menuZaslonNum</ref><sp/>&gt;<sp/>menuZaslonNumMax[menuType])<sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_l_c_d__funkcije_8h_1aea17259e977df3f5a7bcfbe03c1aee2b" kindref="member">menuZaslonNum</ref><sp/>=<sp/>menuZaslonNumMax[menuType];</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>virtualPosition<sp/>=<sp/>20;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_l_c_d__funkcije_8h_1aea17259e977df3f5a7bcfbe03c1aee2b" kindref="member">menuZaslonNum</ref><sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_l_c_d__funkcije_8h_1aea17259e977df3f5a7bcfbe03c1aee2b" kindref="member">menuZaslonNum</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>virtualPosition<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(menuType)<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0:</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_l_c_d__funkcije_8h_1a5f03af6449b9ed209147163f45686e55" kindref="member">IzpisInfoMenu</ref>(<ref refid="_l_c_d__funkcije_8h_1aea17259e977df3f5a7bcfbe03c1aee2b" kindref="member">menuZaslonNum</ref>);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_l_c_d__funkcije_8h_1a3e96f386106afe50dcbb8bf5af5dbbc0" kindref="member">IzpisControlMenu</ref>();</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_l_c_d__funkcije_8h_1a5f03af6449b9ed209147163f45686e55" kindref="member">IzpisInfoMenu</ref>(<ref refid="_l_c_d__funkcije_8h_1aea17259e977df3f5a7bcfbe03c1aee2b" kindref="member">menuZaslonNum</ref>);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="131"><highlight class="normal">}<sp/><sp/></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="_l_c_d__funkcije_8h_1a3e96f386106afe50dcbb8bf5af5dbbc0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1a3e96f386106afe50dcbb8bf5af5dbbc0" kindref="member">IzpisControlMenu</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.clear();</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;Se<sp/>pride&quot;</highlight><highlight class="normal">));<sp/><sp/></highlight></codeline>
+<codeline lineno="137"><highlight class="normal">}<sp/><sp/></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1a0cdc44c047411d10590fe3719a29e6c3" kindref="member">coRawVal</ref>;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141" refid="_l_c_d__funkcije_8h_1a5f03af6449b9ed209147163f45686e55" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_l_c_d__funkcije_8h_1a5f03af6449b9ed209147163f45686e55" kindref="member">IzpisInfoMenu</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>infoLCD)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>cas[5];</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>addrTmp;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>separ[<sp/>]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;:<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>lcdA.setCursor(0,<sp/>0);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.clear();</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(infoLCD)<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0:</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_l_c_d__funkcije_8h_1ab1fe73a548c9c5ac801b92e08b7748e9" kindref="member">PrintDigitsLCDA</ref>(day());</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_l_c_d__funkcije_8h_1ab1fe73a548c9c5ac801b92e08b7748e9" kindref="member">PrintDigitsLCDA</ref>(month());</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_l_c_d__funkcije_8h_1ab1fe73a548c9c5ac801b92e08b7748e9" kindref="member">PrintDigitsLCDA</ref>(year());<sp/></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.setCursor(11,<sp/>0);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_cas__funkcije_8h_1adfb3f10d2c40a8f3a1015a735402132a" kindref="member">NarediTimeStr</ref>(cas,<sp/>now(),<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(cas);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.setCursor(1,<sp/>1);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[<ref refid="_configuration_8h_1a108ae563a98c889c7593e3c9084c2643" kindref="member">OKOLICA_0</ref>],<sp/>1);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;C<sp/>RH:&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1adb6bcf11c8f136ddc5e1be86e4c26c7d" kindref="member">cVlaznost</ref>[0],<sp/>0);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;%<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[<ref refid="_configuration_8h_1a8c119e9182e69cc14edb6c885122ef80" kindref="member">CRPALKA_0</ref>],<sp/>1);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal">));<sp/></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>2:</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1a8be9eeaf6bbeb6e2f92b6c0fb2695596" kindref="member">sensorIme</ref>[CRPALKA_0]);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;:<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[CRPALKA_0],<sp/>2);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(minute()<sp/>&lt;<sp/>59)<sp/>{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>addrTmp<sp/>=<sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>int)<sp/>(minute()+1)<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>addrTmp<sp/>=<sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>int)<sp/>0;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>addrTmp<sp/>+=<sp/><ref refid="_configuration_8h_1afa8950683ea624c70566788be369a83e" kindref="member">addrLastHourTemp</ref>;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_eprom__external_8h_1ac488a4cc216ff09301622b3e8a3bf9f9" kindref="member">i2c_eeprom_read_buffer</ref>(<ref refid="_configuration_8h_1a89a97b9b2ba756d03c9adbef6470803b" kindref="member">AT24C32_I2C_ADDR</ref>,<sp/>addrTmp,<sp/><ref refid="_configuration_8h_1afafa17ffc01ba1f5f254d6238a2d530b" kindref="member">AT24C32_ADDR_LENGH</ref>,<sp/>(byte<sp/>*)&amp;<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>));</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[CRPALKA_0]<sp/>-<sp/><ref refid="_kontr___t_c__spl_8h_1a4f2e8f9e139bd4130bd18504db532b42" kindref="member">PretvotiEETemp2Float</ref>(<ref refid="_configuration_8h_1ac57c335bf98b8f0e9171dd3bdbb1db2f" kindref="member">u2</ref>.<ref refid="unionui2byte2_1abbeaf8a032705918682563dd182860b5" kindref="member">uival</ref>),<sp/>2);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.setCursor(0,<sp/>1);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(stateTC<sp/>==<sp/>TC_ON)<sp/>{</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(prevTCState<sp/>==<sp/>1)<sp/></highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;ON&quot;));</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else</highlight></codeline>
+<codeline lineno="195"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;SB&quot;));</highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>else</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;OFF&quot;));</highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_configuration_8h_1a54383820083d46d9cc067f9819d5ec59" kindref="member">releState_ventKompTC</ref><sp/>==<sp/><ref refid="_configuration_8h_1a41db07f563d3ed97a993150f9cd2e48a" kindref="member">R_TC_VENT_ON</ref>)</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(</highlight><highlight class="stringliteral">&quot;V&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_configuration_8h_1a302977b9a0803246dd4879e04a8e4e16" kindref="member">stateTC</ref><sp/>==<sp/><ref refid="_configuration_8h_1af6d60aa85ac3c9c80d91186b12a69b9c" kindref="member">STATE_TC_ON</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_configuration_8h_1accd6f17a1a15f5c722a2841f98869904" kindref="member">releState_kompTC</ref><sp/>==<sp/><ref refid="_configuration_8h_1ac76b06cf6dff534779bf6c46db0e65d2" kindref="member">R_TC_KOMP_ON</ref>)</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;K&quot;</highlight><highlight class="normal">));<sp/><sp/></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_configuration_8h_1ad3f164d73b040f4fa7fda35bc882b4f0" kindref="member">releState_egrelecTC</ref><sp/>==<sp/><ref refid="_configuration_8h_1ae7c6a7850b7a2ea467b9cc29a8cf078d" kindref="member">R_TC_EGREL_ON</ref>)</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;EG&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;OFF&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.setCursor(5,1);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_l_c_d__funkcije_8h_1a5a8388d6c8d7dd17d39ed21d5f16806c" kindref="member">prevTCState</ref><sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_temperature_8h_1a40b0dda43941a61b89819faa1d72f24d" kindref="member">AutoTimeUnitConv</ref>(<ref refid="_l_c_d__funkcije_8h_1a9e759744247766fd4dc988a9e7ee8557" kindref="member">onTimeTC</ref>,<sp/>cas),2);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_temperature_8h_1a40b0dda43941a61b89819faa1d72f24d" kindref="member">AutoTimeUnitConv</ref>(<ref refid="_l_c_d__funkcije_8h_1a9e759744247766fd4dc988a9e7ee8557" kindref="member">onTimeTC</ref><sp/>+<sp/>now()<sp/>-<sp/><ref refid="_l_c_d__funkcije_8h_1ac88bc54db30830eaf8f9eda306633f44" kindref="member">lastTCStateChg</ref>,<sp/>cas),2);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(cas);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;<sp/>CO:&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_gas___sensor_8h_1a537b59c17084787f2acf099109829196" kindref="member">coRawValRef</ref>);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;<sp/><sp/></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>3:</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1a8be9eeaf6bbeb6e2f92b6c0fb2695596" kindref="member">sensorIme</ref>[<ref refid="_configuration_8h_1aee597cbe9379e814e1929de01b6d872f" kindref="member">PEC_PV</ref>]);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(separ);<sp/></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[PEC_PV],<sp/>2);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(</highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.setCursor(0,<sp/>1);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1a8be9eeaf6bbeb6e2f92b6c0fb2695596" kindref="member">sensorIme</ref>[<ref refid="_configuration_8h_1a7f2d23a9784ad0009fb9a7ede9ebbad1" kindref="member">PEC_DV</ref>]);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(separ);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[PEC_DV],<sp/>2);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(</highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>4:</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1a8be9eeaf6bbeb6e2f92b6c0fb2695596" kindref="member">sensorIme</ref>[<ref refid="_configuration_8h_1abcf847c7f2ac45acc8b916bab3f215c8" kindref="member">RAD_PV</ref>]);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(separ);<sp/></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[RAD_PV],<sp/>2);</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(</highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.setCursor(0,<sp/>1);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1a8be9eeaf6bbeb6e2f92b6c0fb2695596" kindref="member">sensorIme</ref>[<ref refid="_configuration_8h_1a641839d7e15f4d6424411ccce2e159f7" kindref="member">RAD_DV</ref>]);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(separ);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[RAD_DV],<sp/>2);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(</highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>5:</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1a8be9eeaf6bbeb6e2f92b6c0fb2695596" kindref="member">sensorIme</ref>[<ref refid="_configuration_8h_1a9d329698236b2494e771b25735b07d7e" kindref="member">PEC_TC_DV</ref>]);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(separ);<sp/></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[PEC_TC_DV],<sp/>2);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(</highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.setCursor(0,<sp/>1);</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1a8be9eeaf6bbeb6e2f92b6c0fb2695596" kindref="member">sensorIme</ref>[8]);</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(separ);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_configuration_8h_1a99523aac649d7e063e6df7a01e9f0d23" kindref="member">cTemperatura</ref>[8],<sp/>2);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(</highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>6:</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>7:</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;Tok:&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.setCursor(4,<sp/>0);</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_kontr___t_c__spl_8h_1a8532bd8557100d921d688e19a95b19b1" kindref="member">AC_mimax</ref>(</highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">),<sp/>3);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;A&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.setCursor(11,<sp/>0);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="270"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(stateTC<sp/>==<sp/>TC_ON)<sp/>{</highlight></codeline>
+<codeline lineno="271"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(prevTCState<sp/>==<sp/>1)<sp/></highlight></codeline>
+<codeline lineno="272"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;ON&quot;));</highlight></codeline>
+<codeline lineno="273"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else</highlight></codeline>
+<codeline lineno="274"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;SB&quot;));</highlight></codeline>
+<codeline lineno="275"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="276"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>else</highlight></codeline>
+<codeline lineno="277"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;OFF&quot;));</highlight></codeline>
+<codeline lineno="278"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_configuration_8h_1a54383820083d46d9cc067f9819d5ec59" kindref="member">releState_ventKompTC</ref><sp/>==<sp/><ref refid="_configuration_8h_1a41db07f563d3ed97a993150f9cd2e48a" kindref="member">R_TC_VENT_ON</ref>)</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(</highlight><highlight class="stringliteral">&quot;V&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_configuration_8h_1a302977b9a0803246dd4879e04a8e4e16" kindref="member">stateTC</ref><sp/>==<sp/><ref refid="_configuration_8h_1af6d60aa85ac3c9c80d91186b12a69b9c" kindref="member">STATE_TC_ON</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_configuration_8h_1accd6f17a1a15f5c722a2841f98869904" kindref="member">releState_kompTC</ref><sp/>==<sp/><ref refid="_configuration_8h_1ac76b06cf6dff534779bf6c46db0e65d2" kindref="member">R_TC_KOMP_ON</ref>)</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;K&quot;</highlight><highlight class="normal">));<sp/><sp/></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_configuration_8h_1ad3f164d73b040f4fa7fda35bc882b4f0" kindref="member">releState_egrelecTC</ref><sp/>==<sp/><ref refid="_configuration_8h_1ae7c6a7850b7a2ea467b9cc29a8cf078d" kindref="member">R_TC_EGREL_ON</ref>)</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;EG&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;OFF&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.setCursor(15,0);</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_l_c_d__funkcije_8h_1a5a8388d6c8d7dd17d39ed21d5f16806c" kindref="member">prevTCState</ref><sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_temperature_8h_1a40b0dda43941a61b89819faa1d72f24d" kindref="member">AutoTimeUnitConv</ref>(<ref refid="_l_c_d__funkcije_8h_1a9e759744247766fd4dc988a9e7ee8557" kindref="member">onTimeTC</ref>,<sp/>cas),2);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_temperature_8h_1a40b0dda43941a61b89819faa1d72f24d" kindref="member">AutoTimeUnitConv</ref>(<ref refid="_l_c_d__funkcije_8h_1a9e759744247766fd4dc988a9e7ee8557" kindref="member">onTimeTC</ref><sp/>+<sp/>now()<sp/>-<sp/><ref refid="_l_c_d__funkcije_8h_1ac88bc54db30830eaf8f9eda306633f44" kindref="member">lastTCStateChg</ref>,<sp/>cas),2);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(cas);</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.setCursor(1,1);</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;Tv<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_l_c_d__funkcije_8h_1af13e3927bb60dda5e8508252d7421978" kindref="member">TempVklopa</ref>(),<sp/>1);<sp/><sp/></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.setCursor(10,<sp/>1);</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;Ti<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(<ref refid="_l_c_d__funkcije_8h_1adb525fcd9c54a91e6578b904ef4ce803" kindref="member">TempIzklopa</ref>(),<sp/>1);</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;<sp/><sp/></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;xXxXxXxX&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.setCursor(0,<sp/>1);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_configuration_8h_1ac4eb126ada68895d26982c8ce487a32d" kindref="member">lcdA</ref>.print(F(</highlight><highlight class="stringliteral">&quot;xXxXxXxX&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_l_c_d__funkcije_8h_1aea17259e977df3f5a7bcfbe03c1aee2b" kindref="member">menuZaslonNum</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/>}<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="313"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal"></highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="318"><highlight class="comment">//<sp/><sp/>staro<sp/>16x1<sp/>(8x2)</highlight></codeline>
+<codeline lineno="319"><highlight class="comment">//--------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="320"><highlight class="comment">void<sp/>IzpisiNaLCD()</highlight></codeline>
+<codeline lineno="321"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="322"><highlight class="comment"><sp/><sp/>char<sp/>cas[5];</highlight></codeline>
+<codeline lineno="323"><highlight class="comment"><sp/><sp/></highlight></codeline>
+<codeline lineno="324"><highlight class="comment"><sp/><sp/></highlight></codeline>
+<codeline lineno="325"><highlight class="comment"><sp/><sp/>lcdA.setCursor(0,<sp/>0);</highlight></codeline>
+<codeline lineno="326"><highlight class="comment"><sp/><sp/>lcdA.clear();</highlight></codeline>
+<codeline lineno="327"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="328"><highlight class="comment"><sp/><sp/>switch<sp/>(infoModeLCD)<sp/>{</highlight></codeline>
+<codeline lineno="329"><highlight class="comment"><sp/><sp/><sp/><sp/>case<sp/>0:</highlight></codeline>
+<codeline lineno="330"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PrintDigitsLCDA(day());</highlight></codeline>
+<codeline lineno="331"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;.&quot;));</highlight></codeline>
+<codeline lineno="332"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PrintDigitsLCDA(month());</highlight></codeline>
+<codeline lineno="333"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;.&quot;));</highlight></codeline>
+<codeline lineno="334"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PrintDigitsLCDA(year()-2000);<sp/></highlight></codeline>
+<codeline lineno="335"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.setCursor(2,<sp/>1);</highlight></codeline>
+<codeline lineno="336"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NarediTimeStr(cas,<sp/>now(),<sp/>false);</highlight></codeline>
+<codeline lineno="337"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(cas);</highlight></codeline>
+<codeline lineno="338"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="339"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>infoModeLCD=10;</highlight></codeline>
+<codeline lineno="340"><highlight class="comment"><sp/><sp/><sp/><sp/>break;</highlight></codeline>
+<codeline lineno="341"><highlight class="comment"><sp/><sp/><sp/><sp/>case<sp/>10:</highlight></codeline>
+<codeline lineno="342"><highlight class="comment"><sp/><sp/><sp/><sp/>case<sp/>11:</highlight></codeline>
+<codeline lineno="343"><highlight class="comment"><sp/><sp/><sp/><sp/>case<sp/>12:</highlight></codeline>
+<codeline lineno="344"><highlight class="comment"><sp/><sp/><sp/><sp/>case<sp/>13:</highlight></codeline>
+<codeline lineno="345"><highlight class="comment"><sp/><sp/><sp/><sp/>case<sp/>14:</highlight></codeline>
+<codeline lineno="346"><highlight class="comment"><sp/><sp/><sp/><sp/>case<sp/>15:</highlight></codeline>
+<codeline lineno="347"><highlight class="comment"><sp/><sp/><sp/><sp/>case<sp/>16:</highlight></codeline>
+<codeline lineno="348"><highlight class="comment"><sp/><sp/><sp/><sp/>case<sp/>17:</highlight></codeline>
+<codeline lineno="349"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;T&quot;));</highlight></codeline>
+<codeline lineno="350"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(infoModeLCD-10+1);</highlight></codeline>
+<codeline lineno="351"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;:&quot;));</highlight></codeline>
+<codeline lineno="352"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.setCursor(3,<sp/>0);</highlight></codeline>
+<codeline lineno="353"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(cTemperatura[infoModeLCD-10],<sp/>2);</highlight></codeline>
+<codeline lineno="354"><highlight class="comment"></highlight></codeline>
+<codeline lineno="355"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>if(strlen(infoErr)<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="356"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.setCursor(0,<sp/>1);</highlight></codeline>
+<codeline lineno="357"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(infoErr);</highlight></codeline>
+<codeline lineno="358"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="359"><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(infoModeLCD-10<sp/>==<sp/>crpalka_0){<sp/></highlight></codeline>
+<codeline lineno="360"><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.setCursor(2,<sp/>1);</highlight></codeline>
+<codeline lineno="361"><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(AvgVal(sumTemp[infoModeLCD-10],<sp/>histLen*100.0));</highlight></codeline>
+<codeline lineno="362"><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="363"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="364"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(infoModeLCD-10<sp/>&gt;=<sp/>numSens<sp/>-1)</highlight></codeline>
+<codeline lineno="365"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>infoModeLCD<sp/>=<sp/>18;</highlight></codeline>
+<codeline lineno="366"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>else</highlight></codeline>
+<codeline lineno="367"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>infoModeLCD<sp/>++;<sp/><sp/></highlight></codeline>
+<codeline lineno="368"><highlight class="comment"><sp/><sp/><sp/><sp/>break;</highlight></codeline>
+<codeline lineno="369"><highlight class="comment"><sp/><sp/><sp/><sp/>case<sp/>18:</highlight></codeline>
+<codeline lineno="370"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;Tv<sp/>&quot;));</highlight></codeline>
+<codeline lineno="371"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(TempVklopa(),<sp/>1);<sp/><sp/></highlight></codeline>
+<codeline lineno="372"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.setCursor(0,<sp/>1);</highlight></codeline>
+<codeline lineno="373"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;Ti<sp/>&quot;));</highlight></codeline>
+<codeline lineno="374"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(TempIzklopa(),<sp/>1);<sp/></highlight></codeline>
+<codeline lineno="375"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>infoModeLCD<sp/>=<sp/>20;<sp/><sp/></highlight></codeline>
+<codeline lineno="376"><highlight class="comment"><sp/><sp/><sp/><sp/>break;</highlight></codeline>
+<codeline lineno="377"><highlight class="comment"><sp/><sp/><sp/><sp/>case<sp/>20:</highlight></codeline>
+<codeline lineno="378"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;Tok:&quot;));</highlight></codeline>
+<codeline lineno="379"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.setCursor(0,<sp/>1);</highlight></codeline>
+<codeline lineno="380"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(AC_mimax(),<sp/>3);</highlight></codeline>
+<codeline lineno="381"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;A&quot;));</highlight></codeline>
+<codeline lineno="382"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>infoModeLCD<sp/>=<sp/>30;</highlight></codeline>
+<codeline lineno="383"><highlight class="comment"><sp/><sp/><sp/><sp/>break;</highlight></codeline>
+<codeline lineno="384"><highlight class="comment"><sp/><sp/><sp/><sp/>case<sp/>30:</highlight></codeline>
+<codeline lineno="385"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.setCursor(3,<sp/>0);</highlight></codeline>
+<codeline lineno="386"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(releState_1<sp/>==<sp/>R_TC_ON)<sp/>{</highlight></codeline>
+<codeline lineno="387"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(prevTCState<sp/>==<sp/>1)<sp/></highlight></codeline>
+<codeline lineno="388"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;ON&quot;));</highlight></codeline>
+<codeline lineno="389"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else</highlight></codeline>
+<codeline lineno="390"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;SB&quot;));</highlight></codeline>
+<codeline lineno="391"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="392"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>else</highlight></codeline>
+<codeline lineno="393"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;OFF&quot;));</highlight></codeline>
+<codeline lineno="394"><highlight class="comment"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="395"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.setCursor(0,1);</highlight></codeline>
+<codeline lineno="396"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(prevTCState<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="397"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(AutoTimeUnitConv(onTimeTC,<sp/>cas),2);</highlight></codeline>
+<codeline lineno="398"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>else</highlight></codeline>
+<codeline lineno="399"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(AutoTimeUnitConv(onTimeTC<sp/>+<sp/>now()<sp/>-<sp/>lastTCStateChg,<sp/>cas),2);</highlight></codeline>
+<codeline lineno="400"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(cas);</highlight></codeline>
+<codeline lineno="401"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>infoModeLCD<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="402"><highlight class="comment"><sp/><sp/><sp/><sp/>break;<sp/><sp/></highlight></codeline>
+<codeline lineno="403"><highlight class="comment"><sp/><sp/><sp/><sp/>default:</highlight></codeline>
+<codeline lineno="404"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;xXxXxXxX&quot;));</highlight></codeline>
+<codeline lineno="405"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.setCursor(0,<sp/>1);</highlight></codeline>
+<codeline lineno="406"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>lcdA.print(F(&quot;xXxXxXxX&quot;));</highlight></codeline>
+<codeline lineno="407"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>infoModeLCD<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="408"><highlight class="comment"><sp/><sp/><sp/><sp/>break;</highlight></codeline>
+<codeline lineno="409"><highlight class="comment"><sp/><sp/>}<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="410"><highlight class="comment">}</highlight></codeline>
+<codeline lineno="411"><highlight class="comment"></highlight></codeline>
+<codeline lineno="412"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="413"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="414"><highlight class="normal"></highlight></codeline>
+<codeline lineno="415"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="416"><highlight class="normal"></highlight></codeline>
+<codeline lineno="417"><highlight class="normal"></highlight></codeline>
+<codeline lineno="418"><highlight class="normal"></highlight></codeline>
+<codeline lineno="419"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="//Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/LCD_funkcije.h"/>
+  </compounddef>
+</doxygen>

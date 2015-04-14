@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_encoder__butt_8h">
+    <title>Encoder_butt.h File Reference</title>
+    <programlisting>#include &lt;Arduino.h&gt;</programlisting>
+        <section>
+            <title>Spremenljivke</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>volatile int <link linkend="_encoder__butt_8h_1a6a59e90f87383f58d6f4540e66d173d4">virtualPosition</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_encoder__butt_8h_1a989de8a4f9b6e6c81883f9b50ee344fd">A_set</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_encoder__butt_8h_1ab41011a0ef57451409cf74d2f701a342">B_set</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_encoder__butt_8h_1ac655d8845b7dd9c23ec75bcc95aeaa1a">rotating</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Funkcije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_encoder__butt_8h_1a7b6cc084153163a244de2ac615b2da1b">IzpisNaLCD</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static void <link linkend="_encoder__butt_8h_1acea480dd56a9254a60985c5fb1911b64">doEncoderA</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static void <link linkend="_encoder__butt_8h_1a2a0bd9233e3201ea171b27ae871f02c8">doEncoderB</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_encoder__butt_8h_1a381890b23a2294d6907511e7270e63c8">Encoder_init</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static void <link linkend="_encoder__butt_8h_1acdba22f683ffa2bd43de9734f06cc4db">Encoder_check</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Podroben opis</title>
+    <para>Definition in file //Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Encoder_butt.h</para>
+    </simplesect>
+</section>

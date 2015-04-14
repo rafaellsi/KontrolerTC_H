@@ -1,0 +1,17 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdftex 2015.4.11)  11 APR 2015 22:35
+entering extended mode
+**C:/Users/Uporabnik/Documents/GitHub/KontrolerTC_H/KontrolerTC_Mega2560_v1/dox
+ygen/latex/doxygen.sty
+
+(C:/Users/Uporabnik/Documents/GitHub/KontrolerTC_H/KontrolerTC_Mega2560_v1/doxy
+gen/latex/doxygen.sty
+! Undefined control sequence.
+l.1 \NeedsTeXFormat
+                   {LaTeX2e}
+? 
+! Emergency stop.
+l.1 \NeedsTeXFormat
+                   {LaTeX2e}
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!

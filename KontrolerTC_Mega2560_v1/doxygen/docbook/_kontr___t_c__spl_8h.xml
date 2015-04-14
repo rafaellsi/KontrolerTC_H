@@ -1,0 +1,543 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_kontr___t_c__spl_8h">
+    <title>Kontr_TC_spl.h File Reference</title>
+        <section>
+            <title>Spremenljivke</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_kontr___t_c__spl_8h_1a37324e91499f47a4db47e040e94b2860">cycStart</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_kontr___t_c__spl_8h_1ac09a8bb580734e947b40fa1d286379eb">sumCycle</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_kontr___t_c__spl_8h_1a478ce27840e9e3991503845f729a114b">ncyc</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_kontr___t_c__spl_8h_1a80dafad07244fd70d5554f536388a065">minCycle</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_kontr___t_c__spl_8h_1a5de80d6ef15201184612fb7b6d24a99e">maxCycle</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_kontr___t_c__spl_8h_1a8b3896437507c2d328ab2fb7fbf7424e">useDeltaThOk</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1a48e9904aad344b907a999395e1202dca">pTempCrp</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_kontr___t_c__spl_8h_1af030731b6fad824b5711356e814cbd5c">izracHitrGret</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_kontr___t_c__spl_8h_1a23d5abeb28cfbc4257b1130bd888b155">izracHitrGretInfo</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_kontr___t_c__spl_8h_1aa90f66a65f161a9b06d8678e227acb51">seRracunaHitrGret</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1a9021804edb77acfc37a5509f1666679e">avgWeightLHTC</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1a16d7b022c7c3fb18d569ef495bbfe921">avgLHTCVodeTC</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_kontr___t_c__spl_8h_1a327d3b5b3cc642ac37a3f264699d8959">debugDeviceHub</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1a5a6a3764f3b7b458de98bd6a6cafca6e">sumPing</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_kontr___t_c__spl_8h_1a28ab28014998bb3afccbee401f739d1d">numPing</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_kontr___t_c__spl_8h_1ab7636b71978f690eb4c37c8b465a5c02">stateCevStPecTC</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1a1024de4d6f7b38d800b996d9abaefeb9">tok230V</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_kontr___t_c__spl_8h_1ac4b00b12f377cfe03da41e1232241f3c">coRawValSum</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned long <link linkend="_kontr___t_c__spl_8h_1a826de08a6094b912832e739c7ceb7312">numMerCO</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_kontr___t_c__spl_8h_1a34f3e6494f80560e4e94aa77ee4ced66">coRawValMax</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_kontr___t_c__spl_8h_1a537b59c17084787f2acf099109829196">coRawValRef</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1ad0fed95ce13a62be1aba66e70aa1cbf6">minVoltGas</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1a0952421a74472f72606ee8bc643542e2">maxVoltGas</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Funkcije</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_kontr___t_c__spl_8h_1a51cd6951b89bef83867df0142b35e612">IsNTempCas</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>time_t <link linkend="_kontr___t_c__spl_8h_1acaab414b0b6bc977dfe89b5201c9d002">processSyncMessage</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__spl_8h_1a14b0f366ddca9910f942f904f00bce94">EthernetInit</link> (
+boolean izpisShort)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__spl_8h_1a8ded86cae89bccb21d891d533bf505b0">EthernetIzpisInfo</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__spl_8h_1acbd9d14f98cabb46c24d6ff8ac140543">SDInit</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__spl_8h_1ada8c75979de444d679120bec967d518a">PrintTempAllSDbin</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__spl_8h_1ab670eb91d8438a8b91a6a14ef7677b26">ImeDatotekeOnOff</link> (
+char * ime)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__spl_8h_1ab02d02d205f26bec5ac887514a354f8a">IzpisDataOnOffSerial</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__spl_8h_1a811f40320e641dfa30a406fbee9d2ae6">IzpisDatnaSerial</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>unsigned int <link linkend="_kontr___t_c__spl_8h_1af492b70e5403d4c7343cb5c756bd0da9">ObsegZgodovine</link> (
+int sensor, unsigned int pred)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1a8532bd8557100d921d688e19a95b19b1">AC_mimax</link> (
+boolean izpis, boolean forceCalc)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1a12f3449127e4b252f86f287b8115278f">Tok_12V</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__spl_8h_1a99da48505109bd092c7f9eaf6aea6695">PreveriStikala</link> (
+boolean izpisState)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__spl_8h_1a160a61c71a76bc4841b6d7ead3985cc5">PrintTemperatureAll</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__spl_8h_1ad2ba69beb3ef5989f1ff9e81520172cb">PreveriNapetosti</link> (
+boolean izpis, boolean internal, boolean external, boolean battery)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1acc4a61b4c642ac2a5580765aa502c4b4">Sec2Hour</link> (
+unsigned long sec)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1af2717bc253ba98d4e5fdc01f2e8f97aa">AvgValFF_F</link> (
+float suma, float num)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1a5326fd830d99d23960fd6e54cddfd6d5">AvgValULUL_F</link> (
+unsigned long sum, unsigned long num)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1a64fc03fbe7167741778170a12d53d21c">KompenzacijaTempOkolice</link> (
+float tOkolice)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1aa8a099bc6ad696ff6e64a441411bd8a3">KompenzZacTemp</link> (
+float tStart)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1a1c6c104b93d3d87c642168d4123c12a4">IzracDeltaTh</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1a81c96bc059cc4e8d6003b63abfccbace">IzracDeltaThOk</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1a441c8d1d391b5de74b1d468534f6ac28">IzracDeltaThSt</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1acda209a6266069ca938ac8d5221a4757">Cop</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_kontr___t_c__spl_8h_1a3ad78739d780d6bec7a4f291a2b591cd">VodaVre</link> (
+boolean izpis)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_kontr___t_c__spl_8h_1a8b4b194bb96f1fd7c979a485de94cf18">MaxCrpTCRunTime</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1a9d0931eca86a7cf1c8b6324f1e6944be">TempVklopaCrpTC_NTemp</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1a39b23bf87f4109cd04177065ac9b061b">TempIzklopaCrpTC_NTemp</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_kontr___t_c__spl_8h_1af06bbdc11a167dd6b6ea820dc78f57b2">RelaksTimeLimitSec</link> (
+unsigned long cTime, unsigned long pTime, int rTime)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1af13e3927bb60dda5e8508252d7421978">TempVklopa</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1adb525fcd9c54a91e6578b904ef4ce803">TempIzklopa</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1aaa5b1a54e4ff90697347844f62fba2c3">IzracunLimitTemp</link> (
+int state, float ciTemp)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1ae44421c952b3d2170b4ca7be5a943dad">IzracunTempVTOff</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>boolean <link linkend="_kontr___t_c__spl_8h_1a5443b1b044ddb2124ff531b29398faff">UpostevajElTarife</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__spl_8h_1ab56226db878b2cf3950545801ce20a33">CheckSerial</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__spl_8h_1ac240fa7411e0ab903db0d696f8734e36">IzpisPorabaWH</link> (
+float porabaWH)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__spl_8h_1a3de9059f163f4166f8776459f4c5a195">IzracunHitrostiGretjaTC</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1a820d4e870fd302896cf5ba2f50d57fac">PovpreciVred</link> (
+float a, float povVred, float lastVred)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__spl_8h_1ae160958703203b13e8ebe4af9ed5077b">ZapisiInIzpisiPodatke</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="_kontr___t_c__spl_8h_1abb3252d2890f9b7ba161f409648875c8">PrintData</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1ae1cb0b622dfb4aae9910b28b3e19820d">MejnaTempPreklCrpRad</link> (
+byte newState)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="_kontr___t_c__spl_8h_1a824cf3ef4b5d341d8a446b69d779c60e">ZakasnitevVklopa</link> (
+float temp, float mejnaTemp, int faktor)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>float <link linkend="_kontr___t_c__spl_8h_1a0bf7bc9c2307714e133f3354587e4cfc">TempIzklopaCrpTC</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static float <link linkend="_kontr___t_c__spl_8h_1a4f2e8f9e139bd4130bd18504db532b42">PretvotiEETemp2Float</link> (
+unsigned int u2uival)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static unsigned int <link linkend="_kontr___t_c__spl_8h_1ad2f4972d75cbe66c41a3f9e323868281">PretvoriFloat2EETemp</link> (
+float temp)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>static word <link linkend="_kontr___t_c__spl_8h_1ae69f61a08ff3c6001ced05e642f96025">homePage</link> (
+void )</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Podroben opis</title>
+    <para>Definition in file //Pro03/github/KontrolerTC_H/KontrolerTC_Mega2560_v1/Kontr_TC_spl.h</para>
+    </simplesect>
+</section>

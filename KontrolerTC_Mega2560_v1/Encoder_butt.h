@@ -118,7 +118,7 @@ static void Encoder_check(void) {
       buttonStart = millis();
     }
     else {
-      if (now() - buttonStart > 5000) {
+      if (millis() - buttonStart > 5000) {
         LCDInitializacija();
  //       buttonStart = now();
         Beep(45);
