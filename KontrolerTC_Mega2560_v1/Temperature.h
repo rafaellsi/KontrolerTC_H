@@ -918,9 +918,7 @@ float RefTemp(byte refTempType)
 {
  // return(AvgAllTimeTemp(CRPALKA_0));
   if (refTempType == B01) {
-    if (prevCrpTCState == 1) {  
-      return(avgTempVodeTC);
-    }
+    return(avgTempVodeTC);
   }  
   return(cTemperatura[CRPALKA_0]);
 }

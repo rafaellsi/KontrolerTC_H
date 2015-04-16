@@ -137,7 +137,7 @@ void setup(void)
   Serial.begin(115200);
   Serial.flush();
   Serial.println(F(""));
-  Serial.println(F("Kontroler TC"));
+  Serial.print(F("Kontroler TC: "));
   Serial.println(VERSION);
   
   PreveriNapetosti(true, true, true, false);
@@ -351,8 +351,21 @@ void loop(void)
   }    
   else {  //if (stateTC == STATE_TC_OFF)
     if ((now() - lastTCStateChg > (1 + prevTCState*4.0)*(unsigned)minRunTimeMin * 60) && (now() - lastReleChg > (unsigned)minRunTimeMin * 60)) {  
-      if ((RefTemp(B01) > TempIzklopa()) || ((RefTemp(B00) > TempIzklopa()) && prevCrpTCState == STATE_CRP_TC_ON)) {//if (stateTC == STATE_TC_OFF)
-        PreklopiTC(STATE_TC_OFF);
+//      if ((RefTemp(B01) > TempIzklopa()) || ((RefTemp(B00) > TempIzklopa()) && prevCrpTCState == STATE_CRP_TC_ON)) {//if (stateTC == STATE_TC_OFF)
+//        PreklopiTC(STATE_TC_OFF);
+//      }
+      if (RefTemp(B00) > TempIzklopa()) {
+        if ((RefTemp(B01) > TempIzklopa()) || (prevCrpTCState == STATE_CRP_TC_ON)) {//if (stateTC == STATE_TC_OFF)
+          Serial.print(F("RefTempB00 - RefTempB01 - TempIzklopa - prevCrpTCState: "));
+          Serial.print(RefTemp(B00));
+          Serial.print(F("- "));
+          Serial.print(RefTemp(B01));
+          Serial.print(F("- "));
+          Serial.print(TempIzklopa());
+          Serial.print(F("- "));
+          Serial.println(prevCrpTCState);
+          PreklopiTC(STATE_TC_OFF);
+        }  
       }
     }
     else if ((cTemperatura[OKOLICA_0] < min_TempOK_TCKomp) || (cTemperatura[OKOLICA_0] > max_TempOK_TCKomp) || (cTemperatura[CRPALKA_0] > maxDovTempVodeTC_Komp)) {
