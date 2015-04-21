@@ -1,4 +1,4 @@
 KontrolerTC_H
 =============
 
-Some controler .... Ardunino Mega2560
+Some controler .... Arduino Mega2560
