@@ -397,8 +397,11 @@ float TempIzklopa(void)
 
 float IzracunLimitTemp(int state, float ciTemp)
 {
+  //state = 0; - za vklop
+  //state = 1; - za izlop 
   float tUra;
   float refTemp;
+  float tmpTemp;
   
   if (hour() < uraVTemp[0])
     tUra = (float)uraVTemp[0] - (float) hour()-1.0;  
@@ -417,7 +420,8 @@ float IzracunLimitTemp(int state, float ciTemp)
   
   if (state == 0) {  
 //    return(max(minTempNightOn, refTemp + sensDiff/*+dTemp*/)); // !!!
-    return(max(minTempNightOn, refTemp + deltaTh/2.0/*+dTemp*/)); // !!!
+    tmpTemp = (max(minTempNightOn, refTemp + deltaTh/2.0/*+dTemp*/)); // !!!
+    return(min(tmpTemp, ciTemp - deltaTh/2.0));
   }
   else if (state == 1) {
 // - uprabno samo v primeru, če je vključen tudi kontroler Toplotne crpalke 
@@ -425,7 +429,8 @@ float IzracunLimitTemp(int state, float ciTemp)
 //      return(ciTemp+(dTemp*2.0));
 //    else {  
       refTemp = max(minTempNightOn+dTemp, refTemp+dTemp+deltaTh);
-      return(min(ciTemp+(dTemp*2.0), refTemp));
+//      return(min(ciTemp+(dTemp*2.0), refTemp));  //uporabljeno le če je vklopljena tudi elektronika TC
+      return(min(ciTemp, refTemp)); 
 //    }
   }
   else 
@@ -671,7 +676,7 @@ void IzracunHitrostiGretjaTC(void) {
           Serial.print(F(" Komp.st:"));
           Serial.print(deltaThSt, 4);
           Serial.print(F(" Last:"));
-          Serial.print(lastDeltaThSt, 4);
+          Serial.println(lastDeltaThSt, 4);
           uf.fval =  deltaThSt;
           delay(5);
           i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrDeltaThSt, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));

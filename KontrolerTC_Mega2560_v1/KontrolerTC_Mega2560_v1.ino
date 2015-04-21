@@ -356,6 +356,7 @@ void loop(void)
 //      }
       if (RefTemp(B00) > TempIzklopa()) {
         if ((RefTemp(B01) > TempIzklopa()) || (prevCrpTCState == STATE_CRP_TC_ON)) {//if (stateTC == STATE_TC_OFF)
+          Serial.println("");
           Serial.print(F("RefTempB00 - RefTempB01 - TempIzklopa - prevCrpTCState: "));
           Serial.print(RefTemp(B00));
           Serial.print(F("- "));
