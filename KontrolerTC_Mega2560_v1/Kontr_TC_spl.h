@@ -341,7 +341,7 @@ float TempVklopa(void)
 //    lhcc = (-1.0)* lastHourTempChange + avgLHTCVodeTC;
       lhcc = avgLHTCVodeTC - lastHourTempChange;
       if (lhcc > dTemp*maxLimit) {
-        return(ciljnaTempWeekend - (maxLimit * dTemp));
+        return(ciljnaTempWeekend - ((1.0 - maxLimit) * dTemp));
       }
 
       return(ciljnaTempWeekend - dTemp + lhcc);  

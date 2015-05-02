@@ -82,17 +82,17 @@ void IzpisiNaLCD(void) {
   
   
   if (buttonPressed == true) {
-    if (menuType == 0) {
+//    if (menuType == 0) {
       menuType += 1;  
       menuZaslonNum = 0;
 //      buttonPressed = false;
       if (menuType > maxMenuType) {
         menuType = maxMenuType;
       }
-    }
-    else {
+//    }
+//    else {
 //      buttonPressed = false;      
-    }  
+//    }  
   }
   
   if (menuZaslonNum != prevMenuZaslonNum || buttonPressed) {
@@ -123,6 +123,7 @@ void IzpisiNaLCD(void) {
     break;
     case 1:
       IzpisControlMenu();
+      menuType = 0;
     break;
     default:
       IzpisInfoMenu(menuZaslonNum);
