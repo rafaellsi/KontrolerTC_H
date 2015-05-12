@@ -40,6 +40,7 @@ unsigned long convWaitTime = 800;  //1000
 boolean temeratureIzmerjene=true;
 
 float avgTempVodeTC;
+//float refTempIzrac = -1.0;
 
 //--------------------------------------------------------------------------------
 // Inicializacija temp. senzorjev
@@ -523,11 +524,16 @@ void PrintTemperatureAll(void)
       }  
  */   
       Serial.print("/");
+/*
 //      float avgWeight = 0.5/(float) zamikMerTemp;
       float avgWeight = 0.25/(float) zamikMerTemp;   //spremenjeno 13.4.2015
       avgTempVodeTC = ((1.0-avgWeight)*avgTempVodeTC) + (avgWeight * cTemperatura[i]); 
       Serial.print(avgTempVodeTC);
 //      Serial.print(F(")"));
+*/      
+      avgTempVodeTC = ((1.0-factWeightAvgTemp)*avgTempVodeTC) + (factWeightAvgTemp * cTemperatura[i]); 
+      Serial.print(avgTempVodeTC);
+      
       
       Serial.print("/");
       avgLHTCVodeTC = ((1.0-avgWeightLHTC)*avgLHTCVodeTC) + (avgWeightLHTC * lastHourTempChange);

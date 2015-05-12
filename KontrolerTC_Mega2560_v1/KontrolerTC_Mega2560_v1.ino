@@ -366,11 +366,15 @@ void loop(void)
           Serial.print(F("- "));
           Serial.println(prevCrpTCState);
           PreklopiTC(STATE_TC_OFF);
+          
+          
+          
         }  
       }
     }
     else if ((cTemperatura[OKOLICA_0] < min_TempOK_TCKomp) || (cTemperatura[OKOLICA_0] > max_TempOK_TCKomp) || (cTemperatura[CRPALKA_0] > maxDovTempVodeTC_Komp)) {
-      PreklopiTC(STATE_TC_OFF);  
+      PreklopiTC(STATE_TC_OFF);
+      refTempIzrac = RefTemp(B01);  
     }  
   }
   
@@ -404,6 +408,7 @@ void loop(void)
             izracHitrGretInfo=true;  
           }
           ZapisiOnOffSD(1);
+          refTempIzrac = -1.0;
         }
 //      }
 //    }
@@ -425,6 +430,7 @@ void loop(void)
           i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrLastChg, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
           delay(5);
           i2c_eeprom_write_byte(AT24C32_I2C_ADDR, addrPrevTCState, AT24C32_ADDR_LENGH, prevTCState);
+          refTempIzrac = RefTemp(B01);
         }
 //      }
 //    }

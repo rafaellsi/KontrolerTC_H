@@ -52,6 +52,8 @@ float MejnaTempPreklCrpRad(byte newState);
 int ZakasnitevVklopa(float temp, float mejnaTemp, int faktor);
 float TempIzklopaCrpTC(void);
 //unsigned int addrTmp;
+
+float factWeightAvgTemp;
 //--------------------------------------------------------------------------------
 // Pretvorba sekunde v ure, decimalno
 inline float Sec2Hour(unsigned long sec)
@@ -202,7 +204,7 @@ float IzracDeltaThSt() {
   
   stevec = stevec/imenovalec;
   if (stevec > 0) {
-    if (deltaThSt > 0.5 && stevec > maxDeltaDev * deltaThSt) {
+    if (deltaThSt > 0.2 && stevec > maxDeltaDev * deltaThSt) {
       return(maxDeltaDev * deltaThSt);  
     }  
     return(stevec);
@@ -628,6 +630,8 @@ void IzpisPorabaWH(float porabaWH) {
   }
 }
 
+
+
 //---------------------
 void IzracunHitrostiGretjaTC(void) {
   
@@ -706,7 +710,19 @@ void IzracunHitrostiGretjaTC(void) {
           Serial.print(IzracDeltaThSt(),4);
           
           Serial.print(F(" Cop: "));
-          Serial.print(Cop(),2);
+          Serial.println(Cop(),2);
+          
+          
+          if (refTempIzrac > 0.0) {
+            Serial.print(F(" FactWeightAvgTemp:"));
+            Serial.print(factWeightAvgTemp, 4);
+            factWeightAvgTemp = factWeightAvgTemp + (1.0 - alpha)*(cTemperatura[CRPALKA_0] - refTempIzrac)/(refTempIzrac);
+            Serial.print(F(" Nova:"));
+            Serial.println(factWeightAvgTemp, 4);
+            uf.fval =  factWeightAvgTemp;
+            delay(5);
+            i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrFactWeightAvgTemp, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
+          }  
           
           izracHitrGret=false;
           izracHitrGretInfo=false;

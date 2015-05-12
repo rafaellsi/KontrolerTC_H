@@ -230,9 +230,13 @@ float maxDovTempVodeTC_Komp = 64.0;
 float deltaTh;
 float deltaThOk;
 float deltaThSt;
+
+float refTempIzrac = -1.0;
+
+
 const float tKompOK = 20.0;
 //const float tKompSt = 20.0;
-const float tKompSt = 50.0;
+const float tKompSt = 60.0;
 
 int zamikMerTemp = 15;  // hitrost gretja se računa "zamikMerTemp" po izklopu TC
                         // povprečenje temperature vode v TC za izračun izklopa TC
@@ -289,6 +293,8 @@ unsigned int addrOnTime = 5;
 unsigned int addrDeltaTh = 9;
 unsigned int addrDeltaThOk = 13;
 unsigned int addrDeltaThSt = 17;
+
+unsigned int addrFactWeightAvgTemp = 21;
 
 unsigned int addrLastHourTemp = 40; // 128
 unsigned int addrTempBack = 400;     //968

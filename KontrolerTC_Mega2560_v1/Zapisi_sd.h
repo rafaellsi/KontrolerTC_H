@@ -289,18 +289,22 @@ void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
       myFile.print(F(" Zadnja: "));
       myFile.print(lastDeltaThSt, 4);
       myFile.print(F(" Komp.st.temp. ("));
-      myFile.print(tKompSt-20.0);
+      myFile.print(tKompSt-30.0);
       myFile.print(F(", "));
-      myFile.print(tKompSt-10.0);
+      myFile.print(tKompSt-15.0);
       myFile.print(F(", "));
       myFile.print(tKompSt+10.0);
       myFile.print(F(")= "));
-      myFile.print(KompenzZacTemp(tKompSt-20.0), 4);
+      myFile.print(KompenzZacTemp(tKompSt-30.0), 4);
       myFile.print(F(", "));
-      myFile.print(KompenzZacTemp(tKompSt-10.0), 4);
+      myFile.print(KompenzZacTemp(tKompSt-15.0), 4);
       myFile.print(F(", "));
       myFile.print(KompenzZacTemp(tKompSt+10.0), 4);
       
+      myFile.println("");
+      
+      myFile.print(F(" factWeightAvgTemp: "));
+      myFile.print(factWeightAvgTemp, 4);
       myFile.println("");
       
       myFile.print(F(" Zac. Poraba kVA: "));

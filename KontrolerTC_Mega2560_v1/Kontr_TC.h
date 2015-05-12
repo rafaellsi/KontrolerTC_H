@@ -179,7 +179,7 @@ void InitParametri(void) {
   Serial.print(F("Komp.st.: "));
   Serial.print(deltaThSt, 4);
   if (abs(deltaThSt) > 100.0) {
-    deltaThSt = 0.0;
+    deltaThSt = 0.1;
     Serial.print(F(" / "));
     Serial.print(deltaThSt, 4);
     uf.fval =  deltaThSt;
@@ -192,7 +192,24 @@ void InitParametri(void) {
   Serial.print(cTemperatura[CRPALKA_0]);
   Serial.print(F("C je "));
   Serial.println(KompenzZacTemp(cTemperatura[CRPALKA_0]),4);
-
+  
+  delay(2);
+  i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrFactWeightAvgTemp, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
+  delay(2);
+  factWeightAvgTemp = uf.fval;
+  Serial.print(F("factWeightAvgTemp: "));
+  Serial.print(factWeightAvgTemp, 4);
+  if (factWeightAvgTemp <= 0.0) {
+    factWeightAvgTemp = 1/60.0;
+    Serial.print(F(" / "));
+    Serial.print(factWeightAvgTemp, 4);
+    uf.fval =  factWeightAvgTemp;
+    delay(5);
+    i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrFactWeightAvgTemp, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
+  } 
+  Serial.println(F(""));
+  
+  
   
   for (int j = 0; j < numSens; j++) {
     Serial.print(F("Addres:"));
