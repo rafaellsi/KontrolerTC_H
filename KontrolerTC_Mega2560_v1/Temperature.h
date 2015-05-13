@@ -461,8 +461,11 @@ extern float vccInternal;
 
 void PrintTemperatureAll(void)
 {
+  
+  static float pAvgTempVodeTC = 0.0;
   unsigned int addrTmp;
- 
+  
+   
   for (int i=0; i<numSensDS; i++) {
     
     Serial.print(F("T"));
@@ -538,10 +541,20 @@ void PrintTemperatureAll(void)
       Serial.print("/");
       avgLHTCVodeTC = ((1.0-avgWeightLHTC)*avgLHTCVodeTC) + (avgWeightLHTC * lastHourTempChange);
       Serial.print(avgLHTCVodeTC);
-      Serial.print(F(")"));  
-    }    
+      Serial.print(F(")"));
     
-    
+      if (pAvgTempVodeTC >= ciljnaTempPregrevanja) {
+        if (avgTempVodeTC < ciljnaTempPregrevanja) {
+          lastPregrevTime = now();
+          u4.ulval = lastPregrevTime;
+          delay(2);
+          i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrLastPregrevTime, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
+          delay(2);
+          Serial.print(F("Pregrevanje OK"));  
+        }  
+      }    
+      pAvgTempVodeTC = avgTempVodeTC;
+    } 
     
 //    sendPlotData(cTemperatura[i], 2);
     

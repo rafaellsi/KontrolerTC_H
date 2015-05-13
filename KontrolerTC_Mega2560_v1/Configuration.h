@@ -221,11 +221,15 @@ float ciljnaTempWeekend = 48.0;
 //float deltaTh = 5.55;   // do 16.Oct.2012
 //float deltaTh = 4.35;   //
 //float tempPregrvanja = 60.0;
+float ciljnaTempPregrevanja = 60.0;
+unsigned long intervalPregrevanja_Sec = 1512000UL;  // 17.5 dni * 24h *60min*60s
+
+int statePregrevanje = 0;
 
 float min_TempOK_TCKomp = 5.0;
 float max_TempOK_TCKomp = 35.0;
 
-float maxDovTempVodeTC_Komp = 64.0;
+float maxDovTempVodeTC_Komp = 68.0;
 
 float deltaTh;
 float deltaThOk;
@@ -295,6 +299,7 @@ unsigned int addrDeltaThOk = 13;
 unsigned int addrDeltaThSt = 17;
 
 unsigned int addrFactWeightAvgTemp = 21;
+unsigned int addrLastPregrevTime = 25;
 
 unsigned int addrLastHourTemp = 40; // 128
 unsigned int addrTempBack = 400;     //968
@@ -315,6 +320,7 @@ float cTempRosicsa[MAX_DHT22_SENS];
 unsigned long onTimeTC = 0;
 byte prevTCState;
 unsigned long lastTCStateChg = 0;  //cas zadnjega preklopa TC ali kompresorja TC
+unsigned long lastPregrevTime = 0;
 
 byte releState_ventKompTC = R_TC_VENT_OFF;
 byte releState_kompTC = R_TC_KOMP_OFF;

@@ -304,7 +304,16 @@ boolean RelaksTimeLimitSec(unsigned long cTime, unsigned long pTime,int rTime)
 }
 
 
+//--------------------------------------------------------------------------------
+float CiljTemp(float normTemp, float pregTemp)
+{
+  if (statePregrevanje > 0)
+    return(pregTemp);
+  return(normTemp);  
+}
 
+
+//--------------------------------------------------------------------------------
 boolean izracHitrGret = false;
 boolean izracHitrGretInfo=false;
 boolean seRracunaHitrGret;
@@ -316,15 +325,26 @@ float TempVklopa(void)
 {
   float lhcc;
   float maxLimit = 0.667;
-  
+  float cTemp;
+  char infoTime[9];
   
   seRracunaHitrGret = false;
+  
+  if (statePregrevanje != 2) {
+    if (now() > (unsigned long)(lastPregrevTime + intervalPregrevanja_Sec)) {
+      statePregrevanje = 1;
+    }
+    else {
+      statePregrevanje = 0;
+    }  
+  }  
   
   if (IsWeekend()) {
     if (IsNTempCas()) {
         if (weekday() == NED && hour() > uraVTemp[0]) {
           seRracunaHitrGret = true;
-          return(IzracunLimitTemp(0, ciljnaTemp));  
+          cTemp = CiljTemp(ciljnaTemp, ciljnaTempPregrevanja);  
+          return(IzracunLimitTemp(0, cTemp));  
         }  
       return(minTempNightOn);    
     }
@@ -342,11 +362,12 @@ float TempVklopa(void)
     
 //    lhcc = (-1.0)* lastHourTempChange + avgLHTCVodeTC;
       lhcc = avgLHTCVodeTC - lastHourTempChange;
+      cTemp = CiljTemp(ciljnaTempWeekend, ciljnaTempPregrevanja);
       if (lhcc > dTemp*maxLimit) {
-        return(ciljnaTempWeekend - ((1.0 - maxLimit) * dTemp));
+        return(cTemp - ((1.0 - maxLimit) * dTemp));
       }
 
-      return(ciljnaTempWeekend - dTemp + lhcc);  
+      return(cTemp - dTemp + lhcc);  
     }
   }
   else {
@@ -364,16 +385,21 @@ float TempVklopa(void)
         return(IzracunLimitTemp(0, minTempVTOn));  
       } 
     seRracunaHitrGret = true;
-    return(IzracunLimitTemp(0, ciljnaTemp));
+    cTemp = CiljTemp(ciljnaTemp, ciljnaTempPregrevanja);
+    return(IzracunLimitTemp(0, cTemp));
   }
 }
 
- 
+
+
 
 
 //--------------------------------------------------------------------------------
 float TempIzklopa(void)
 {
+  if (statePregrevanje == 2)
+    return(ciljnaTempPregrevanja);
+  
   if (!IsWeekend()) {
     if (!IsNTempCas()) {
       return(IzracunTempVTOff());
@@ -804,10 +830,11 @@ void ZapisiInIzpisiPodatke(void) {
 
     
     if (UpostevajElTarife())
-      Serial.print(F(" E"));
+      Serial.print(F(" E "));
     else 
-      Serial.print(F(" P"));  
+      Serial.print(F(" P "));  
     
+    Serial.print(statePregrevanje);
     
     if (now()/((unsigned long)zapisXMin*60) > prevCasMeritve/((unsigned long)zapisXMin*60)) {     
       Serial.println(F(""));
