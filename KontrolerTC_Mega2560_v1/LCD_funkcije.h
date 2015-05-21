@@ -141,7 +141,7 @@ extern int coRawVal;
 //--------------------------------------------------------------------------------
 void IzpisInfoMenu(int infoLCD)
 {
-  char cas[5];
+  char cas[9];
   unsigned int addrTmp;
   const char separ[ ] = ": ";
   
@@ -260,7 +260,6 @@ void IzpisInfoMenu(int infoLCD)
     break;
     
      case 6:
-     case 7:
       lcdA.print(F("Tok:"));
       lcdA.setCursor(4, 0);
       lcdA.print(AC_mimax(false, true), 3);
@@ -303,6 +302,18 @@ void IzpisInfoMenu(int infoLCD)
       lcdA.setCursor(10, 1);
       lcdA.print(F("Ti "));
       lcdA.print(TempIzklopa(), 1);
+    break;
+    case 7:
+      lcdA.print(F("Zadnje pregrevanje: "));
+      NarediTimeStr(cas, lastPregrevTime, false);
+      lcdA.setCursor(0, 1);
+      lcdA.print(day(lastPregrevTime));
+      lcdA.print(F("."));
+      lcdA.print(month(lastPregrevTime));
+      lcdA.print(F("."));
+      lcdA.print(year(lastPregrevTime)); 
+      lcdA.print(F(" "));
+      lcdA.print(cas);
     break;  
     default:
       lcdA.print(F("xXxXxXxX"));

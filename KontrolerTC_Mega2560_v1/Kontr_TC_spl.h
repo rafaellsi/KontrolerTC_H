@@ -51,6 +51,8 @@ void PrintData(void);
 float MejnaTempPreklCrpRad(byte newState);
 int ZakasnitevVklopa(float temp, float mejnaTemp, int faktor);
 float TempIzklopaCrpTC(void);
+void IzpisParamerov(void);
+
 //unsigned int addrTmp;
 
 float factWeightAvgTemp;
@@ -548,6 +550,9 @@ void CheckSerial(void) {
        if (c == 'a') {
          IzpisDatnaSerial();
        }
+       if (c == 'i') {
+         IzpisParamerov();
+       }  
        Serial.read();
      } // if p
      else if (c == 'm') {
@@ -742,7 +747,8 @@ void IzracunHitrostiGretjaTC(void) {
           if (refTempIzrac > 0.0) {
             Serial.print(F(" FactWeightAvgTemp:"));
             Serial.print(factWeightAvgTemp, 4);
-            factWeightAvgTemp = factWeightAvgTemp + (1.0 - alpha)*(cTemperatura[CRPALKA_0] - refTempIzrac)/(refTempIzrac);
+            factWeightAvgTemp = factWeightAvgTemp + (1.0 - alpha)*(cTemperatura[CRPALKA_0] - refTempIzrac)/(refTempIzrac + cTemperatura[CRPALKA_0]);
+//            factWeightAvgTemp = PovpreciVred(alpha, factWeightAvgTemp, (cTemperatura[CRPALKA_0] - refTempIzrac)/(refTempIzrac + cTemperatura[CRPALKA_0]));
             Serial.print(F(" Nova:"));
             Serial.println(factWeightAvgTemp, 4);
             uf.fval =  factWeightAvgTemp;
@@ -1202,6 +1208,35 @@ int ardprintf(char *str, ...)
 #undef ARDBUFFER
 #endif
 */
+
+void IzpisParamerov(void)
+{
+  char infoTime[9];
+  
+  
+  Serial.println(F(""));
+  Serial.print(F("Zadnje pregrevanje: "));
+  NarediTimeStr(infoTime, lastPregrevTime);
+  Serial.print(day(lastPregrevTime));
+  Serial.print(F("."));
+  Serial.print(month(lastPregrevTime));
+  Serial.print(F("."));
+  Serial.print(year(lastPregrevTime)); 
+  Serial.print(F("  "));
+  Serial.print(infoTime);
+  
+  Serial.print(F("  Naslednje pregrevanje: "));
+  NarediTimeStr(infoTime, lastPregrevTime + intervalPregrevanja_Sec);
+  Serial.print(day(lastPregrevTime + intervalPregrevanja_Sec));
+  Serial.print(F("."));
+  Serial.print(month(lastPregrevTime + intervalPregrevanja_Sec));
+  Serial.print(F("."));
+  Serial.print(year(lastPregrevTime + intervalPregrevanja_Sec)); 
+  Serial.print(F("  "));
+  Serial.println(infoTime);
+  
+  
+}
 
 
 #endif

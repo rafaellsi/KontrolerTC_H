@@ -222,7 +222,7 @@ float ciljnaTempWeekend = 48.0;
 //float deltaTh = 4.35;   //
 //float tempPregrvanja = 60.0;
 float ciljnaTempPregrevanja = 60.0;
-unsigned long intervalPregrevanja_Sec = 1512000UL;  // 17.5 dni * 24h *60min*60s
+unsigned long intervalPregrevanja_Sec = 1447200UL;  // (16dni*24h + 18h)*60min*60s
 
 int statePregrevanje = 0;
 

@@ -131,7 +131,7 @@ void InitParametri(void) {
 
 
 /*
-  u4.ulval = 0;
+  u4.ulval = 1431496200UL;
   delay(2);
   i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrLastPregrevTime, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
 */
@@ -141,13 +141,14 @@ void InitParametri(void) {
   i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrLastPregrevTime, AT24C32_ADDR_LENGH, (byte *)&u4, sizeof(u4));
   delay(2);
   lastPregrevTime = u4.ulval;
+  
   Serial.print(F("Zadnje pregrevanje: "));
-  NarediTimeStr(infoTime, addrLastPregrevTime);
-  Serial.print(day(addrLastPregrevTime));
+  NarediTimeStr(infoTime, lastPregrevTime);
+  Serial.print(day(lastPregrevTime));
   Serial.print(F("."));
-  Serial.print(month(addrLastPregrevTime));
+  Serial.print(month(lastPregrevTime));
   Serial.print(F("."));
-  Serial.print(year(addrLastPregrevTime)); 
+  Serial.print(year(lastPregrevTime)); 
   Serial.print(F("  "));
   Serial.print(infoTime);
   
