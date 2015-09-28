@@ -46,6 +46,7 @@ void CheckSerial(void);
 void IzpisPorabaWH(float porabaWH);
 void IzracunHitrostiGretjaTC(void);
 float PovpreciVred(float a, float povVred, float lastVred);
+float PovpreciVredNegContr(float a, float povVred, float lastVred);
 void ZapisiInIzpisiPodatke(void);
 void PrintData(void);
 float MejnaTempPreklCrpRad(byte newState);
@@ -209,9 +210,10 @@ float IzracDeltaThSt() {
     if (deltaThSt > 0.2 && stevec > maxDeltaDev * deltaThSt) {
       return(maxDeltaDev * deltaThSt);  
     }  
-    return(stevec);
+//    return(stevec);
   }
-  return(0.0);    
+//  return(0.0);
+  return(stevec);
 } 
 
 //--------------------------------------------------------------------------------------------
@@ -326,7 +328,7 @@ float avgLHTCVodeTC = -0.5;
 float TempVklopa(void)
 {
   float lhcc;
-  float maxLimit = 0.667;
+  float maxLimit = 0.5;
   float cTemp;
   char infoTime[9];
   
@@ -685,7 +687,7 @@ void IzracunHitrostiGretjaTC(void) {
           deltaThOk = PovpreciVred(alpha, deltaThOk, lastDeltaThOk);
           
           lastDeltaThSt = IzracDeltaThSt();
-          deltaThSt = PovpreciVred(alpha, deltaThSt, lastDeltaThSt);
+          deltaThSt = PovpreciVredNegContr(alpha, deltaThSt, lastDeltaThSt);
                    
           Serial.println(F(""));
           if (izracHitrGretInfo) {
@@ -773,6 +775,18 @@ void IzracunHitrostiGretjaTC(void) {
 float PovpreciVred(float a, float povVred, float lastVred) {
 
   return((povVred * a) + ((lastVred)*(1.0-a)));
+} 
+
+//--------------------------------------------------------------------------------------------
+
+float PovpreciVredNegContr(float a, float povVred, float lastVred) {
+  float temp;
+  
+  temp = (povVred * a) + ((lastVred)*(1.0-a));
+  
+  if (temp < 0.0)
+    return(0);
+  return(temp);  
 } 
 //--------------------------------------------------------------------------------------------
 static float PretvotiEETemp2Float(unsigned int u2uival) {

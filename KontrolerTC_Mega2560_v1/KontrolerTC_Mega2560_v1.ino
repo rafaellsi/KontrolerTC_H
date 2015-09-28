@@ -332,7 +332,9 @@ void loop(void)
     prevCasMeritve = now();
 //    SendToProc();
     CheckEthernet();
-    DeviceHub();
+    if (useDeviceHub) {
+      DeviceHub();
+    }  
   }
 }
   delay(2);

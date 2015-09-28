@@ -16,6 +16,12 @@ extern void Beep(unsigned char);
 
 //----------
 
+boolean useDeviceHub=false;
+boolean debugDeviceHub=true; 
+
+
+//---------
+
 #define USEEGRELEC false    //ali se uporablja električni grelec
 
 //#define R_TC_ON   LOW      // z RELE_TC - električni grelec ali Priključek TC
@@ -222,7 +228,7 @@ float ciljnaTempWeekend = 48.0;
 //float deltaTh = 4.35;   //
 //float tempPregrvanja = 60.0;
 float ciljnaTempPregrevanja = 60.0;
-unsigned long intervalPregrevanja_Sec = 1447200UL;  // (16dni*24h + 18h)*60min*60s
+unsigned long intervalPregrevanja_Sec = 1425600UL;  // (16dni*24h + 12h)*60min*60s
 
 int statePregrevanje = 0;
 
