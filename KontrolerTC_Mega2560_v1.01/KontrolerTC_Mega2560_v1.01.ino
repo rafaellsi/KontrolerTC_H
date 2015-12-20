@@ -335,7 +335,10 @@ void loop(void)
     CheckEthernet();
     if (useDeviceHub) {
       DeviceHub();
-    }  
+    }
+    if (useThingspeak) {
+      ThingSpeak();    
+    }
   }
 }
   delay(2);

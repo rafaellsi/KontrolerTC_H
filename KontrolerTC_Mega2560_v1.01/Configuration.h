@@ -19,6 +19,7 @@ extern void Beep(unsigned char);
 boolean useDeviceHub=false;
 boolean debugDeviceHub=true; 
 
+boolean useThingspeak=true;
 
 //---------
 
@@ -172,8 +173,8 @@ int numSens;
 
 float kTypeOffset = 0.0; //3.67;
 
-#define  OKOLICA_0  7   // index senzorja okolice
-#define  CRPALKA_0  1   // index sensorja na crpalki
+#define  OKOLICA_0  7   // index senzorja okolica
+#define  CRPALKA_0  1   // index sensorja na TC
 #define  PEC_PV     2   // pec, povratni vod
 #define  PEC_DV     3   // pecc, dvizni vod
 #define  RAD_PV     4   // radijatorji, povratni vod
