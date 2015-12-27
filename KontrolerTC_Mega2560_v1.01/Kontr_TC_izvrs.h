@@ -30,7 +30,7 @@ void PreklopiCrpalkoRad(byte newState)
     digitalWrite(RELE_CRAD, R_CRAD_ON);
     
     ZapisiOnOffSD(1, 10);
-    Serial.println(F(" "));
+    Serial.println(space_str);
     NarediTimeStr(cas, now());
     Serial.print(cas);
     Serial.print(F(" Vklop crp. radiator"));
@@ -41,7 +41,7 @@ void PreklopiCrpalkoRad(byte newState)
     onTimeCrpRad += (now() - lastCrpRadStateChg);
     
     ZapisiOnOffSD(0, 10);
-    Serial.println(F(" "));
+    Serial.println(space_str);
     NarediTimeStr(cas, now());
     Serial.print(cas);
     Serial.print(F(" Izkolp crp. radiator"));
@@ -81,14 +81,14 @@ void PreklopiVentilTCPec(byte newState)
       digitalWrite(VENTTC_2, LOW);
       digitalWrite(VENTTC_1, HIGH);
       
-      Serial.println(F(""));
+      Serial.println();
 //      PreveriNapetosti(true, true, false);
       ZapisiOnOffSD(1, 1);
 
-      Serial.println(F(" "));
+      Serial.println(space_str);
       NarediTimeStr(cas, now());
       Serial.print(cas);
-      Serial.print(" ");
+      Serial.print(space_str);
       Serial.print(millis());
       Serial.print(F(" Odpiram ventil "));
 
@@ -99,10 +99,10 @@ void PreklopiVentilTCPec(byte newState)
       
       ZapisiOnOffSD(0, 1);
       
-      Serial.println(F(" "));
+      Serial.println(space_str);
       NarediTimeStr(cas, now());
       Serial.print(cas);
-      Serial.print(" ");
+      Serial.print(space_str);
       Serial.print(millis());
 //      PreveriNapetosti(true, true, false);
       Serial.print(F(" Zapiram ventil"));
@@ -121,13 +121,14 @@ void PreklopiCrpalkoTC(byte newState)
     if (newState == STATE_CRP_TC_ON) {
       if (preklopCrpTCVzr == 0) {
         if (cTemperatura[PEC_TC_DV] >= tempVklopaCrpTC || cTemperatura[PEC_DV] >= tempVklopaCrpTC) {
-          if ((cTemperatura[PEC_PV] < tempVklopaCrpTC - 5.0*dTemp) && (cTemperatura[RAD_PV] < tempVklopaCrpTC - 5.0*dTemp)) {
+//Sprem. 23.12.2015          if ((cTemperatura[PEC_PV] < tempVklopaCrpTC - 5.0*dTemp) && (cTemperatura[RAD_PV] < tempVklopaCrpTC - 5.0*dTemp)) {
+          if ((cTemperatura[PEC_PV] < 0.525*tempVklopaCrpTC) && (cTemperatura[RAD_PV] < 0.525*tempVklopaCrpTC)) {
             return;
           }  
         }
       }  
     }
-    Serial.println("");
+    Serial.println();
     NarediTimeStr(cas, now());
     Serial.print(cas);
     

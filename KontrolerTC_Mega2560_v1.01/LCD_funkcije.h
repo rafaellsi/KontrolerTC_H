@@ -16,6 +16,7 @@ void IzpisInfoMenu(int infoLCD);
 
 
 
+
 //LiquidCrystal lcdA(5, 9, 2, 3, 6, 10);
 //LiquidCrystal lcdA(LCD_RS, LCD_RW, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7); // nano, glej zgoraj
 
@@ -143,7 +144,7 @@ void IzpisInfoMenu(int infoLCD)
 {
   char cas[9];
   unsigned int addrTmp;
-  const char separ[ ] = ": ";
+
   
 //  lcdA.setCursor(0, 0);
   lcdA.clear();
@@ -152,9 +153,9 @@ void IzpisInfoMenu(int infoLCD)
     case 0:
     case 1:
        PrintDigitsLCDA(day());
-       lcdA.print(F("."));
+       lcdA.print(pika_str);
        PrintDigitsLCDA(month());
-       lcdA.print(F("."));
+          lcdA.print(pika_str);
        PrintDigitsLCDA(year()); 
        lcdA.setCursor(11, 0);
        NarediTimeStr(cas, now(), true);
@@ -162,20 +163,20 @@ void IzpisInfoMenu(int infoLCD)
        
        lcdA.setCursor(1, 1);
        lcdA.print(cTemperatura[OKOLICA_0], 1);
-       lcdA.print(F("C RH:"));
+          lcdA.print(F("C RH:"));
        lcdA.print(cVlaznost[0], 0);
        
-       lcdA.print(F("% "));
+          lcdA.print(F("% "));
        lcdA.print(cTemperatura[CRPALKA_0], 1);
-       lcdA.print(F("C")); 
+          lcdA.print(deg_str); 
     break;
     
     case 2:
       lcdA.print(sensorIme[CRPALKA_0]);
-      lcdA.print(F(": "));
+      lcdA.print(separ_str);
       lcdA.print(cTemperatura[CRPALKA_0], 2);
       
-      lcdA.print(F(" "));
+      lcdA.print(space_str);
       if (minute() < 59) {
          addrTmp = (unsigned int) (minute()+1) * sizeof(u2);
        }
@@ -199,7 +200,7 @@ void IzpisInfoMenu(int infoLCD)
         lcdA.print(F("OFF"));
       */
       if (releState_ventKompTC == R_TC_VENT_ON)
-        lcdA.print("V");
+        lcdA.print(volt_str);
   
       if (stateTC == STATE_TC_ON) {
         if (releState_kompTC == R_TC_KOMP_ON)
@@ -225,38 +226,38 @@ void IzpisInfoMenu(int infoLCD)
     
     case 3:
        lcdA.print(sensorIme[PEC_PV]);
-       lcdA.print(separ); 
+       lcdA.print(separ_str); 
        lcdA.print(cTemperatura[PEC_PV], 2);
-       lcdA.print("C");
+       lcdA.print(deg_str);
        lcdA.setCursor(0, 1);
        lcdA.print(sensorIme[PEC_DV]);
-       lcdA.print(separ);
+       lcdA.print(separ_str);
        lcdA.print(cTemperatura[PEC_DV], 2);
-       lcdA.print("C");
+       lcdA.print(deg_str);
     break;
     
     case 4:
        lcdA.print(sensorIme[RAD_PV]);
-       lcdA.print(separ); 
+       lcdA.print(separ_str); 
        lcdA.print(cTemperatura[RAD_PV], 2);
-       lcdA.print("C");
+       lcdA.print(deg_str);
        lcdA.setCursor(0, 1);
        lcdA.print(sensorIme[RAD_DV]);
-       lcdA.print(separ);
+       lcdA.print(separ_str);
        lcdA.print(cTemperatura[RAD_DV], 2);
-       lcdA.print("C");
+       lcdA.print(deg_str);
     break;
     
     case 5:
        lcdA.print(sensorIme[PEC_TC_DV]);
-       lcdA.print(separ); 
+       lcdA.print(separ_str); 
        lcdA.print(cTemperatura[PEC_TC_DV], 2);
-       lcdA.print("C");
+       lcdA.print(deg_str);
        lcdA.setCursor(0, 1);
        lcdA.print(sensorIme[8]);
-       lcdA.print(separ);
+       lcdA.print(separ_str);
        lcdA.print(cTemperatura[8], 2);
-       lcdA.print("C");
+       lcdA.print(deg_str);
     break;
     
      case 6:
@@ -277,7 +278,7 @@ void IzpisInfoMenu(int infoLCD)
         lcdA.print(F("OFF"));
  */     
       if (releState_ventKompTC == R_TC_VENT_ON)
-        lcdA.print("V");
+        lcdA.print(volt_str);
   
       if (stateTC == STATE_TC_ON) {
         if (releState_kompTC == R_TC_KOMP_ON)
@@ -308,11 +309,11 @@ void IzpisInfoMenu(int infoLCD)
       NarediTimeStr(cas, lastPregrevTime, false);
       lcdA.setCursor(0, 1);
       lcdA.print(day(lastPregrevTime));
-      lcdA.print(F("."));
+      lcdA.print(pika_str);
       lcdA.print(month(lastPregrevTime));
-      lcdA.print(F("."));
+      lcdA.print(pika_str);
       lcdA.print(year(lastPregrevTime)); 
-      lcdA.print(F(" "));
+      lcdA.print(space_str);
       lcdA.print(cas);
     break;  
     default:

@@ -53,14 +53,14 @@ void TempSensorsInit(void) {
   
   // incializacija DS18x20 temp. .. senzorjev
   FiksAdrrSens(devAddress, type_s);
-  Serial.println(F(""));
+  Serial.println();
   Serial.print(numSensDS, DEC);
   Serial.println(F(" devices."));
   for (int i=0; i<numSensDS; i++) {
     PrintAddress(devAddress[i]);
 //    if (OneWire::crc8(devAddress[i], 7) != devAddress[i][7])
 //       type_s[i] = 255; 
-    Serial.print(F(" "));
+    Serial.print(space_str);
     Serial.println(type_s[i]);   
   }
 
@@ -87,7 +87,7 @@ void TempSensorsInit(void) {
   numSens = numSensDS + numSensDHT22 + numSensK; 
   if (numSens > MAXSENSORS) {
     Beep(200);
-    Serial.println(F(""));
+    Serial.println();
     Serial.println(F("Stevilo temp. senzorjev se ne ujema!!"));
     lcdA.clear();
     lcdA.print(F("Stevilo senzorjev"""));
@@ -108,7 +108,7 @@ void TempSensorsInit(void) {
     for (int j=0; j<8; j++) {
       IzpisHex2(devAddress[i][j]);
       if (j%2 == 1)
-        lcdA.print(F(" "));    
+        lcdA.print(space_str);    
     }
     
      
@@ -259,14 +259,14 @@ static float PreberiTemperaturoDS(int cSens, boolean zahtevajBranje)
     cTemp = (float)raw / 16.0;
   
     if (cTemp > 1000 || errDS >= 8) {
-      Serial.println(F(""));
+      Serial.println();
       Serial.print(F(" D"));
       Serial.print(cSens+1);
       for (int i=0; i< 9; i++) {
-        Serial.print(F(" "));
+        Serial.print(space_str);
         Serial.print(data[i],HEX);  
       }
-      Serial.print(F(" "));
+      Serial.print(space_str);
       Serial.print(cTemp,2);
       if (/*cTemp > 1000 && */errDS >= 8) {
         cTemp = 1001.0;
@@ -315,7 +315,7 @@ static boolean PreberiTemperature(boolean zahtevajBranje, boolean allSens = fals
 //      cTemperatura[i] = AvgVal(sumTemp[i], histLen*1.0);
         Serial.print(F(" CEr"));
         Serial.print(i+1);
-        Serial.print(F(" "));
+        Serial.print(space_str);
       }
     }
   }
@@ -447,7 +447,7 @@ void PrintAddress(DeviceAddress deviceAddress)
     if (deviceAddress[i] < 16) 
       Serial.print(F("0"));
     Serial.print(deviceAddress[i], HEX);
-    Serial.print(F(" "));
+    Serial.print(space_str);
   }
 }
 
@@ -526,7 +526,7 @@ void PrintTemperatureAll(void)
         Serial.print(u2test.uival);
       }  
  */   
-      Serial.print("/");
+      Serial.print(F("/"));
 /*
 //      float avgWeight = 0.5/(float) zamikMerTemp;
       float avgWeight = 0.25/(float) zamikMerTemp;   //spremenjeno 13.4.2015
@@ -538,7 +538,7 @@ void PrintTemperatureAll(void)
       Serial.print(avgTempVodeTC);
       
       
-      Serial.print("/");
+      Serial.print(F("/"));
       avgLHTCVodeTC = ((1.0-avgWeightLHTC)*avgLHTCVodeTC) + (avgWeightLHTC * lastHourTempChange);
       Serial.print(avgLHTCVodeTC);
       Serial.print(F(")"));
@@ -851,14 +851,14 @@ void last24H_Info(void)
         Serial.print(F("]"));
         Serial.print(F(":"));
         Serial.print(u2.uival/100.0);
-        Serial.print(F(" "));
+        Serial.print(space_str);
         sum24[sens] += u2.uival/100.0;
       }
-      Serial.println(F(""));  
+      Serial.println();  
     }  
     else {
       if (sens == 0)
-        Serial.println("");  
+        Serial.println();  
     }  
     
     delay(2);

@@ -67,9 +67,9 @@ File OdpriDatoteko(char* imeDat, byte typeDat)
  if (!myFile) {
     sprintf(infoErr," ErrF01");
     Serial.print(infoErr);
-    Serial.print(F(" "));
+    Serial.print(space_str);
     Serial.print(imeDat);
-    Serial.print(F(" "));
+    Serial.print(space_str);
     delay(5);
     myFile = SD.open(imeDat, typeDat);
     delay(2);
@@ -123,11 +123,11 @@ void PrintTempAllSDbin(void)
     NarediTimeStr(ime, now());
     myFile.print(ime);
 
-    myFile.print(F(" "));
+    myFile.print(space_str);
     myFile.print(now());
     
     for (int i=0; i<numSens; i++) { 
-      myFile.print(F(" "));
+      myFile.print(space_str);
       myFile.print(cTemperatura[i]);
       
     }
@@ -136,7 +136,7 @@ void PrintTempAllSDbin(void)
       myFile.print(cVlaznost[i-numSensDS]);
       myFile.print(F("%"));
     }  
-    myFile.print(F(" "));
+    myFile.print(space_str);
     /*
     if (stateTC == TC_ON) {
       if (prevTCState == 1) 
@@ -160,7 +160,7 @@ void PrintTempAllSDbin(void)
       myFile.print(F("OFF"));
     }
     
-    myFile.print(F(" "));
+    myFile.print(space_str);
     myFile.print(AC_mimax(), 3); 
     
     myFile.print(F("A CO:"));
@@ -225,7 +225,7 @@ void ZapisiOnOffSD(int state, byte tipSpremembe = 0)
     NarediTimeStr(ime, now());
     Serial.print(F(""));
     Serial.print(ime);
-    Serial.print(F(" "));
+    Serial.print(space_str);
     Serial.print(infoErr);    
   }  //if (!myFile)
   else {

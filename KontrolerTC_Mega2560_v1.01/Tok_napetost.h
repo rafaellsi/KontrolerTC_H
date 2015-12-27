@@ -96,7 +96,7 @@ float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
   if (izpis) { 
     Serial.print(F("Min.-max:"));
     Serial.print(minR);
-//    Serial.print(" (");
+//    Serial.print(F(" ("));
 
 //    Serial.print(PretvoriVAmp5A(minR));
 //    Serial.print("A) -");
@@ -105,7 +105,7 @@ float AC_mimax(boolean izpis = false, boolean forceCalc = false) {
 //    Serial.print(" (");
 
 //    Serial.print(PretvoriVAmp5A(maxR));
-//    Serial.print("A) -");
+//    Serial.print(F("A) -"));
 
     Serial.print(F(":"));
 //    Serial.print(" midR:");
@@ -321,7 +321,7 @@ void PreveriNapetosti(boolean izpis = true, boolean internal = false, boolean ex
     if (izpis) {
       Serial.print(F(" 5In:"));
       Serial.print(napetost_int[0][0]);
-      Serial.print("(");
+      Serial.print(F("("));
       Serial.print(napetost_int[0][1]);
       Serial.print(F("/"));
       Serial.print(napetost_int[0][2]);

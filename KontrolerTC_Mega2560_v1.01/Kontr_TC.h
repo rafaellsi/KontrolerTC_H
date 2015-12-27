@@ -126,7 +126,7 @@ void InitParametri(void) {
     Serial.println(prevTCState);
   } 
   else {
-    Serial.println("");
+    Serial.println();
   }  
 
 
@@ -202,7 +202,7 @@ void InitParametri(void) {
     delay(5);
     i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrDeltaThOk, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
   }
-  Serial.println(F("")); 
+  Serial.println(); 
 
   Serial.print(F("Kompenz. temp. okolice pri temp. "));
   Serial.print(cTemperatura[OKOLICA_0]);
@@ -223,7 +223,7 @@ void InitParametri(void) {
     delay(5);
     i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrDeltaThSt, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
   }
-  Serial.println(F("")); 
+  Serial.println(); 
   
   Serial.print(F("Kompenz. zacetne temp. pri temp. "));
   Serial.print(cTemperatura[CRPALKA_0]);
@@ -244,7 +244,7 @@ void InitParametri(void) {
     delay(5);
     i2c_eeprom_write_page(AT24C32_I2C_ADDR, addrFactWeightAvgTemp, AT24C32_ADDR_LENGH, (byte *)&uf, sizeof(uf));
   } 
-  Serial.println(F(""));
+  Serial.println();
   
   
   
@@ -277,7 +277,7 @@ void InitParametri(void) {
     Serial.print(j+1);
     Serial.print(F(": "));
     Serial.print(AvgValFF_F(sumTemp[j], histLen*1.0), 3); 
-    Serial.println(F(" ")); 
+    Serial.println(space_str); 
   }
   
   for (int j = numSens; j < numSens + numSensDHT22; j++) {
@@ -306,7 +306,7 @@ void InitParametri(void) {
     Serial.print(j+1);
     Serial.print(F(": "));
     Serial.print(AvgValFF_F(sumTemp[j], histLen*1.0), 3); 
-    Serial.println(F(" ")); 
+    Serial.println(space_str); 
   }
   
 }
@@ -355,7 +355,7 @@ void PreveriStikala(boolean izpisState) {
   if (izpisState) {
     for (int i=0; i<3; i++) {
       Serial.print(stikaloStateTxt[stikaloState[i]]);
-      Serial.print(F(" "));
+      Serial.print(space_str);
     }
   }  
   

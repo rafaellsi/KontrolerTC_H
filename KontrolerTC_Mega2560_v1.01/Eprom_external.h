@@ -56,9 +56,9 @@ void i2c_eeprom_write_byte(int deviceaddress,unsigned int eeaddress, byte addrle
   if (success != 0) {
     Serial.print(F("ErrEpWrBy "));
     Serial.print(success);
-    Serial.print(F(" "));
+    Serial.print(space_str);
     Serial.print(numW);
-    Serial.print(F(" "));
+    Serial.print(space_str);
     Serial.write(&data, 1);
   } 
   waitEEReady(deviceaddress);

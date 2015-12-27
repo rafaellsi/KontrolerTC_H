@@ -258,9 +258,9 @@ boolean VodaVre(boolean izpis) {
   if (izpis) {
     Serial.print(F(" <DTemp: "));
     Serial.print(dTemp);
-    Serial.print(F(" "));
+    Serial.print(space_str);
     Serial.print(pTempCrp[2]);
-    Serial.print(F(" "));
+    Serial.print(space_str);
     Serial.print(pTempCrp[1]);
     Serial.print(F("> "));
   }
@@ -538,8 +538,8 @@ void CheckSerial(void) {
         }
       }   
     }    
-    else if (Serial.available() == 3) {
-     Serial.println(F(""));
+    else if (Serial.available() >= 3) {
+     Serial.println();
      Serial.print(c);
        
      if (c == 'p') {
@@ -633,7 +633,7 @@ void CheckSerial(void) {
      while (Serial.available() > 0) {
         Serial.print(Serial.read());
      }
-     Serial.print(F(" "));    
+     Serial.print(space_str);    
    }  
 //   Serial.flush(); 
   }  // if (Serial.available() >  0 )
@@ -689,7 +689,7 @@ void IzracunHitrostiGretjaTC(void) {
           lastDeltaThSt = IzracDeltaThSt();
           deltaThSt = PovpreciVredNegContr(alpha, deltaThSt, lastDeltaThSt);
                    
-          Serial.println(F(""));
+          Serial.println();
           if (izracHitrGretInfo) {
             Serial.println(F("Info - "));
           }
@@ -826,13 +826,13 @@ static word homePage(void);
 void ZapisiInIzpisiPodatke(void) {
   unsigned int addrTmp; 
   
-  Serial.println(F(""));   
+  Serial.println();   
     PrintData();
     
  //   printDataRF();
     
     
-    Serial.print(F(" "));
+    Serial.print(space_str);
     Serial.print(prevTCState);
     Serial.print(!releState_ventKompTC);
     Serial.print(!releState_kompTC);
@@ -843,9 +843,9 @@ void ZapisiInIzpisiPodatke(void) {
     
     
     
-    Serial.print(F(" "));
+    Serial.print(space_str);
     Serial.print(manuCrpTCState, BIN);
-    Serial.print(F(" "));
+    Serial.print(space_str);
     Serial.print(preklopCrpTCVzr);
 
     
@@ -857,7 +857,7 @@ void ZapisiInIzpisiPodatke(void) {
     Serial.print(statePregrevanje);
     
     if (now()/((unsigned long)zapisXMin*60) > prevCasMeritve/((unsigned long)zapisXMin*60)) {     
-      Serial.println(F(""));
+      Serial.println();
 //      for (int j = 0; j < numSensDS; j++) {
       for (int j = 0; j < numSens; j++) {
 //        addrTmp = elapsedSecsToday(now())/(zapisXMin*60);
@@ -916,7 +916,7 @@ void ZapisiInIzpisiPodatke(void) {
       }
       
       for (int j = numSens; j < numSens + numSensDHT22; j++) {
-        Serial.println(F(""));
+        Serial.println();
         addrTmp = ObsegZgodovine(j);
         i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
         Serial.print(F(" RHa"));
@@ -941,7 +941,7 @@ void ZapisiInIzpisiPodatke(void) {
         }
         Serial.print(AvgValFF_F(sumTemp[j], histLen*1.0),2);
       }
-      Serial.println(F(""));
+      Serial.println();
 
           
       Serial.print(F(" Avg.cycleTime(n="));
@@ -964,7 +964,7 @@ void ZapisiInIzpisiPodatke(void) {
 
       
 //      PreveriNapetosti(true, true, false);
-      Serial.println(F(""));
+      Serial.println();
     }
     PrintTempAllSDbin();  
     
@@ -993,7 +993,7 @@ void ZapisiInIzpisiPodatke(void) {
     else if (prevTCState == 1)
        Serial.print(Sec2Hour(onTimeTC + now() - lastTCStateChg));
     
-    Serial.print("/");
+    Serial.print(F("/"));
     if (prevCrpTCState == 0) {
       Serial.print(Sec2Hour(onTimeCrpTC)); 
     }
@@ -1001,7 +1001,7 @@ void ZapisiInIzpisiPodatke(void) {
       Serial.print(Sec2Hour(onTimeCrpTC + now() - lastCrpTCStateChg));  
     }  
     
-    Serial.print("/");
+    Serial.print(F("/"));
     
     if (prevCrpRadState == 0) {
       Serial.print(Sec2Hour(onTimeCrpRad)); 
@@ -1011,7 +1011,7 @@ void ZapisiInIzpisiPodatke(void) {
     }  
     
     
-    Serial.println("");
+    Serial.println();
 
      
      Serial.print(F(" Tv:"));
@@ -1035,7 +1035,7 @@ void ZapisiInIzpisiPodatke(void) {
      Serial.print(F("/"));
      Serial.print(coRawValMax);
      Serial.print(F(")"));
-     Serial.print(F(" "));
+     Serial.print(space_str);
      
      Serial.print(osvetlitevLCD);
      
@@ -1228,7 +1228,7 @@ void IzpisParamerov(void)
   char infoTime[9];
   
   
-  Serial.println(F(""));
+  Serial.println();
   Serial.print(F("Zadnje pregrevanje: "));
   NarediTimeStr(infoTime, lastPregrevTime);
   Serial.print(day(lastPregrevTime));

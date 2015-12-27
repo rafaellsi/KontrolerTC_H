@@ -150,10 +150,10 @@ static void Encoder_check(void) {
     osvetLCD_start = now();
     
 //    IzpisiNaLCD();
-    Serial.println(F(""));
-    Serial.print("Count");
+    Serial.println();
+    Serial.print(F("Count"));
     Serial.print(virtualPosition);
-    Serial.print(" Menu");
+    Serial.print(F(" Menu"));
     Serial.print(menuZaslonNum);
   }
   if (osvetlitevLCD > 0) {
@@ -185,6 +185,7 @@ static void Encoder_check(void) {
     } // ISR
     
     */
+
 
 
     

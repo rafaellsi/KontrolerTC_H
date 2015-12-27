@@ -16,10 +16,16 @@ extern void Beep(unsigned char);
 
 //----------
 
-boolean useDeviceHub=false;
-boolean debugDeviceHub=true; 
+//#define USEDEVICEHUB
+//#define USEDEVICEHUB_MQTT
 
-boolean useThingspeak=true;
+//boolean useDeviceHub = false;
+//boolean useDeviceHubMQTT = false;
+boolean debugDeviceHub=false; 
+
+
+#define USETHINGSPEAK
+//boolean useThingspeak=true;
 
 //---------
 
@@ -263,7 +269,9 @@ float mejaToka = 1.0;     // meja velikosti toka, da se smatra da kompresor teč
 //------------------------------------------
 // boolean upostevajElTarife = false; // glej opombo pod verzijo v0.45 && v0.54
 //povezava crpalka - pec 
-float tempVklopaCrpTC = 82.5 ; //best = 75.0;       // temp. vklopa crpalke TC
+// -- spremenjeno 23.12.2015
+float tempVklopaCrpTC = 75.0 ; //best = 75.0;       // temp. vklopa crpalke TC
+//float tempVklopaCrpTC = 82.5 ; //best = 75.0;       // temp. vklopa crpalke TC
 float histCrpTC = 4.95;          // min. diff. med vkolopm in izklopom crpalke TC
 //float tempIzklopaCrpTC = 70.0;      //
 float minDiffTCPec = 2.0;           // min. temp. diferenca mad pecjo TC (pec > TC)
@@ -655,10 +663,12 @@ float limTempCrpRad[24] = {30, 30, 30, 30, 30, 30,
 
 */
 //{30, 30, 30, 30, 30, 30, 28, 15, 12, 13, 15, 17, 19, 21, 20, 18, 15, 12, 14, 16, 18, 22, 30, 30};
+
 float limTempFactCrpRad[24] = {0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
                              0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
                              0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
                              0.2, 0.2, 0.2, 0.2, 0.2, 0.2};
+
 /*
 float crpRadAsAbsTemp[24] = {15.0, 15.0, 15.0, 15.0, 15.0, 15.0, 
                              17.0, 19.0, 22.0, 25.0, 30.0, 30.0, 
@@ -750,5 +760,12 @@ void NastaviTempCrpRad(float limitTemp[], float limitFact[], float limitAbsOnTem
   limitAbsOnTemp[23] = 15.0;
 }
 */
+
+  const char separ_str[] = ":";
+  const char pika_str[] = ".";
+  const char deg_str[] = "C";
+  const char volt_str[] = "V";
+  const char space_str[] = " ";
+
 
 #endif 

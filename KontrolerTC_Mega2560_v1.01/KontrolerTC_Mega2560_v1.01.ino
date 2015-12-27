@@ -137,12 +137,12 @@ void setup(void)
    
   Serial.begin(115200);
   Serial.flush();
-  Serial.println(F(""));
+  Serial.println();
   Serial.print(F("Kontroler TC: "));
   Serial.println(VERSION);
   
   PreveriNapetosti(true, true, true, false);
-  Serial.println(F(""));
+  Serial.println();
   Serial.print(F("Tok: "));
   Serial.println(Tok_12V());
   
@@ -230,7 +230,7 @@ void setup(void)
   // Defaults after init are 434.0MHz, modulation GFSK_Rb5Fd10, power 0x10
   }
 */
-  Serial.println(F(""));
+  Serial.println();
   Encoder_init();
   Serial.println(F("Init. OK"));
   Beep(200);
@@ -333,12 +333,22 @@ void loop(void)
     prevCasMeritve = now();
 //    SendToProc();
     CheckEthernet();
-    if (useDeviceHub) {
+
+#ifdef USEDEVICEHUB
+//    if (useDeviceHub) {
       DeviceHub();
-    }
-    if (useThingspeak) {
-      ThingSpeak();    
-    }
+//    }
+#endif
+#ifdef USEDEVICEHUB_MQTT    
+//    if (useDeviceHubMQTT) {
+      DeviceHubMQTT();
+//    }
+#endif
+#ifdef USETHINGSPEAK
+//      if (useThingspeak) {
+        ThingSpeak();    
+//    }
+#endif
   }
 }
   delay(2);
@@ -362,7 +372,7 @@ void loop(void)
 //      }
       if (RefTemp(B00) > TempIzklopa()) {
         if ((RefTemp(B01) > TempIzklopa()) || (prevCrpTCState == STATE_CRP_TC_ON)) {//if (stateTC == STATE_TC_OFF)
-          Serial.println("");
+          Serial.println();
           Serial.print(F("RefTempB00 - RefTempB01 - TempIzklopa - prevCrpTCState: "));
           Serial.print(RefTemp(B00));
           Serial.print(F("- "));
@@ -816,7 +826,7 @@ static void  PreklopiTC(byte newState)
             releState_kompTC = R_TC_KOMP_ON;
             stateTC = STATE_TC_ON;
             
-            Serial.println("");
+            Serial.println();
             NarediTimeStr(cas, now());
             Serial.print(cas);
             Serial.print(F(" Vklop kompresorja TC")); 
@@ -831,7 +841,7 @@ static void  PreklopiTC(byte newState)
         lastVentilReleChg = now();   
         releState_ventKompTC = R_TC_VENT_ON;
         
-        Serial.println("");
+        Serial.println();
         NarediTimeStr(cas, now());
         Serial.print(cas);
         Serial.print(F(" Vklop vent. kompresorja TC")); 
@@ -853,7 +863,7 @@ static void  PreklopiTC(byte newState)
           lastVentilReleChg = now();   
           releState_ventKompTC = R_TC_VENT_OFF;
           
-          Serial.println("");
+          Serial.println();
           NarediTimeStr(cas, now());
           Serial.print(cas);
           Serial.print(F(" Izklop vent. kompresorja TC")); 
@@ -869,7 +879,7 @@ static void  PreklopiTC(byte newState)
       releState_kompTC = R_TC_KOMP_OFF;
       stateTC = STATE_TC_OFF;
       
-      Serial.println("");
+      Serial.println();
       NarediTimeStr(cas, now());
       Serial.print(cas);
       Serial.print(F(" Izklop kompresorja TC")); 
