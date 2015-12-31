@@ -144,71 +144,90 @@ void IzpisInfoMenu(int infoLCD)
 {
   char cas[9];
   unsigned int addrTmp;
-
+  static int pInfoLCD = -1;
   
 //  lcdA.setCursor(0, 0);
-  lcdA.clear();
+  if (pInfoLCD != infoLCD) {
+    lcdA.clear();
+  }
       
   switch (infoLCD) {
     case 0:
     case 1:
+       lcdA.setCursor(0, 0);
        PrintDigitsLCDA(day());
-       lcdA.print(pika_str);
-       PrintDigitsLCDA(month());
+       if (pInfoLCD != infoLCD)
           lcdA.print(pika_str);
-       PrintDigitsLCDA(year()); 
+          
+       lcdA.setCursor(3, 0);   
+       PrintDigitsLCDA(month());
+       if (pInfoLCD != infoLCD)
+          lcdA.print(pika_str);
+       
+       lcdA.setCursor(6, 0);     
+       lcdA.print(year()); 
        lcdA.setCursor(11, 0);
        NarediTimeStr(cas, now(), true);
        lcdA.print(cas);
+
        
-       lcdA.setCursor(1, 1);
+       lcdA.setCursor(0, 1);
        lcdA.print(cTemperatura[OKOLICA_0], 1);
+       if (pInfoLCD != infoLCD) {
+          lcdA.setCursor(5, 1);
           lcdA.print(F("C RH:"));
-       lcdA.print(cVlaznost[0], 0);
+       }
        
-          lcdA.print(F("% "));
+       lcdA.setCursor(10, 1);     
+       lcdA.print(cVlaznost[0], 0);
+       if (pInfoLCD != infoLCD)
+          lcdA.print(F("%"));
+       
+       lcdA.setCursor(14, 1);   
        lcdA.print(cTemperatura[CRPALKA_0], 1);
+       if (pInfoLCD != infoLCD)
           lcdA.print(deg_str); 
     break;
     
     case 2:
-      lcdA.print(sensorIme[CRPALKA_0]);
-      lcdA.print(separ_str);
+      lcdA.setCursor(0, 0);
+      if (pInfoLCD != infoLCD) {
+        lcdA.print(sensorIme[CRPALKA_0]);
+        lcdA.print(separ_str);
+      }
+      lcdA.setCursor(7, 0);
       lcdA.print(cTemperatura[CRPALKA_0], 2);
       
-      lcdA.print(space_str);
+      if (pInfoLCD != infoLCD)
+          lcdA.print(space_str);
+          
+      lcdA.setCursor(13, 0);
       if (minute() < 59) {
          addrTmp = (unsigned int) (minute()+1) * sizeof(u2);
        }
        else {
          addrTmp = (unsigned int) 0;
        }
-       addrTmp += addrLastHourTemp;
-       
-       i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2));
+       addrTmp += addrLastHourTemp; 
+       i2c_eeprom_read_buffer(AT24C32_I2C_ADDR, addrTmp, AT24C32_ADDR_LENGH, (byte *)&u2, sizeof(u2)); 
        lcdA.print(cTemperatura[CRPALKA_0] - PretvotiEETemp2Float(u2.uival), 2);
       
       lcdA.setCursor(0, 1);
-      /*
-      if (stateTC == TC_ON) {
-        if (prevTCState == 1) 
-          lcdA.print(F("ON"));
-        else
-          lcdA.print(F("SB"));
+      if (releState_ventKompTC == R_TC_VENT_ON) {
+        lcdA.print(F("V"));
       }
-      else
-        lcdA.print(F("OFF"));
-      */
-      if (releState_ventKompTC == R_TC_VENT_ON)
-        lcdA.print(volt_str);
-  
       if (stateTC == STATE_TC_ON) {
-        if (releState_kompTC == R_TC_KOMP_ON)
-          lcdA.print(F("K"));  
-        if (releState_egrelecTC == R_TC_EGREL_ON)
+        if (releState_kompTC == R_TC_KOMP_ON) {
+          lcdA.setCursor(1,1);
+          lcdA.print(F("K"));
+        }    
+        if (releState_egrelecTC == R_TC_EGREL_ON) {
+          lcdA.setCursor(2,1);
           lcdA.print(F("EG"));
+        }  
       }
       else {
+        lcdA.setCursor(2,1);
         lcdA.print(F("OFF"));
       }
       
@@ -219,12 +238,16 @@ void IzpisInfoMenu(int infoLCD)
          lcdA.print(AutoTimeUnitConv(onTimeTC + now() - lastTCStateChg, cas),2);
       lcdA.print(cas);
       
-      
-      lcdA.print(F(" CO:"));
+      if (pInfoLCD != infoLCD) {
+        lcdA.setCursor(13,1);
+        lcdA.print(F("CO:"));
+      }  
+      lcdA.setCursor(17,1);
       lcdA.print(coRawValRef);
     break;  
     
     case 3:
+       lcdA.setCursor(0, 0); 
        lcdA.print(sensorIme[PEC_PV]);
        lcdA.print(separ_str); 
        lcdA.print(cTemperatura[PEC_PV], 2);
@@ -237,6 +260,7 @@ void IzpisInfoMenu(int infoLCD)
     break;
     
     case 4:
+       lcdA.setCursor(0, 0);
        lcdA.print(sensorIme[RAD_PV]);
        lcdA.print(separ_str); 
        lcdA.print(cTemperatura[RAD_PV], 2);
@@ -249,6 +273,7 @@ void IzpisInfoMenu(int infoLCD)
     break;
     
     case 5:
+       lcdA.setCursor(0, 0);
        lcdA.print(sensorIme[PEC_TC_DV]);
        lcdA.print(separ_str); 
        lcdA.print(cTemperatura[PEC_TC_DV], 2);
@@ -261,6 +286,7 @@ void IzpisInfoMenu(int infoLCD)
     break;
     
      case 6:
+      lcdA.setCursor(0, 0);
       lcdA.print(F("Tok:"));
       lcdA.setCursor(4, 0);
       lcdA.print(AC_mimax(false, true), 3);
@@ -305,6 +331,7 @@ void IzpisInfoMenu(int infoLCD)
       lcdA.print(TempIzklopa(), 1);
     break;
     case 7:
+      lcdA.setCursor(0, 0);
       lcdA.print(F("Zadnje pregrevanje: "));
       NarediTimeStr(cas, lastPregrevTime, false);
       lcdA.setCursor(0, 1);
@@ -317,12 +344,14 @@ void IzpisInfoMenu(int infoLCD)
       lcdA.print(cas);
     break;  
     default:
+      lcdA.setCursor(0, 0);
       lcdA.print(F("xXxXxXxX"));
       lcdA.setCursor(0, 1);
       lcdA.print(F("xXxXxXxX"));
       menuZaslonNum = 0;
     break;
-  }    
+  }
+  pInfoLCD = infoLCD;    
 }
 
 

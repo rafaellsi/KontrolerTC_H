@@ -649,8 +649,10 @@ void FiksAdrrSens(DeviceAddress devAddress[], byte *type_s)
   }   
   
 //  return (7);
-}  
-int limTempCrpRad[24] = {30, 30, 30, 30, 30, 30, 
+} 
+
+//PROGMEM_getAnything (&limTempCrpRad[i]) 
+const int limTempCrpRad[24] PROGMEM = {30, 30, 30, 30, 30, 30, 
                          28, 15, 12, 13, 15, 17, 
                          19, 21, 20, 18, 15, 12, 
                          14, 16, 18, 22, 30, 30};
@@ -664,7 +666,7 @@ float limTempCrpRad[24] = {30, 30, 30, 30, 30, 30,
 */
 //{30, 30, 30, 30, 30, 30, 28, 15, 12, 13, 15, 17, 19, 21, 20, 18, 15, 12, 14, 16, 18, 22, 30, 30};
 
-float limTempFactCrpRad[24] = {0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
+const float limTempFactCrpRad[24] PROGMEM = {0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
                              0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
                              0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 
                              0.2, 0.2, 0.2, 0.2, 0.2, 0.2};
@@ -676,7 +678,7 @@ float crpRadAsAbsTemp[24] = {15.0, 15.0, 15.0, 15.0, 15.0, 15.0,
                              30.0, 28.0, 24.0, 20.0, 17.5, 15.0};
 */
 //pred 7.12.2014 float
-int crpRadAsAbsTemp[24] = {15, 15, 15, 15, 15, 15, 
+const int crpRadAsAbsTemp[24] PROGMEM = {15, 15, 15, 15, 15, 15, 
                              17, 19, 22, 25, 30, 30, 
                              25, 25, 25, 28, 30, 32, 
                              30, 28, 27, 25, 20, 15};

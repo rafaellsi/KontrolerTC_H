@@ -78,6 +78,7 @@
 
 #include <avr/pgmspace.h>
 #include <Arduino.h>
+#include "PROGMEM_readAnything.h"
 
 /*
 #ifdef PROGMEM

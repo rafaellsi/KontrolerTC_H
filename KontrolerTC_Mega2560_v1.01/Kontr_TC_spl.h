@@ -1116,17 +1116,26 @@ float MejnaTempPreklCrpRad(byte newState)
   float tmpTemp;
   float dTemp = 0.0;
   
-  refTemp = (float)limTempCrpRad[hour()] + limTempFactCrpRad[hour()] * cTemperatura[RAD_DV];
+//  PROGMEM_getAnything(&crpRadAsAbsTemp[hour()])
+/*  Serial.print(F("<"));
+  Serial.print(PROGMEM_getAnything(&limTempCrpRad[hour()]));
+  Serial.print(PROGMEM_getAnything(&limTempFactCrpRad[hour()]));
+  Serial.print(PROGMEM_getAnything(&crpRadAsAbsTemp[hour()]));
+  Serial.print(F(">"));
+*/  
+  
+  refTemp = (float)PROGMEM_getAnything(&limTempCrpRad[hour()]) + PROGMEM_getAnything(&limTempFactCrpRad[hour()]) * cTemperatura[RAD_DV];
+//  refTemp = (float)limTempCrpRad[hour()] + limTempFactCrpRad[hour()] * cTemperatura[RAD_DV];
   if (newState == 1) {
     tmpTemp = cTemperatura[RAD_DV] - refTemp;
     if (isCrpRadAsAbsTemp) {
-      zeljTemp =  (float)crpRadAsAbsTemp[hour()] - 10.0;
+      zeljTemp =  (float)PROGMEM_getAnything(&crpRadAsAbsTemp[hour()]) - 10.0;
  
         dTemp = (zeljTemp - cTemperaturaZun) * kTemp; 
  //       if (cTemperatura[ref_prostor_1] < zeljTemp) {
         dTemp *= (zeljTemp / cTemperatura[ref_prostor_1]);
  //     }
-      tmpTemp = min((float)crpRadAsAbsTemp[hour()] + dTemp, tmpTemp);
+      tmpTemp = min((float)PROGMEM_getAnything(&crpRadAsAbsTemp[hour()]) + dTemp, tmpTemp);
     }
     if (cTemperatura[PEC_DV] >  maxTempDVPec) {
       return(maxTempDVPec);  
