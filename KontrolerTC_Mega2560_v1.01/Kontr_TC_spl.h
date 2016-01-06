@@ -1105,7 +1105,8 @@ void PrintData(void)
 float MejnaTempPreklCrpRad(byte newState)
 {
   // dodaj kot glob
-  int ref_prostor_1 = 0;
+//  int ref_prostor_1 = 0;
+  int ref_prostor_1 = 7;
   float kTemp = 0.25;
   float cTemperaturaZun = 0.0;
   // mogce spremeni abs temp
