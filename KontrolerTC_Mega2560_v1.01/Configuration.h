@@ -293,7 +293,8 @@ float minDiffDvOkolCrpRad = 10.0;
 //float limTempFactCrpRad[24];
 float minMejnaTempRel  = 0.399;
 
-float maxTempPVRad = 50.0; // max temperatura povratnega voda
+//float maxTempPVRad = 50.0; // max temperatura povratnega voda
+float maxTempPVRad = 65.0; // max temperatura povratnega voda
 float maxTempDVPec = 90.01; // max. temperatura dviznega voda peci
 float maxDeltaDev = 5.0;
 

@@ -1130,8 +1130,9 @@ float MejnaTempPreklCrpRad(byte newState)
   if (newState == 1) {
     tmpTemp = cTemperatura[RAD_DV] - refTemp;
     if (isCrpRadAsAbsTemp) {
-      zeljTemp =  (float)PROGMEM_getAnything(&crpRadAsAbsTemp[hour()]) - 10.0;
- 
+//      zeljTemp =  (float)PROGMEM_getAnything(&crpRadAsAbsTemp[hour()]) - 10.0;
+        zeljTemp =  (float)PROGMEM_getAnything(&crpRadAsAbsTemp[hour()]) - 05.0;
+        
         dTemp = (zeljTemp - cTemperaturaZun) * kTemp; 
  //       if (cTemperatura[ref_prostor_1] < zeljTemp) {
         dTemp *= (zeljTemp / cTemperatura[ref_prostor_1]);
