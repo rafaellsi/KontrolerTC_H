@@ -308,6 +308,12 @@ void InitParametri(void) {
     Serial.print(AvgValFF_F(sumTemp[j], histLen*1.0), 3); 
     Serial.println(space_str); 
   }
+
+  delay(2);
+  dayLightSaving = i2c_eeprom_read_byte(AT24C32_I2C_ADDR, addrDayLightSaving, AT24C32_ADDR_LENGH);
+  Serial.print(F("dayLightSaving:"));
+  Serial.println(dayLightSaving);
+  delay(2);
   
 }
 

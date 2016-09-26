@@ -83,6 +83,7 @@
 #include <Arduino.h>
 #include "PROGMEM_readAnything.h"
 
+#include <MemoryFree.h>
 /*
 #ifdef PROGMEM
 #undef PROGMEM
@@ -147,11 +148,13 @@ unsigned long prevLCDizp;     // cas zadnjega izpisa na LCD
 
 
 boolean isTimeOK;
+
 //--------------------------------------------------------------------------------
 void setup(void)
 {
   
   char infoSet[9];
+
   
   NastavitevPinov();
 //  SPI.setClockDivider(SPI_CLOCK_DIV16); 
@@ -190,8 +193,10 @@ void setup(void)
       Serial.println(F("DS1307 read error!  Preveri povezave."));
       Serial.println();
     } 
-  }  
-  isTimeOK = PreveriCas();
+  }
+  InitParametri();  
+
+  
   
   setSyncProvider(RTC.get);   // the function to get the time from the RTC
   setSyncInterval(60);
@@ -206,6 +211,11 @@ void setup(void)
   else
      lcdA.print(F(" RTC OK"));      
 
+  
+  
+  prevDayLightSaving = dayLightSaving;
+  isTimeOK = PreveriCas();
+  
   delay(2000);
   NarediTimeStr(infoSet, now());
   lcdA.setCursor(0, 0);
@@ -235,8 +245,10 @@ void setup(void)
   
   Serial.print(F("Free RAM: "));
   Serial.println(FreeRam()); 
-
-  InitParametri();
+  
+ // Serial.print(F("freeMemory: "));
+ // Serial.println(freeMemory()); 
+//  InitParametri();
   
   
 //  NastaviTempCrpRad(limTempCrpRad, limTempFactCrpRad, crpRadAsAbsTemp);
@@ -258,7 +270,10 @@ void setup(void)
   Serial.println(F("Init. OK"));
   Beep(200);
   analogWrite(LCD_OSW_SW, 0);
-  wdt_enable(WDTO_8S);  
+  wdt_enable(WDTO_8S);
+
+  lastDomo_cb_received = false;
+//   printDomo_EthCard(true);
 }
 
 
@@ -268,7 +283,8 @@ void loop(void)
 { 
   
   wdt_reset();
-  
+
+ 
   static int prevDay = day();
   byte newCrpTCState;
 //  static boolean hitEnd = true;
@@ -309,8 +325,14 @@ void loop(void)
   Encoder_check();
 //-----   
 
-  if (!isTimeOK) {
+  if (!isTimeOK ||  (DstSet() != prevDayLightSaving)) {
+//    Serial.println("");
+//    Serial.print(dayLightSaving);
+//    Serial.print(" ");
+//    Serial.print(prevDayLightSaving);
+//    prevDayLightSaving = dayLightSaving;
     isTimeOK = PreveriCas();
+    
   }
   
   stateCevStPecTC = digitalRead(CEVTERM_PEC_TC);
@@ -333,17 +355,16 @@ void loop(void)
   // po preteku convWaitTime preberi temperature DS18X20
   // convWaitTime - v ms
   if (temeratureIzmerjene == false) {
-  if ((millis() >= (casMeritve + convWaitTime))) {
-
-    Serial.print(F("/"));
-    Serial.print(millis() - casMeritve);
-    Serial.print(F("'"));
-    PreberiTemperature(!temeratureIzmerjene, false);
-    temeratureIzmerjene = true;
+    if ((millis() >= (casMeritve + convWaitTime))) {
+      Serial.print(F("/"));
+      Serial.print(millis() - casMeritve);
+      Serial.print(F("'"));
+      PreberiTemperature(!temeratureIzmerjene, false);
+      temeratureIzmerjene = true;
     
-    if (izracHitrGret || izracHitrGretInfo) {
-      IzracunHitrostiGretjaTC(); 
-    }  
+      if (izracHitrGret || izracHitrGretInfo) {
+        IzracunHitrostiGretjaTC(); 
+      }  
 /*
     if ((now() - lastTCStateChg > (1 + prevTCState*4.0)*(unsigned)minRunTimeMin * 60) && (now() - lastReleChg > (unsigned)minRunTimeMin * 60)) {   
       if (stateTC == TC_OFF) {
@@ -366,6 +387,9 @@ void loop(void)
 //    SendToProc();
     CheckEthernet();
 
+
+
+
 #ifdef USEDEVICEHUB
 //    if (useDeviceHub) {
       DeviceHub();
@@ -376,11 +400,23 @@ void loop(void)
       DeviceHubMQTT();
 //    }
 #endif
+
+#ifdef USEDOMOTICZ
+
+//  if (the_replay)
+    printDomo_EthCard(true);
+    if (!initDomotEth)
+      initDomotEth = true;  
+#endif
+
 #ifdef USETHINGSPEAK
 //      if (useThingspeak) {
+//     if (dom_callBack_state)
         ThingSpeakUpdate();    
 //    }
 #endif
+
+  
   }
 }
   delay(2);
@@ -551,7 +587,9 @@ void loop(void)
     
   }
   }
-*/  
+*/ 
+ printDomo_EthCard(false);
+ // CheckEthernet_II();  
 }
 
 //--------------------------------------------------------------------------------

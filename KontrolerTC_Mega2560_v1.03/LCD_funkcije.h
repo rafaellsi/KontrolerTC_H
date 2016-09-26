@@ -135,7 +135,14 @@ void IzpisiNaLCD(void) {
 //--------------------------------------------------------------------------------
 void IzpisControlMenu(void) {
   lcdA.clear();
-  lcdA.print(F("Se pride"));  
+  lcdA.setCursor(0, 0);
+  lcdA.print("State stikala:");
+  PreveriStikala(false);
+  for (int i=0; i<3; i++) {
+    lcdA.setCursor(0+i*5, 1);
+    lcdA.print(stikaloStateTxt[stikaloState[i]]);
+  }
+//  lcdA.print(F("Se pride"));  
 }  
 
 extern int coRawVal;

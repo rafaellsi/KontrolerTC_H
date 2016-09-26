@@ -24,9 +24,13 @@ extern void Beep(unsigned char);
 boolean debugDeviceHub=false; 
 
 
-#define USETHINGSPEAK
+//#define USETHINGSPEAK
 //boolean useThingspeak=true;
 
+#define USEDOMOTICZ
+
+//boolean dom_callBack_state = true;
+//boolean the_replay = true;
 //---------
 
 #define USEEGRELEC false    //ali se uporablja električni grelec
@@ -306,7 +310,9 @@ static float vccInternal = 5.0;
 
 
 //------------------------------------------
-
+uint8_t dayLightSaving;
+uint8_t prevDayLightSaving;
+#define TIME_ZONE 1
 //------------------------------------------
 unsigned int addrLastChg = 0;
 unsigned int addrPrevTCState = 4;
@@ -317,6 +323,8 @@ unsigned int addrDeltaThSt = 17;
 
 unsigned int addrFactWeightAvgTemp = 21;
 unsigned int addrLastPregrevTime = 25;
+
+unsigned int addrDayLightSaving = 29;
 
 unsigned int addrLastHourTemp = 40; // 128
 unsigned int addrTempBack = 400;     //968

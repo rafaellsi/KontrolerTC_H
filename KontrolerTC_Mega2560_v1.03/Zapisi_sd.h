@@ -420,7 +420,8 @@ void IzpisDatnaSerial(void)
   else {
     while (myFile.available()) {
       Serial.write(myFile.read());
-      delay(5); 
+      delay(1);
+      wdt_reset(); 
     }
     myFile.close();
   } 
